@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.londonurologyspecialists.co.uk)",
+      "WebFetch(domain:londonurology.wpenginepowered.com)",
+      "WebFetch(domain:welbeck.com)",
+      "WebFetch(domain:www.hcahealthcare.co.uk)",
+      "WebFetch(domain:clevelandcliniclondon.uk)",
+      "Bash(npm install:*)",
+      "Bash(npm run build:*)"
+    ]
+  }
+}

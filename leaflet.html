@@ -1,0 +1,766 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>London Urology Specialists — 2-Page Harley Street Leaflet</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    :root{
+      --ink:#0b1220;
+      --ink2:#0f1a33;
+      --ink3:#16233f;
+      --paper:#f6f8fb;
+      --card:rgba(255,255,255,.96);
+      --line:rgba(15,23,42,.10);
+      --line-strong:rgba(15,23,42,.16);
+      --muted:#64748b;
+      --muted2:#475569;
+      --gold:#d7b65d;
+      --gold2:#ead28b;
+      --gold3:#b9932f;
+      --shadow:0 18px 44px rgba(2,6,23,.08);
+      --shadow-soft:0 8px 22px rgba(2,6,23,.05);
+    }
+
+    *{ box-sizing:border-box; }
+
+    body{
+      font-family: Calibri, Candara, "Segoe UI", Arial, sans-serif;
+      margin:0;
+      color:#0f172a;
+      background:
+        radial-gradient(900px 300px at 15% 0%, rgba(56,189,248,.05), transparent 60%),
+        radial-gradient(800px 260px at 95% 8%, rgba(215,182,93,.07), transparent 56%),
+        linear-gradient(180deg, #f3f6fa 0%, #eef3f8 45%, #edf2f7 100%);
+      padding:26px;
+    }
+
+    .page{
+      width:210mm;
+      min-height:297mm;
+      margin:0 auto 18px auto;
+      background:transparent;
+    }
+
+    .sheet{
+      border-radius:20px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.72);
+      box-shadow:0 28px 80px rgba(15,23,42,.14);
+      background:
+        linear-gradient(180deg, rgba(10,18,34,1) 0%, rgba(14,24,45,1) 15%, rgba(244,247,251,1) 15%, rgba(248,250,252,1) 100%);
+    }
+
+    @media print{
+      @page{ size:A4; margin:10mm; }
+      body{ background:#fff; padding:0; }
+      .page{ margin:0; }
+      .sheet{
+        border-radius:0;
+        box-shadow:none;
+        border:1px solid rgba(15,23,42,.10);
+      }
+      .page-break{ break-after:page; page-break-after:always; }
+    }
+
+    .header{
+      position:relative;
+      color:#fff;
+      background:
+        linear-gradient(90deg, #091120 0%, #0d1730 45%, #122140 100%);
+      overflow:hidden;
+    }
+
+    .header::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(720px 210px at 15% -20%, rgba(255,255,255,.12), transparent 60%),
+        radial-gradient(640px 260px at 92% 0%, rgba(215,182,93,.12), transparent 52%),
+        linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0));
+      pointer-events:none;
+    }
+
+    .header::after{
+      content:"";
+      position:absolute;
+      left:0; right:0; bottom:0;
+      height:1px;
+      background:linear-gradient(90deg,
+        transparent 0%,
+        rgba(234,210,139,.35) 18%,
+        rgba(234,210,139,.9) 50%,
+        rgba(234,210,139,.35) 82%,
+        transparent 100%);
+      pointer-events:none;
+    }
+
+    .hdr-inner{ position:relative; z-index:1; }
+
+    .gold-rule{
+      height:2px;
+      background:linear-gradient(90deg,
+        transparent 0%,
+        rgba(215,182,93,.28) 18%,
+        rgba(234,210,139,.95) 50%,
+        rgba(215,182,93,.28) 82%,
+        transparent 100%);
+    }
+
+    .chip{
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.06);
+      backdrop-filter:blur(8px);
+    }
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:18px;
+      box-shadow:var(--shadow-soft);
+    }
+
+    @media print{
+      .card{ box-shadow:none; }
+    }
+
+    .card-premium{
+      position:relative;
+      overflow:hidden;
+    }
+
+    .card-premium::before{
+      content:"";
+      position:absolute;
+      top:0; left:0; right:0;
+      height:3px;
+      background:linear-gradient(90deg, var(--gold3), var(--gold2), var(--gold3));
+      opacity:.95;
+    }
+
+    .soft-panel{
+      background:linear-gradient(180deg, rgba(255,255,255,.92), rgba(248,250,252,.92));
+      border:1px solid var(--line);
+      border-radius:16px;
+    }
+
+    .kicker{
+      font-size:9px;
+      text-transform:uppercase;
+      letter-spacing:.20em;
+      color:var(--muted);
+      font-weight:700;
+    }
+
+    .title{
+      font-size:17px;
+      font-weight:800;
+      letter-spacing:-0.015em;
+      color:#0b1220;
+      line-height:1.12;
+    }
+
+    .body{
+      font-size:11px;
+      line-height:1.55;
+      color:#334155;
+    }
+
+    .mini{
+      font-size:10.5px;
+      line-height:1.5;
+      color:#334155;
+    }
+
+    .micro{
+      font-size:9.5px;
+      line-height:1.45;
+      color:#64748b;
+    }
+
+    ul.clean{
+      margin:6px 0 0 0;
+      padding-left:16px;
+    }
+
+    ul.clean li{ margin:3px 0; }
+
+    .avoid-break{
+      break-inside:avoid;
+      page-break-inside:avoid;
+    }
+
+    .avatar{
+      width:54px;
+      height:54px;
+      border-radius:14px;
+      object-fit:cover;
+      background:#e5e7eb;
+      border:1px solid rgba(15,23,42,.12);
+      box-shadow:0 8px 18px rgba(2,6,23,.10);
+      flex:0 0 auto;
+    }
+
+    @media print{
+      .avatar{ box-shadow:none; }
+    }
+
+    .divider{
+      height:1px;
+      background:linear-gradient(90deg, transparent, rgba(15,23,42,.14), transparent);
+    }
+
+    .grid-safe > *{ min-width:0; }
+    .wrap-safe{ overflow-wrap:anywhere; word-break:break-word; }
+
+    .ico{
+      width:14px;
+      height:14px;
+      flex:0 0 auto;
+      display:inline-block;
+    }
+
+    .ico-gold{
+      stroke:rgba(215,182,93,.95);
+    }
+
+    .hdrlink{
+      color:rgba(255,255,255,.92);
+      text-decoration:underline;
+      text-underline-offset:3px;
+    }
+
+    .hdrlink:hover{ color:#fff; }
+
+    .consultant-card{
+      background:linear-gradient(180deg, rgba(255,255,255,.86), rgba(250,251,253,.92));
+      border:1px solid rgba(15,23,42,.08);
+      border-radius:16px;
+    }
+
+    .consultant-card .role{
+      color:#475569;
+      font-size:10.5px;
+      line-height:1.45;
+    }
+
+    .contact-box{
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.96), rgba(248,250,252,.94));
+      border:1px solid rgba(15,23,42,.10);
+      border-radius:16px;
+    }
+
+    .section-label{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      font-size:10px;
+      font-weight:700;
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      color:#64748b;
+    }
+
+    .page2-main{
+      min-height:calc(297mm - 10mm - 10mm);
+      display:flex;
+      flex-direction:column;
+    }
+
+    @media screen{
+      .page2-main{ min-height:297mm; }
+    }
+
+    .push-bottom{ margin-top:auto; }
+
+    .service-card{
+      background:linear-gradient(180deg, rgba(255,255,255,.95), rgba(249,250,252,.95));
+      border:1px solid rgba(15,23,42,.09);
+      border-radius:16px;
+      box-shadow:0 6px 14px rgba(2,6,23,.03);
+    }
+
+    .footer-note{
+      font-size:10px;
+      color:#64748b;
+    }
+
+    .subtle-gold-line{
+      width:42px;
+      height:2px;
+      background:linear-gradient(90deg, var(--gold3), var(--gold2));
+      border-radius:999px;
+      margin-top:8px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- PAGE 1 -->
+  <div class="page page-break">
+    <div class="sheet">
+
+      <header class="header">
+        <div class="hdr-inner px-8 pt-8 pb-6">
+          <div class="flex items-start justify-between gap-8">
+
+            <div class="min-w-0">
+              <div class="flex items-center gap-3">
+                <img
+                  src="https://www.londonurologyspecialists.co.uk/wp-content/uploads/2021/05/london_lolo.png"
+                  alt="London Urology Specialists"
+                  class="h-11 w-auto bg-white/95 py-2 pr-3 pl-4 rounded-2xl shadow-md object-contain"
+                  onerror="this.style.display='none';"
+                />
+                <div class="chip rounded-full px-4 py-1 text-[10px] font-semibold">
+                  Consultant-led private urology • Central London
+                </div>
+              </div>
+
+              <h1 class="mt-5 text-4xl font-extrabold tracking-tight leading-[1.04]">
+                London Urology Specialists
+              </h1>
+              <p class="mt-2 text-white/85 text-[13px] font-semibold">
+                Expert Consultant-Led Urological Care in Central London
+              </p>
+
+              <div class="subtle-gold-line"></div>
+
+              <p class="mt-4 max-w-2xl text-white/80 italic text-[12px]">
+                Delivering discreet, specialist urological care with rapid access in the heart of London.
+              </p>
+
+              <div class="mt-5 flex flex-wrap gap-3">
+                <div class="chip rounded-xl px-4 py-2 text-[12px]">
+                  Routine appointments available within 24 - 48 hours
+                </div>
+                <div class="chip rounded-xl px-4 py-2 text-[12px]">
+                  Same-day urgent consultations (where clinically appropriate)
+                </div>
+                <div class="chip rounded-xl px-4 py-2 text-[12px]">
+                  Senior consultant-led care
+                </div>
+              </div>
+            </div>
+
+            <aside class="chip rounded-[28px] p-5 w-[360px] max-w-full border border-white/12">
+              <div class="text-[10px] uppercase tracking-widest text-white/70 font-semibold">Bookings &amp; enquiries</div>
+
+              <div class="mt-3 rounded-2xl bg-white/5 border border-white/10 p-4">
+                <div class="text-[10px] text-white/75">Main Line</div>
+                <div class="mt-1 text-[20px] font-extrabold tracking-tight">0300 302 0202</div>
+                <div class="mt-2 text-[12px] text-white/80">
+                  Priority line: <span class="font-semibold text-white">0204 524 0161</span>
+                </div>
+              </div>
+
+              <div class="mt-4 gold-rule"></div>
+
+              <div class="mt-4 text-[10px] uppercase tracking-widest text-white/70 font-semibold">Email</div>
+              <div class="mt-2 text-[12px] font-semibold wrap-safe">info@londonurologyspecialists.co.uk</div>
+
+              <div class="mt-3 text-[10px] uppercase tracking-widest text-white/70 font-semibold">Website</div>
+              <a class="mt-2 inline-block text-[12px] font-semibold wrap-safe hdrlink"
+                 href="https://www.londonurologyspecialists.co.uk/contact/"
+                 target="_blank" rel="noopener">
+                https://www.londonurologyspecialists.co.uk/contact/
+              </a>
+            </aside>
+
+          </div>
+        </div>
+      </header>
+
+      <main class="px-8 py-7 space-y-6">
+
+        <section class="card card-premium p-6">
+          <div class="kicker">For Private Patients &amp; Referring Clinicians</div>
+          <div class="mt-2 title">About Our Practice</div>
+          <p class="mt-3 body">
+            London Urology Specialists is a leading private practice providing comprehensive, consultant-led care across the full spectrum of urological subspecialties. Our team of highly experienced consultant urologists delivers expert assessment, diagnosis and management of all urological conditions.
+          </p>
+
+          <div class="mt-5 grid grid-cols-1 md:grid-cols-2 gap-3 grid-safe">
+            <div class="soft-panel p-4 flex items-center gap-2 min-w-0">
+              <svg class="ico ico-gold" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                <path d="m9 12 2 2 4-4"/>
+              </svg>
+              <div class="font-extrabold text-[11px] text-slate-900">Quality Assurance</div>
+            </div>
+
+            <div class="soft-panel p-4 flex items-center gap-2 min-w-0">
+              <svg class="ico ico-gold" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 21h18"/>
+                <path d="M5 21V7l7-4 7 4v14"/>
+                <path d="M9 9h1"/><path d="M9 12h1"/><path d="M9 15h1"/>
+                <path d="M14 9h1"/><path d="M14 12h1"/><path d="M14 15h1"/>
+              </svg>
+              <div class="font-extrabold text-[11px] text-slate-900">World-Class Facilities</div>
+            </div>
+
+            <div class="soft-panel p-4 flex items-center gap-2 min-w-0">
+              <svg class="ico ico-gold" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <path d="M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+              <div class="font-extrabold text-[11px] text-slate-900">Multidisciplinary Care</div>
+            </div>
+
+            <div class="soft-panel p-4 flex items-center gap-2 min-w-0">
+              <svg class="ico ico-gold" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9"/>
+                <path d="M12 7v5l3 3"/>
+              </svg>
+              <div class="font-extrabold text-[11px] text-slate-900">Fast Access</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="card card-premium p-6">
+          <div class="kicker">Consultant team</div>
+          <div class="mt-2 title">Our Expert Consultants</div>
+
+          <div class="mt-5 grid grid-cols-1 md:grid-cols-2 gap-4 grid-safe">
+
+            <div class="consultant-card p-4 flex gap-4 avoid-break min-w-0">
+              <img class="avatar" src="https://www.londonurologyspecialists.co.uk/wp-content/uploads/2021/05/bijan.50698fcb.jpg" alt="Mr Bijan Khoubehi" onerror="this.style.display='none'">
+              <div class="min-w-0">
+                <div class="font-extrabold text-[12px]">Mr Bijan Khoubehi</div>
+                <div class="font-extrabold text-[11px] text-slate-700">Chairman of London Urology Specialists</div>
+                <div class="text-[10.5px] font-semibold text-slate-500">BSc(Hons) MBBS MD FRCS (Urol)</div>
+                <div class="role mt-1">Specialist in Prostate, Kidney and Bladder Cancer and Robotic-assisted Urological Surgery</div>
+              </div>
+            </div>
+
+            <div class="consultant-card p-4 flex gap-4 avoid-break min-w-0">
+              <img class="avatar" src="https://iseh.co.uk/wp-content/uploads/2024/08/Mark-Emberton-Photo.jpg" alt="Prof Mark Emberton" onerror="this.style.display='none'">
+              <div class="min-w-0">
+                <div class="font-extrabold text-[12px]">Prof Mark Emberton</div>
+                <div class="text-[10.5px] font-semibold text-slate-500">MD FMedSci</div>
+                <div class="role mt-1">Specialist in Prostate Cancer and Focal Therapy</div>
+              </div>
+            </div>
+
+            <div class="consultant-card p-4 flex gap-4 avoid-break min-w-0">
+              <img class="avatar" src="https://www.londonurologyspecialists.co.uk/wp-content/uploads/2021/05/Paul_Cathcart.d561278d.jpg" alt="Mr Paul Cathcart" onerror="this.style.display='none'">
+              <div class="min-w-0">
+                <div class="font-extrabold text-[12px]">Mr Paul Cathcart</div>
+                <div class="text-[10.5px] font-semibold text-slate-500">MD FRCS(Urol)</div>
+                <div class="role mt-1">Specialist in Prostate Cancer and Robotic-assisted Urological Surgery</div>
+              </div>
+            </div>
+
+            <div class="consultant-card p-4 flex gap-4 avoid-break min-w-0">
+              <img class="avatar" src="https://www.londonurologyspecialists.co.uk/wp-content/uploads/2021/05/jeremy.de7cd379.jpg" alt="Mr Jeremy Ockrim" onerror="this.style.display='none'">
+              <div class="min-w-0">
+                <div class="font-extrabold text-[12px]">Mr Jeremy Ockrim</div>
+                <div class="text-[10.5px] font-semibold text-slate-500">MD BSc (Hons) FRCS(Urol)</div>
+                <div class="role mt-1">Specialist in Reconstructive, Neuro-Urology and Functional Urology</div>
+              </div>
+            </div>
+
+            <div class="consultant-card p-4 flex gap-4 avoid-break min-w-0">
+              <img class="avatar" src="https://www.londonurologyspecialists.co.uk/wp-content/uploads/2024/03/nobrega.jpg" alt="Mr Richard Nobrega" onerror="this.style.display='none'">
+              <div class="min-w-0">
+                <div class="font-extrabold text-[12px]">Mr Richard Nobrega</div>
+                <div class="text-[10.5px] font-semibold text-slate-500">MBBS BSc (Hons) FRCS(Urol) RCPathME</div>
+                <div class="role mt-1">Specialist in Reconstructive, Neuro-Urology and Functional Urology</div>
+              </div>
+            </div>
+
+            <div class="consultant-card p-4 flex gap-4 avoid-break min-w-0">
+              <img class="avatar" src="https://onewelbeck.com/media/01egoi5z/mr-anthony-noah.jpg" alt="Mr Anthony Noah" onerror="this.style.display='none'">
+              <div class="min-w-0">
+                <div class="font-extrabold text-[12px]">Mr Anthony Noah</div>
+                <div class="text-[10.5px] font-semibold text-slate-500 wrap-safe">BSc (Hons), MBBS, FRCS (Urol)</div>
+                <div class="role mt-1">Specialist in Reconstructive Urology and Congenital Urological Anomalies</div>
+              </div>
+            </div>
+
+            <div class="consultant-card p-4 flex gap-4 avoid-break min-w-0">
+              <img class="avatar" src="https://www.londonurologyspecialists.co.uk/wp-content/uploads/2024/09/clement.jpg" alt="Prof Clément Orczyk" onerror="this.style.display='none'">
+              <div class="min-w-0">
+                <div class="font-extrabold text-[12px]">Prof Clément Orczyk</div>
+                <div class="text-[10.5px] font-semibold text-slate-500">MD PhD</div>
+                <div class="role mt-1">Specialist in Prostate Cancer and Focal Therapy</div>
+              </div>
+            </div>
+
+            <div class="consultant-card p-4 flex gap-4 avoid-break min-w-0">
+              <img class="avatar" src="https://media.licdn.com/dms/image/v2/C4D03AQFn6zZtX870Zw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1531260040326?e=2147483647&v=beta&t=U15f1tpU7ibd9W7GaJjWOry3yU7fhFotHdl5Qko0LNI" alt="Mr Alberto Coscione" onerror="this.style.display='none'">
+              <div class="min-w-0">
+                <div class="font-extrabold text-[12px]">Mr Alberto Coscione</div>
+                <div class="text-[10.5px] font-semibold text-slate-500 wrap-safe">FRCS MA (Cantab) MB BChir AFHEA</div>
+                <div class="role mt-1">Specialist in Endourology, Stone Surgery and Core Urology</div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <section class="card p-6 avoid-break">
+          <div class="kicker">Fast access</div>
+          <div class="mt-2 title">Referrals &amp; Urgent Review</div>
+          <div class="mt-3 mini">
+            <div><span class="font-extrabold text-slate-900">Priority booking:</span> 0204 524 0161</div>
+            <div class="mt-1 wrap-safe"><span class="font-extrabold text-slate-900">Email referrals:</span> info@londonurologyspecialists.co.uk</div>
+            <div class="mt-1 text-slate-500">Include relevant clinical details and investigations.</div>
+          </div>
+        </section>
+
+      </main>
+
+      <div class="px-8 pb-6">
+        <div class="divider"></div>
+        <div class="pt-4 footer-note flex flex-wrap items-center justify-between gap-3">
+          <div><span class="font-semibold text-slate-700">London Urology Specialists</span> — Consultant-led private urology care</div>
+          <div class="font-semibold text-slate-700">0300 302 0202</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PAGE 2 -->
+  <div class="page">
+    <div class="sheet">
+
+      <header class="header">
+        <div class="hdr-inner px-8 pt-7 pb-5">
+          <div class="flex items-start justify-between gap-6">
+            <div class="min-w-0">
+              <div class="chip inline-flex rounded-full px-3 py-1 text-[10px] font-semibold">
+                Specialist services • Access &amp; referral
+              </div>
+              <h2 class="mt-3 text-4xl font-extrabold tracking-tight leading-[1.04]">Our Specialist Services</h2>
+              <p class="mt-2 text-white/80 text-[12px]">
+                Consultant-led assessment, diagnosis and management across key urological subspecialties.
+              </p>
+            </div>
+
+            <div class="chip rounded-2xl px-4 py-3 text-[12px]">
+              <div class="text-[10px] uppercase tracking-widest text-white/70 font-semibold">Booking</div>
+              <div class="font-extrabold">0300 302 0202</div>
+              <div class="text-white/80 text-[11px]">Priority: <span class="font-semibold text-white">0204 524 0161</span></div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="px-8 py-7 space-y-6 page2-main">
+
+        <section class="card card-premium p-6">
+          <div class="kicker">Clinical expertise</div>
+          <div class="mt-2 title">Services</div>
+
+          <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+
+            <div class="service-card p-4 avoid-break">
+              <div class="flex items-center gap-2">
+                <svg class="ico ico-gold" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 14h4l2-6 4 12 2-6h4"/>
+                </svg>
+                <div class="font-extrabold text-[12px]">Prostate Conditions</div>
+              </div>
+              <ul class="clean mini list-disc">
+                <li>Comprehensive prostate cancer evaluation and treatment options</li>
+                <li>Assessment and monitoring of elevated PSA levels</li>
+                <li>Management of benign prostatic hyperplasia (BPH)</li>
+                <li>Diagnosis and treatment of prostatitis</li>
+                <li>Care for post-treatment prostate complications</li>
+              </ul>
+            </div>
+
+            <div class="service-card p-4 avoid-break">
+              <div class="flex items-center gap-2">
+                <svg class="ico ico-gold" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2s6 7 6 12a6 6 0 0 1-12 0c0-5 6-12 6-12z"/>
+                </svg>
+                <div class="font-extrabold text-[12px]">Kidney &amp; Bladder</div>
+              </div>
+              <ul class="clean mini list-disc">
+                <li>Assessment and treatment of kidney and bladder cancers</li>
+                <li>Investigation of visible or microscopic haematuria</li>
+                <li>Evaluation and management of overactive bladder</li>
+                <li>Management of urinary incontinence</li>
+                <li>Diagnosis and ongoing care for recurrent urinary tract infections</li>
+              </ul>
+            </div>
+
+            <div class="service-card p-4 md:col-span-2 avoid-break">
+              <div class="flex items-center gap-2">
+                <svg class="ico ico-gold" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 20l7-12 4 7 2-3 5 8H3z"/>
+                </svg>
+                <div class="font-extrabold text-[12px]">Stone Management &amp; Treatment</div>
+              </div>
+              <ul class="clean mini list-disc columns-1 md:columns-2">
+                <li>Assessment and treatment of renal, ureteric, and bladder calculi</li>
+                <li>Investigation and management of acute renal colic</li>
+                <li>Endoscopic stone interventions: ureteroscopy, flexible ureterorenoscopy, and PCNL with special interest in local anaesthetic procedures for high risk anaesthetic patients.</li>
+                <li>Shockwave lithotripsy (SWL) for upper tract stones</li>
+                <li>Metabolic stone evaluation and targeted medical therapy</li>
+                <li>Management of recurrent and complex calculi, including staghorn stones</li>
+                <li>Ongoing surveillance to reduce recurrence risk</li>
+              </ul>
+            </div>
+
+            <div class="service-card p-4 avoid-break">
+              <div class="flex items-center gap-2">
+                <svg class="ico ico-gold" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                  <circle cx="12" cy="7" r="4"/>
+                </svg>
+                <div class="font-extrabold text-[12px]">Men’s Health</div>
+              </div>
+              <ul class="clean mini list-disc">
+                <li>Vasectomy and vasectomy-related care</li>
+                <li>Assessment and management of testicular conditions</li>
+                <li>Diagnosis and treatment of varicocele and hydrocele</li>
+                <li>Adult circumcision procedures</li>
+                <li>Evaluation and management of erectile dysfunction</li>
+              </ul>
+            </div>
+
+            <div class="service-card p-4 avoid-break">
+              <div class="flex items-center gap-2">
+                <svg class="ico ico-gold" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/>
+                </svg>
+                <div class="font-extrabold text-[12px]">Women’s Urology</div>
+              </div>
+              <ul class="clean mini list-disc">
+                <li>Stress and urge urinary incontinence</li>
+                <li>Pelvic organ prolapse</li>
+                <li>Bladder pain syndrome</li>
+                <li>Surgical options for urinary continence</li>
+                <li>Female urological reconstructive procedures</li>
+              </ul>
+            </div>
+
+            <div class="service-card p-4 avoid-break">
+              <div class="flex items-center gap-2">
+                <svg class="ico ico-gold" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M13 2 3 14h8l-1 8 10-12h-8l1-8z"/>
+                </svg>
+                <div class="font-extrabold text-[12px]">Advanced Surgery</div>
+              </div>
+              <ul class="clean mini list-disc">
+                <li>Robotic-assisted urological procedures</li>
+                <li>Minimally invasive approaches</li>
+                <li>Urological reconstructive surgery</li>
+                <li>Urinary diversion for benign and malignant conditions</li>
+                <li>Complex urological cancer surgery</li>
+              </ul>
+            </div>
+
+            <div class="service-card p-4 avoid-break">
+              <div class="flex items-center gap-2">
+                <svg class="ico ico-gold" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6 18h8"/>
+                  <path d="M3 22h18"/>
+                  <path d="M9 3l3 3"/>
+                  <path d="M10 7l4 4"/>
+                  <path d="M15 9V4h-2"/>
+                  <path d="M8 14a4 4 0 1 0 6 4"/>
+                </svg>
+                <div class="font-extrabold text-[12px]">Diagnostic Services</div>
+              </div>
+              <ul class="clean mini list-disc">
+                <li>Multiparametric prostate MRI</li>
+                <li>MRI-guided targeted prostate biopsy</li>
+                <li>PSMA PET imaging for prostate cancer assessment</li>
+                <li>CT and ultrasound for urological evaluation</li>
+                <li>Comprehensive urodynamic studies</li>
+              </ul>
+            </div>
+
+          </div>
+        </section>
+
+        <section class="push-bottom">
+          <div class="card card-premium p-6 avoid-break min-w-0 h-full">
+            <div class="kicker">Contact &amp; referral information</div>
+            <div class="mt-2 title">Contact &amp; Referral</div>
+
+            <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-5 grid-safe">
+
+              <div class="contact-box p-4 min-w-0">
+                <div class="section-label">Clinic</div>
+                <div class="mt-3 mini wrap-safe">
+                  <div class="font-semibold text-slate-500 uppercase tracking-wider text-[9px]">Address</div>
+                  <div class="mt-1">18 Devonshire Street<br>London W1G 7AQ</div>
+
+                  <div class="mt-3 font-semibold text-slate-500 uppercase tracking-wider text-[9px]">Opening Hours</div>
+                  <div class="mt-1">Monday–Friday, 9:00am – 5:00pm</div>
+                </div>
+              </div>
+
+              <div class="contact-box p-4 min-w-0">
+                <div class="section-label">Enquiries</div>
+                <div class="mt-3 mini wrap-safe">
+                  <div class="font-semibold text-slate-500 uppercase tracking-wider text-[9px]">Telephone</div>
+                  <div class="mt-1">
+                    <strong>Main:</strong> 0300 302 0202<br>
+                    <strong>Priority:</strong> 0204 524 0161
+                  </div>
+
+                  <div class="mt-3 font-semibold text-slate-500 uppercase tracking-wider text-[9px]">Email</div>
+                  <div class="mt-1 wrap-safe">info@londonurologyspecialists.co.uk</div>
+
+                  <div class="mt-3 font-semibold text-slate-500 uppercase tracking-wider text-[9px]">Website</div>
+                  <div class="mt-1 wrap-safe">londonurologyspecialists.co.uk/contact/</div>
+                </div>
+              </div>
+
+              <div class="contact-box p-4 min-w-0">
+                <div class="section-label">Referral Routes</div>
+                <div class="mt-3 mini space-y-3 wrap-safe">
+                  <div>
+                    <div class="font-semibold text-slate-900">Email Referral</div>
+                    <div class="mt-1">Send referrals to info@londonurologyspecialists.co.uk including relevant clinical details and investigations.</div>
+                  </div>
+                  <div>
+                    <div class="font-semibold text-slate-900">Telephone Referral</div>
+                    <div class="mt-1">Call the main or priority line for advice or to arrange urgent review.</div>
+                  </div>
+                  <div>
+                    <div class="font-semibold text-slate-900">Direct Consultant Contact</div>
+                    <div class="mt-1">Consultant secretaries can be contacted individually via the contact page.</div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="mt-5 divider"></div>
+            <div class="pt-4 text-center text-[10px] text-slate-500">
+              <strong class="text-slate-900">London Urology Specialists</strong> — Consultant-led private urology care in the heart of London.
+            </div>
+          </div>
+        </section>
+
+      </main>
+
+      <div class="px-8 pb-6">
+        <div class="divider"></div>
+        <div class="pt-4 footer-note flex flex-wrap items-center justify-between gap-3">
+          <div><span class="font-semibold text-slate-700">London Urology Specialists</span> — Consultant-led private urology care</div>
+          <div class="font-semibold text-slate-700">0300 302 0202</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

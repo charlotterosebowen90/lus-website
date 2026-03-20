@@ -1,0 +1,13 @@
+{
+  "name": "london-urology-specialists",
+  "version": "1.0.0",
+  "description": "London Urology Specialists website redesign",
+  "scripts": {
+    "build": "npx tailwindcss -i ./css/input.css -o ./css/styles.css",
+    "watch": "npx tailwindcss -i ./css/input.css -o ./css/styles.css --watch",
+    "dev": "npx tailwindcss -i ./css/input.css -o ./css/styles.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0"
+  }
+}
