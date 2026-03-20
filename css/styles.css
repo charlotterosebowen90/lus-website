@@ -1972,10 +1972,10 @@ body {
 .carousel-track {
   display: flex;
   gap: 1.5rem;
-  transition: transform 0.5s ease;
+  transition: transform 0.3s ease;
 }
 .carousel-slide {
-  flex: 0 0 calc(25% - 1.125rem);
+  flex: 0 0 calc(33.333% - 16px);
   min-width: 0;
 }
 @media (max-width: 1024px) {
@@ -2027,4 +2027,77 @@ body {
 .insurer-card:hover img {
   transform: scale(1.15);
   filter: grayscale(100%);
+}
+
+/* =====================
+   MOBILE RESPONSIVENESS
+   ===================== */
+
+/* Hero trust badges — stack vertically on mobile, row on md+ */
+.hero-badges {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+@media (min-width: 768px) {
+  .hero-badges {
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5rem;
+  }
+}
+
+/* Hero section — reduce padding on mobile */
+@media (max-width: 639px) {
+  .min-h-screen.flex.items-center {
+    padding-top: 5rem;
+    padding-bottom: 3rem;
+    min-height: auto;
+  }
+  .max-w-3xl {
+    max-width: 100%;
+  }
+}
+
+/* Clinic cards — single column on mobile */
+@media (max-width: 639px) {
+  .grid.md\:grid-cols-2.lg\:grid-cols-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Carousel — 2 slides on tablet, 1 on mobile */
+@media (max-width: 1023px) {
+  .carousel-slide { flex: 0 0 calc(50% - 0.75rem); }
+}
+@media (max-width: 639px) {
+  .carousel-slide { flex: 0 0 100%; }
+}
+
+/* Header logo — smaller on mobile */
+@media (max-width: 639px) {
+  #header .h-12 { height: 2rem; }
+  #header .text-2xl { font-size: 1.1rem; }
+}
+
+/* Why Choose Us — reduce gap on mobile */
+@media (max-width: 1023px) {
+  .grid.lg\:grid-cols-2.gap-16 { gap: 2rem; }
+}
+
+/* Footer grid — 2 cols on tablet */
+@media (max-width: 767px) {
+  .grid.md\:grid-cols-2.lg\:grid-cols-4 { grid-template-columns: 1fr 1fr; gap: 2rem; }
+}
+@media (max-width: 479px) {
+  .grid.md\:grid-cols-2.lg\:grid-cols-4 { grid-template-columns: 1fr; }
+}
+
+/* Buttons — full width on small mobile */
+@media (max-width: 479px) {
+  .flex.flex-wrap.gap-4 > a,
+  .flex.flex-wrap.gap-4 > button {
+    width: 100%;
+    justify-content: center;
+  }
 }

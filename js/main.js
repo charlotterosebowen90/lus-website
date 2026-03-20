@@ -25,16 +25,16 @@
   function getSlidesPerView() {
     if (window.innerWidth < 640) return 1;
     if (window.innerWidth < 1024) return 2;
-    return 4;
+    return 3;
   }
 
-  function totalPages() {
-    return Math.ceil(slides.length / getSlidesPerView());
+  function maxIndex() {
+    return Math.max(0, slides.length - getSlidesPerView());
   }
 
   function buildDots() {
     dotsContainer.innerHTML = '';
-    for (let i = 0; i < totalPages(); i++) {
+    for (let i = 0; i <= maxIndex(); i++) {
       const dot = document.createElement('button');
       dot.className = 'carousel-dot' + (i === current ? ' active' : '');
       dot.addEventListener('click', () => goTo(i));
@@ -42,17 +42,33 @@
     }
   }
 
-  function goTo(page) {
-    current = Math.max(0, Math.min(page, totalPages() - 1));
+  function goTo(index) {
+    current = Math.max(0, Math.min(index, maxIndex()));
     const slideWidth = slides[0].getBoundingClientRect().width + 24; // gap-6 = 24px
-    track.style.transform = `translateX(-${current * getSlidesPerView() * slideWidth}px)`;
+    track.style.transform = `translateX(-${current * slideWidth}px)`;
     dotsContainer.querySelectorAll('.carousel-dot').forEach((d, i) => {
       d.classList.toggle('active', i === current);
     });
   }
 
-  prevBtn.addEventListener('click', () => goTo(current - 1));
-  nextBtn.addEventListener('click', () => goTo(current + 1));
+  function goToNext() {
+    goTo(current + 1 > maxIndex() ? 0 : current + 1);
+  }
+
+  // Auto-advance every 4 seconds
+  let autoPlay = setInterval(goToNext, 2000);
+
+  function resetAutoPlay() {
+    clearInterval(autoPlay);
+    autoPlay = setInterval(goToNext, 2000);
+  }
+
+  prevBtn.addEventListener('click', () => { goTo(current - 1); resetAutoPlay(); });
+  nextBtn.addEventListener('click', () => { goTo(current + 1); resetAutoPlay(); });
+
+  // Pause on hover
+  track.addEventListener('mouseenter', () => clearInterval(autoPlay));
+  track.addEventListener('mouseleave', () => { autoPlay = setInterval(goToNext, 2000); });
 
   buildDots();
   window.addEventListener('resize', () => { buildDots(); goTo(0); });
