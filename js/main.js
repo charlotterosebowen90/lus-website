@@ -1,3 +1,16 @@
+// Hero Background Slideshow
+(function() {
+  const slides = document.querySelectorAll('.hero-slide');
+  if (!slides.length) return;
+  let current = 0;
+  slides[0].style.opacity = '0.45';
+  setInterval(function() {
+    slides[current].style.opacity = '0';
+    current = (current + 1) % slides.length;
+    slides[current].style.opacity = '0.45';
+  }, 5000);
+})();
+
 // Specialists Carousel
 (function() {
   const track = document.getElementById('carousel-track');
