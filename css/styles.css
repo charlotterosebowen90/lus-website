@@ -2029,6 +2029,9 @@ body {
   filter: grayscale(100%);
 }
 
+/* Practice image zoom on hover */
+.practice-img-wrap:hover .practice-img { transform: scale(1.06); }
+
 /* =====================
    MOBILE RESPONSIVENESS
    ===================== */
