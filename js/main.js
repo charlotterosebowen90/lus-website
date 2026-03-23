@@ -11,6 +11,48 @@
   }, 5000);
 })();
 
+// Patient Reviews Carousel
+(function() {
+  const slides = document.querySelectorAll('.review-slide');
+  const dotsContainer = document.getElementById('review-dots');
+  const prevBtn = document.getElementById('review-prev');
+  const nextBtn = document.getElementById('review-next');
+  if (!slides.length) return;
+
+  let current = 0;
+
+  function buildDots() {
+    dotsContainer.innerHTML = '';
+    slides.forEach(function(_, i) {
+      const dot = document.createElement('button');
+      dot.style.cssText = 'width:8px;height:8px;border-radius:9999px;border:none;cursor:pointer;padding:0;transition:background-color 0.2s,width 0.2s;';
+      dot.style.backgroundColor = i === current ? '#7bc7ef' : 'rgba(255,255,255,0.3)';
+      if (i === current) dot.style.width = '24px';
+      dot.addEventListener('click', function() { goTo(i); resetAutoPlay(); });
+      dotsContainer.appendChild(dot);
+    });
+  }
+
+  function goTo(index) {
+    slides[current].style.display = 'none';
+    current = (index + slides.length) % slides.length;
+    slides[current].style.display = 'block';
+    buildDots();
+  }
+
+  function goToNext() { goTo(current + 1); }
+
+  let autoPlay = setInterval(goToNext, 5000);
+  function resetAutoPlay() { clearInterval(autoPlay); autoPlay = setInterval(goToNext, 5000); }
+
+  prevBtn.addEventListener('click', function() { goTo(current - 1); resetAutoPlay(); });
+  nextBtn.addEventListener('click', function() { goTo(current + 1); resetAutoPlay(); });
+
+  // Show first slide
+  slides[0].style.display = 'block';
+  buildDots();
+})();
+
 // Specialists Carousel
 (function() {
   const track = document.getElementById('carousel-track');

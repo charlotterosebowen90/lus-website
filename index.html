@@ -217,10 +217,19 @@
 
   <!-- Hero Section -->
   <section class="relative min-h-screen flex items-center pt-24" style="background-color:#0f1f35;">
-    <!-- Rotating Background Images -->
+    <!-- Rotating Background Images/Videos -->
     <div class="absolute inset-0" style="overflow:hidden;">
+      <video class="hero-slide" autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.5s ease-in-out;">
+        <source src="assets/Images/iStock-1049013684.mp4" type="video/mp4">
+      </video>
       <img class="hero-slide" src="assets/Images/AdobeStock_176650838.jpeg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.5s ease-in-out;">
+      <video class="hero-slide" autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.5s ease-in-out;">
+        <source src="assets/Images/iStock-1485098942.mp4" type="video/mp4">
+      </video>
       <img class="hero-slide" src="assets/Images/AdobeStock_1009220944.jpeg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.5s ease-in-out;">
+      <video class="hero-slide" autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.5s ease-in-out;">
+        <source src="assets/Images/iStock-1763174823.mp4" type="video/mp4">
+      </video>
       <img class="hero-slide" src="assets/Images/AdobeStock_1500409576.jpeg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.5s ease-in-out;">
     </div>
     <!-- Dark overlay for text readability -->
@@ -263,7 +272,7 @@
             <svg class="w-5 h-5 text-secondary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
             </svg>
-            <span>Same-day Appointments</span>
+            <span>Same-Day Appointments</span>
           </div>
           <div class="flex items-center gap-2">
             <svg class="w-5 h-5 text-secondary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -289,7 +298,7 @@
     <div class="container-custom">
       <div class="text-center max-w-3xl mx-auto mb-16">
         <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Our Specialist Clinics</h2>
-        <p class="text-gray-600 text-lg">Comprehensive urological care across four specialist areas, delivered by leading consultants.</p>
+        <p class="text-gray-600 text-lg">Advanced urological care delivered by leading consultants across a<br>comprehensive range of specialist services.</p>
       </div>
 
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -406,7 +415,7 @@
       <div class="grid lg:grid-cols-2 gap-16 items-center">
         <div>
           <h2 class="text-3xl md:text-4xl font-bold text-dark mb-6">Why Choose London Urology Specialists?</h2>
-          <p class="text-gray-600 text-lg mb-8">We combine clinical excellence with compassionate care, ensuring every patient receives personalized treatment from leading experts in urological medicine.</p>
+          <p class="text-gray-600 text-lg mb-8">We combine clinical excellence with compassionate care, ensuring every patient receives personalised treatment from leading experts in urological medicine.</p>
 
           <div class="space-y-6">
             <div class="flex gap-4">
@@ -417,7 +426,8 @@
               </div>
               <div>
                 <h3 class="text-lg font-semibold text-dark mb-1 group-hover:text-primary transition-colors">Leading Specialists</h3>
-                <p class="text-gray-600">Our consultants are recognized leaders in their fields with decades of combined experience.</p>
+                <p class="text-gray-600">Our consultants are recognis
+                  ed leaders in their fields with decades of combined experience.</p>
               </div>
             </div>
 
@@ -454,15 +464,15 @@
               </div>
               <div>
                 <h3 class="text-lg font-semibold text-dark mb-1 group-hover:text-primary transition-colors">Central Location</h3>
-                <p class="text-gray-600">Prestigious Harley Street address with excellent transport links across London.</p>
+                <p class="text-gray-600">Consulting across a distinguished network of London’s leading private hospitals, all with excellent transport links.</p>
               </div>
             </div>
           </div>
         </div>
 
         <!-- Stats -->
-        <div class="bg-gradient-to-br from-primary to-primary-700 rounded-2xl p-8 md:p-12 text-white">
-          <div class="grid grid-cols-2 gap-8">
+        <div class="rounded-2xl p-8 md:p-12 text-white" style="background-color:#0f2a4a;">
+          <div class="grid grid-cols-3 gap-8">
             <div class="text-center">
               <div class="text-4xl md:text-5xl font-bold mb-2">25+</div>
               <div class="text-white/80">Years Experience</div>
@@ -472,20 +482,53 @@
               <div class="text-white/80">Patients Treated</div>
             </div>
             <div class="text-center">
-              <div class="text-4xl md:text-5xl font-bold mb-2">98%</div>
+              <div class="text-4xl md:text-5xl font-bold mb-2">95%</div>
               <div class="text-white/80">Patient Satisfaction</div>
-            </div>
-            <div class="text-center">
-              <div class="text-4xl md:text-5xl font-bold mb-2">4</div>
-              <div class="text-white/80">Specialist Clinics</div>
             </div>
           </div>
 
           <div class="mt-8 pt-8 border-t border-white/20">
-            <blockquote class="text-lg italic text-white/90">
-              "Exceptional care from start to finish. The team made a difficult situation much easier to manage."
-            </blockquote>
-            <p class="mt-4 text-white/70">— Verified Patient Review</p>
+            <div id="review-track" style="min-height:7rem;">
+              <div class="review-slide" style="display:none;"><blockquote style="font-size:0.95rem;font-style:italic;color:rgba(255,255,255,0.9);line-height:1.7;margin-bottom:0.75rem;">"Checking in was very easy and there was very little waiting time and we had a successful and informative visit with Mr Khoubehi which has resulted in an operation for my husband in the near future. We felt that we were in very safe hands."</blockquote></div>
+              <div class="review-slide" style="display:none;"><blockquote style="font-size:0.95rem;font-style:italic;color:rgba(255,255,255,0.9);line-height:1.7;margin-bottom:0.75rem;">"Very professional, friendly and on time"</blockquote></div>
+              <div class="review-slide" style="display:none;"><blockquote style="font-size:0.95rem;font-style:italic;color:rgba(255,255,255,0.9);line-height:1.7;margin-bottom:0.75rem;">"Excellent treatment and care"</blockquote></div>
+              <div class="review-slide" style="display:none;"><blockquote style="font-size:0.95rem;font-style:italic;color:rgba(255,255,255,0.9);line-height:1.7;margin-bottom:0.75rem;">"Consultation was done over the phone — all good."</blockquote></div>
+              <div class="review-slide" style="display:none;"><blockquote style="font-size:0.95rem;font-style:italic;color:rgba(255,255,255,0.9);line-height:1.7;margin-bottom:0.75rem;">"Always reassuring"</blockquote></div>
+              <div class="review-slide" style="display:none;"><blockquote style="font-size:0.95rem;font-style:italic;color:rgba(255,255,255,0.9);line-height:1.7;margin-bottom:0.75rem;">"Very happy, everyone was friendly and helpful 😊 I couldn't have been more comfortable"</blockquote></div>
+              <div class="review-slide" style="display:none;"><blockquote style="font-size:0.95rem;font-style:italic;color:rgba(255,255,255,0.9);line-height:1.7;margin-bottom:0.75rem;">"I am extremely impressed by the support team at London Urology Specialists. Truly excellent service on scheduling my various appointments with Professor Mark Emberton and my procedure at Princess Grace. Professor Emberton has been outstanding and I appreciate his expertise."</blockquote></div>
+              <div class="review-slide" style="display:none;"><blockquote style="font-size:0.95rem;font-style:italic;color:rgba(255,255,255,0.9);line-height:1.7;margin-bottom:0.75rem;">"Friendly, reassuring and helpful"</blockquote></div>
+              <div class="review-slide" style="display:none;"><blockquote style="font-size:0.95rem;font-style:italic;color:rgba(255,255,255,0.9);line-height:1.7;margin-bottom:0.75rem;">"My high PSA was managed very efficiently with excellent explanation throughout the investigative pathway, culminating in a laparoscopic robot-assisted radical prostatectomy."</blockquote></div>
+              <div class="review-slide" style="display:none;"><blockquote style="font-size:0.95rem;font-style:italic;color:rgba(255,255,255,0.9);line-height:1.7;margin-bottom:0.75rem;">"It was a very quick consult"</blockquote></div>
+              <div class="review-slide" style="display:none;"><blockquote style="font-size:0.95rem;font-style:italic;color:rgba(255,255,255,0.9);line-height:1.7;margin-bottom:0.75rem;">"Excellent."</blockquote></div>
+              <div class="review-slide" style="display:none;"><blockquote style="font-size:0.95rem;font-style:italic;color:rgba(255,255,255,0.9);line-height:1.7;margin-bottom:0.75rem;">"I had a very positive experience of London Urology Specialists because of the treatment I had from Mr Cathcart."</blockquote></div>
+              <div class="review-slide" style="display:none;"><blockquote style="font-size:0.95rem;font-style:italic;color:rgba(255,255,255,0.9);line-height:1.7;margin-bottom:0.75rem;">"I always find it is a first class service I always receive every time I visit the hospital. Everyone is always helpful, caring, supportive — cannot fault in any aspect."</blockquote></div>
+              <div class="review-slide" style="display:none;"><blockquote style="font-size:0.95rem;font-style:italic;color:rgba(255,255,255,0.9);line-height:1.7;margin-bottom:0.75rem;">"Very happy with all aspects."</blockquote></div>
+              <div class="review-slide" style="display:none;"><blockquote style="font-size:0.95rem;font-style:italic;color:rgba(255,255,255,0.9);line-height:1.7;margin-bottom:0.75rem;">"An excellent practice run by a highly dedicated and efficient team."</blockquote></div>
+              <div class="review-slide" style="display:none;"><blockquote style="font-size:0.95rem;font-style:italic;color:rgba(255,255,255,0.9);line-height:1.7;margin-bottom:0.75rem;">"Excellent all round service. Highly recommended."</blockquote></div>
+              <div class="review-slide" style="display:none;"><blockquote style="font-size:0.95rem;font-style:italic;color:rgba(255,255,255,0.9);line-height:1.7;margin-bottom:0.75rem;">"Nothing could have been better. All staff very friendly and cleanliness was paramount"</blockquote></div>
+              <div class="review-slide" style="display:none;"><blockquote style="font-size:0.95rem;font-style:italic;color:rgba(255,255,255,0.9);line-height:1.7;margin-bottom:0.75rem;">"My appointment was smooth and reassuring"</blockquote></div>
+              <div class="review-slide" style="display:none;"><blockquote style="font-size:0.95rem;font-style:italic;color:rgba(255,255,255,0.9);line-height:1.7;margin-bottom:0.75rem;">"The whole team provide an excellent, friendly and reassuring service."</blockquote></div>
+              <div class="review-slide" style="display:none;"><blockquote style="font-size:0.95rem;font-style:italic;color:rgba(255,255,255,0.9);line-height:1.7;margin-bottom:0.75rem;">"From my initial consultancy through to discharge I was delighted with the care I received from the team"</blockquote></div>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:0.75rem;">
+              <div style="display:flex;gap:0.25rem;">
+                <svg style="width:1rem;height:1rem;color:#fbbf24;" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg style="width:1rem;height:1rem;color:#fbbf24;" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg style="width:1rem;height:1rem;color:#fbbf24;" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg style="width:1rem;height:1rem;color:#fbbf24;" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg style="width:1rem;height:1rem;color:#fbbf24;" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              </div>
+              <div style="display:flex;align-items:center;gap:0.5rem;">
+                <button id="review-prev" style="width:1.75rem;height:1.75rem;border-radius:9999px;background:rgba(255,255,255,0.15);border:none;cursor:pointer;color:white;display:flex;align-items:center;justify-content:center;" aria-label="Previous">
+                  <svg style="width:0.85rem;height:0.85rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
+                </button>
+                <div id="review-dots" style="display:flex;gap:0.3rem;align-items:center;"></div>
+                <button id="review-next" style="width:1.75rem;height:1.75rem;border-radius:9999px;background:rgba(255,255,255,0.15);border:none;cursor:pointer;color:white;display:flex;align-items:center;justify-content:center;" aria-label="Next">
+                  <svg style="width:0.85rem;height:0.85rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+                </button>
+              </div>
+            </div>
+            <p style="color:rgba(255,255,255,0.5);font-size:0.75rem;margin-top:0.5rem;">— Verified Patient Review</p>
           </div>
         </div>
       </div>
@@ -497,7 +540,7 @@
     <div class="container-custom">
       <div class="text-center max-w-3xl mx-auto mb-16">
         <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Meet Our Specialists</h2>
-        <p class="text-gray-600 text-lg">Our team of consultant urologists brings together decades of expertise in treating complex urological conditions.</p>
+        <p class="text-gray-600 text-lg">A distinguished team of consultant urologists, bringing together decades of collective experience in the management of complex urological conditions.</p>
       </div>
 
       <!-- Carousel wrapper -->
@@ -664,7 +707,7 @@
   <section class="section-padding bg-gradient-to-r from-primary to-primary-700 text-white">
     <div class="container-custom text-center">
       <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to Take the Next Step?</h2>
-      <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto">Book a consultation with one of our specialists today. We offer same-day appointments and a rapid referral pathway.</p>
+      <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto">Book a consultation with one of our specialists and benefit from timely access to expert care, supported by a seamless and well-managed referral pathway.</p>
       <div class="flex flex-wrap justify-center gap-4">
         <a href="contact.html" class="bg-white text-primary px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-colors shadow-lg">
           Book Appointment
