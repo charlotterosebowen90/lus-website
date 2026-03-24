@@ -1,104 +1,38 @@
-// Hero Media Slideshow (image → video → image → video → ...)
+// Hero Video — smooth fade-in and gentle loop crossfade
 (function() {
-  var items = Array.prototype.slice.call(document.querySelectorAll('.hero-slide-item'));
-  if (!items.length) return;
+  var video = document.getElementById('hero-video');
+  if (!video) return;
 
-  var FADE = 2.0;      // seconds for each crossfade
-  var IMG_SHOW = 7000; // ms each image stays at full opacity
-  var KB_VARIANTS = ['kenburns-in', 'kenburns-out']; // alternate Ken Burns directions
-  var kbIndex = 0;
-  var current = 0;
-  var fading = false;
-  var imgTimer = null;
+  var TARGET   = 0.7;   // normal opacity
+  var DIP      = 0.2;   // opacity during loop dip
+  var DIP_LEAD = 2.2;   // seconds before end to start fade-down
+  var dipping  = false;
 
-  // Apply smoother easing to all items
-  items.forEach(function(item) {
-    item.style.transition = 'opacity ' + FADE + 's cubic-bezier(0.4, 0, 0.2, 1)';
+  video.play().catch(function() {});
+
+  // Initial fade-in once video starts playing
+  video.addEventListener('playing', function() {
+    video.style.transition = 'opacity 3.5s cubic-bezier(0.4,0,0.6,1)';
+    video.style.opacity = TARGET;
+  }, { once: true });
+
+  // Smooth dip at loop boundary
+  video.addEventListener('timeupdate', function() {
+    if (!video.duration) return;
+    var remaining = video.duration - video.currentTime;
+
+    if (!dipping && remaining <= DIP_LEAD) {
+      dipping = true;
+      video.style.transition = 'opacity 1.8s ease-in-out';
+      video.style.opacity = DIP;
+    }
+    // After loop restarts, fade back up
+    if (dipping && video.currentTime < 0.4) {
+      dipping = false;
+      video.style.transition = 'opacity 2.5s ease-in-out';
+      video.style.opacity = TARGET;
+    }
   });
-
-  function startKenBurns(img) {
-    var variant = KB_VARIANTS[kbIndex % KB_VARIANTS.length];
-    kbIndex++;
-    img.style.animation = 'none';
-    img.offsetHeight; // force reflow to restart animation
-    img.style.animation = variant + ' ' + ((IMG_SHOW + FADE * 1000) / 1000) + 's ease-in-out forwards';
-  }
-
-  function stopKenBurns(img) {
-    img.style.animation = 'none';
-  }
-
-  function goTo(nextIndex) {
-    if (fading) return;
-    fading = true;
-    clearTimeout(imgTimer);
-
-    var prev = current;
-    current = nextIndex;
-
-    // Fade out and clean up previous
-    items[prev].style.opacity = '0';
-    if (items[prev].tagName === 'VIDEO') {
-      items[prev].pause();
-    } else {
-      stopKenBurns(items[prev]);
-    }
-
-    // Fade in next simultaneously
-    var next = items[current];
-    if (next.tagName === 'VIDEO') {
-      next.currentTime = 0;
-      next.play();
-    } else {
-      startKenBurns(next);
-    }
-    next.style.opacity = '0.45';
-
-    setTimeout(function() {
-      fading = false;
-      scheduleNext();
-    }, FADE * 1000 + 300);
-  }
-
-  function scheduleNext() {
-    var item = items[current];
-    if (item.tagName !== 'VIDEO') {
-      imgTimer = setTimeout(function() {
-        goTo((current + 1) % items.length);
-      }, IMG_SHOW);
-    }
-    // Video transition handled by timeupdate below
-  }
-
-  // Fade out video near its end and move to next slide
-  items.forEach(function(item, idx) {
-    if (item.tagName !== 'VIDEO') return;
-    item.addEventListener('timeupdate', function() {
-      if (!item.duration || fading || current !== idx) return;
-      if (item.duration - item.currentTime <= FADE + 0.5) {
-        goTo((current + 1) % items.length);
-      }
-    });
-  });
-
-  // Start — kick off Ken Burns on first image immediately
-  var first = items[0];
-  if (first.tagName === 'IMG') startKenBurns(first);
-  first.style.opacity = '0.45';
-  scheduleNext();
-})();
-
-// Hero Background Slideshow
-(function() {
-  const slides = document.querySelectorAll('.hero-slide');
-  if (!slides.length) return;
-  let current = 0;
-  slides[0].style.opacity = '0.45';
-  setInterval(function() {
-    slides[current].style.opacity = '0';
-    current = (current + 1) % slides.length;
-    slides[current].style.opacity = '0.45';
-  }, 5000);
 })();
 
 // Patient Reviews Carousel

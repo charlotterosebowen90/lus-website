@@ -2123,7 +2123,7 @@ body {
 /* Hero section — reduce padding on mobile */
 @media (max-width: 639px) {
   .min-h-screen.flex.items-center {
-    padding-top: 5rem;
+    padding-top: 8rem;
     padding-bottom: 3rem;
     min-height: auto;
   }
