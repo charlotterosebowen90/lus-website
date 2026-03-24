@@ -1058,6 +1058,15 @@ body {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+@keyframes kenburns-in {
+  from { transform: scale(1);    transform-origin: center center; }
+  to   { transform: scale(1.07); transform-origin: center center; }
+}
+@keyframes kenburns-out {
+  from { transform: scale(1.07) translate(-1%, 0.5%); transform-origin: center center; }
+  to   { transform: scale(1)    translate(0,    0);   transform-origin: center center; }
+}
+
 @keyframes bounce {
   0%, 100% {
     transform: translateY(-25%);
@@ -1992,6 +2001,13 @@ body {
 .carousel-slide {
   flex: 0 0 calc(33.333% - 16px);
   min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+.carousel-slide .card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 @media (max-width: 1024px) {
   .carousel-slide { flex: 0 0 calc(50% - 0.75rem); }
@@ -2157,4 +2173,32 @@ body {
     width: 100%;
     justify-content: center;
   }
+}
+
+/* ── Mobile fixes ── */
+@media (max-width: 639px) {
+  /* Hero heading & paragraph scale down */
+  .hero-h1 { font-size: 1.85rem !important; line-height: 1.2 !important; }
+  .hero-p  { font-size: 0.95rem !important; }
+
+  /* Hero trust badges — wrap and remove hard-coded left margin */
+  .hero-badges { flex-wrap: wrap; gap: 0.65rem; }
+  .hero-badges > div { margin-left: 0 !important; }
+
+  /* Stats — single column on mobile */
+  .stats-grid { grid-template-columns: 1fr !important; gap: 1.25rem; }
+
+  /* Section padding — reduce on mobile */
+  .section-padding { padding-top: 3rem; padding-bottom: 3rem; }
+
+  /* Mobile menu — cap width so it doesn't overflow tiny screens */
+  #mobile-menu { width: min(20rem, 88vw); }
+
+  /* About page hero — reduce min-height on mobile */
+  .about-hero { min-height: 30vh !important; }
+}
+
+/* Tablet — about page hero */
+@media (max-width: 767px) {
+  .about-hero { min-height: 32vh !important; }
 }

@@ -1,3 +1,93 @@
+// Hero Media Slideshow (image → video → image → video → ...)
+(function() {
+  var items = Array.prototype.slice.call(document.querySelectorAll('.hero-slide-item'));
+  if (!items.length) return;
+
+  var FADE = 2.0;      // seconds for each crossfade
+  var IMG_SHOW = 7000; // ms each image stays at full opacity
+  var KB_VARIANTS = ['kenburns-in', 'kenburns-out']; // alternate Ken Burns directions
+  var kbIndex = 0;
+  var current = 0;
+  var fading = false;
+  var imgTimer = null;
+
+  // Apply smoother easing to all items
+  items.forEach(function(item) {
+    item.style.transition = 'opacity ' + FADE + 's cubic-bezier(0.4, 0, 0.2, 1)';
+  });
+
+  function startKenBurns(img) {
+    var variant = KB_VARIANTS[kbIndex % KB_VARIANTS.length];
+    kbIndex++;
+    img.style.animation = 'none';
+    img.offsetHeight; // force reflow to restart animation
+    img.style.animation = variant + ' ' + ((IMG_SHOW + FADE * 1000) / 1000) + 's ease-in-out forwards';
+  }
+
+  function stopKenBurns(img) {
+    img.style.animation = 'none';
+  }
+
+  function goTo(nextIndex) {
+    if (fading) return;
+    fading = true;
+    clearTimeout(imgTimer);
+
+    var prev = current;
+    current = nextIndex;
+
+    // Fade out and clean up previous
+    items[prev].style.opacity = '0';
+    if (items[prev].tagName === 'VIDEO') {
+      items[prev].pause();
+    } else {
+      stopKenBurns(items[prev]);
+    }
+
+    // Fade in next simultaneously
+    var next = items[current];
+    if (next.tagName === 'VIDEO') {
+      next.currentTime = 0;
+      next.play();
+    } else {
+      startKenBurns(next);
+    }
+    next.style.opacity = '0.45';
+
+    setTimeout(function() {
+      fading = false;
+      scheduleNext();
+    }, FADE * 1000 + 300);
+  }
+
+  function scheduleNext() {
+    var item = items[current];
+    if (item.tagName !== 'VIDEO') {
+      imgTimer = setTimeout(function() {
+        goTo((current + 1) % items.length);
+      }, IMG_SHOW);
+    }
+    // Video transition handled by timeupdate below
+  }
+
+  // Fade out video near its end and move to next slide
+  items.forEach(function(item, idx) {
+    if (item.tagName !== 'VIDEO') return;
+    item.addEventListener('timeupdate', function() {
+      if (!item.duration || fading || current !== idx) return;
+      if (item.duration - item.currentTime <= FADE + 0.5) {
+        goTo((current + 1) % items.length);
+      }
+    });
+  });
+
+  // Start — kick off Ken Burns on first image immediately
+  var first = items[0];
+  if (first.tagName === 'IMG') startKenBurns(first);
+  first.style.opacity = '0.45';
+  scheduleNext();
+})();
+
 // Hero Background Slideshow
 (function() {
   const slides = document.querySelectorAll('.hero-slide');
@@ -113,7 +203,17 @@
   track.addEventListener('mouseleave', () => { autoPlay = setInterval(goToNext, 2000); });
 
   buildDots();
-  window.addEventListener('resize', () => { buildDots(); goTo(0); });
+
+  // Equalise card heights so all slides align
+  function equaliseHeights() {
+    var slideEls = Array.prototype.slice.call(document.querySelectorAll('.carousel-slide'));
+    slideEls.forEach(function(s) { s.style.height = 'auto'; });
+    var maxH = slideEls.reduce(function(m, s) { return Math.max(m, s.offsetHeight); }, 0);
+    slideEls.forEach(function(s) { s.style.height = maxH + 'px'; });
+  }
+
+  window.addEventListener('load', equaliseHeights);
+  window.addEventListener('resize', function() { buildDots(); goTo(0); equaliseHeights(); });
 })();
 
 // Mobile Menu Toggle
