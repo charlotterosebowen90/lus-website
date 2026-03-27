@@ -191,6 +191,40 @@ document.querySelectorAll('.mobile-submenu-toggle').forEach(toggle => {
   });
 });
 
+// Stats — fade-in entrance + count-up on scroll into view
+(function() {
+  var items = document.querySelectorAll('.stat-item');
+  if (!items.length) return;
+
+  function countUp(el) {
+    var target = parseInt(el.getAttribute('data-target'), 10);
+    var suffix = el.getAttribute('data-suffix') || '';
+    var duration = 1400;
+    var start = performance.now();
+    function step(now) {
+      var progress = Math.min((now - start) / duration, 1);
+      var ease = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+      el.textContent = Math.round(ease * target) + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (!entry.isIntersecting) return;
+      var item = entry.target;
+      item.style.opacity = '1';
+      item.style.transform = 'translateY(0)';
+      var numEl = item.querySelector('.stat-number');
+      if (numEl) countUp(numEl);
+      observer.unobserve(item);
+    });
+  }, { threshold: 0.3 });
+
+  items.forEach(function(item) { observer.observe(item); });
+})();
+
 // Sticky Header
 const header = document.getElementById('header');
 let lastScroll = 0;
@@ -199,9 +233,9 @@ window.addEventListener('scroll', () => {
   const currentScroll = window.pageYOffset;
 
   if (currentScroll > 100) {
-    header.classList.add('shadow-lg', 'bg-white/95', 'backdrop-blur-sm');
+    header.classList.add('shadow-lg');
   } else {
-    header.classList.remove('shadow-lg', 'bg-white/95', 'backdrop-blur-sm');
+    header.classList.remove('shadow-lg');
   }
 
   lastScroll = currentScroll;
