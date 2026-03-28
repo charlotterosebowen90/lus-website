@@ -1,3 +1,36 @@
+// Contact Header Video — smooth fade-in and gentle loop crossfade
+(function() {
+  var video = document.getElementById('contact-hero-video');
+  if (!video) return;
+
+  var TARGET   = 0.4;
+  var DIP      = 0.1;
+  var DIP_LEAD = 2.2;
+  var dipping  = false;
+
+  video.play().catch(function() {});
+
+  video.addEventListener('playing', function() {
+    video.style.transition = 'opacity 3s ease';
+    video.style.opacity = TARGET;
+  }, { once: true });
+
+  video.addEventListener('timeupdate', function() {
+    if (!video.duration) return;
+    var remaining = video.duration - video.currentTime;
+    if (!dipping && remaining <= DIP_LEAD) {
+      dipping = true;
+      video.style.transition = 'opacity 1.8s ease-in-out';
+      video.style.opacity = DIP;
+    }
+    if (dipping && video.currentTime < 0.4) {
+      dipping = false;
+      video.style.transition = 'opacity 2.5s ease-in-out';
+      video.style.opacity = TARGET;
+    }
+  });
+})();
+
 // Hero Video — smooth fade-in and gentle loop crossfade
 (function() {
   var video = document.getElementById('hero-video');
@@ -279,13 +312,24 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
+// Restrict preferred date to today or later
+(function() {
+  var dateInput = document.getElementById('preferredDate');
+  if (!dateInput) return;
+  var today = new Date();
+  var yyyy = today.getFullYear();
+  var mm = String(today.getMonth() + 1).padStart(2, '0');
+  var dd = String(today.getDate()).padStart(2, '0');
+  dateInput.setAttribute('min', yyyy + '-' + mm + '-' + dd);
+})();
+
 // Form validation (placeholder)
 const contactForm = document.getElementById('contact-form');
 if (contactForm) {
   contactForm.addEventListener('submit', function(e) {
     e.preventDefault();
-    // Placeholder - form submission logic would go here
-    alert('Thank you for your message. We will be in touch shortly.');
+    document.getElementById('form-submit-area').style.display = 'none';
+    document.getElementById('form-success').style.display = 'block';
     this.reset();
   });
 }
