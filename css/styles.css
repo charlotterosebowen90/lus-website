@@ -2076,6 +2076,37 @@ body {
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4) !important;
 }
 
+/* Insurer pill badges */
+.insurer-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 1.1rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  font-size: 0.85rem;
+  background: #0f2a4a;
+  color: #ffffff;
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 2px 8px rgba(15,42,74,0.25), inset 0 1px 0 rgba(255,255,255,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+.insurer-pill:hover {
+  transform: translateY(-2px);
+  background: #1b76c5;
+  box-shadow: 0 6px 16px rgba(27,118,197,0.35);
+}
+
+/* Insurance / self-pay cards */
+.insurance-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+}
+.insurance-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+}
+
 /* Consultant card redesign */
 .consultant-card {
   border-radius: 0.875rem;
