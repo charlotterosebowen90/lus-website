@@ -312,6 +312,18 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
+// Hide mobile call button when submit button is visible
+(function() {
+  var callBtn = document.getElementById('mobile-call-btn');
+  var submitArea = document.getElementById('form-submit-area');
+  if (!callBtn || !submitArea) return;
+  var obs = new IntersectionObserver(function(entries) {
+    callBtn.style.opacity = entries[0].isIntersecting ? '0' : '1';
+    callBtn.style.pointerEvents = entries[0].isIntersecting ? 'none' : 'auto';
+  }, { threshold: 0.5 });
+  obs.observe(submitArea);
+})();
+
 // Restrict preferred date to today or later
 (function() {
   var dateInput = document.getElementById('preferredDate');
