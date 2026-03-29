@@ -213,8 +213,8 @@ ou<!DOCTYPE html>
 
   <!-- Page Header -->
   <section class="relative" style="background-color:#0f1f35;min-height:48vh;display:flex;align-items:flex-end;padding-top:8rem;padding-bottom:3.5rem;">
-    <img src="assets/Images/iStock-2183708450.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:0.35;">
-    <div class="absolute inset-0" style="background:linear-gradient(to bottom right,rgba(15,26,53,0.7) 0%,rgba(15,26,53,0.4) 60%,rgba(27,118,197,0.25) 100%);"></div>
+    <img src="assets/Images/iStock-2183708450.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:0.45;">
+    <div class="absolute inset-0" style="background:linear-gradient(to bottom right,rgba(15,26,53,0.55) 0%,rgba(15,26,53,0.3) 60%,rgba(27,118,197,0.15) 100%);"></div>
     <div class="container-custom relative" style="z-index:2;">
       <nav class="text-sm text-gray-400 mb-4">
         <a href="index.html" class="hover:text-white">Home</a>
@@ -227,10 +227,11 @@ ou<!DOCTYPE html>
   </section>
 
   <!-- What to Expect -->
-  <section class="section-padding bg-white">
+  <section class="section-padding" style="background-color:#fff;background-image:radial-gradient(circle,#e5e7eb 1px,transparent 1px);background-size:24px 24px;">
     <div class="container-custom">
       <div class="max-w-4xl mx-auto">
-        <h2 class="text-3xl font-bold text-dark mb-12">What to Expect</h2>
+        <h2 class="text-3xl font-bold text-dark mb-3">What to Expect</h2>
+        <div style="width:3rem;height:3px;background:#1b76c5;border-radius:9999px;margin-bottom:2.5rem;"></div>
 
         <!-- Timeline -->
         <div style="position:relative;">
@@ -286,7 +287,8 @@ ou<!DOCTYPE html>
     <div class="container-custom">
       <div class="max-w-4xl mx-auto">
         <hr style="border:none;border-top:1px solid #e5e7eb;margin-bottom:3rem;">
-        <h2 class="text-3xl font-bold text-dark mb-8">Insurance & Payment</h2>
+        <h2 class="text-3xl font-bold text-dark mb-3">Insurance & Payment</h2>
+        <div style="width:3rem;height:3px;background:#1b76c5;border-radius:9999px;margin-bottom:2rem;"></div>
 
         <div class="grid md:grid-cols-2 gap-8 mb-12">
           <div class="p-8 rounded-xl shadow-lg insurance-card" style="background:linear-gradient(135deg,#0f2a4a 0%,#1b4676 60%,#1b76c5 100%);">
@@ -347,13 +349,19 @@ ou<!DOCTYPE html>
     <div class="container-custom">
       <div class="max-w-4xl mx-auto">
         <hr style="border:none;border-top:1px solid #e5e7eb;margin-bottom:3rem;">
-        <h2 class="text-3xl font-bold text-dark mb-8">Frequently Asked Questions</h2>
+        <h2 class="text-3xl font-bold text-dark mb-3">Frequently Asked Questions</h2>
+        <div style="width:3rem;height:3px;background:#1b76c5;border-radius:9999px;margin-bottom:2rem;"></div>
 
         <div class="space-y-4">
           <!-- FAQ Item 1 -->
           <div class="faq-item border border-gray-200 rounded-xl overflow-hidden">
             <button class="faq-toggle w-full flex justify-between items-center p-6 text-left bg-white hover:bg-gray-50 transition-colors">
-              <span class="font-semibold text-dark pr-8">Do I need a GP referral to see a specialist?</span>
+              <div class="flex items-center gap-3 pr-8">
+                <div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style="background:#eff6ff;">
+                  <svg class="w-4 h-4" style="color:#1b76c5;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                </div>
+                <span class="font-semibold text-dark">Do I need a GP referral to see a specialist?</span>
+              </div>
               <svg class="faq-icon w-5 h-5 text-gray-500 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
               </svg>
@@ -367,7 +375,12 @@ ou<!DOCTYPE html>
           <!-- FAQ Item 2 -->
           <div class="faq-item border border-gray-200 rounded-xl overflow-hidden">
             <button class="faq-toggle w-full flex justify-between items-center p-6 text-left bg-white hover:bg-gray-50 transition-colors">
-              <span class="font-semibold text-dark pr-8">How quickly can I get an appointment?</span>
+              <div class="flex items-center gap-3 pr-8">
+                <div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style="background:#eff6ff;">
+                  <svg class="w-4 h-4" style="color:#1b76c5;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                </div>
+                <span class="font-semibold text-dark">How quickly can I get an appointment?</span>
+              </div>
               <svg class="faq-icon w-5 h-5 text-gray-500 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
               </svg>
@@ -381,7 +394,10 @@ ou<!DOCTYPE html>
           <!-- FAQ Item 3 -->
           <div class="faq-item border border-gray-200 rounded-xl overflow-hidden">
             <button class="faq-toggle w-full flex justify-between items-center p-6 text-left bg-white hover:bg-gray-50 transition-colors">
-              <span class="font-semibold text-dark pr-8">How much does a consultation cost?</span>
+              <div class="flex items-center gap-3 pr-8">
+                <div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style="background:#eff6ff;font-size:1rem;font-weight:700;color:#1b76c5;">£</div>
+                <span class="font-semibold text-dark">How much does a consultation cost?</span>
+              </div>
               <svg class="faq-icon w-5 h-5 text-gray-500 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
               </svg>
@@ -398,7 +414,12 @@ ou<!DOCTYPE html>
           <!-- FAQ Item 4 -->
           <div class="faq-item border border-gray-200 rounded-xl overflow-hidden">
             <button class="faq-toggle w-full flex justify-between items-center p-6 text-left bg-white hover:bg-gray-50 transition-colors">
-              <span class="font-semibold text-dark pr-8">What should I bring to my first appointment?</span>
+              <div class="flex items-center gap-3 pr-8">
+                <div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style="background:#eff6ff;">
+                  <svg class="w-4 h-4" style="color:#1b76c5;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+                </div>
+                <span class="font-semibold text-dark">What should I bring to my first appointment?</span>
+              </div>
               <svg class="faq-icon w-5 h-5 text-gray-500 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
               </svg>
@@ -418,7 +439,12 @@ ou<!DOCTYPE html>
           <!-- FAQ Item 5 -->
           <div class="faq-item border border-gray-200 rounded-xl overflow-hidden">
             <button class="faq-toggle w-full flex justify-between items-center p-6 text-left bg-white hover:bg-gray-50 transition-colors">
-              <span class="font-semibold text-dark pr-8">Can I have tests done on the same day as my consultation?</span>
+              <div class="flex items-center gap-3 pr-8">
+                <div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style="background:#eff6ff;">
+                  <svg class="w-4 h-4" style="color:#1b76c5;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+                </div>
+                <span class="font-semibold text-dark">Can I have tests done on the same day as my consultation?</span>
+              </div>
               <svg class="faq-icon w-5 h-5 text-gray-500 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
               </svg>
