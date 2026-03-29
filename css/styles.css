@@ -2097,8 +2097,16 @@ body {
 }
 .insurer-pill:hover {
   transform: translateY(-2px);
-  background: #1b76c5;
+  background: linear-gradient(135deg, #1b4676 0%, #1b76c5 100%);
   box-shadow: 0 6px 16px rgba(27,118,197,0.35);
+}
+
+.faq-item {
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.faq-item.faq-open {
+  border-left: 3px solid #1b76c5;
+  box-shadow: 0 4px 16px rgba(27,118,197,0.1);
 }
 
 /* Insurance / self-pay cards */

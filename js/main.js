@@ -284,6 +284,7 @@ document.querySelectorAll('.faq-toggle').forEach(toggle => {
     document.querySelectorAll('.faq-content').forEach(item => {
       if (item !== content) {
         item.classList.add('hidden');
+        item.closest('.faq-item')?.classList.remove('faq-open');
       }
     });
 
@@ -295,6 +296,7 @@ document.querySelectorAll('.faq-toggle').forEach(toggle => {
 
     content.classList.toggle('hidden');
     icon.classList.toggle('rotate-180');
+    this.closest('.faq-item')?.classList.toggle('faq-open');
   });
 });
 
