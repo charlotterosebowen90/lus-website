@@ -253,6 +253,21 @@
             </div>
 
             <div>
+              <label for="consultant" class="block text-sm font-medium text-dark mb-2">Which consultant would you like to see?</label>
+              <select id="consultant" name="consultant" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all">
+                <option value="">No preference</option>
+                <option value="mr-khoubehi">Mr Bijan Khoubehi</option>
+                <option value="prof-emberton">Prof Mark Emberton</option>
+                <option value="mr-cathcart">Mr Paul Cathcart</option>
+                <option value="mr-ockrim">Mr Jeremy Ockrim</option>
+                <option value="mr-nobrega">Mr Richard Nobrega</option>
+                <option value="mr-noah">Mr Anthony Noah</option>
+                <option value="prof-orczyk">Prof Clément Orczyk</option>
+                <option value="mr-coscione">Mr Alberto Coscione</option>
+              </select>
+            </div>
+
+            <div>
               <label for="referral" class="block text-sm font-medium text-dark mb-2">How did you hear about us?</label>
               <select id="referral" name="referral" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all">
                 <option value="">Please select...</option>
@@ -263,21 +278,6 @@
                 <option value="consultant">Hospital/Consultant Recommendation</option>
                 <option value="other">Other</option>
               </select>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-6">
-              <div>
-                <label for="preferredDate" class="block text-sm font-medium text-dark mb-2">Preferred Date</label>
-                <input type="date" id="preferredDate" name="preferredDate" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all">
-              </div>
-              <div>
-                <label for="preferredTime" class="block text-sm font-medium text-dark mb-2">Preferred Time</label>
-                <select id="preferredTime" name="preferredTime" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all">
-                  <option value="">No preference</option>
-                  <option value="morning">Morning (9am – 12pm)</option>
-                  <option value="afternoon">Afternoon (12pm – 5pm)</option>
-                </select>
-              </div>
             </div>
 
             <div>
@@ -390,7 +390,7 @@
   </section>
 
   <!-- Transport Info -->
-  <section class="section-padding bg-gray-50">
+  <section class="bg-gray-50" style="padding-top:2rem;padding-bottom:4rem;">
     <div class="container-custom">
       <hr style="border:none;border-top:1px solid #e5e7eb;margin-bottom:3rem;">
       <h2 class="text-2xl font-bold text-dark mb-3 text-center">How to Find Us</h2>
@@ -425,6 +425,66 @@
           <h3 class="font-semibold mb-2" style="color:#ffffff;">By Car</h3>
           <p class="text-sm" style="color:rgba(255,255,255,0.7);">NCP London Portland Place<br>(Weymouth Mews, W1B 1QE)<br>Q-Park Oxford Street (Cavendish Square)</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Also Practise At -->
+  <section class="bg-white" style="padding-top:2rem;padding-bottom:4rem;">
+    <div class="container-custom">
+      <hr style="border:none;border-top:1px solid #e5e7eb;margin-bottom:3rem;">
+      <h2 class="text-2xl font-bold text-dark mb-3 text-center">Where Else We Practise</h2>
+      <p class="text-center text-gray-500 mb-16">In addition to our main clinic at 18 Devonshire Street, our consultants also practise across a number of London's leading private hospitals.</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <div class="rounded-xl p-6 text-center insurance-card" style="background:#0f2a4a;border:1px solid #0f2a4a;">
+          <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4 mx-auto" style="background:rgba(255,255,255,0.12);">
+            <svg class="w-6 h-6" style="color:#fff;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+          </div>
+          <h3 class="font-semibold mb-1" style="font-size:0.9rem;color:#fff;">St John &amp; St Elizabeth Hospital</h3>
+          <p class="text-sm mb-3" style="color:rgba(255,255,255,0.65);">60 Grove End Road, London, NW8 9NH</p>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=60+Grove+End+Road+London+NW8+9NH" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.3rem;font-size:0.8rem;color:#fff;opacity:0.85;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.4);">
+            <svg style="width:12px;height:12px;flex-shrink:0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            Get Directions
+          </a>
+        </div>
+
+        <div class="rounded-xl p-6 text-center insurance-card" style="background:#1b4676;border:1px solid #1b4676;">
+          <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4 mx-auto" style="background:rgba(255,255,255,0.12);">
+            <svg class="w-6 h-6" style="color:#fff;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+          </div>
+          <h3 class="font-semibold mb-1" style="font-size:0.9rem;color:#fff;">Welbeck London</h3>
+          <p class="text-sm mb-3" style="color:rgba(255,255,255,0.65);">1 Welbeck Street, London, W1G 0AR</p>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=1+Welbeck+Street+London+W1G+0AR" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.3rem;font-size:0.8rem;color:#fff;opacity:0.85;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.4);">
+            <svg style="width:12px;height:12px;flex-shrink:0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            Get Directions
+          </a>
+        </div>
+
+        <div class="rounded-xl p-6 text-center insurance-card" style="background:#1b5fa0;border:1px solid #1b5fa0;">
+          <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4 mx-auto" style="background:rgba(255,255,255,0.12);">
+            <svg class="w-6 h-6" style="color:#fff;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+          </div>
+          <h3 class="font-semibold mb-1" style="font-size:0.9rem;color:#fff;">Chelsea Outpatient Centre</h3>
+          <p class="text-sm mb-3" style="color:rgba(255,255,255,0.65);">280 King's Road, London, SW3 5AW</p>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=280+Kings+Road+London+SW3+5AW" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.3rem;font-size:0.8rem;color:#fff;opacity:0.85;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.4);">
+            <svg style="width:12px;height:12px;flex-shrink:0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            Get Directions
+          </a>
+        </div>
+
+        <div class="rounded-xl p-6 text-center insurance-card" style="background:#1b76c5;border:1px solid #1b76c5;">
+          <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4 mx-auto" style="background:rgba(255,255,255,0.12);">
+            <svg class="w-6 h-6" style="color:#fff;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+          </div>
+          <h3 class="font-semibold mb-1" style="font-size:0.9rem;color:#fff;">Cleveland Clinic London</h3>
+          <p class="text-sm mb-3" style="color:rgba(255,255,255,0.65);">33 Grosvenor Place, London, SW1X 7HY</p>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=33+Grosvenor+Place+London+SW1X+7HY" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.3rem;font-size:0.8rem;color:#fff;opacity:0.85;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.4);">
+            <svg style="width:12px;height:12px;flex-shrink:0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            Get Directions
+          </a>
+        </div>
+
       </div>
     </div>
   </section>

@@ -324,17 +324,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   obs.observe(submitArea);
 })();
 
-// Restrict preferred date to today or later
-(function() {
-  var dateInput = document.getElementById('preferredDate');
-  if (!dateInput) return;
-  var today = new Date();
-  var yyyy = today.getFullYear();
-  var mm = String(today.getMonth() + 1).padStart(2, '0');
-  var dd = String(today.getDate()).padStart(2, '0');
-  dateInput.setAttribute('min', yyyy + '-' + mm + '-' + dd);
-})();
-
 // Form validation (placeholder)
 const contactForm = document.getElementById('contact-form');
 if (contactForm) {
