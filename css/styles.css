@@ -2223,6 +2223,9 @@ body {
   /* Stats — single column on mobile */
   .stats-grid { grid-template-columns: 1fr !important; gap: 1.25rem; }
 
+  /* Review carousel — hide dots on mobile to prevent horizontal overflow */
+  #review-dots { display: none !important; }
+
   /* Section padding — reduce on mobile */
   .section-padding { padding-top: 3rem; padding-bottom: 3rem; }
 
