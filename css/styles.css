@@ -2089,7 +2089,7 @@ body {
   border-radius: 9999px;
   font-weight: 500;
   font-size: 0.85rem;
-  background: #0f2a4a;
+  background: linear-gradient(135deg, #0f2a4a 0%, #1b4676 60%, #1b76c5 100%);
   color: #ffffff;
   border: 1px solid rgba(255,255,255,0.1);
   box-shadow: 0 2px 8px rgba(15,42,74,0.25), inset 0 1px 0 rgba(255,255,255,0.08);
