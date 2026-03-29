@@ -2277,3 +2277,11 @@ body {
 .rounded-3xl { border-radius: 3rem;    corner-shape: squircle; }
 .card        { border-radius: 1.5rem;  corner-shape: squircle; }
 .consultant-card { border-radius: 1.75rem; corner-shape: squircle; }
+
+.condition-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.condition-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(27, 118, 197, 0.35);
+}
