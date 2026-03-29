@@ -2111,6 +2111,9 @@ body {
   border-left: 3px solid #1b76c5;
   box-shadow: 0 4px 16px rgba(27,118,197,0.1);
 }
+.faq-item.faq-open .faq-content {
+  background: #f0f7ff;
+}
 
 /* Insurance / self-pay cards */
 .insurance-card {
