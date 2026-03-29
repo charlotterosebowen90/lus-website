@@ -2115,6 +2115,11 @@ body {
   background: #f0f7ff;
 }
 
+/* Clinic overview image hover */
+.clinic-image-wrap:hover img {
+  transform: scale(1.05);
+}
+
 /* Insurance / self-pay cards */
 .insurance-card {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
