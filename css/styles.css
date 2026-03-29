@@ -2188,6 +2188,11 @@ body {
   #header .text-2xl { font-size: 1.1rem; }
 }
 
+/* Stats box squircle */
+.stats {
+  corner-shape: squircle;
+}
+
 /* Why Choose Us — reduce gap on mobile */
 @media (max-width: 1023px) {
   .grid.lg\:grid-cols-2.gap-16 { gap: 2rem; }
