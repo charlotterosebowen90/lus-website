@@ -238,11 +238,11 @@ ou<!DOCTYPE html>
           <div style="position:absolute;left:23px;top:24px;bottom:24px;width:2px;background:linear-gradient(to bottom,#1b76c5,#7bc7ef);z-index:0;"></div>
 
           <!-- Step 1 -->
-          <div style="position:relative;display:flex;gap:2rem;margin-bottom:2.5rem;z-index:1;">
+          <div class="timeline-step" style="position:relative;display:flex;margin-bottom:2.5rem;z-index:1;">
             <div style="flex-shrink:0;">
               <div style="width:48px;height:48px;border-radius:50%;background:#1b76c5;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:1.1rem;box-shadow:0 0 0 4px #fff,0 0 0 6px #1b76c5;">1</div>
             </div>
-            <div class="insurance-card" style="background:#f8fafc;border:1px solid #e5e7eb;border-radius:2rem;corner-shape:squircle;padding:1.75rem 2rem;flex:1;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+            <div class="insurance-card timeline-card" style="background:#f8fafc;border:1px solid #e5e7eb;border-left:4px solid #1b76c5;border-radius:2rem;corner-shape:squircle;padding:1.75rem 2rem;flex:1;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
               <h3 style="font-size:1.15rem;font-weight:600;color:#0f2a4a;margin-bottom:0.75rem;">Before Your Appointment</h3>
               <p style="color:#4b5563;line-height:1.75;margin-bottom:0.75rem;">Upon confirmation of your appointment, you will receive a detailed email with all the information you need ahead of your visit.</p>
               <p style="color:#4b5563;line-height:1.75;margin-bottom:0.75rem;">To support a seamless and highly focused consultation, we will ask you to provide a referral letter or a brief summary of your medical history and current symptoms in advance.</p>
@@ -251,11 +251,11 @@ ou<!DOCTYPE html>
           </div>
 
           <!-- Step 2 -->
-          <div style="position:relative;display:flex;gap:2rem;margin-bottom:2.5rem;z-index:1;">
+          <div class="timeline-step" style="position:relative;display:flex;margin-bottom:2.5rem;z-index:1;">
             <div style="flex-shrink:0;">
               <div style="width:48px;height:48px;border-radius:50%;background:#1b76c5;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:1.1rem;box-shadow:0 0 0 4px #fff,0 0 0 6px #1b76c5;">2</div>
             </div>
-            <div class="insurance-card" style="background:#f8fafc;border:1px solid #e5e7eb;border-radius:2rem;corner-shape:squircle;padding:1.75rem 2rem;flex:1;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+            <div class="insurance-card timeline-card" style="background:#f8fafc;border:1px solid #e5e7eb;border-left:4px solid #1b76c5;border-radius:2rem;corner-shape:squircle;padding:1.75rem 2rem;flex:1;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
               <h3 style="font-size:1.15rem;font-weight:600;color:#0f2a4a;margin-bottom:0.75rem;">During Your Consultation</h3>
               <p style="color:#4b5563;line-height:1.75;margin-bottom:0.75rem;">Your initial consultation typically lasts approximately 30 minutes. During this time, your consultant will take a comprehensive medical history, discuss your symptoms in detail, and, where clinically appropriate, carry out a physical examination.</p>
               <p style="color:#4b5563;line-height:1.75;margin-bottom:0.75rem;">Diagnostic tests or imaging may be arranged following your consultation, either on the same day where feasible or at a time that is convenient for you.</p>
@@ -264,11 +264,11 @@ ou<!DOCTYPE html>
           </div>
 
           <!-- Step 3 -->
-          <div style="position:relative;display:flex;gap:2rem;z-index:1;">
+          <div class="timeline-step" style="position:relative;display:flex;z-index:1;">
             <div style="flex-shrink:0;">
               <div style="width:48px;height:48px;border-radius:50%;background:#1b76c5;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:1.1rem;box-shadow:0 0 0 4px #fff,0 0 0 6px #1b76c5;">3</div>
             </div>
-            <div class="insurance-card" style="background:#f8fafc;border:1px solid #e5e7eb;border-radius:2rem;corner-shape:squircle;padding:1.75rem 2rem;flex:1;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+            <div class="insurance-card timeline-card" style="background:#f8fafc;border:1px solid #e5e7eb;border-left:4px solid #1b76c5;border-radius:2rem;corner-shape:squircle;padding:1.75rem 2rem;flex:1;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
               <h3 style="font-size:1.15rem;font-weight:600;color:#0f2a4a;margin-bottom:0.75rem;">After Your Appointment</h3>
               <p style="color:#4b5563;line-height:1.75;margin-bottom:0.75rem;">Following your consultation, you will receive a detailed letter summarising the findings and recommended treatment plan. With your consent, this will also be shared with your GP and any other relevant healthcare professionals.</p>
               <p style="color:#4b5563;line-height:1.75;margin-bottom:0.75rem;">Our team will arrange any follow-up appointments, tests, or procedures as discussed with your consultant.</p>
@@ -324,7 +324,7 @@ ou<!DOCTYPE html>
           </div>
         </div>
 
-        <div class="p-8 rounded-xl shadow-lg text-center" style="background:linear-gradient(135deg,#0f2a4a 0%,#1b4676 60%,#1b76c5 100%);">
+        <div class="p-8 shadow-lg text-center" style="background:linear-gradient(135deg,#0f2a4a 0%,#1b4676 60%,#1b76c5 100%);border-radius:2rem;corner-shape:squircle;">
           <h3 class="text-xl font-semibold mb-6" style="color:#fff;">Insurance Partners</h3>
           <p class="mb-6" style="color:rgba(255,255,255,0.75);">We work with all major insurance providers including:</p>
           <div class="flex flex-wrap gap-3 justify-center">
