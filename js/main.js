@@ -155,11 +155,11 @@
   }
 
   // Auto-advance every 4 seconds
-  let autoPlay = setInterval(goToNext, 4000);
+  let autoPlay = setInterval(goToNext, 3000);
 
   function resetAutoPlay() {
     clearInterval(autoPlay);
-    autoPlay = setInterval(goToNext, 4000);
+    autoPlay = setInterval(goToNext, 3000);
   }
 
   prevBtn.addEventListener('click', () => { goTo(current - 1); resetAutoPlay(); });
@@ -167,7 +167,7 @@
 
   // Pause on hover
   track.addEventListener('mouseenter', () => clearInterval(autoPlay));
-  track.addEventListener('mouseleave', () => { autoPlay = setInterval(goToNext, 4000); });
+  track.addEventListener('mouseleave', () => { autoPlay = setInterval(goToNext, 3000); });
 
   buildDots();
 
