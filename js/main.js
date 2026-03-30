@@ -326,13 +326,39 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   obs.observe(submitArea);
 })();
 
-// Form validation (placeholder)
+// Contact form — Formspree submission
 const contactForm = document.getElementById('contact-form');
 if (contactForm) {
-  contactForm.addEventListener('submit', function(e) {
+  contactForm.addEventListener('submit', async function(e) {
     e.preventDefault();
-    document.getElementById('form-submit-area').style.display = 'none';
-    document.getElementById('form-success').style.display = 'block';
-    this.reset();
+    const submitArea = document.getElementById('form-submit-area');
+    const successMsg = document.getElementById('form-success');
+    const errorMsg = document.getElementById('form-error');
+    const submitBtn = submitArea.querySelector('button[type="submit"]');
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+
+    try {
+      const response = await fetch(contactForm.action, {
+        method: 'POST',
+        body: new FormData(contactForm),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        submitArea.style.display = 'none';
+        errorMsg.style.display = 'none';
+        successMsg.style.display = 'block';
+        contactForm.reset();
+      } else {
+        const data = await response.json();
+        throw new Error(data.error || 'Submission failed');
+      }
+    } catch (err) {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = 'Submit Enquiry <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>';
+      errorMsg.style.display = 'block';
+    }
   });
 }
