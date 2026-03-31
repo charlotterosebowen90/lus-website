@@ -2107,6 +2107,10 @@ body {
 .faq-item {
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
+.faq-item:hover {
+  border-left: 3px solid #93c5fd;
+  box-shadow: 0 2px 10px rgba(27,118,197,0.08);
+}
 .faq-item.faq-open {
   border-left: 3px solid #1b76c5;
   box-shadow: 0 4px 16px rgba(27,118,197,0.1);
