@@ -2285,3 +2285,20 @@ body {
   transform: translateY(-6px);
   box-shadow: 0 20px 40px rgba(27, 118, 197, 0.35);
 }
+
+.approach-card {
+  padding: 2rem 1.5rem;
+  border-radius: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+.approach-card:hover {
+  transform: translateY(-6px);
+  background: #f0f7ff;
+  box-shadow: 0 12px 30px rgba(27, 118, 197, 0.12);
+}
+.approach-card:hover .approach-icon {
+  background: #10b981 !important;
+}
+.approach-card:hover .approach-icon svg {
+  color: #fff !important;
+}
