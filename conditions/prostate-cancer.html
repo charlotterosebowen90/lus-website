@@ -16,10 +16,40 @@
     .info-card { background:#f0fdf4; border:1px solid #a7f3d0; border-radius:1rem; padding:1.5rem; }
     .treatment-card { background:#fff; border:1px solid #e5e7eb; border-radius:1rem; padding:1.5rem 2rem; box-shadow:0 2px 8px rgba(0,0,0,0.04); transition:transform 0.2s ease, box-shadow 0.2s ease; }
     .treatment-card:hover { transform:translateY(-3px); box-shadow:0 8px 24px rgba(16,185,129,0.12); }
-    .stat-card { text-align:center; padding:1.75rem 1.25rem; border-radius:1.25rem; background:#fff; box-shadow:0 4px 16px rgba(0,0,0,0.06); }
+    .stat-card { text-align:center; padding:1.75rem 1.25rem; border-radius:1.25rem; background:#fff; box-shadow:0 4px 16px rgba(0,0,0,0.06); transition:transform 0.2s ease, box-shadow 0.2s ease; }
+    .stat-card:hover { transform:translateY(-3px); box-shadow:0 8px 24px rgba(16,185,129,0.15); }
+    .risk-card { transition:transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease; }
+    .risk-card:hover { transform:translateY(-2px); box-shadow:0 4px 16px rgba(16,185,129,0.1); border-color:#a7f3d0 !important; }
+    .content-card { transition:transform 0.2s ease, box-shadow 0.2s ease; }
+    .content-card:hover { transform:translateY(-2px); box-shadow:0 4px 16px rgba(16,185,129,0.1); }
+    .pill-card { transition:transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease; }
+    .pill-card:hover { transform:translateY(-2px); background:#dcfce7 !important; box-shadow:0 4px 12px rgba(16,185,129,0.15); }
+    .surveillance-item { transition:transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease; }
+    .surveillance-item:hover { transform:translateY(-2px); border-color:#a7f3d0 !important; box-shadow:0 4px 12px rgba(16,185,129,0.1); }
     .section-tag { display:inline-block; font-size:0.75rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#10b981; margin-bottom:0.75rem; }
     .subsection-heading { font-size:1.1rem; font-weight:600; color:#0f2a4a; margin-bottom:0.75rem; display:flex; align-items:center; gap:0.5rem; }
     .subsection-heading::before { content:''; display:inline-block; width:12px; height:12px; border-radius:50%; background:#10b981; flex-shrink:0; }
+
+    /* Scroll fade-in */
+    .fade-section { opacity:0; transform:translateY(22px); transition:opacity 0.6s ease, transform 0.6s ease; }
+    .fade-section.visible { opacity:1; transform:translateY(0); }
+
+    /* Accent line grow */
+    .accent-line { transform-origin:left center; transform:scaleX(0); opacity:0; }
+    .fade-section.visible .accent-line { animation:accentGrow 0.5s ease 0.2s both; }
+    @keyframes accentGrow { from { transform:scaleX(0); opacity:0; } to { transform:scaleX(1); opacity:1; } }
+
+    /* PSA awareness cards */
+    .psa-card { transition:transform 0.2s ease, box-shadow 0.2s ease; }
+    .psa-card:hover { transform:translateY(-2px); box-shadow:0 4px 16px rgba(16,185,129,0.2); }
+
+    /* Grading rows */
+    .grade-row { transition:transform 0.2s ease, box-shadow 0.2s ease; }
+    .grade-row:hover { transform:translateY(-1px); box-shadow:0 4px 16px rgba(0,0,0,0.08); }
+
+    /* Comparison table rows */
+    .compare-row { transition:background 0.15s ease; }
+    .compare-row:hover > td { background:#f0fdf4 !important; }
   </style>
 </head>
 <body class="font-poppins">
@@ -214,15 +244,15 @@
     <div class="container-custom">
       <div class="grid grid-cols-3 gap-6 max-w-3xl mx-auto">
         <div class="stat-card">
-          <div style="font-size:2.25rem;font-weight:700;color:#10b981;line-height:1;">41,000</div>
+          <div data-count="64000" style="font-size:2.25rem;font-weight:700;color:#10b981;line-height:1;">64,000</div>
           <div style="font-size:0.8rem;color:#6b7280;margin-top:0.4rem;">new cases diagnosed in the UK each year</div>
         </div>
         <div class="stat-card">
-          <div style="font-size:2.25rem;font-weight:700;color:#10b981;line-height:1;">1 in 6</div>
-          <div style="font-size:0.8rem;color:#6b7280;margin-top:0.4rem;">men will develop prostate cancer in their lifetime</div>
+          <div style="font-size:2.25rem;font-weight:700;color:#10b981;line-height:1;">1 in 8</div>
+          <div style="font-size:0.8rem;color:#6b7280;margin-top:0.4rem;">men will be diagnosed with prostate cancer in their lifetime</div>
         </div>
         <div class="stat-card">
-          <div style="font-size:2.25rem;font-weight:700;color:#10b981;line-height:1;">10,000</div>
+          <div data-count="12000" style="font-size:2.25rem;font-weight:700;color:#10b981;line-height:1;">12,000</div>
           <div style="font-size:0.8rem;color:#6b7280;margin-top:0.4rem;">deaths attributed to prostate cancer annually</div>
         </div>
       </div>
@@ -242,7 +272,34 @@
             <span class="section-tag">Overview</span>
             <h2 style="font-size:1.75rem;font-weight:700;color:#0f2a4a;margin-bottom:0.5rem;">About Prostate Cancer</h2>
             <div style="width:3rem;height:3px;background:#10b981;border-radius:9999px;margin-bottom:1.5rem;"></div>
-            <p style="color:#4b5563;line-height:1.8;margin-bottom:1rem;">Prostate cancer is the most common cancer in men in the UK. Early diagnosis and treatment can be curative, particularly for clinically significant disease detected at an early stage.</p>
+            <p style="color:#4b5563;line-height:1.8;margin-bottom:1.5rem;">Prostate cancer is the most common cancer in men in the UK, with more than 64,000 new cases diagnosed each year. The majority of cases are detected in men over the age of 50. While many prostate cancers grow slowly and may never cause significant harm, others are more aggressive and require prompt treatment. Early detection provides the best opportunity for curative management.</p>
+
+            <!-- PSA Awareness Callout -->
+            <div style="background:linear-gradient(135deg,#ecfdf5 0%,#f0fdf4 100%);border:1px solid #a7f3d0;border-radius:1.25rem;padding:1.75rem;">
+              <div style="display:flex;gap:1rem;align-items:flex-start;">
+                <div style="width:44px;height:44px;border-radius:0.75rem;background:#10b981;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                </div>
+                <div>
+                  <p style="font-weight:700;color:#065f46;font-size:1rem;margin-bottom:0.75rem;">Should you consider a PSA test?</p>
+                  <p style="color:#047857;font-size:0.9rem;line-height:1.7;margin-bottom:1rem;">There is no national screening programme for prostate cancer in the UK, but you can request a PSA blood test from your GP. You should consider asking about testing if you:</p>
+                  <div class="grid md:grid-cols-3 gap-3">
+                    <div style="background:rgba(255,255,255,0.7);border-radius:0.75rem;padding:1rem;border:1px solid #a7f3d0;">
+                      <p style="font-weight:600;color:#065f46;font-size:0.85rem;margin-bottom:0.25rem;">Age 50+</p>
+                      <p style="color:#047857;font-size:0.8rem;">All men regardless of symptoms</p>
+                    </div>
+                    <div style="background:rgba(255,255,255,0.7);border-radius:0.75rem;padding:1rem;border:1px solid #a7f3d0;">
+                      <p style="font-weight:600;color:#065f46;font-size:0.85rem;margin-bottom:0.25rem;">Age 45+ (Black men)</p>
+                      <p style="color:#047857;font-size:0.8rem;">1 in 4 Black men will develop prostate cancer in their lifetime</p>
+                    </div>
+                    <div style="background:rgba(255,255,255,0.7);border-radius:0.75rem;padding:1rem;border:1px solid #a7f3d0;">
+                      <p style="font-weight:600;color:#065f46;font-size:0.85rem;margin-bottom:0.25rem;">Age 45+ (Family history)</p>
+                      <p style="color:#047857;font-size:0.8rem;">Father or brother diagnosed with prostate cancer</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           <!-- Risk Factors -->
@@ -252,31 +309,31 @@
             <div style="width:3rem;height:3px;background:#10b981;border-radius:9999px;margin-bottom:1.5rem;"></div>
             <p style="color:#4b5563;line-height:1.8;margin-bottom:1.5rem;">Three well-established risk factors for prostate cancer are:</p>
             <div class="space-y-4 mb-6">
-              <div style="display:flex;gap:1rem;align-items:flex-start;padding:1.25rem 1.5rem;background:#f8fafc;border-radius:1rem;border:1px solid #e5e7eb;">
+              <div class="risk-card" style="display:flex;gap:1rem;align-items:flex-start;padding:1.25rem 1.5rem;background:#f8fafc;border-radius:1rem;border:1px solid #e5e7eb;">
                 <div style="width:40px;height:40px;border-radius:50%;background:#ecfdf5;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
                   <svg class="w-5 h-5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                 </div>
                 <div>
                   <p style="font-weight:600;color:#0f2a4a;margin-bottom:0.25rem;">Increasing Age</p>
-                  <p style="color:#6b7280;font-size:0.9rem;">Risk rises significantly with age.</p>
+                  <p style="color:#6b7280;font-size:0.9rem;">Prostate cancer is uncommon under the age of 50, and risk rises significantly thereafter.</p>
                 </div>
               </div>
-              <div style="display:flex;gap:1rem;align-items:flex-start;padding:1.25rem 1.5rem;background:#f8fafc;border-radius:1rem;border:1px solid #e5e7eb;">
+              <div class="risk-card" style="display:flex;gap:1rem;align-items:flex-start;padding:1.25rem 1.5rem;background:#f8fafc;border-radius:1rem;border:1px solid #e5e7eb;">
                 <div style="width:40px;height:40px;border-radius:50%;background:#ecfdf5;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
                   <svg class="w-5 h-5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
                 </div>
                 <div>
                   <p style="font-weight:600;color:#0f2a4a;margin-bottom:0.25rem;">Ethnic Origin</p>
-                  <p style="color:#6b7280;font-size:0.9rem;">Afro-Caribbean men have a higher risk; men of East Asian origin have a lower risk.</p>
+                  <p style="color:#6b7280;font-size:0.9rem;">Black men are at higher risk and may develop prostate cancer at a younger age. Men of East Asian origin have a lower risk.</p>
                 </div>
               </div>
-              <div style="display:flex;gap:1rem;align-items:flex-start;padding:1.25rem 1.5rem;background:#f8fafc;border-radius:1rem;border:1px solid #e5e7eb;">
+              <div class="risk-card" style="display:flex;gap:1rem;align-items:flex-start;padding:1.25rem 1.5rem;background:#f8fafc;border-radius:1rem;border:1px solid #e5e7eb;">
                 <div style="width:40px;height:40px;border-radius:50%;background:#ecfdf5;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
                   <svg class="w-5 h-5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
                 </div>
                 <div>
                   <p style="font-weight:600;color:#0f2a4a;margin-bottom:0.25rem;">Family History</p>
-                  <p style="color:#6b7280;font-size:0.9rem;">Increased risk if a father, brother, or paternal uncle has had prostate cancer.</p>
+                  <p style="color:#6b7280;font-size:0.9rem;">A first-degree relative (father or brother) with prostate cancer increases risk. BRCA2 gene mutations are also associated with a higher risk of more aggressive disease.</p>
                 </div>
               </div>
             </div>
@@ -288,13 +345,14 @@
             <span class="section-tag">Symptoms</span>
             <h2 style="font-size:1.75rem;font-weight:700;color:#0f2a4a;margin-bottom:0.5rem;">Symptoms of Prostate Cancer</h2>
             <div style="width:3rem;height:3px;background:#10b981;border-radius:9999px;margin-bottom:1.5rem;"></div>
-            <p style="color:#4b5563;line-height:1.8;margin-bottom:1.5rem;">Localised prostate cancer is typically asymptomatic, particularly in its early stages, and may remain undetected for many years. When symptoms do occur, they are often related to urinary function and may include:</p>
+            <p style="color:#4b5563;line-height:1.8;margin-bottom:1.5rem;">Early-stage prostate cancer is often asymptomatic and may be detected incidentally through PSA testing or imaging. Symptoms, when present, typically relate to urinary function — though these are more commonly caused by benign conditions such as BPH. The following symptoms should prompt clinical evaluation:</p>
 
             <div class="grid md:grid-cols-2 gap-4 mb-6">
-              <div style="background:#f8fafc;border-radius:1rem;padding:1.5rem;border:1px solid #e5e7eb;">
+              <div class="content-card" style="background:#f8fafc;border-radius:1rem;padding:1.5rem;border:1px solid #e5e7eb;">
                 <p class="subsection-heading">Urinary Symptoms</p>
                 <ul class="space-y-2">
                   <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#4b5563;font-size:0.9rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Increased urinary frequency (including nocturia)</li>
+                  <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#4b5563;font-size:0.9rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Hesitancy or difficulty starting urination</li>
                   <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#4b5563;font-size:0.9rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Weak or interrupted urinary stream</li>
                   <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#4b5563;font-size:0.9rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Dysuria (discomfort when passing urine)</li>
                   <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#4b5563;font-size:0.9rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Urinary retention</li>
@@ -302,7 +360,7 @@
                   <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#4b5563;font-size:0.9rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Haematuria</li>
                 </ul>
               </div>
-              <div style="background:#f8fafc;border-radius:1rem;padding:1.5rem;border:1px solid #e5e7eb;">
+              <div class="content-card" style="background:#f8fafc;border-radius:1rem;padding:1.5rem;border:1px solid #e5e7eb;">
                 <p class="subsection-heading">Advanced Disease</p>
                 <ul class="space-y-2 mb-4">
                   <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#4b5563;font-size:0.9rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Persistent pain in the lower back, pelvis, or thighs</li>
@@ -314,7 +372,7 @@
             <div class="info-card">
               <div style="display:flex;gap:0.75rem;align-items:flex-start;">
                 <svg class="w-5 h-5 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                <p style="color:#065f46;font-size:0.9rem;line-height:1.7;">These symptoms are commonly caused by benign conditions, such as benign prostatic hyperplasia (BPH) or urinary tract infection. However, they warrant appropriate clinical evaluation.</p>
+                <p style="color:#065f46;font-size:0.9rem;line-height:1.7;">These symptoms warrant clinical assessment. A raised PSA or abnormal examination finding may prompt further investigation with MRI and, if indicated, prostate biopsy.</p>
               </div>
             </div>
           </div>
@@ -326,18 +384,16 @@
             <div style="width:3rem;height:3px;background:#10b981;border-radius:9999px;margin-bottom:1.5rem;"></div>
 
             <div class="grid md:grid-cols-2 gap-6">
-              <div style="background:#f8fafc;border:1px solid #e5e7eb;border-radius:1rem;padding:1.75rem;">
+              <div class="content-card" style="background:#f8fafc;border:1px solid #e5e7eb;border-radius:1rem;padding:1.75rem;">
                 <p class="subsection-heading">Non-invasive Investigations</p>
-                <p style="color:#4b5563;font-size:0.9rem;margin-bottom:1rem;">While prostate biopsy is required for definitive diagnosis, several non-invasive tests are used in the diagnostic pathway. These help stratify risk and reduce unnecessary biopsies.</p>
+                <p style="color:#4b5563;font-size:0.9rem;margin-bottom:1rem;">The diagnostic pathway combines blood testing, clinical examination, and imaging before any biopsy is considered. Multiparametric MRI (mpMRI) is now used as the first-line imaging investigation and has significantly improved our ability to detect clinically significant cancer while avoiding unnecessary procedures.</p>
                 <ul class="space-y-2">
                   <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#4b5563;font-size:0.9rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>PSA testing (total and free/total ratio)</li>
                   <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#4b5563;font-size:0.9rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Digital rectal examination (DRE)</li>
-                  <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#4b5563;font-size:0.9rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>PSA density (PSA/prostate volume)</li>
-                  <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#4b5563;font-size:0.9rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>PCA3 urine test</li>
-                  <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#4b5563;font-size:0.9rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Multiparametric MRI (mpMRI) with contrast</li>
+                  <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#4b5563;font-size:0.9rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Multiparametric MRI (mpMRI) — first-line imaging</li>
                 </ul>
               </div>
-              <div style="background:#f8fafc;border:1px solid #e5e7eb;border-radius:1rem;padding:1.75rem;">
+              <div class="content-card" style="background:#f8fafc;border:1px solid #e5e7eb;border-radius:1rem;padding:1.75rem;">
                 <p class="subsection-heading">Invasive Investigation</p>
                 <p style="color:#4b5563;font-size:0.9rem;margin-bottom:1rem;">Prostate biopsy remains the gold standard for diagnosis.</p>
                 <div style="background:#ecfdf5;border-radius:0.75rem;padding:1.25rem;border:1px solid #a7f3d0;">
@@ -349,161 +405,16 @@
                 </div>
               </div>
             </div>
-          </div>
 
-          <!-- Treatment Options -->
-          <div id="treatment" class="content-section mb-12">
-            <span class="section-tag">Treatment</span>
-            <h2 style="font-size:1.75rem;font-weight:700;color:#0f2a4a;margin-bottom:0.5rem;">Treatment Options</h2>
-            <div style="width:3rem;height:3px;background:#10b981;border-radius:9999px;margin-bottom:1.5rem;"></div>
-            <p style="color:#4b5563;line-height:1.8;margin-bottom:1.5rem;">Prostate cancer often grows slowly, and not all patients require immediate treatment. Management depends on cancer stage, grade, patient comorbidity, and preference.</p>
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-3 mb-6">
-              <div style="background:#f0fdf4;border:1px solid #a7f3d0;border-radius:0.75rem;padding:1rem;text-align:center;">
-                <p style="font-size:0.85rem;font-weight:600;color:#065f46;">Active Surveillance</p>
-              </div>
-              <div style="background:#f0fdf4;border:1px solid #a7f3d0;border-radius:0.75rem;padding:1rem;text-align:center;">
-                <p style="font-size:0.85rem;font-weight:600;color:#065f46;">Robotic Prostatectomy</p>
-              </div>
-              <div style="background:#f0fdf4;border:1px solid #a7f3d0;border-radius:0.75rem;padding:1rem;text-align:center;">
-                <p style="font-size:0.85rem;font-weight:600;color:#065f46;">Radiotherapy (EBRT)</p>
-              </div>
-              <div style="background:#f0fdf4;border:1px solid #a7f3d0;border-radius:0.75rem;padding:1rem;text-align:center;">
-                <p style="font-size:0.85rem;font-weight:600;color:#065f46;">Brachytherapy</p>
-              </div>
-              <div style="background:#f0fdf4;border:1px solid #a7f3d0;border-radius:0.75rem;padding:1rem;text-align:center;">
-                <p style="font-size:0.85rem;font-weight:600;color:#065f46;">Focal Therapies</p>
-              </div>
-              <div style="background:#f0fdf4;border:1px solid #a7f3d0;border-radius:0.75rem;padding:1rem;text-align:center;">
-                <p style="font-size:0.85rem;font-weight:600;color:#065f46;">Hormone Therapy</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Active Surveillance -->
-          <div id="surveillance" class="content-section mb-12">
-            <span class="section-tag">Active Surveillance</span>
-            <h2 style="font-size:1.75rem;font-weight:700;color:#0f2a4a;margin-bottom:0.5rem;">Active Surveillance</h2>
-            <div style="width:3rem;height:3px;background:#10b981;border-radius:9999px;margin-bottom:1.5rem;"></div>
-            <p style="color:#4b5563;line-height:1.8;margin-bottom:1.5rem;">Selected patients with low-risk, low-volume disease may be safely monitored. This approach aims to avoid or delay treatment-related side effects while maintaining the option for curative intervention if progression occurs.</p>
-            <p style="color:#4b5563;line-height:1.8;margin-bottom:1.25rem;">Active surveillance includes:</p>
-            <div class="grid grid-cols-2 gap-3">
-              <div style="display:flex;gap:0.75rem;align-items:center;padding:1rem 1.25rem;background:#f8fafc;border-radius:0.75rem;border:1px solid #e5e7eb;">
-                <svg class="w-5 h-5 flex-shrink-0" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
-                <span style="font-size:0.875rem;font-weight:500;color:#0f2a4a;">Regular PSA monitoring</span>
-              </div>
-              <div style="display:flex;gap:0.75rem;align-items:center;padding:1rem 1.25rem;background:#f8fafc;border-radius:0.75rem;border:1px solid #e5e7eb;">
-                <svg class="w-5 h-5 flex-shrink-0" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
-                <span style="font-size:0.875rem;font-weight:500;color:#0f2a4a;">Periodic DRE</span>
-              </div>
-              <div style="display:flex;gap:0.75rem;align-items:center;padding:1rem 1.25rem;background:#f8fafc;border-radius:0.75rem;border:1px solid #e5e7eb;">
-                <svg class="w-5 h-5 flex-shrink-0" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                <span style="font-size:0.875rem;font-weight:500;color:#0f2a4a;">Serial MRI scans</span>
-              </div>
-              <div style="display:flex;gap:0.75rem;align-items:center;padding:1rem 1.25rem;background:#f8fafc;border-radius:0.75rem;border:1px solid #e5e7eb;">
-                <svg class="w-5 h-5 flex-shrink-0" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
-                <span style="font-size:0.875rem;font-weight:500;color:#0f2a4a;">Repeat biopsies where indicated</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Robotic Prostatectomy -->
-          <div id="robotic" class="content-section mb-12">
-            <span class="section-tag">Surgery</span>
-            <h2 style="font-size:1.75rem;font-weight:700;color:#0f2a4a;margin-bottom:0.5rem;">Robotic Radical Prostatectomy</h2>
-            <div style="width:3rem;height:3px;background:#10b981;border-radius:9999px;margin-bottom:1.5rem;"></div>
-            <p style="color:#4b5563;line-height:1.8;margin-bottom:1.5rem;">Robotic-assisted radical prostatectomy is widely regarded as the gold standard surgical treatment for localised prostate cancer. At London Urology Specialists, procedures are performed by highly experienced surgeons including Mr Bijan Khoubehi, who has extensive experience in robotic prostate surgery.</p>
-
-            <div class="grid md:grid-cols-3 gap-5 mb-6">
-              <div class="treatment-card">
-                <div style="width:44px;height:44px;border-radius:0.75rem;background:#ecfdf5;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;">
-                  <svg class="w-6 h-6" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
-                </div>
-                <p style="font-weight:600;color:#0f2a4a;margin-bottom:0.5rem;">Key Principles</p>
-                <ul class="space-y-1">
-                  <li style="color:#4b5563;font-size:0.85rem;line-height:1.6;">Complete removal of the prostate and seminal vesicles</li>
-                  <li style="color:#4b5563;font-size:0.85rem;line-height:1.6;">Pelvic lymph node dissection in selected cases</li>
-                </ul>
-              </div>
-              <div class="treatment-card">
-                <div style="width:44px;height:44px;border-radius:0.75rem;background:#ecfdf5;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;">
-                  <svg class="w-6 h-6" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                </div>
-                <p style="font-weight:600;color:#0f2a4a;margin-bottom:0.5rem;">Advantages</p>
-                <ul class="space-y-1">
-                  <li style="color:#4b5563;font-size:0.85rem;line-height:1.6;">Precise dissection using 3D magnified vision and articulated instruments</li>
-                  <li style="color:#4b5563;font-size:0.85rem;line-height:1.6;">Reduced blood loss and shorter hospital stay (typically 1–2 days)</li>
-                  <li style="color:#4b5563;font-size:0.85rem;line-height:1.6;">Faster recovery</li>
-                </ul>
-              </div>
-              <div class="treatment-card">
-                <div style="width:44px;height:44px;border-radius:0.75rem;background:#ecfdf5;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;">
-                  <svg class="w-6 h-6" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-                </div>
-                <p style="font-weight:600;color:#0f2a4a;margin-bottom:0.5rem;">Clinical Benefits</p>
-                <ul class="space-y-1">
-                  <li style="color:#4b5563;font-size:0.85rem;line-height:1.6;">Enables accurate pathological staging</li>
-                  <li style="color:#4b5563;font-size:0.85rem;line-height:1.6;">PSA should fall to undetectable levels post-operatively</li>
-                  <li style="color:#4b5563;font-size:0.85rem;line-height:1.6;">Facilitates early detection of recurrence via PSA monitoring</li>
-                  <li style="color:#4b5563;font-size:0.85rem;line-height:1.6;">Preserves the option for adjuvant or salvage radiotherapy if required</li>
-                  <li style="color:#4b5563;font-size:0.85rem;line-height:1.6;">Often improves urinary symptoms related to benign enlargement</li>
-                </ul>
-              </div>
-            </div>
-            <div class="info-card">
-              <p style="color:#065f46;font-size:0.9rem;line-height:1.7;">Outcomes in oncological control, continence, and erectile function are highly dependent on surgeon experience and case volume.</p>
-            </div>
-          </div>
-
-          <!-- Radiotherapy -->
-          <div id="radiotherapy" class="content-section mb-12">
-            <span class="section-tag">Radiotherapy</span>
-            <h2 style="font-size:1.75rem;font-weight:700;color:#0f2a4a;margin-bottom:0.5rem;">Radical Radiotherapy</h2>
-            <div style="width:3rem;height:3px;background:#10b981;border-radius:9999px;margin-bottom:1.5rem;"></div>
-            <p style="color:#4b5563;line-height:1.8;margin-bottom:1.5rem;">Radiotherapy uses high-energy X-rays to treat prostate cancer and includes two main approaches:</p>
-
-            <div class="grid md:grid-cols-2 gap-6 mb-6">
-              <div style="background:#f8fafc;border:1px solid #e5e7eb;border-radius:1rem;padding:1.75rem;">
-                <p class="subsection-heading">External Beam Radiotherapy (EBRT)</p>
-                <p style="color:#4b5563;font-size:0.9rem;margin-bottom:1rem;">Delivered daily over approximately 4–6 weeks, often combined with hormone therapy.</p>
-                <p style="font-size:0.8rem;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.5rem;">Typically used in:</p>
-                <ul class="space-y-1">
-                  <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#4b5563;font-size:0.875rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Older patients</li>
-                  <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#4b5563;font-size:0.875rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Those with comorbidities</li>
-                  <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#4b5563;font-size:0.875rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Locally advanced disease</li>
-                </ul>
-              </div>
-              <div style="background:#f8fafc;border:1px solid #e5e7eb;border-radius:1rem;padding:1.75rem;">
-                <p class="subsection-heading">Brachytherapy</p>
-                <p style="color:#4b5563;font-size:0.9rem;margin-bottom:1rem;">Involves implantation of radioactive seeds into the prostate.</p>
-                <p style="font-size:0.8rem;font-weight:600;color:#10b981;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.5rem;">Suitable for:</p>
-                <ul class="space-y-1 mb-4">
-                  <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#4b5563;font-size:0.875rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Low-risk disease (Gleason ≤7, low PSA)</li>
-                </ul>
-                <p style="font-size:0.8rem;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.5rem;">Less suitable for:</p>
-                <ul class="space-y-1">
-                  <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#4b5563;font-size:0.875rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#6b7280;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>Large prostates</li>
-                  <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#4b5563;font-size:0.875rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#6b7280;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>Significant urinary symptoms</li>
-                </ul>
-              </div>
-            </div>
-            <div style="background:#fff8f0;border:1px solid #fed7aa;border-radius:1rem;padding:1.25rem 1.5rem;">
+            <!-- PSMA PET -->
+            <div style="background:#f0fdf4;border:1px solid #a7f3d0;border-radius:1rem;padding:1.5rem;margin-top:1.5rem;">
               <div style="display:flex;gap:0.75rem;align-items:flex-start;">
-                <svg class="w-5 h-5 flex-shrink-0 mt-0.5" style="color:#f59e0b;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
-                <p style="color:#92400e;font-size:0.9rem;line-height:1.7;">Radiotherapy can cause changes to prostate tissue that may complicate future surgical intervention.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Key Takeaway -->
-          <div id="key-takeaway" class="content-section">
-            <div style="background:linear-gradient(135deg,#10b981 0%,#0d9488 30%,#1565a0 65%,#0f2a4a 100%);border-radius:1.5rem;padding:2.5rem;">
-              <div style="display:flex;gap:1rem;align-items:flex-start;">
-                <div style="width:48px;height:48px;border-radius:0.75rem;background:rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+                <div style="width:40px;height:40px;border-radius:0.75rem;background:#ecfdf5;border:1px solid #a7f3d0;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg class="w-5 h-5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
                 </div>
                 <div>
-
-                  <p style="color:#fff;font-size:1.1rem;font-weight:600;line-height:1.6;">Prostate cancer management is highly individualised. Early detection provides the greatest chance of cure, and treatment decisions should be made within a specialist multidisciplinary setting.</p>
+                  <p style="font-weight:700;color:#065f46;margin-bottom:0.4rem;font-size:0.95rem;">PSMA PET-CT — Advanced Staging &amp; Recurrence Detection</p>
+                  <p style="color:#4b5563;font-size:0.875rem;line-height:1.7;">PSMA (Prostate-Specific Membrane Antigen) PET-CT is a highly sensitive nuclear medicine scan that detects prostate cancer cells throughout the body. It is now the gold-standard investigation for staging intermediate and high-risk disease before treatment, and for localising recurrence after a rise in PSA following surgery or radiotherapy — often detecting disease that conventional CT and bone scans would miss.</p>
                 </div>
               </div>
             </div>
@@ -520,10 +431,15 @@
               <a href="#risk-factors" class="toc-link">Risk Factors</a>
               <a href="#symptoms" class="toc-link">Symptoms</a>
               <a href="#diagnosis" class="toc-link">Diagnosis</a>
-              <a href="#treatment" class="toc-link">Treatment Options</a>
+              <a href="#grading" class="toc-link">Grading</a>
+              <a href="#treatment" class="toc-link">Treatment</a>
               <a href="#surveillance" class="toc-link">Active Surveillance</a>
-              <a href="#robotic" class="toc-link">Robotic Surgery</a>
+              <a href="#robotic" class="toc-link">Radical Prostatectomy</a>
+              <a href="#focal" class="toc-link">Focal Therapies</a>
               <a href="#radiotherapy" class="toc-link">Radiotherapy</a>
+              <a href="#hormone" class="toc-link">Hormone Therapy</a>
+              <a href="#chemo" class="toc-link">Chemotherapy</a>
+              <a href="#followup" class="toc-link">Follow-Up</a>
               <a href="#key-takeaway" class="toc-link">Summary</a>
             </nav>
             <div style="margin-top:2rem;padding:1.25rem;background:#f0fdf4;border-radius:1rem;border:1px solid #a7f3d0;">
@@ -535,6 +451,558 @@
         </div>
 
       </div>
+    </div>
+  </section>
+
+  <!-- Grading -->
+  <section class="section-padding" style="background:linear-gradient(135deg,#0f2a4a 0%,#1a3a5c 100%);">
+    <div class="container-custom">
+          <div id="grading" class="content-section mb-12">
+            <span class="section-tag" style="color:#a7f3d0;background:rgba(16,185,129,0.15);border-color:rgba(167,243,208,0.3);">Grading</span>
+            <h2 style="font-size:1.75rem;font-weight:700;color:#fff;margin-bottom:0.5rem;">Understanding Your Grade</h2>
+            <div style="width:3rem;height:3px;background:#10b981;border-radius:9999px;margin-bottom:1.5rem;"></div>
+            <p style="color:rgba(255,255,255,0.8);line-height:1.8;margin-bottom:1.5rem;">If a biopsy confirms prostate cancer, the tissue is graded to indicate how aggressive the cancer appears under the microscope. The <strong>Gleason score</strong> was the traditional system; this has largely been replaced by the <strong>ISUP Grade Group</strong> system (1–5), which is easier to interpret and more closely reflects prognosis.</p>
+            <div class="space-y-3 mb-6">
+              <div style="display:flex;align-items:stretch;gap:0;border-radius:1rem;overflow:hidden;border:1px solid #e5e7eb;">
+                <div style="width:6px;flex-shrink:0;background:#10b981;"></div>
+                <div style="display:flex;align-items:center;gap:1rem;padding:1rem 1.25rem;background:#f0fdf4;flex:1;">
+                  <div style="text-align:center;min-width:72px;">
+                    <p style="font-size:1.1rem;font-weight:700;color:#065f46;">Grade 1</p>
+                    <p style="font-size:0.75rem;color:#6b7280;">Gleason 6</p>
+                  </div>
+                  <div style="width:1px;height:2.5rem;background:#a7f3d0;flex-shrink:0;"></div>
+                  <div>
+                    <p style="font-weight:600;color:#0f2a4a;font-size:0.9rem;">Low risk</p>
+                    <p style="color:#4b5563;font-size:0.85rem;">Slow-growing cancer. Often managed with active surveillance.</p>
+                  </div>
+                </div>
+              </div>
+              <div style="display:flex;align-items:stretch;gap:0;border-radius:1rem;overflow:hidden;border:1px solid #e5e7eb;">
+                <div style="width:6px;flex-shrink:0;background:#34d399;"></div>
+                <div style="display:flex;align-items:center;gap:1rem;padding:1rem 1.25rem;background:#f8fafc;flex:1;">
+                  <div style="text-align:center;min-width:72px;">
+                    <p style="font-size:1.1rem;font-weight:700;color:#0f2a4a;">Grade 2</p>
+                    <p style="font-size:0.75rem;color:#6b7280;">Gleason 3+4=7</p>
+                  </div>
+                  <div style="width:1px;height:2.5rem;background:#e5e7eb;flex-shrink:0;"></div>
+                  <div>
+                    <p style="font-weight:600;color:#0f2a4a;font-size:0.9rem;">Intermediate risk — favourable</p>
+                    <p style="color:#4b5563;font-size:0.85rem;">Moderate growth rate. Active surveillance may be appropriate in selected cases; treatment often recommended.</p>
+                  </div>
+                </div>
+              </div>
+              <div style="display:flex;align-items:stretch;gap:0;border-radius:1rem;overflow:hidden;border:1px solid #e5e7eb;">
+                <div style="width:6px;flex-shrink:0;background:#fbbf24;"></div>
+                <div style="display:flex;align-items:center;gap:1rem;padding:1rem 1.25rem;background:#f8fafc;flex:1;">
+                  <div style="text-align:center;min-width:72px;">
+                    <p style="font-size:1.1rem;font-weight:700;color:#0f2a4a;">Grade 3</p>
+                    <p style="font-size:0.75rem;color:#6b7280;">Gleason 4+3=7</p>
+                  </div>
+                  <div style="width:1px;height:2.5rem;background:#e5e7eb;flex-shrink:0;"></div>
+                  <div>
+                    <p style="font-weight:600;color:#0f2a4a;font-size:0.9rem;">Intermediate risk — unfavourable</p>
+                    <p style="color:#4b5563;font-size:0.85rem;">More aggressive behaviour. Active treatment is usually recommended.</p>
+                  </div>
+                </div>
+              </div>
+              <div style="display:flex;align-items:stretch;gap:0;border-radius:1rem;overflow:hidden;border:1px solid #e5e7eb;">
+                <div style="width:6px;flex-shrink:0;background:#f97316;"></div>
+                <div style="display:flex;align-items:center;gap:1rem;padding:1rem 1.25rem;background:#f8fafc;flex:1;">
+                  <div style="text-align:center;min-width:72px;">
+                    <p style="font-size:1.1rem;font-weight:700;color:#0f2a4a;">Grade 4</p>
+                    <p style="font-size:0.75rem;color:#6b7280;">Gleason 8</p>
+                  </div>
+                  <div style="width:1px;height:2.5rem;background:#e5e7eb;flex-shrink:0;"></div>
+                  <div>
+                    <p style="font-weight:600;color:#0f2a4a;font-size:0.9rem;">High risk</p>
+                    <p style="color:#4b5563;font-size:0.85rem;">Significant risk of progression. Prompt specialist assessment and treatment planning is important.</p>
+                  </div>
+                </div>
+              </div>
+              <div style="display:flex;align-items:stretch;gap:0;border-radius:1rem;overflow:hidden;border:1px solid #e5e7eb;">
+                <div style="width:6px;flex-shrink:0;background:#ef4444;"></div>
+                <div style="display:flex;align-items:center;gap:1rem;padding:1rem 1.25rem;background:#f8fafc;flex:1;">
+                  <div style="text-align:center;min-width:72px;">
+                    <p style="font-size:1.1rem;font-weight:700;color:#0f2a4a;">Grade 5</p>
+                    <p style="font-size:0.75rem;color:#6b7280;">Gleason 9–10</p>
+                  </div>
+                  <div style="width:1px;height:2.5rem;background:#e5e7eb;flex-shrink:0;"></div>
+                  <div>
+                    <p style="font-weight:600;color:#0f2a4a;font-size:0.9rem;">Very high risk</p>
+                    <p style="color:#4b5563;font-size:0.85rem;">Aggressive cancer with higher risk of spread. Requires urgent multidisciplinary treatment planning.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="info-card">
+              <div style="display:flex;gap:0.75rem;align-items:flex-start;">
+                <svg class="w-5 h-5 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <p style="color:#065f46;font-size:0.9rem;line-height:1.7;">Grade Group alone does not determine treatment. Stage (how far the cancer has spread), PSA level, and your overall health are all considered together to guide decision-making in a specialist MDT.</p>
+              </div>
+            </div>
+          </div>
+    </div>
+  </section>
+
+  <!-- Treatment Overview -->
+  <section class="section-padding" style="background:linear-gradient(135deg,#ecfdf5 0%,#d1fae5 100%);">
+    <div class="container-custom">
+
+          <!-- Treatment Options -->
+          <div id="treatment" class="content-section mb-12">
+            <span class="section-tag">Treatment</span>
+            <h2 style="font-size:1.75rem;font-weight:700;color:#0f2a4a;margin-bottom:0.5rem;">Treatment of Prostate Cancer</h2>
+            <div style="width:3rem;height:3px;background:#10b981;border-radius:9999px;margin-bottom:1.5rem;"></div>
+            <p style="color:#4b5563;line-height:1.8;margin-bottom:1.5rem;">Prostate cancer often grows slowly, and not all patients require immediate treatment. Management is highly individualised, depending on cancer stage, grade (Gleason/ISUP), patient fitness, and preference.</p>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-3 mb-6">
+              <div class="pill-card" style="background:#f0fdf4;border:1px solid #a7f3d0;border-radius:0.75rem;padding:1rem;text-align:center;">
+                <p style="font-size:0.85rem;font-weight:600;color:#065f46;">Active Surveillance</p>
+              </div>
+              <div class="pill-card" style="background:#f0fdf4;border:1px solid #a7f3d0;border-radius:0.75rem;padding:1rem;text-align:center;">
+                <p style="font-size:0.85rem;font-weight:600;color:#065f46;">Radical Prostatectomy</p>
+              </div>
+              <div class="pill-card" style="background:#f0fdf4;border:1px solid #a7f3d0;border-radius:0.75rem;padding:1rem;text-align:center;">
+                <p style="font-size:0.85rem;font-weight:600;color:#065f46;">Radiotherapy (EBRT)</p>
+              </div>
+              <div class="pill-card" style="background:#f0fdf4;border:1px solid #a7f3d0;border-radius:0.75rem;padding:1rem;text-align:center;">
+                <p style="font-size:0.85rem;font-weight:600;color:#065f46;">Brachytherapy</p>
+              </div>
+              <div class="pill-card" style="background:#f0fdf4;border:1px solid #a7f3d0;border-radius:0.75rem;padding:1rem;text-align:center;">
+                <p style="font-size:0.85rem;font-weight:600;color:#065f46;">Hormone Therapy</p>
+              </div>
+              <div class="pill-card" style="background:#f0fdf4;border:1px solid #a7f3d0;border-radius:0.75rem;padding:1rem;text-align:center;">
+                <p style="font-size:0.85rem;font-weight:600;color:#065f46;">Focal Therapies <span style="font-weight:400;font-size:0.75rem;">(selected cases)</span></p>
+              </div>
+            </div>
+
+            <!-- Treatment Comparison Table -->
+            <div style="margin-top:2rem;">
+              <h3 style="font-size:1.1rem;font-weight:700;color:#0f2a4a;margin-bottom:0.25rem;">Comparing Your Options at a Glance</h3>
+              <p style="color:#6b7280;font-size:0.85rem;margin-bottom:1rem;">A simplified overview to help guide your conversation with your specialist.</p>
+              <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:1rem;border:1px solid #e5e7eb;">
+                <table style="width:100%;border-collapse:collapse;font-size:0.85rem;min-width:580px;">
+                  <thead>
+                    <tr style="background:#0f2a4a;">
+                      <th style="text-align:left;padding:0.875rem 1rem;color:#fff;font-weight:600;border-radius:0.75rem 0 0 0;">Treatment</th>
+                      <th style="text-align:left;padding:0.875rem 1rem;color:#fff;font-weight:600;">Suitable for</th>
+                      <th style="text-align:center;padding:0.875rem 1rem;color:#fff;font-weight:600;white-space:nowrap;">Urinary impact</th>
+                      <th style="text-align:center;padding:0.875rem 1rem;color:#fff;font-weight:600;white-space:nowrap;">Erectile function</th>
+                      <th style="text-align:center;padding:0.875rem 1rem;color:#fff;font-weight:600;border-radius:0 0.75rem 0 0;white-space:nowrap;">Curative intent</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr style="background:#ffffff;border-bottom:1px solid #f3f4f6;">
+                      <td style="padding:0.875rem 1rem;font-weight:600;color:#0f2a4a;white-space:nowrap;">Active Surveillance</td>
+                      <td style="padding:0.875rem 1rem;color:#4b5563;">Low / favourable-intermediate risk</td>
+                      <td style="padding:0.875rem 1rem;text-align:center;"><span style="display:inline-block;padding:0.2rem 0.65rem;border-radius:9999px;font-size:0.75rem;font-weight:600;background:#f1f5f9;color:#475569;">None</span></td>
+                      <td style="padding:0.875rem 1rem;text-align:center;"><span style="display:inline-block;padding:0.2rem 0.65rem;border-radius:9999px;font-size:0.75rem;font-weight:600;background:#f1f5f9;color:#475569;">None</span></td>
+                      <td style="padding:0.875rem 1rem;text-align:center;"><span style="display:inline-block;padding:0.2rem 0.65rem;border-radius:9999px;font-size:0.75rem;font-weight:600;background:#f1f5f9;color:#475569;">Monitoring</span></td>
+                    </tr>
+                    <tr style="background:#f8fafc;border-bottom:1px solid #f3f4f6;">
+                      <td style="padding:0.875rem 1rem;font-weight:600;color:#0f2a4a;white-space:nowrap;">Radical Prostatectomy</td>
+                      <td style="padding:0.875rem 1rem;color:#4b5563;">Localised, all risk groups</td>
+                      <td style="padding:0.875rem 1rem;text-align:center;"><span style="display:inline-block;padding:0.2rem 0.65rem;border-radius:9999px;font-size:0.75rem;font-weight:600;background:#fef3c7;color:#92400e;">Moderate</span></td>
+                      <td style="padding:0.875rem 1rem;text-align:center;"><span style="display:inline-block;padding:0.2rem 0.65rem;border-radius:9999px;font-size:0.75rem;font-weight:600;background:#fef3c7;color:#92400e;">Moderate</span></td>
+                      <td style="padding:0.875rem 1rem;text-align:center;"><span style="display:inline-block;padding:0.2rem 0.65rem;border-radius:9999px;font-size:0.75rem;font-weight:600;background:#dcfce7;color:#166534;">Yes</span></td>
+                    </tr>
+                    <tr style="background:#ffffff;border-bottom:1px solid #f3f4f6;">
+                      <td style="padding:0.875rem 1rem;font-weight:600;color:#0f2a4a;white-space:nowrap;">Focal Therapy</td>
+                      <td style="padding:0.875rem 1rem;color:#4b5563;">Selected localised disease</td>
+                      <td style="padding:0.875rem 1rem;text-align:center;"><span style="display:inline-block;padding:0.2rem 0.65rem;border-radius:9999px;font-size:0.75rem;font-weight:600;background:#dcfce7;color:#166534;">Low risk</span></td>
+                      <td style="padding:0.875rem 1rem;text-align:center;"><span style="display:inline-block;padding:0.2rem 0.65rem;border-radius:9999px;font-size:0.75rem;font-weight:600;background:#dcfce7;color:#166534;">Low risk</span></td>
+                      <td style="padding:0.875rem 1rem;text-align:center;"><span style="display:inline-block;padding:0.2rem 0.65rem;border-radius:9999px;font-size:0.75rem;font-weight:600;background:#dcfce7;color:#166534;">Yes</span></td>
+                    </tr>
+                    <tr style="background:#f8fafc;border-bottom:1px solid #f3f4f6;">
+                      <td style="padding:0.875rem 1rem;font-weight:600;color:#0f2a4a;white-space:nowrap;">Radiotherapy</td>
+                      <td style="padding:0.875rem 1rem;color:#4b5563;">Localised to locally advanced</td>
+                      <td style="padding:0.875rem 1rem;text-align:center;"><span style="display:inline-block;padding:0.2rem 0.65rem;border-radius:9999px;font-size:0.75rem;font-weight:600;background:#dcfce7;color:#166534;">Low–moderate</span></td>
+                      <td style="padding:0.875rem 1rem;text-align:center;"><span style="display:inline-block;padding:0.2rem 0.65rem;border-radius:9999px;font-size:0.75rem;font-weight:600;background:#fef3c7;color:#92400e;">Moderate</span></td>
+                      <td style="padding:0.875rem 1rem;text-align:center;"><span style="display:inline-block;padding:0.2rem 0.65rem;border-radius:9999px;font-size:0.75rem;font-weight:600;background:#dcfce7;color:#166534;">Yes</span></td>
+                    </tr>
+                    <tr style="background:#ffffff;border-bottom:1px solid #f3f4f6;">
+                      <td style="padding:0.875rem 1rem;font-weight:600;color:#0f2a4a;white-space:nowrap;">Hormone Therapy</td>
+                      <td style="padding:0.875rem 1rem;color:#4b5563;">Advanced, metastatic, with radiotherapy</td>
+                      <td style="padding:0.875rem 1rem;text-align:center;"><span style="display:inline-block;padding:0.2rem 0.65rem;border-radius:9999px;font-size:0.75rem;font-weight:600;background:#f1f5f9;color:#475569;">Minimal</span></td>
+                      <td style="padding:0.875rem 1rem;text-align:center;"><span style="display:inline-block;padding:0.2rem 0.65rem;border-radius:9999px;font-size:0.75rem;font-weight:600;background:#fee2e2;color:#991b1b;">Significant</span></td>
+                      <td style="padding:0.875rem 1rem;text-align:center;"><span style="display:inline-block;padding:0.2rem 0.65rem;border-radius:9999px;font-size:0.75rem;font-weight:600;background:#f1f5f9;color:#475569;">Control</span></td>
+                    </tr>
+                    <tr style="background:#f8fafc;">
+                      <td style="padding:0.875rem 1rem;font-weight:600;color:#0f2a4a;white-space:nowrap;">Chemotherapy</td>
+                      <td style="padding:0.875rem 1rem;color:#4b5563;">Metastatic / castration-resistant</td>
+                      <td style="padding:0.875rem 1rem;text-align:center;"><span style="display:inline-block;padding:0.2rem 0.65rem;border-radius:9999px;font-size:0.75rem;font-weight:600;background:#f1f5f9;color:#475569;">Minimal</span></td>
+                      <td style="padding:0.875rem 1rem;text-align:center;"><span style="display:inline-block;padding:0.2rem 0.65rem;border-radius:9999px;font-size:0.75rem;font-weight:600;background:#f1f5f9;color:#475569;">Minimal</span></td>
+                      <td style="padding:0.875rem 1rem;text-align:center;"><span style="display:inline-block;padding:0.2rem 0.65rem;border-radius:9999px;font-size:0.75rem;font-weight:600;background:#f1f5f9;color:#475569;">Control</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p style="color:#9ca3af;font-size:0.75rem;margin-top:0.75rem;font-style:italic;">Side effect profiles vary by individual. This table is a guide only — your specialist will discuss expected outcomes based on your specific circumstances.</p>
+            </div>
+          </div>
+    </div>
+  </section>
+
+  <!-- Treatment Details -->
+  <section class="section-padding" style="background:#fff;">
+    <div class="container-custom">
+
+          <!-- Active Surveillance -->
+          <div id="surveillance" class="content-section mb-12">
+            <span class="section-tag">Active Surveillance</span>
+            <h2 style="font-size:1.75rem;font-weight:700;color:#0f2a4a;margin-bottom:0.5rem;">Active Surveillance</h2>
+            <div style="width:3rem;height:3px;background:#10b981;border-radius:9999px;margin-bottom:1.5rem;"></div>
+            <p style="color:#4b5563;line-height:1.8;margin-bottom:1.5rem;">Active surveillance is an appropriate strategy for carefully selected men with low-risk or favourable intermediate-risk prostate cancer. It aims to avoid or defer treatment-related side effects while preserving the option for curative intervention if the disease progresses. Patients are monitored through a structured programme and should be counselled that active surveillance requires ongoing commitment to follow-up.</p>
+            <p style="color:#4b5563;line-height:1.8;margin-bottom:1.25rem;">Active surveillance typically includes:</p>
+            <div class="grid grid-cols-2 gap-3">
+              <div class="surveillance-item" style="display:flex;gap:0.75rem;align-items:center;padding:1rem 1.25rem;background:#f8fafc;border-radius:0.75rem;border:1px solid #e5e7eb;">
+                <svg class="w-5 h-5 flex-shrink-0" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                <span style="font-size:0.875rem;font-weight:500;color:#0f2a4a;">Regular PSA monitoring</span>
+              </div>
+              <div class="surveillance-item" style="display:flex;gap:0.75rem;align-items:center;padding:1rem 1.25rem;background:#f8fafc;border-radius:0.75rem;border:1px solid #e5e7eb;">
+                <svg class="w-5 h-5 flex-shrink-0" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                <span style="font-size:0.875rem;font-weight:500;color:#0f2a4a;">Serial MRI scans</span>
+              </div>
+              <div class="surveillance-item" style="display:flex;gap:0.75rem;align-items:center;padding:1rem 1.25rem;background:#f8fafc;border-radius:0.75rem;border:1px solid #e5e7eb;">
+                <svg class="w-5 h-5 flex-shrink-0" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+                <span style="font-size:0.875rem;font-weight:500;color:#0f2a4a;">Repeat biopsies where indicated</span>
+              </div>
+              <div class="surveillance-item" style="display:flex;gap:0.75rem;align-items:center;padding:1rem 1.25rem;background:#f8fafc;border-radius:0.75rem;border:1px solid #e5e7eb;">
+                <svg class="w-5 h-5 flex-shrink-0" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                <span style="font-size:0.875rem;font-weight:500;color:#0f2a4a;">Regular outpatient review</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Surgery -->
+          <div id="robotic" class="content-section mb-12">
+            <span class="section-tag">Surgery</span>
+            <h2 style="font-size:1.75rem;font-weight:700;color:#0f2a4a;margin-bottom:0.5rem;">Radical Prostatectomy</h2>
+            <div style="width:3rem;height:3px;background:#10b981;border-radius:9999px;margin-bottom:1.5rem;"></div>
+            <p style="color:#4b5563;line-height:1.8;margin-bottom:1.5rem;">Radical prostatectomy — the surgical removal of the prostate and seminal vesicles — is an established curative treatment for localised prostate cancer. It can be performed via open, laparoscopic, or robotic-assisted approaches. Robotic-assisted (da Vinci) surgery has become the most widely adopted technique, offering greater precision, reduced blood loss, and faster recovery.</p>
+            <p style="color:#4b5563;line-height:1.8;margin-bottom:1.5rem;">At London Urology Specialists, robotic prostatectomy is performed by highly experienced surgeons with an extensive case volume in minimally invasive prostate surgery.</p>
+
+            <div class="grid md:grid-cols-2 gap-5 mb-6">
+              <div class="treatment-card">
+                <div style="width:44px;height:44px;border-radius:0.75rem;background:#ecfdf5;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;">
+                  <svg class="w-6 h-6" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                </div>
+                <p style="font-weight:600;color:#0f2a4a;margin-bottom:0.5rem;">Advantages of Robotic Surgery</p>
+                <ul class="space-y-1">
+                  <li style="color:#4b5563;font-size:0.85rem;line-height:1.6;">3D magnified vision and articulated instruments enabling precise dissection</li>
+                  <li style="color:#4b5563;font-size:0.85rem;line-height:1.6;">Reduced blood loss and lower transfusion rates</li>
+                  <li style="color:#4b5563;font-size:0.85rem;line-height:1.6;">Shorter hospital stay (typically 1–2 days)</li>
+                  <li style="color:#4b5563;font-size:0.85rem;line-height:1.6;">Faster return to normal activity</li>
+                </ul>
+              </div>
+              <div class="treatment-card">
+                <div style="width:44px;height:44px;border-radius:0.75rem;background:#ecfdf5;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;">
+                  <svg class="w-6 h-6" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                </div>
+                <p style="font-weight:600;color:#0f2a4a;margin-bottom:0.5rem;">Oncological Outcomes</p>
+                <ul class="space-y-1">
+                  <li style="color:#4b5563;font-size:0.85rem;line-height:1.6;">Enables accurate pathological staging</li>
+                  <li style="color:#4b5563;font-size:0.85rem;line-height:1.6;">PSA should fall to undetectable levels post-operatively</li>
+                  <li style="color:#4b5563;font-size:0.85rem;line-height:1.6;">Facilitates early detection of recurrence via PSA monitoring</li>
+                  <li style="color:#4b5563;font-size:0.85rem;line-height:1.6;">Preserves the option for adjuvant or salvage radiotherapy if required</li>
+                </ul>
+              </div>
+            </div>
+            <div class="info-card">
+              <p style="color:#065f46;font-size:0.9rem;line-height:1.7;">Outcomes in oncological control, continence, and erectile function are closely related to surgeon experience and case volume. Patients should discuss expected functional outcomes with their surgeon prior to making a treatment decision.</p>
+            </div>
+          </div>
+
+          <!-- Focal Therapies -->
+          <div id="focal" class="content-section mb-12">
+            <span class="section-tag">Focal Therapies</span>
+            <h2 style="font-size:1.75rem;font-weight:700;color:#0f2a4a;margin-bottom:0.5rem;">Focal Therapies for Prostate Cancer</h2>
+            <div style="width:3rem;height:3px;background:#10b981;border-radius:9999px;margin-bottom:1.5rem;"></div>
+            <p style="color:#4b5563;line-height:1.8;margin-bottom:1rem;">Focal therapy is an emerging treatment approach that aims to target and treat only the cancerous area within the prostate, while preserving the surrounding healthy tissue. This contrasts with whole-gland treatments such as surgery or radiotherapy, which treat the entire prostate.</p>
+            <p style="color:#4b5563;line-height:1.8;margin-bottom:1.5rem;">Focal therapy is typically considered in selected patients with localised, clinically significant prostate cancer, particularly where the disease is confined to a specific area of the gland.</p>
+
+            <!-- Principles -->
+            <div class="grid md:grid-cols-2 gap-6 mb-6">
+              <div class="content-card" style="background:#f8fafc;border:1px solid #e5e7eb;border-radius:1rem;padding:1.75rem;">
+                <p class="subsection-heading">Principles of Focal Therapy</p>
+                <ul class="space-y-2">
+                  <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#4b5563;font-size:0.9rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Treatment directed at the index lesion (dominant tumour focus)</li>
+                  <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#4b5563;font-size:0.9rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Aims to achieve cancer control while reducing side effects</li>
+                  <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#4b5563;font-size:0.9rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Structures responsible for urinary continence and erectile function may be better preserved</li>
+                </ul>
+              </div>
+              <div class="content-card" style="background:#f8fafc;border:1px solid #e5e7eb;border-radius:1rem;padding:1.75rem;">
+                <p class="subsection-heading">Patient Selection</p>
+                <p style="color:#4b5563;font-size:0.9rem;margin-bottom:1rem;">Careful patient selection is essential, usually involving:</p>
+                <ul class="space-y-2">
+                  <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#4b5563;font-size:0.9rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Multiparametric MRI</li>
+                  <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#4b5563;font-size:0.9rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Targeted prostate biopsy</li>
+                  <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#4b5563;font-size:0.9rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Multidisciplinary team (MDT) discussion</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Types -->
+            <h3 style="font-size:1.15rem;font-weight:700;color:#0f2a4a;margin-bottom:1.25rem;">Types of Focal Therapy</h3>
+            <div class="space-y-4 mb-6">
+              <div class="treatment-card">
+                <div style="display:flex;gap:1rem;align-items:flex-start;">
+                  <div style="width:44px;height:44px;border-radius:0.75rem;background:#ecfdf5;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                    <svg class="w-6 h-6" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+                  </div>
+                  <div>
+                    <p style="font-weight:700;color:#0f2a4a;margin-bottom:0.4rem;">High-Intensity Focused Ultrasound (HIFU)</p>
+                    <p style="color:#4b5563;font-size:0.875rem;line-height:1.7;margin-bottom:0.75rem;">HIFU uses focused ultrasound waves to generate heat and destroy cancer cells within the prostate.</p>
+                    <ul class="space-y-1">
+                      <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#6b7280;font-size:0.85rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Delivered via a probe placed in the rectum</li>
+                      <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#6b7280;font-size:0.85rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Typically performed under general or spinal anaesthetic</li>
+                      <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#6b7280;font-size:0.85rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Minimally invasive, with no surgical incisions</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="treatment-card">
+                <div style="display:flex;gap:1rem;align-items:flex-start;">
+                  <div style="width:44px;height:44px;border-radius:0.75rem;background:#ecfdf5;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                    <svg class="w-6 h-6" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                  </div>
+                  <div>
+                    <p style="font-weight:700;color:#0f2a4a;margin-bottom:0.4rem;">Irreversible Electroporation (Nanoknife)</p>
+                    <p style="color:#4b5563;font-size:0.875rem;line-height:1.7;margin-bottom:0.75rem;">IRE uses short electrical pulses to disrupt cancer cell membranes, leading to cell death. It does not rely on heat, which may help preserve surrounding structures.</p>
+                    <ul class="space-y-1">
+                      <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#6b7280;font-size:0.85rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Performed using needles inserted through the perineum</li>
+                      <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#6b7280;font-size:0.85rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Conducted under image guidance</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="treatment-card">
+                <div style="display:flex;gap:1rem;align-items:flex-start;">
+                  <div style="width:44px;height:44px;border-radius:0.75rem;background:#ecfdf5;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                    <svg class="w-6 h-6" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+                  </div>
+                  <div>
+                    <p style="font-weight:700;color:#0f2a4a;margin-bottom:0.4rem;">Cryotherapy (Cryoablation)</p>
+                    <p style="color:#4b5563;font-size:0.875rem;line-height:1.7;margin-bottom:0.75rem;">Cryotherapy destroys cancer cells by freezing the targeted tissue using cycles of freezing and thawing.</p>
+                    <ul class="space-y-1">
+                      <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#6b7280;font-size:0.85rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Thin probes inserted into the prostate under imaging guidance</li>
+                      <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#6b7280;font-size:0.85rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Freeze-thaw cycles used to ablate the tumour</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Advantages & Limitations -->
+            <div class="grid md:grid-cols-2 gap-6">
+              <div style="background:#f0fdf4;border:1px solid #a7f3d0;border-radius:1rem;padding:1.5rem;">
+                <p style="font-weight:700;color:#065f46;margin-bottom:0.75rem;font-size:0.95rem;">Advantages</p>
+                <ul class="space-y-2">
+                  <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#065f46;font-size:0.875rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Minimally invasive</li>
+                  <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#065f46;font-size:0.875rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Shorter recovery time compared to surgery</li>
+                  <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#065f46;font-size:0.875rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Reduced risk of urinary incontinence</li>
+                  <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#065f46;font-size:0.875rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Lower rates of erectile dysfunction in selected patients</li>
+                  <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#065f46;font-size:0.875rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Can be repeated or followed by other treatments if required</li>
+                </ul>
+              </div>
+              <div style="background:#fff8f0;border:1px solid #fed7aa;border-radius:1rem;padding:1.5rem;">
+                <p style="font-weight:700;color:#92400e;margin-bottom:0.75rem;font-size:0.95rem;">Limitations &amp; Considerations</p>
+                <ul class="space-y-2">
+                  <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#92400e;font-size:0.875rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#f59e0b;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>Not suitable for all patients (e.g. multifocal or high-risk disease)</li>
+                  <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#92400e;font-size:0.875rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#f59e0b;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>Long-term cancer control data still evolving vs. established treatments</li>
+                  <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#92400e;font-size:0.875rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#f59e0b;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>Requires careful follow-up: PSA monitoring, repeat MRI, follow-up biopsies in some cases</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Radiotherapy -->
+          <div id="radiotherapy" class="content-section mb-12">
+            <span class="section-tag">Radiotherapy</span>
+            <h2 style="font-size:1.75rem;font-weight:700;color:#0f2a4a;margin-bottom:0.5rem;">Radical Radiotherapy</h2>
+            <div style="width:3rem;height:3px;background:#10b981;border-radius:9999px;margin-bottom:1.5rem;"></div>
+            <p style="color:#4b5563;line-height:1.8;margin-bottom:1.5rem;">Radiotherapy is an effective alternative to surgery for localised and locally advanced prostate cancer, and may also be used adjuvantly or as salvage treatment following surgery. It is typically delivered in one of two forms:</p>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-6">
+              <div class="content-card" style="background:#f8fafc;border:1px solid #e5e7eb;border-radius:1rem;padding:1.75rem;">
+                <p class="subsection-heading">External Beam Radiotherapy (EBRT)</p>
+                <p style="color:#4b5563;font-size:0.9rem;margin-bottom:1rem;">High-energy X-rays are directed at the prostate from outside the body, usually delivered over several weeks using modern techniques such as IMRT or VMAT. Treatment is commonly combined with a short course of hormone therapy to enhance efficacy.</p>
+                <p style="font-size:0.8rem;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.5rem;">Suitable for:</p>
+                <ul class="space-y-1">
+                  <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#4b5563;font-size:0.875rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Localised and locally advanced disease</li>
+                  <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#4b5563;font-size:0.875rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Patients who prefer to avoid surgery</li>
+                  <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#4b5563;font-size:0.875rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Post-operative PSA recurrence</li>
+                </ul>
+              </div>
+              <div class="content-card" style="background:#f8fafc;border:1px solid #e5e7eb;border-radius:1rem;padding:1.75rem;">
+                <p class="subsection-heading">Brachytherapy</p>
+                <p style="color:#4b5563;font-size:0.9rem;margin-bottom:1rem;">Radioactive seeds or wires are placed directly into the prostate, delivering a high radiation dose locally while limiting exposure to surrounding structures. Low-dose-rate (LDR) seeds are most commonly used for low-risk disease.</p>
+                <p style="font-size:0.8rem;font-weight:600;color:#10b981;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.5rem;">Most suitable for:</p>
+                <ul class="space-y-1 mb-4">
+                  <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#4b5563;font-size:0.875rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Low-risk, organ-confined disease</li>
+                  <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#4b5563;font-size:0.875rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Good urinary flow (IPSS assessment required)</li>
+                </ul>
+              </div>
+            </div>
+            <div style="background:#fff8f0;border:1px solid #fed7aa;border-radius:1rem;padding:1.25rem 1.5rem;">
+              <div style="display:flex;gap:0.75rem;align-items:flex-start;">
+                <svg class="w-5 h-5 flex-shrink-0 mt-0.5" style="color:#f59e0b;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                <p style="color:#92400e;font-size:0.9rem;line-height:1.7;">Prior radiotherapy to the prostate significantly increases the technical complexity and risk of any subsequent surgical intervention. Treatment sequencing should be discussed carefully with a specialist.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hormone Therapy -->
+          <div id="hormone" class="content-section mb-12">
+            <span class="section-tag">Hormone Therapy</span>
+            <h2 style="font-size:1.75rem;font-weight:700;color:#0f2a4a;margin-bottom:0.5rem;">Hormone Therapy</h2>
+            <div style="width:3rem;height:3px;background:#10b981;border-radius:9999px;margin-bottom:1.5rem;"></div>
+            <p style="color:#4b5563;line-height:1.8;margin-bottom:1rem;">Prostate cancer cells rely on male hormones (androgens), primarily testosterone, to grow. Hormone therapy — also known as <strong>androgen deprivation therapy (ADT)</strong> — works by reducing testosterone levels or blocking its effects, slowing or stopping cancer growth.</p>
+            <p style="color:#4b5563;line-height:1.8;margin-bottom:1.5rem;">Hormone therapy does not cure prostate cancer on its own but plays an important role in several treatment settings.</p>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-6">
+              <div class="content-card" style="background:#f8fafc;border:1px solid #e5e7eb;border-radius:1rem;padding:1.75rem;">
+                <p class="subsection-heading">When it is used</p>
+                <ul class="space-y-2">
+                  <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#4b5563;font-size:0.9rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Combined with radiotherapy for intermediate and high-risk localised or locally advanced disease</li>
+                  <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#4b5563;font-size:0.9rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Primary treatment for advanced or metastatic disease</li>
+                  <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#4b5563;font-size:0.9rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Salvage treatment following PSA recurrence after surgery or radiotherapy</li>
+                  <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#4b5563;font-size:0.9rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Occasionally used before (neoadjuvant) radiotherapy to reduce tumour volume</li>
+                </ul>
+              </div>
+              <div class="content-card" style="background:#f8fafc;border:1px solid #e5e7eb;border-radius:1rem;padding:1.75rem;">
+                <p class="subsection-heading">Types of Hormone Therapy</p>
+                <ul class="space-y-2">
+                  <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#4b5563;font-size:0.9rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg><span><strong>LHRH agonists / antagonists</strong> — injections that suppress testosterone production (e.g. goserelin, degarelix)</span></li>
+                  <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#4b5563;font-size:0.9rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg><span><strong>Anti-androgens</strong> — tablets that block testosterone from acting on cancer cells (e.g. bicalutamide, enzalutamide)</span></li>
+                  <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#4b5563;font-size:0.9rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg><span><strong>Surgical castration</strong> (orchidectomy) — rarely used but permanently reduces testosterone</span></li>
+                </ul>
+              </div>
+            </div>
+
+            <div style="background:#fff8f0;border:1px solid #fed7aa;border-radius:1rem;padding:1.25rem 1.5rem;">
+              <div style="display:flex;gap:0.75rem;align-items:flex-start;">
+                <svg class="w-5 h-5 flex-shrink-0 mt-0.5" style="color:#f59e0b;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                <p style="color:#92400e;font-size:0.9rem;line-height:1.7;">Hormone therapy has side effects including hot flushes, fatigue, reduced libido, bone thinning, and metabolic changes. These should be discussed with your specialist before starting treatment, and bone protection and cardiovascular monitoring may be recommended.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Chemotherapy -->
+          <div id="chemo" class="content-section mb-12">
+            <span class="section-tag">Chemotherapy</span>
+            <h2 style="font-size:1.75rem;font-weight:700;color:#0f2a4a;margin-bottom:0.5rem;">Chemotherapy</h2>
+            <div style="width:3rem;height:3px;background:#10b981;border-radius:9999px;margin-bottom:1.5rem;"></div>
+            <p style="color:#4b5563;line-height:1.8;margin-bottom:1.5rem;">Chemotherapy is used when prostate cancer has spread beyond the gland and is no longer responding adequately to hormone therapy alone. It is not a first-line treatment for localised disease but plays an important role in the management of advanced and castration-resistant prostate cancer (CRPC).</p>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-6">
+              <div class="content-card" style="background:#f8fafc;border:1px solid #e5e7eb;border-radius:1rem;padding:1.75rem;">
+                <p class="subsection-heading">Docetaxel</p>
+                <p style="color:#4b5563;font-size:0.9rem;margin-bottom:1rem;">The most commonly used chemotherapy agent in prostate cancer. Given intravenously every three weeks, usually for six cycles.</p>
+                <ul class="space-y-2">
+                  <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#4b5563;font-size:0.9rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Used alongside hormone therapy for metastatic castration-sensitive prostate cancer (mCSPC)</li>
+                  <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#4b5563;font-size:0.9rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>First-line chemotherapy for castration-resistant disease</li>
+                  <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#4b5563;font-size:0.9rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Has been shown to improve survival in high-volume metastatic disease</li>
+                </ul>
+              </div>
+              <div class="content-card" style="background:#f8fafc;border:1px solid #e5e7eb;border-radius:1rem;padding:1.75rem;">
+                <p class="subsection-heading">Cabazitaxel</p>
+                <p style="color:#4b5563;font-size:0.9rem;margin-bottom:1rem;">A second-generation taxane used when docetaxel is no longer effective.</p>
+                <ul class="space-y-2">
+                  <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#4b5563;font-size:0.9rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Used in castration-resistant prostate cancer after docetaxel failure</li>
+                  <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#4b5563;font-size:0.9rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Can be combined with hormone therapy agents</li>
+                  <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#4b5563;font-size:0.9rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Administered in a specialist oncology setting</li>
+                </ul>
+              </div>
+            </div>
+
+            <div style="background:#fff8f0;border:1px solid #fed7aa;border-radius:1rem;padding:1.25rem 1.5rem;">
+              <div style="display:flex;gap:0.75rem;align-items:flex-start;">
+                <svg class="w-5 h-5 flex-shrink-0 mt-0.5" style="color:#f59e0b;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                <p style="color:#92400e;font-size:0.9rem;line-height:1.7;">Chemotherapy carries side effects including fatigue, hair loss, increased infection risk, and peripheral neuropathy. It is administered by a medical oncologist and requires careful monitoring throughout treatment. Decisions about chemotherapy are made within a multidisciplinary team and will depend on overall fitness and disease stage.</p>
+              </div>
+            </div>
+          </div>
+    </div>
+  </section>
+
+  <!-- Follow-Up -->
+  <section class="section-padding" style="background:#f8fafc;">
+    <div class="container-custom">
+
+          <!-- Follow-Up -->
+          <div id="followup" class="content-section mb-12">
+            <span class="section-tag">After Treatment</span>
+            <h2 style="font-size:1.75rem;font-weight:700;color:#0f2a4a;margin-bottom:0.5rem;">Follow-Up &amp; PSA Monitoring</h2>
+            <div style="width:3rem;height:3px;background:#10b981;border-radius:9999px;margin-bottom:1.5rem;"></div>
+            <p style="color:#4b5563;line-height:1.8;margin-bottom:1.5rem;">PSA monitoring is the cornerstone of follow-up after treatment for prostate cancer. What your PSA should do — and how quickly — depends on the treatment you have had. Regular review with your specialist allows early detection of any recurrence, when further treatment options are most effective.</p>
+
+            <div class="grid md:grid-cols-3 gap-6 mb-6">
+              <div class="content-card" style="background:#f8fafc;border:1px solid #e5e7eb;border-radius:1rem;padding:1.75rem;">
+                <div style="width:40px;height:40px;border-radius:0.75rem;background:#ecfdf5;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;">
+                  <svg class="w-5 h-5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758a3 3 0 10-4.243-4.243 3 3 0 004.243 4.243z"/></svg>
+                </div>
+                <p class="subsection-heading">After Radical Prostatectomy</p>
+                <ul class="space-y-2">
+                  <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#4b5563;font-size:0.875rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>PSA should fall to undetectable (&lt;0.1 ng/mL) within 4–6 weeks</li>
+                  <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#4b5563;font-size:0.875rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Checked at 6 weeks, 3 months, 6 months, then 6-monthly, then annually</li>
+                  <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#4b5563;font-size:0.875rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Biochemical recurrence: PSA ≥ 0.2 ng/mL on two consecutive readings</li>
+                </ul>
+              </div>
+              <div class="content-card" style="background:#f8fafc;border:1px solid #e5e7eb;border-radius:1rem;padding:1.75rem;">
+                <div style="width:40px;height:40px;border-radius:0.75rem;background:#ecfdf5;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;">
+                  <svg class="w-5 h-5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                </div>
+                <p class="subsection-heading">After Radiotherapy</p>
+                <ul class="space-y-2">
+                  <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#4b5563;font-size:0.875rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>PSA falls gradually over months, reaching a nadir (lowest point)</li>
+                  <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#4b5563;font-size:0.875rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Checked every 3–6 months initially, then annually once stable</li>
+                  <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#4b5563;font-size:0.875rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Biochemical recurrence (Phoenix criteria): PSA rise of 2 ng/mL above nadir</li>
+                </ul>
+              </div>
+              <div class="content-card" style="background:#f8fafc;border:1px solid #e5e7eb;border-radius:1rem;padding:1.75rem;">
+                <div style="width:40px;height:40px;border-radius:0.75rem;background:#ecfdf5;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;">
+                  <svg class="w-5 h-5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+                </div>
+                <p class="subsection-heading">After Focal Therapy</p>
+                <ul class="space-y-2">
+                  <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#4b5563;font-size:0.875rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>PSA monitoring combined with serial MRI surveillance</li>
+                  <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#4b5563;font-size:0.875rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Repeat biopsy typically performed at 12 months</li>
+                  <li style="display:flex;align-items:flex-start;gap:0.5rem;color:#4b5563;font-size:0.875rem;"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Residual or recurrent disease can be re-treated or managed with alternative therapy</li>
+                </ul>
+              </div>
+            </div>
+
+            <div style="background:#fff8f0;border:1px solid #fed7aa;border-radius:1rem;padding:1.25rem 1.5rem;">
+              <div style="display:flex;gap:0.75rem;align-items:flex-start;">
+                <svg class="w-5 h-5 flex-shrink-0 mt-0.5" style="color:#f59e0b;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                <div>
+                  <p style="font-weight:600;color:#92400e;font-size:0.9rem;margin-bottom:0.35rem;">Contact your specialist promptly if you notice:</p>
+                  <p style="color:#92400e;font-size:0.875rem;line-height:1.7;">A rising PSA on consecutive tests, new or worsening urinary symptoms, bone pain, or any unexplained change in your health between scheduled reviews. Early assessment allows the widest range of treatment options.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+  </section>
+
+  <!-- Key Takeaway -->
+  <section class="section-padding" style="background:#fff;">
+    <div class="container-custom">
+
+          <!-- Key Takeaway -->
+          <div id="key-takeaway" class="content-section">
+            <div style="background:linear-gradient(135deg,#10b981 0%,#0d9488 30%,#1565a0 65%,#0f2a4a 100%);border-radius:1.5rem;padding:2.5rem;">
+              <div style="display:flex;gap:1rem;align-items:flex-start;">
+                <div style="width:48px;height:48px;border-radius:0.75rem;background:rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+                </div>
+                <div>
+
+                  <p style="color:#fff;font-size:1.1rem;font-weight:600;line-height:1.6;">Prostate cancer is common but often highly treatable, particularly when detected early. Management should be individualised and guided by specialist multidisciplinary assessment.</p>
+                </div>
+              </div>
+            </div>
+          </div>
     </div>
   </section>
 
@@ -607,10 +1075,11 @@
 
   <script src="../js/main.js"></script>
   <script>
-    // Highlight active TOC link on scroll
     const sections = document.querySelectorAll('.content-section');
     const tocLinks = document.querySelectorAll('.toc-link');
-    const observer = new IntersectionObserver((entries) => {
+
+    // TOC highlight on scroll
+    const tocObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           tocLinks.forEach(l => l.classList.remove('active'));
@@ -619,7 +1088,52 @@
         }
       });
     }, { rootMargin: '-20% 0px -70% 0px' });
-    sections.forEach(s => observer.observe(s));
+    sections.forEach(s => tocObserver.observe(s));
+
+    // Scroll fade-in + accent line
+    sections.forEach(section => {
+      section.classList.add('fade-section');
+      const bar = section.querySelector('div[style*="height:3px"]');
+      if (bar) bar.classList.add('accent-line');
+    });
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          fadeObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
+    sections.forEach(s => fadeObserver.observe(s));
+
+    // Add hover classes
+    document.querySelectorAll('#overview .grid > div').forEach(el => el.classList.add('psa-card'));
+    document.querySelectorAll('#grading .space-y-3 > div').forEach(el => el.classList.add('grade-row'));
+    document.querySelectorAll('#treatment table tbody tr').forEach(tr => tr.classList.add('compare-row'));
+
+    // Stat counter
+    function countUp(el, target, duration) {
+      const startTime = performance.now();
+      function update(now) {
+        const p = Math.min((now - startTime) / duration, 1);
+        const eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(eased * target).toLocaleString('en-GB');
+        if (p < 1) requestAnimationFrame(update);
+      }
+      requestAnimationFrame(update);
+    }
+    const statsBar = document.querySelector('[data-count]')?.closest('section');
+    if (statsBar) {
+      let counted = false;
+      new IntersectionObserver(entries => {
+        if (entries[0].isIntersecting && !counted) {
+          counted = true;
+          document.querySelectorAll('[data-count]').forEach(el => {
+            countUp(el, parseInt(el.dataset.count), 1400);
+          });
+        }
+      }, { threshold: 0.5 }).observe(statsBar);
+    }
   </script>
 </body>
 </html>
