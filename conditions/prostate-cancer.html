@@ -50,6 +50,9 @@
     /* Comparison table rows */
     .compare-row { transition:background 0.15s ease; }
     .compare-row:hover > td { background:#f0fdf4 !important; }
+
+    @keyframes hero-fade { from{opacity:0} to{opacity:0.45} }
+    .hero-video { animation:hero-fade 1.2s ease-in forwards; }
   </style>
 </head>
 <body class="font-poppins">
@@ -213,9 +216,12 @@
   </div>
 
   <!-- Page Header -->
-  <section style="background-color:#0f1f35;min-height:48vh;display:flex;align-items:flex-end;padding-top:8rem;padding-bottom:3.5rem;position:relative;overflow:hidden;">
+  <section style="background-color:#0f1f35;min-height:55vh;display:flex;align-items:flex-end;padding-top:8rem;padding-bottom:3.5rem;position:relative;overflow:hidden;">
     <div style="position:absolute;inset:0;overflow:hidden;">
-      <img src="../assets/Images/AdobeStock_176650838.jpeg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.4;">
+      <video autoplay muted loop playsinline class="hero-video" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 20%;opacity:0;">
+        <source src="../assets/Images/Istock-1423915367compressed.mp4" type="video/mp4">
+        <img src="../assets/Images/AdobeStock_176650838.jpeg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+      </video>
     </div>
     <div class="absolute inset-0" style="background:linear-gradient(to bottom right,rgba(15,26,53,0.6) 0%,rgba(15,26,53,0.3) 60%,rgba(16,185,129,0.15) 100%);"></div>
     <div class="container-custom" style="position:relative;z-index:2;">
@@ -242,7 +248,7 @@
   <!-- Stats Bar -->
   <section style="background:#f0fdf4;border-bottom:1px solid #a7f3d0;padding:2rem 0;">
     <div class="container-custom">
-      <div class="grid grid-cols-3 gap-6 max-w-3xl mx-auto">
+      <div class="grid grid-cols-2 gap-6 max-w-2xl mx-auto">
         <div class="stat-card">
           <div data-count="64000" style="font-size:2.25rem;font-weight:700;color:#10b981;line-height:1;">64,000</div>
           <div style="font-size:0.8rem;color:#6b7280;margin-top:0.4rem;">new cases diagnosed in the UK each year</div>
@@ -250,10 +256,6 @@
         <div class="stat-card">
           <div style="font-size:2.25rem;font-weight:700;color:#10b981;line-height:1;">1 in 8</div>
           <div style="font-size:0.8rem;color:#6b7280;margin-top:0.4rem;">men will be diagnosed with prostate cancer in their lifetime</div>
-        </div>
-        <div class="stat-card">
-          <div data-count="12000" style="font-size:2.25rem;font-weight:700;color:#10b981;line-height:1;">12,000</div>
-          <div style="font-size:0.8rem;color:#6b7280;margin-top:0.4rem;">deaths attributed to prostate cancer annually</div>
         </div>
       </div>
       <p style="text-align:center;font-size:0.72rem;color:#9ca3af;margin-top:1.25rem;">Source: <a href="https://www.cancerresearchuk.org/health-professional/cancer-statistics/statistics-by-cancer-type/prostate-cancer" target="_blank" rel="noopener" style="color:#6b7280;text-decoration:underline;">Cancer Research UK</a> &middot; <a href="https://prostatecanceruk.org/about-prostate-cancer/prostate-cancer-statistics" target="_blank" rel="noopener" style="color:#6b7280;text-decoration:underline;">Prostate Cancer UK</a></p>
@@ -273,7 +275,7 @@
             <span class="section-tag">Overview</span>
             <h2 style="font-size:1.75rem;font-weight:700;color:#0f2a4a;margin-bottom:0.5rem;">About Prostate Cancer</h2>
             <div style="width:3rem;height:3px;background:#10b981;border-radius:9999px;margin-bottom:1.5rem;"></div>
-            <p style="color:#4b5563;line-height:1.8;margin-bottom:1.5rem;">Prostate cancer is the most common cancer in men in the UK, with more than 64,000 new cases diagnosed each year. The majority of cases are detected in men over the age of 50. While many prostate cancers grow slowly and may never cause significant harm, others are more aggressive and require prompt treatment. Early detection provides the best opportunity for curative management.</p>
+            <p style="color:#4b5563;line-height:1.8;margin-bottom:1.5rem;">Prostate cancer is the most common cancer in men in the UK, with more than 64,000 new cases diagnosed each year. It remains a leading cause of cancer-related mortality in men, with around 12,000 lives lost annually — underscoring the importance of early detection and timely treatment. The majority of cases are detected in men over the age of 50. While many prostate cancers grow slowly and may never cause significant harm, others are more aggressive and require prompt treatment. Early detection provides the best opportunity for curative management.</p>
 
             <!-- PSA Awareness Callout -->
             <div style="background:linear-gradient(135deg,#ecfdf5 0%,#f0fdf4 100%);border:1px solid #a7f3d0;border-radius:1.25rem;padding:1.75rem;">
@@ -1115,6 +1117,28 @@
   <script>
     const sections = document.querySelectorAll('.content-section');
     const tocLinks = document.querySelectorAll('.toc-link');
+
+    // Smooth video loop
+    const heroVideo = document.querySelector('.hero-video');
+    if (heroVideo) {
+      let loopFading = false;
+      setTimeout(() => {
+        heroVideo.addEventListener('timeupdate', () => {
+          if (!heroVideo.duration) return;
+          const remaining = heroVideo.duration - heroVideo.currentTime;
+          if (remaining < 1.5 && !loopFading) {
+            loopFading = true;
+            heroVideo.style.transition = 'opacity 1.2s ease';
+            heroVideo.style.opacity = '0';
+          }
+          if (heroVideo.currentTime < 0.3 && loopFading) {
+            loopFading = false;
+            heroVideo.style.transition = 'opacity 1.2s ease';
+            heroVideo.style.opacity = '0.45';
+          }
+        });
+      }, 1500);
+    }
 
     // Floating CTA — show after scrolling 400px, hide near footer
     const floatCta = document.getElementById('float-cta');

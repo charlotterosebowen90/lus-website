@@ -42,6 +42,8 @@
     .hero-glow { animation:hero-pulse 5s ease-in-out infinite; }
     @keyframes hero-zoom { 0%{transform:scale(1)} 100%{transform:scale(1.06)} }
     .hero-img { animation:hero-zoom 18s ease-out forwards; }
+    @keyframes hero-fade { from{opacity:0} to{opacity:0.45} }
+    .hero-video { animation:hero-fade 1.2s ease-in forwards; }
   </style>
 </head>
 <body class="font-poppins">
@@ -205,9 +207,12 @@
   </div>
 
   <!-- Page Header -->
-  <section style="background-color:#0f1f35;min-height:52vh;display:flex;align-items:flex-end;padding-top:8rem;padding-bottom:3.5rem;position:relative;overflow:hidden;">
+  <section style="background-color:#0f1f35;min-height:55vh;display:flex;align-items:flex-end;padding-top:8rem;padding-bottom:3.5rem;position:relative;overflow:hidden;">
     <div style="position:absolute;inset:0;overflow:hidden;">
-      <img src="../assets/Images/AdobeStock_176650838.jpeg" alt="" class="hero-img" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.4;">
+      <video autoplay muted loop playsinline class="hero-video" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 15%;opacity:0;">
+        <source src="../assets/Images/Istock-2177238089 compressed.mp4" type="video/mp4">
+        <img src="../assets/Images/AdobeStock_176650838.jpeg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+      </video>
     </div>
     <div class="absolute inset-0" style="background:linear-gradient(to bottom right,rgba(15,26,53,0.65) 0%,rgba(15,26,53,0.35) 60%,rgba(59,130,246,0.15) 100%);"></div>
     <div class="hero-glow" style="position:absolute;inset:0;background:radial-gradient(circle at 75% 50%,rgba(59,130,246,0.45) 0%,transparent 65%);pointer-events:none;z-index:1;"></div>
@@ -286,7 +291,7 @@
                 <div style="width:38px;height:38px;border-radius:50%;background:#eff6ff;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
                   <svg class="w-5 h-5" style="color:#3b82f6;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
                 </div>
-                <div><p style="font-weight:600;color:#0f2a4a;margin-bottom:0.15rem;">Smoking</p><p style="color:#6b7280;font-size:0.875rem;">The most significant risk factor.</p></div>
+                <div><p style="font-weight:600;color:#0f2a4a;margin-bottom:0.15rem;">Smoking</p><p style="color:#6b7280;font-size:0.875rem;">The most significant risk factor — responsible for around half of all bladder cancer cases.</p></div>
               </div>
               <div class="risk-row">
                 <div style="width:38px;height:38px;border-radius:50%;background:#eff6ff;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
@@ -312,6 +317,19 @@
                 </div>
                 <div><p style="font-weight:600;color:#0f2a4a;margin-bottom:0.15rem;">Chronic Bladder Irritation or Inflammation</p><p style="color:#6b7280;font-size:0.875rem;">In selected cases.</p></div>
               </div>
+            </div>
+            <!-- Smoking cessation banner -->
+            <div style="background:linear-gradient(135deg,#14532d 0%,#166534 60%,#15803d 100%);border-radius:1rem;padding:1.5rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;margin-top:1rem;">
+              <div style="display:flex;align-items:center;gap:1rem;">
+                <div style="width:42px;height:42px;background:rgba(255,255,255,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg class="w-5 h-5" style="color:#fff;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                </div>
+                <div>
+                  <p style="color:#fff;font-weight:700;font-size:0.95rem;margin-bottom:0.2rem;">Stopping smoking reduces your risk</p>
+                  <p style="color:rgba(255,255,255,0.8);font-size:0.82rem;line-height:1.5;">For those already diagnosed, quitting may also reduce the likelihood of recurrence and progression after treatment.</p>
+                </div>
+              </div>
+              <a href="https://www.nhs.uk/better-health/quit-smoking/" target="_blank" rel="noopener" style="flex-shrink:0;background:#fff;color:#166534;font-size:0.8rem;font-weight:700;padding:0.6rem 1.25rem;border-radius:9999px;text-decoration:none;white-space:nowrap;transition:background 0.2s ease;">NHS Stop Smoking Support →</a>
             </div>
           </div>
 
@@ -465,6 +483,98 @@
             </div>
           </div>
         </div>
+
+        <!-- TNM Staging Ladder -->
+        <div style="margin-top:2.5rem;">
+          <p style="font-size:0.85rem;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:0.07em;margin-bottom:1.25rem;">TNM Staging at a Glance</p>
+          <div style="display:flex;flex-direction:column;gap:0;">
+
+            <div style="display:flex;align-items:stretch;gap:0;">
+              <div style="display:flex;flex-direction:column;align-items:center;width:48px;flex-shrink:0;">
+                <div style="width:32px;height:32px;border-radius:50%;background:#3b82f6;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <span style="color:#fff;font-size:0.75rem;font-weight:700;">Ta</span>
+                </div>
+                <div style="width:2px;background:#e5e7eb;flex:1;margin-top:2px;"></div>
+              </div>
+              <div style="padding:0 0 1.25rem 1rem;">
+                <p style="font-weight:600;color:#0f2a4a;font-size:0.9rem;">Stage Ta — Non-invasive papillary tumour</p>
+                <p style="color:#6b7280;font-size:0.82rem;margin-top:0.2rem;">Confined to the inner lining (urothelium). No invasion beyond the surface layer.</p>
+                <span style="display:inline-block;margin-top:0.4rem;font-size:0.72rem;font-weight:700;color:#1d4ed8;background:#eff6ff;padding:0.2rem 0.6rem;border-radius:9999px;">NMIBC</span>
+              </div>
+            </div>
+
+            <div style="display:flex;align-items:stretch;gap:0;">
+              <div style="display:flex;flex-direction:column;align-items:center;width:48px;flex-shrink:0;">
+                <div style="width:32px;height:32px;border-radius:50%;background:#3b82f6;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <span style="color:#fff;font-size:0.75rem;font-weight:700;">T1</span>
+                </div>
+                <div style="width:2px;background:#e5e7eb;flex:1;margin-top:2px;"></div>
+              </div>
+              <div style="padding:0 0 1.25rem 1rem;">
+                <p style="font-weight:600;color:#0f2a4a;font-size:0.9rem;">Stage T1 — Invades lamina propria</p>
+                <p style="color:#6b7280;font-size:0.82rem;margin-top:0.2rem;">Tumour grows into the connective tissue beneath the urothelium, but not into muscle.</p>
+                <span style="display:inline-block;margin-top:0.4rem;font-size:0.72rem;font-weight:700;color:#1d4ed8;background:#eff6ff;padding:0.2rem 0.6rem;border-radius:9999px;">NMIBC</span>
+              </div>
+            </div>
+
+            <div style="display:flex;align-items:stretch;gap:0;">
+              <div style="display:flex;flex-direction:column;align-items:center;width:48px;flex-shrink:0;">
+                <div style="width:32px;height:32px;border-radius:50%;background:#6366f1;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <span style="color:#fff;font-size:0.65rem;font-weight:700;">CIS</span>
+                </div>
+                <div style="width:2px;background:#e5e7eb;flex:1;margin-top:2px;"></div>
+              </div>
+              <div style="padding:0 0 1.25rem 1rem;">
+                <p style="font-weight:600;color:#0f2a4a;font-size:0.9rem;">Carcinoma In Situ (CIS)</p>
+                <p style="color:#6b7280;font-size:0.82rem;margin-top:0.2rem;">Flat, high-grade tumour confined to the urothelium. Aggressive behaviour despite superficial stage.</p>
+                <span style="display:inline-block;margin-top:0.4rem;font-size:0.72rem;font-weight:700;color:#1d4ed8;background:#eff6ff;padding:0.2rem 0.6rem;border-radius:9999px;">NMIBC</span>
+              </div>
+            </div>
+
+            <div style="display:flex;align-items:stretch;gap:0;">
+              <div style="display:flex;flex-direction:column;align-items:center;width:48px;flex-shrink:0;">
+                <div style="width:32px;height:32px;border-radius:50%;background:#0f2a4a;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <span style="color:#fff;font-size:0.75rem;font-weight:700;">T2</span>
+                </div>
+                <div style="width:2px;background:#e5e7eb;flex:1;margin-top:2px;"></div>
+              </div>
+              <div style="padding:0 0 1.25rem 1rem;">
+                <p style="font-weight:600;color:#0f2a4a;font-size:0.9rem;">Stage T2 — Invades muscle</p>
+                <p style="color:#6b7280;font-size:0.82rem;margin-top:0.2rem;">Tumour grows into the detrusor muscle of the bladder wall. Marks the transition to muscle-invasive disease.</p>
+                <span style="display:inline-block;margin-top:0.4rem;font-size:0.72rem;font-weight:700;color:#fff;background:#0f2a4a;padding:0.2rem 0.6rem;border-radius:9999px;">MIBC</span>
+              </div>
+            </div>
+
+            <div style="display:flex;align-items:stretch;gap:0;">
+              <div style="display:flex;flex-direction:column;align-items:center;width:48px;flex-shrink:0;">
+                <div style="width:32px;height:32px;border-radius:50%;background:#0f2a4a;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <span style="color:#fff;font-size:0.75rem;font-weight:700;">T3</span>
+                </div>
+                <div style="width:2px;background:#e5e7eb;flex:1;margin-top:2px;"></div>
+              </div>
+              <div style="padding:0 0 1.25rem 1rem;">
+                <p style="font-weight:600;color:#0f2a4a;font-size:0.9rem;">Stage T3 — Invades perivesical tissue</p>
+                <p style="color:#6b7280;font-size:0.82rem;margin-top:0.2rem;">Extends through the bladder wall into surrounding fat. May be microscopic (T3a) or macroscopic (T3b).</p>
+                <span style="display:inline-block;margin-top:0.4rem;font-size:0.72rem;font-weight:700;color:#fff;background:#0f2a4a;padding:0.2rem 0.6rem;border-radius:9999px;">MIBC</span>
+              </div>
+            </div>
+
+            <div style="display:flex;align-items:stretch;gap:0;">
+              <div style="display:flex;flex-direction:column;align-items:center;width:48px;flex-shrink:0;">
+                <div style="width:32px;height:32px;border-radius:50%;background:#7f1d1d;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <span style="color:#fff;font-size:0.75rem;font-weight:700;">T4</span>
+                </div>
+              </div>
+              <div style="padding:0 0 0 1rem;">
+                <p style="font-weight:600;color:#0f2a4a;font-size:0.9rem;">Stage T4 — Invades adjacent organs</p>
+                <p style="color:#6b7280;font-size:0.82rem;margin-top:0.2rem;">Involves prostate, uterus, vagina, pelvic wall, or abdominal wall. Advanced local disease.</p>
+                <span style="display:inline-block;margin-top:0.4rem;font-size:0.72rem;font-weight:700;color:#fff;background:#0f2a4a;padding:0.2rem 0.6rem;border-radius:9999px;">MIBC</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -731,6 +841,28 @@
       });
     }, { threshold: 0.08 });
     fadeEls.forEach(el => fadeObserver.observe(el));
+
+    // Smooth video loop
+    const heroVideo = document.querySelector('.hero-video');
+    if (heroVideo) {
+      let loopFading = false;
+      setTimeout(() => {
+        heroVideo.addEventListener('timeupdate', () => {
+          if (!heroVideo.duration) return;
+          const remaining = heroVideo.duration - heroVideo.currentTime;
+          if (remaining < 1.5 && !loopFading) {
+            loopFading = true;
+            heroVideo.style.transition = 'opacity 1.2s ease';
+            heroVideo.style.opacity = '0';
+          }
+          if (heroVideo.currentTime < 0.3 && loopFading) {
+            loopFading = false;
+            heroVideo.style.transition = 'opacity 1.2s ease';
+            heroVideo.style.opacity = '0.45';
+          }
+        });
+      }, 1500);
+    }
 
     // Floating CTA
     const floatCta = document.getElementById('float-cta');
