@@ -737,12 +737,16 @@
 
   <script src="../js/main.js"></script>
   <script>
-    // Scroll fade-in
+    // Scroll fade-in — immediately show elements already in viewport, observer handles the rest
     const fadeEls = document.querySelectorAll('.fade-in');
+    fadeEls.forEach(el => {
+      const r = el.getBoundingClientRect();
+      if (r.top < window.innerHeight && r.bottom > 0) el.classList.add('visible');
+    });
     const fadeObs = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); fadeObs.unobserve(e.target); } });
-    }, { threshold: 0.1 });
-    fadeEls.forEach(el => fadeObs.observe(el));
+    }, { threshold: 0 });
+    fadeEls.forEach(el => { if (!el.classList.contains('visible')) fadeObs.observe(el); });
 
     // TOC highlight
     const sections = document.querySelectorAll('.content-section[id]');
