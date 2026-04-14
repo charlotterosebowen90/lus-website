@@ -784,14 +784,14 @@
         heroVideo.addEventListener('timeupdate', () => {
           if (!heroVideo.duration) return;
           const remaining = heroVideo.duration - heroVideo.currentTime;
-          if (remaining < 1.5 && !loopFading) {
+          if (remaining < 2.5 && !loopFading) {
             loopFading = true;
-            heroVideo.style.transition = 'opacity 1.2s ease';
+            heroVideo.style.transition = 'opacity 2s ease-in-out';
             heroVideo.style.opacity = '0';
           }
-          if (heroVideo.currentTime < 0.3 && loopFading) {
+          if (heroVideo.currentTime < 0.5 && loopFading) {
             loopFading = false;
-            heroVideo.style.transition = 'opacity 1.2s ease';
+            heroVideo.style.transition = 'opacity 2s ease-in-out';
             heroVideo.style.opacity = '0.45';
           }
         });
