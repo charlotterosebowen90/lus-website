@@ -9,6 +9,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    @keyframes hero-fade { from{opacity:0} to{opacity:0.45} }
+    .hero-video { animation:hero-fade 1.2s ease-in forwards; }
+  </style>
 </head>
 <body class="font-poppins">
   <!-- Header -->
@@ -203,8 +207,14 @@
   </div>
 
   <!-- Page Header -->
-  <section class="bg-gradient-to-br from-gray-900 via-gray-800 to-secondary-dark/40" style="min-height:48vh;display:flex;align-items:flex-end;padding-top:8rem;padding-bottom:3.5rem;">
-    <div class="container-custom">
+  <section style="background-color:#0f1f35;min-height:48vh;display:flex;align-items:flex-end;padding-top:8rem;padding-bottom:3.5rem;position:relative;overflow:hidden;">
+    <div style="position:absolute;inset:0;overflow:hidden;">
+      <video autoplay muted loop playsinline preload="auto" class="hero-video" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 20%;opacity:0;">
+        <source src="../assets/Images/istockphoto-2157287567-640_adpp_is.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="absolute inset-0" style="background:linear-gradient(to bottom right,rgba(15,26,53,0.65) 0%,rgba(15,26,53,0.35) 60%,rgba(15,82,100,0.15) 100%);"></div>
+    <div class="container-custom" style="position:relative;z-index:2;">
       <nav class="text-sm text-gray-400 mb-4">
         <a href="../index.html" class="hover:text-white">Home</a>
         <span class="mx-2">/</span>
@@ -221,6 +231,7 @@
       <p class="text-xl text-gray-300 max-w-2xl">Consultant-led urological care for men, delivered with discretion and clinical expertise.</p>
     </div>
   </section>
+
 
   <!-- Overview -->
   <section class="section-padding bg-white">
@@ -480,5 +491,28 @@
   </footer>
 
   <script src="../js/main.js"></script>
+  <script>
+    const heroVideo = document.querySelector('.hero-video');
+    if (heroVideo) {
+      heroVideo.play().catch(() => {});
+      let loopFading = false;
+      setTimeout(() => {
+        heroVideo.addEventListener('timeupdate', () => {
+          if (!heroVideo.duration) return;
+          const remaining = heroVideo.duration - heroVideo.currentTime;
+          if (remaining < 1.5 && !loopFading) {
+            loopFading = true;
+            heroVideo.style.transition = 'opacity 1.2s ease';
+            heroVideo.style.opacity = '0';
+          }
+          if (heroVideo.currentTime < 0.3 && loopFading) {
+            loopFading = false;
+            heroVideo.style.transition = 'opacity 1.2s ease';
+            heroVideo.style.opacity = '0.45';
+          }
+        });
+      }, 1000);
+    }
+  </script>
 </body>
 </html>
