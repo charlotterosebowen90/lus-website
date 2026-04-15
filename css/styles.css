@@ -722,13 +722,18 @@ body {
   color: rgb(27 118 197 / var(--tw-text-opacity, 1));
 }
 
+#header > .container-custom > nav {
+  position: relative;
+  z-index: 51;
+}
+
 .mega-menu {
   visibility: hidden;
   position: fixed;
-  top: auto;
+  margin-top: 1rem;
   left: 0px;
   right: 0px;
-  z-index: 50;
+  z-index: 40;
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
   opacity: 0;
