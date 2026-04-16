@@ -12,9 +12,16 @@
   <style>
     @keyframes hero-fade { from{opacity:0} to{opacity:0.45} }
     .hero-video { animation:hero-fade 1.2s ease-in forwards; }
+    .fade-in { opacity:0; transform:translateY(22px); transition:opacity 0.65s ease,transform 0.65s ease; }
+    .fade-in.visible { opacity:1; transform:translateY(0); }
+    #reading-progress { position:fixed; top:0; left:0; height:3px; background:linear-gradient(90deg,#10b981,#1b76c5); z-index:9999; width:0; transition:width 0.1s linear; }
+    #float-cta { position:fixed; bottom:2rem; right:2rem; z-index:40; opacity:0; pointer-events:none; transition:opacity 0.3s ease,transform 0.2s ease; }
+    #float-cta.show { opacity:1; pointer-events:auto; }
+    #float-cta:hover { transform:scale(1.05); }
   </style>
 </head>
 <body class="font-poppins">
+  <div id="reading-progress"></div>
   <!-- Header -->
   <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-white transition-all duration-300">
     <div class="container-custom">
@@ -268,8 +275,8 @@
     </div>
   </div>
 
-  <!-- Page Header -->
-  <section style="background-color:#0f1f35;min-height:48vh;display:flex;align-items:flex-end;padding-top:8rem;padding-bottom:3.5rem;position:relative;overflow:hidden;">
+  <!-- Page Header / Hero -->
+  <section id="hero" style="background-color:#0f1f35;min-height:55vh;display:flex;align-items:flex-end;padding-top:8rem;padding-bottom:3.5rem;position:relative;overflow:hidden;">
     <div style="position:absolute;inset:0;overflow:hidden;">
       <video autoplay muted loop playsinline preload="auto" class="hero-video" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 15%;opacity:0;">
         <source src="../assets/Images/Istock-2237502607.mp4" type="video/mp4">
@@ -292,14 +299,16 @@
         <h1 class="text-4xl md:text-5xl font-bold text-white">Cancer Clinic</h1>
       </div>
       <p class="text-xl text-gray-300 max-w-2xl">Expert diagnosis and treatment of urological cancers, delivered with a compassionate, evidence-based approach.</p>
+      <span id="reading-time" style="display:inline-block;margin-top:1rem;background:rgba(255,255,255,0.12);backdrop-filter:blur(6px);color:#d1d5db;font-size:0.8rem;font-weight:500;padding:0.35rem 1rem;border-radius:9999px;"></span>
     </div>
   </section>
 
   <!-- Overview -->
-  <section class="section-padding" style="background:#f0f7ff;">
+  <section class="section-padding fade-in" style="background:#ecfdf5;">
     <div class="container-custom">
       <div class="max-w-3xl mx-auto text-center">
-        <h2 class="text-3xl font-bold text-dark mb-3">Comprehensive Cancer Care</h2>
+        <span style="display:inline-block;font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#10b981;margin-bottom:0.75rem;">Cancer Clinic</span>
+        <h2 class="text-3xl font-bold text-dark mb-4">Comprehensive Cancer Care</h2>
         <div style="width:3rem;height:3px;background:#10b981;border-radius:9999px;margin:0 auto 1.5rem;"></div>
         <p class="text-gray-600 mb-6">Our Cancer Clinic provides expert diagnosis, treatment, and ongoing care for patients with urological cancers. We understand that a cancer diagnosis can be overwhelming, and we are committed to providing clear guidance and support throughout.</p>
         <p class="text-gray-600 mb-6">Our consultants are leaders in their field, offering access to advanced diagnostics and a full range of treatment options, including minimally invasive and robotic surgery.</p>
@@ -308,104 +317,171 @@
     </div>
   </section>
 
-  <!-- Conditions Treated -->
-  <section class="section-padding bg-gray-50">
+  <!-- Conditions We Treat -->
+  <section class="section-padding fade-in bg-white">
     <div class="container-custom">
-      <h2 class="text-3xl font-bold text-dark mb-3 text-center">Conditions We Treat</h2>
-      <div style="width:3rem;height:3px;background:#1b76c5;border-radius:9999px;margin:0 auto 3rem;"></div>
+      <div class="text-center mb-12">
+        <span style="display:inline-block;font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#10b981;margin-bottom:0.75rem;">What We Treat</span>
+        <h2 class="text-3xl font-bold text-dark mb-3">Conditions We Treat</h2>
+        <div style="width:3rem;height:3px;background:#10b981;border-radius:9999px;margin:0 auto;"></div>
+      </div>
 
-      <div class="grid md:grid-cols-2 gap-8">
+      <div class="grid md:grid-cols-2 gap-6">
         <!-- Prostate Cancer -->
-        <div class="condition-card p-8 rounded-xl shadow-lg flex flex-col" style="background:linear-gradient(135deg,#0f2a4a 0%,#1b4676 60%,#1b76c5 100%);border-top:4px solid #10b981;">
-          <h3 class="text-xl font-semibold mb-4" style="color:#fff;">Prostate Cancer</h3>
-          <p class="mb-4" style="color:rgba(255,255,255,0.75);">The most common cancer in men. We offer comprehensive care, from initial assessment and diagnosis through to treatment, including active surveillance programmes, focal therapies, and surgery. Where appropriate, we arrange onward referral for radiotherapy.</p>
-          <ul class="space-y-2 mb-6" style="color:rgba(255,255,255,0.75);">
-            <li class="flex items-start gap-2"><svg class="w-5 h-5 flex-shrink-0 mt-0.5" style="color:#fff;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>PSA testing and monitoring</li>
-            <li class="flex items-start gap-2"><svg class="w-5 h-5 flex-shrink-0 mt-0.5" style="color:#fff;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>3T multiparametric MRI imaging</li>
-            <li class="flex items-start gap-2"><svg class="w-5 h-5 flex-shrink-0 mt-0.5" style="color:#fff;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>MRI-guided prostate biopsy</li>
-            <li class="flex items-start gap-2"><svg class="w-5 h-5 flex-shrink-0 mt-0.5" style="color:#fff;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Active surveillance programmes</li>
-            <li class="flex items-start gap-2"><svg class="w-5 h-5 flex-shrink-0 mt-0.5" style="color:#fff;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Focal therapies, including High-Intensity Focused Ultrasound (HIFU), focal cryotherapy, and Irreversible Electroporation (NanoKnife)</li>
-            <li class="flex items-start gap-2"><svg class="w-5 h-5 flex-shrink-0 mt-0.5" style="color:#fff;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Robotic prostatectomy</li>
+        <div style="background:#fff;border:1px solid #a7f3d0;border-left:4px solid #10b981;border-radius:1rem;padding:2rem;display:flex;flex-direction:column;transition:transform 0.25s ease,box-shadow 0.25s ease;" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 32px rgba(16,185,129,0.12)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+          <h3 class="text-xl font-semibold mb-3" style="color:#0f2a4a;">Prostate Cancer</h3>
+          <p class="text-gray-600 mb-4" style="font-size:0.9rem;line-height:1.7;">The most common cancer in men. We offer comprehensive care, from initial assessment and diagnosis through to treatment, including active surveillance programmes, focal therapies, and surgery.</p>
+          <ul class="space-y-1.5 mb-8" style="font-size:0.85rem;color:#4b5563;">
+            <li class="flex items-start gap-2"><span style="color:#10b981;">›</span>PSA testing and monitoring</li>
+            <li class="flex items-start gap-2"><span style="color:#10b981;">›</span>3T multiparametric MRI imaging</li>
+            <li class="flex items-start gap-2"><span style="color:#10b981;">›</span>MRI-guided prostate biopsy</li>
+            <li class="flex items-start gap-2"><span style="color:#10b981;">›</span>Active surveillance programmes</li>
+            <li class="flex items-start gap-2"><span style="color:#10b981;">›</span>Focal therapies (HIFU, cryotherapy, NanoKnife)</li>
+            <li class="flex items-start gap-2"><span style="color:#10b981;">›</span>Robotic prostatectomy</li>
           </ul>
-          <div class="mt-auto"><a href="prostate-cancer.html" class="inline-flex items-center gap-1 text-sm font-semibold" style="color:#93c5fd;">Find out more <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a></div>
+          <a href="prostate-cancer.html" style="margin-top:auto;font-size:0.85rem;font-weight:600;color:#10b981;text-decoration:none;display:inline-flex;align-items:center;gap:0.3rem;">Find out more <svg style="width:14px;height:14px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a>
         </div>
 
         <!-- Bladder Cancer -->
-        <div class="condition-card p-8 rounded-xl shadow-lg flex flex-col" style="background:linear-gradient(135deg,#0f2a4a 0%,#1b4676 60%,#1b76c5 100%);border-top:4px solid #3b82f6;">
-          <h3 class="text-xl font-semibold mb-4" style="color:#fff;">Bladder Cancer</h3>
-          <p class="mb-4" style="color:rgba(255,255,255,0.75);">We provide expert care across all stages of bladder cancer, from early superficial tumours to more advanced disease requiring complex management, including reconstructive surgery where appropriate.</p>
-          <ul class="space-y-2 mb-6" style="color:rgba(255,255,255,0.75);">
-            <li class="flex items-start gap-2"><svg class="w-5 h-5 flex-shrink-0 mt-0.5" style="color:#fff;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Flexible cystoscopy</li>
-            <li class="flex items-start gap-2"><svg class="w-5 h-5 flex-shrink-0 mt-0.5" style="color:#fff;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Transurethral resection of bladder tumour (TURBT)</li>
-            <li class="flex items-start gap-2"><svg class="w-5 h-5 flex-shrink-0 mt-0.5" style="color:#fff;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Intravesical BCG immunotherapy</li>
-            <li class="flex items-start gap-2"><svg class="w-5 h-5 flex-shrink-0 mt-0.5" style="color:#fff;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Radical cystectomy (bladder removal surgery)</li>
+        <div style="background:#fff;border:1px solid #bfdbfe;border-left:4px solid #3b82f6;border-radius:1rem;padding:2rem;display:flex;flex-direction:column;transition:transform 0.25s ease,box-shadow 0.25s ease;" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 32px rgba(59,130,246,0.12)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+          <h3 class="text-xl font-semibold mb-3" style="color:#0f2a4a;">Bladder Cancer</h3>
+          <p class="text-gray-600 mb-4" style="font-size:0.9rem;line-height:1.7;">Expert care across all stages of bladder cancer, from early superficial tumours to advanced disease requiring complex management, including reconstructive surgery.</p>
+          <ul class="space-y-1.5 mb-8" style="font-size:0.85rem;color:#4b5563;">
+            <li class="flex items-start gap-2"><span style="color:#3b82f6;">›</span>Flexible cystoscopy</li>
+            <li class="flex items-start gap-2"><span style="color:#3b82f6;">›</span>TURBT (transurethral resection of bladder tumour)</li>
+            <li class="flex items-start gap-2"><span style="color:#3b82f6;">›</span>Intravesical BCG immunotherapy</li>
+            <li class="flex items-start gap-2"><span style="color:#3b82f6;">›</span>Radical cystectomy</li>
           </ul>
-          <div class="mt-auto"><a href="bladder-cancer.html" class="inline-flex items-center gap-1 text-sm font-semibold" style="color:#93c5fd;">Find out more <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a></div>
+          <a href="bladder-cancer.html" style="margin-top:auto;font-size:0.85rem;font-weight:600;color:#3b82f6;text-decoration:none;display:inline-flex;align-items:center;gap:0.3rem;">Find out more <svg style="width:14px;height:14px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a>
         </div>
 
         <!-- Kidney Cancer -->
-        <div class="condition-card p-8 rounded-xl shadow-lg flex flex-col" style="background:linear-gradient(135deg,#0f2a4a 0%,#1b4676 60%,#1b76c5 100%);border-top:4px solid #f59e0b;">
-          <h3 class="text-xl font-semibold mb-4" style="color:#fff;">Kidney Cancer</h3>
-          <p class="mb-4" style="color:rgba(255,255,255,0.75);">We provide comprehensive care for kidney tumours, including active surveillance for small tumours and a focus on kidney-sparing surgery where appropriate to preserve renal function.</p>
-          <ul class="space-y-2 mb-6" style="color:rgba(255,255,255,0.75);">
-            <li class="flex items-start gap-2"><svg class="w-5 h-5 flex-shrink-0 mt-0.5" style="color:#fff;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Active surveillance for small tumours</li>
-            <li class="flex items-start gap-2"><svg class="w-5 h-5 flex-shrink-0 mt-0.5" style="color:#fff;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Partial nephrectomy (kidney-sparing surgery)</li>
-            <li class="flex items-start gap-2"><svg class="w-5 h-5 flex-shrink-0 mt-0.5" style="color:#fff;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Robotic surgery</li>
+        <div style="background:#fff;border:1px solid #fde68a;border-left:4px solid #f59e0b;border-radius:1rem;padding:2rem;display:flex;flex-direction:column;transition:transform 0.25s ease,box-shadow 0.25s ease;" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 32px rgba(245,158,11,0.12)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+          <h3 class="text-xl font-semibold mb-3" style="color:#0f2a4a;">Kidney Cancer</h3>
+          <p class="text-gray-600 mb-4" style="font-size:0.9rem;line-height:1.7;">Comprehensive care for kidney tumours, including active surveillance for small tumours and kidney-sparing surgery where appropriate to preserve renal function.</p>
+          <ul class="space-y-1.5 mb-8" style="font-size:0.85rem;color:#4b5563;">
+            <li class="flex items-start gap-2"><span style="color:#f59e0b;">›</span>Active surveillance for small tumours</li>
+            <li class="flex items-start gap-2"><span style="color:#f59e0b;">›</span>Partial nephrectomy (kidney-sparing surgery)</li>
+            <li class="flex items-start gap-2"><span style="color:#f59e0b;">›</span>Robotic surgery</li>
           </ul>
-          <div class="mt-auto"><a href="kidney-cancer.html" class="inline-flex items-center gap-1 text-sm font-semibold" style="color:#93c5fd;">Find out more <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a></div>
+          <a href="kidney-cancer.html" style="margin-top:auto;font-size:0.85rem;font-weight:600;color:#f59e0b;text-decoration:none;display:inline-flex;align-items:center;gap:0.3rem;">Find out more <svg style="width:14px;height:14px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a>
         </div>
 
         <!-- Testicular Cancer -->
-        <div class="condition-card p-8 rounded-xl shadow-lg flex flex-col" style="background:linear-gradient(135deg,#0f2a4a 0%,#1b4676 60%,#1b76c5 100%);border-top:4px solid #8b5cf6;">
-          <h3 class="text-xl font-semibold mb-4" style="color:#fff;">Testicular Cancer</h3>
-          <p class="mb-4" style="color:rgba(255,255,255,0.75);">We provide rapid assessment and treatment for testicular cancer, the most common cancer in young men, with excellent outcomes when diagnosed early.</p>
-          <ul class="space-y-2 mb-6" style="color:rgba(255,255,255,0.75);">
-            <li class="flex items-start gap-2"><svg class="w-5 h-5 flex-shrink-0 mt-0.5" style="color:#fff;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Urgent ultrasound assessment</li>
-            <li class="flex items-start gap-2"><svg class="w-5 h-5 flex-shrink-0 mt-0.5" style="color:#fff;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Tumour marker blood tests</li>
-            <li class="flex items-start gap-2"><svg class="w-5 h-5 flex-shrink-0 mt-0.5" style="color:#fff;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Orchidectomy (testicle removal surgery)</li>
+        <div style="background:#fff;border:1px solid #ddd6fe;border-left:4px solid #8b5cf6;border-radius:1rem;padding:2rem;display:flex;flex-direction:column;transition:transform 0.25s ease,box-shadow 0.25s ease;" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 32px rgba(139,92,246,0.12)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+          <h3 class="text-xl font-semibold mb-3" style="color:#0f2a4a;">Testicular Cancer</h3>
+          <p class="text-gray-600 mb-4" style="font-size:0.9rem;line-height:1.7;">Rapid assessment and treatment for testicular cancer, the most common cancer in young men, with excellent outcomes when diagnosed early.</p>
+          <ul class="space-y-1.5 mb-8" style="font-size:0.85rem;color:#4b5563;">
+            <li class="flex items-start gap-2"><span style="color:#8b5cf6;">›</span>Urgent ultrasound assessment</li>
+            <li class="flex items-start gap-2"><span style="color:#8b5cf6;">›</span>Tumour marker blood tests</li>
+            <li class="flex items-start gap-2"><span style="color:#8b5cf6;">›</span>Orchidectomy (testicle removal surgery)</li>
           </ul>
-          <div class="mt-auto"><a href="testicular-cancer.html" class="inline-flex items-center gap-1 text-sm font-semibold" style="color:#93c5fd;">Find out more <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a></div>
+          <a href="testicular-cancer.html" style="margin-top:auto;font-size:0.85rem;font-weight:600;color:#8b5cf6;text-decoration:none;display:inline-flex;align-items:center;gap:0.3rem;">Find out more <svg style="width:14px;height:14px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Treatment Approach -->
-  <section class="bg-white" style="padding-top:3rem;padding-bottom:5rem;">
+  <!-- Why Choose Our Cancer Clinic -->
+  <section class="section-padding fade-in" style="background:#f0f7ff;">
     <div class="container-custom">
-      <div class="max-w-4xl mx-auto">
-        <h2 class="text-3xl font-bold text-dark mb-3 text-center">Our Treatment Approach</h2>
-        <div style="width:3rem;height:3px;background:#1b76c5;border-radius:9999px;margin:0 auto 3rem;"></div>
-
-        <div class="grid md:grid-cols-3 gap-8">
-          <div class="approach-card text-center">
-            <div class="approach-icon w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4" style="background:#d1fae5;">
-              <svg class="w-8 h-8" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
-              </svg>
-            </div>
-            <h3 class="text-lg font-semibold text-dark mb-2">Accurate Diagnosis</h3>
-            <p class="text-gray-600">Advanced imaging, including 3T MRI, and specialist biopsy techniques to support precise diagnosis and staging.</p>
+      <div class="text-center mb-12">
+        <span style="display:inline-block;font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#10b981;margin-bottom:0.75rem;">Our Approach</span>
+        <h2 class="text-3xl font-bold text-dark mb-3">Why Choose Our Cancer Clinic?</h2>
+        <div style="width:3rem;height:3px;background:#10b981;border-radius:9999px;margin:0 auto;"></div>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- MDT-Led Care -->
+        <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:1rem;padding:2rem;text-align:center;transition:transform 0.2s ease,box-shadow 0.2s ease;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 40px rgba(16,185,129,0.18)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+          <div style="width:56px;height:56px;border-radius:1rem;background:#10b981;display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;">
+            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+            </svg>
           </div>
-
-          <div class="approach-card text-center">
-            <div class="approach-icon w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4" style="background:#d1fae5;">
-              <svg class="w-8 h-8" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
-              </svg>
-            </div>
-            <h3 class="text-lg font-semibold text-dark mb-2">MDT Discussion</h3>
-            <p class="text-gray-600">Every case reviewed by our multidisciplinary team of specialists.</p>
+          <h3 style="font-size:1.05rem;font-weight:700;color:#0f2a4a;margin-bottom:0.5rem;">MDT-Led Care</h3>
+          <p style="color:#6b7280;font-size:0.875rem;line-height:1.7;">Every case reviewed by a multidisciplinary team of specialists including oncologists, radiologists, and pathologists.</p>
+        </div>
+        <!-- Advanced Diagnostics -->
+        <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:1rem;padding:2rem;text-align:center;transition:transform 0.2s ease,box-shadow 0.2s ease;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 40px rgba(16,185,129,0.18)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+          <div style="width:56px;height:56px;border-radius:1rem;background:#10b981;display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;">
+            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
+            </svg>
           </div>
+          <h3 style="font-size:1.05rem;font-weight:700;color:#0f2a4a;margin-bottom:0.5rem;">Advanced Diagnostics</h3>
+          <p style="color:#6b7280;font-size:0.875rem;line-height:1.7;">3T MRI, targeted biopsy, PSMA PET-CT, and specialist imaging for precise diagnosis and staging.</p>
+        </div>
+        <!-- Minimally Invasive -->
+        <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:1rem;padding:2rem;text-align:center;transition:transform 0.2s ease,box-shadow 0.2s ease;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 40px rgba(16,185,129,0.18)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+          <div style="width:56px;height:56px;border-radius:1rem;background:#10b981;display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;">
+            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <h3 style="font-size:1.05rem;font-weight:700;color:#0f2a4a;margin-bottom:0.5rem;">Minimally Invasive</h3>
+          <p style="color:#6b7280;font-size:0.875rem;line-height:1.7;">Robotic surgery, focal therapy, and organ-preserving approaches to reduce recovery time.</p>
+        </div>
+        <!-- Consultant-Led -->
+        <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:1rem;padding:2rem;text-align:center;transition:transform 0.2s ease,box-shadow 0.2s ease;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 40px rgba(16,185,129,0.18)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+          <div style="width:56px;height:56px;border-radius:1rem;background:#10b981;display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;">
+            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+            </svg>
+          </div>
+          <h3 style="font-size:1.05rem;font-weight:700;color:#0f2a4a;margin-bottom:0.5rem;">Consultant-Led</h3>
+          <p style="color:#6b7280;font-size:0.875rem;line-height:1.7;">Senior specialist oversight from diagnosis through to follow-up, ensuring continuity of care at every stage.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-          <div class="approach-card text-center">
-            <div class="approach-icon w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4" style="background:#d1fae5;">
-              <svg class="w-8 h-8" style="color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-              </svg>
-            </div>
-            <h3 class="text-lg font-semibold text-dark mb-2">Personalised Care</h3>
-            <p class="text-gray-600">Care tailored to your individual needs, preferences, and clinical circumstances.</p>
+  <!-- Our Cancer Specialists -->
+  <section class="section-padding fade-in bg-white">
+    <div class="container-custom">
+      <div class="text-center mb-12">
+        <span style="display:inline-block;font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#10b981;margin-bottom:0.75rem;">Our Team</span>
+        <h2 class="text-3xl font-bold text-dark mb-3">Our Cancer Specialists</h2>
+        <div style="width:3rem;height:3px;background:#10b981;border-radius:9999px;margin:0 auto;"></div>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- Bijan Khoubehi -->
+        <div style="display:flex;align-items:center;gap:1.5rem;background:#fff;border:1px solid #e5e7eb;border-radius:1rem;padding:1.5rem;transition:transform 0.2s ease,box-shadow 0.2s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+          <img src="../assets/Images/bijan.50698fcb.jpg" alt="Mr Bijan Khoubehi" style="width:90px;height:90px;border-radius:1rem;object-fit:cover;flex-shrink:0;">
+          <div>
+            <h3 style="font-size:1.05rem;font-weight:700;color:#0f2a4a;margin-bottom:0.15rem;">Mr Bijan Khoubehi</h3>
+            <p style="font-size:0.8rem;color:#10b981;font-weight:600;margin-bottom:0.4rem;">Consultant Urological Surgeon</p>
+            <p style="font-size:0.85rem;color:#6b7280;line-height:1.6;margin-bottom:0.5rem;">Specialist in prostate, bladder, and kidney cancer with expertise in robotic and minimally invasive surgery.</p>
+            <a href="../specialists/bijan-khoubehi.html" style="font-size:0.8rem;font-weight:600;color:#10b981;text-decoration:none;display:inline-flex;align-items:center;gap:0.3rem;">View Profile <span style="font-size:1rem;">&rarr;</span></a>
+          </div>
+        </div>
+        <!-- Mark Emberton -->
+        <div style="display:flex;align-items:center;gap:1.5rem;background:#fff;border:1px solid #e5e7eb;border-radius:1rem;padding:1.5rem;transition:transform 0.2s ease,box-shadow 0.2s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+          <img src="../assets/Images/Mark_Emberton.bb0764e5.jpg" alt="Professor Mark Emberton" style="width:90px;height:90px;border-radius:1rem;object-fit:cover;flex-shrink:0;">
+          <div>
+            <h3 style="font-size:1.05rem;font-weight:700;color:#0f2a4a;margin-bottom:0.15rem;">Professor Mark Emberton</h3>
+            <p style="font-size:0.8rem;color:#10b981;font-weight:600;margin-bottom:0.4rem;">Consultant Urological Surgeon</p>
+            <p style="font-size:0.85rem;color:#6b7280;line-height:1.6;margin-bottom:0.5rem;">World-leading expert in prostate cancer diagnostics, focal therapy, and MRI-guided interventions.</p>
+            <a href="../specialists/mark-emberton.html" style="font-size:0.8rem;font-weight:600;color:#10b981;text-decoration:none;display:inline-flex;align-items:center;gap:0.3rem;">View Profile <span style="font-size:1rem;">&rarr;</span></a>
+          </div>
+        </div>
+        <!-- Paul Cathcart -->
+        <div style="display:flex;align-items:center;gap:1.5rem;background:#fff;border:1px solid #e5e7eb;border-radius:1rem;padding:1.5rem;transition:transform 0.2s ease,box-shadow 0.2s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+          <img src="../assets/Images/Paul_Cathcart.d561278d.jpg" alt="Mr Paul Cathcart" style="width:90px;height:90px;border-radius:1rem;object-fit:cover;flex-shrink:0;">
+          <div>
+            <h3 style="font-size:1.05rem;font-weight:700;color:#0f2a4a;margin-bottom:0.15rem;">Mr Paul Cathcart</h3>
+            <p style="font-size:0.8rem;color:#10b981;font-weight:600;margin-bottom:0.4rem;">Consultant Urological Surgeon</p>
+            <p style="font-size:0.85rem;color:#6b7280;line-height:1.6;margin-bottom:0.5rem;">Specialist in bladder cancer, robotic cystectomy, and complex reconstructive urological surgery.</p>
+            <a href="../specialists/paul-cathcart.html" style="font-size:0.8rem;font-weight:600;color:#10b981;text-decoration:none;display:inline-flex;align-items:center;gap:0.3rem;">View Profile <span style="font-size:1rem;">&rarr;</span></a>
+          </div>
+        </div>
+        <!-- Clement Orczyk -->
+        <div style="display:flex;align-items:center;gap:1.5rem;background:#fff;border:1px solid #e5e7eb;border-radius:1rem;padding:1.5rem;transition:transform 0.2s ease,box-shadow 0.2s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+          <img src="../assets/Images/clement.jpg" alt="Dr Clement Orczyk" style="width:90px;height:90px;border-radius:1rem;object-fit:cover;flex-shrink:0;">
+          <div>
+            <h3 style="font-size:1.05rem;font-weight:700;color:#0f2a4a;margin-bottom:0.15rem;">Dr Clement Orczyk</h3>
+            <p style="font-size:0.8rem;color:#10b981;font-weight:600;margin-bottom:0.4rem;">Consultant Urological Surgeon</p>
+            <p style="font-size:0.85rem;color:#6b7280;line-height:1.6;margin-bottom:0.5rem;">Expert in MRI-targeted prostate biopsy, active surveillance, and prostate cancer diagnostics.</p>
+            <a href="../specialists/clement-orczyk.html" style="font-size:0.8rem;font-weight:600;color:#10b981;text-decoration:none;display:inline-flex;align-items:center;gap:0.3rem;">View Profile <span style="font-size:1rem;">&rarr;</span></a>
           </div>
         </div>
       </div>
@@ -423,6 +499,14 @@
       </div>
     </div>
   </section>
+
+  <!-- Floating CTA -->
+  <div id="float-cta">
+    <a href="../contact.html" style="display:inline-flex;align-items:center;gap:0.6rem;background:linear-gradient(135deg,#10b981,#0d9488);color:#fff;padding:0.85rem 1.5rem;border-radius:9999px;font-weight:600;font-size:0.9rem;box-shadow:0 8px 24px rgba(16,185,129,0.35);text-decoration:none;">
+      <svg style="width:18px;height:18px;flex-shrink:0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+      Contact Us
+    </a>
+  </div>
 
   <!-- Footer -->
   <footer class="bg-dark text-white">
@@ -496,6 +580,22 @@
 
   <script src="../js/main.js"></script>
   <script>
+    /* Reading progress bar */
+    const progressBar = document.getElementById('reading-progress');
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (docHeight > 0) progressBar.style.width = (scrollTop / docHeight * 100) + '%';
+    });
+
+    /* Fade-in on scroll */
+    const fadeEls = document.querySelectorAll('.fade-in');
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); fadeObserver.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    fadeEls.forEach(el => fadeObserver.observe(el));
+
+    /* Hero video play + smooth loop fade */
     const heroVideo = document.querySelector('.hero-video');
     if (heroVideo) {
       heroVideo.play().catch(() => {});
@@ -517,6 +617,29 @@
         });
       }, 1500);
     }
+
+    /* Floating CTA show/hide */
+    const floatCta = document.getElementById('float-cta');
+    const footerEl = document.querySelector('footer');
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      const footerTop = footerEl ? footerEl.getBoundingClientRect().top + scrollY : Infinity;
+      const viewBottom = scrollY + window.innerHeight;
+      if (scrollY > 400 && viewBottom < footerTop - 80) {
+        floatCta.classList.add('show');
+      } else {
+        floatCta.classList.remove('show');
+      }
+    });
+
+    /* Reading time calculator */
+    (function() {
+      const text = document.body.innerText || '';
+      const words = text.trim().split(/\s+/).length;
+      const mins = Math.max(1, Math.round(words / 220));
+      const pill = document.getElementById('reading-time');
+      if (pill) pill.textContent = mins + ' min read';
+    })();
   </script>
 </body>
 </html>
