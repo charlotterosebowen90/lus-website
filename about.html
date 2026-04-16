@@ -18,6 +18,15 @@
     .consultant-card { background:#fff; border-radius:1rem; overflow:hidden; transition:transform 0.35s ease, box-shadow 0.35s ease; border:1px solid #e5e7eb; }
     .consultant-card:hover { transform:translateY(-6px); box-shadow:0 20px 50px rgba(15,42,74,0.12); }
     .consultant-card:hover .consultant-photo img { transform:scale(1.08); }
+    .consultant-card { display:flex; flex-direction:row; align-items:center; padding:2rem; }
+    .consultant-card .consultant-photo { width:120px; height:120px; }
+    .consultant-card .consultant-info { margin-left:1.75rem; flex:1; }
+    @media (max-width:640px) {
+      .consultant-card { flex-direction:column; text-align:center; padding:1.5rem; }
+      .consultant-card .consultant-photo { width:100px; height:100px; margin:0 auto 1rem; }
+      .consultant-card .consultant-info { margin-left:0; }
+      .consultant-card .consultant-info > div { justify-content:center; }
+    }
   </style>
 </head>
 <body class="font-poppins">
@@ -335,11 +344,11 @@
       <div style="display:flex;flex-direction:column;gap:1.5rem;">
 
         <!-- Mr Bijan Khoubehi -->
-        <div class="consultant-card" style="display:flex;flex-direction:row;align-items:center;padding:2rem;background:#fff;">
-          <div class="consultant-photo" style="width:120px;height:120px;border-radius:50%;overflow:hidden;flex-shrink:0;border:3px solid #e8f0f7;">
+        <div class="consultant-card" style="background:#fff;">
+          <div class="consultant-photo" style="border-radius:50%;overflow:hidden;flex-shrink:0;border:3px solid #e8f0f7;">
             <img src="assets/Images/bijan.50698fcb.jpg" alt="Mr Bijan Khoubehi" style="width:100%;height:100%;object-fit:cover;object-position:50% 15%;display:block;transition:transform 0.5s ease;">
           </div>
-          <div style="margin-left:1.75rem;flex:1;">
+          <div class="consultant-info">
             <h3 style="color:#0f2a4a;font-size:1.15rem;font-weight:700;margin-bottom:0.15rem;">Mr Bijan Khoubehi</h3>
             <p style="color:#1b76c5;font-size:0.85rem;font-weight:600;margin-bottom:0.15rem;">Chairman &amp; Consultant Urological Surgeon</p>
             <p style="color:#9ca3af;font-size:0.78rem;margin-bottom:0.5rem;">BSc(Hons) MBBS MD FRCS (Urol)</p>
@@ -353,11 +362,11 @@
         </div>
 
         <!-- Prof Mark Emberton -->
-        <div class="consultant-card" style="display:flex;flex-direction:row;align-items:center;padding:2rem;background:#f8fafc;">
-          <div class="consultant-photo" style="width:120px;height:120px;border-radius:50%;overflow:hidden;flex-shrink:0;border:3px solid #e8f0f7;">
+        <div class="consultant-card" style="background:#f8fafc;">
+          <div class="consultant-photo" style="border-radius:50%;overflow:hidden;flex-shrink:0;border:3px solid #e8f0f7;">
             <img src="assets/Images/Mark_Emberton.bb0764e5.jpg" alt="Prof Mark Emberton" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform 0.5s ease;">
           </div>
-          <div style="margin-left:1.75rem;flex:1;">
+          <div class="consultant-info">
             <h3 style="color:#0f2a4a;font-size:1.15rem;font-weight:700;margin-bottom:0.15rem;">Prof Mark Emberton</h3>
             <p style="color:#1b76c5;font-size:0.85rem;font-weight:600;margin-bottom:0.15rem;">Consultant Urological Surgeon</p>
             <p style="color:#9ca3af;font-size:0.78rem;margin-bottom:0.5rem;">MD FMedSci</p>
@@ -371,11 +380,11 @@
         </div>
 
         <!-- Mr Paul Cathcart -->
-        <div class="consultant-card" style="display:flex;flex-direction:row;align-items:center;padding:2rem;background:#fff;">
-          <div class="consultant-photo" style="width:120px;height:120px;border-radius:50%;overflow:hidden;flex-shrink:0;border:3px solid #e8f0f7;">
+        <div class="consultant-card" style="background:#fff;">
+          <div class="consultant-photo" style="border-radius:50%;overflow:hidden;flex-shrink:0;border:3px solid #e8f0f7;">
             <img src="assets/Images/Paul_Cathcart.d561278d.jpg" alt="Mr Paul Cathcart" style="width:100%;height:100%;object-fit:cover;object-position:50% 15%;display:block;transition:transform 0.5s ease;">
           </div>
-          <div style="margin-left:1.75rem;flex:1;">
+          <div class="consultant-info">
             <h3 style="color:#0f2a4a;font-size:1.15rem;font-weight:700;margin-bottom:0.15rem;">Mr Paul Cathcart</h3>
             <p style="color:#1b76c5;font-size:0.85rem;font-weight:600;margin-bottom:0.15rem;">Consultant Urological Surgeon</p>
             <p style="color:#9ca3af;font-size:0.78rem;margin-bottom:0.5rem;">MD FRCS(Urol)</p>
@@ -389,11 +398,11 @@
         </div>
 
         <!-- Mr Jeremy Ockrim -->
-        <div class="consultant-card" style="display:flex;flex-direction:row;align-items:center;padding:2rem;background:#f8fafc;">
-          <div class="consultant-photo" style="width:120px;height:120px;border-radius:50%;overflow:hidden;flex-shrink:0;border:3px solid #e8f0f7;">
+        <div class="consultant-card" style="background:#f8fafc;">
+          <div class="consultant-photo" style="border-radius:50%;overflow:hidden;flex-shrink:0;border:3px solid #e8f0f7;">
             <img src="assets/Images/Jeremy Ockrim.jfif" alt="Mr Jeremy Ockrim" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform 0.5s ease;">
           </div>
-          <div style="margin-left:1.75rem;flex:1;">
+          <div class="consultant-info">
             <h3 style="color:#0f2a4a;font-size:1.15rem;font-weight:700;margin-bottom:0.15rem;">Mr Jeremy Ockrim</h3>
             <p style="color:#1b76c5;font-size:0.85rem;font-weight:600;margin-bottom:0.15rem;">Consultant Urological Surgeon</p>
             <p style="color:#9ca3af;font-size:0.78rem;margin-bottom:0.5rem;">MD BSc(Hons) FRCS(Urol)</p>
@@ -408,11 +417,11 @@
         </div>
 
         <!-- Mr Richard Nobrega -->
-        <div class="consultant-card" style="display:flex;flex-direction:row;align-items:center;padding:2rem;background:#fff;">
-          <div class="consultant-photo" style="width:120px;height:120px;border-radius:50%;overflow:hidden;flex-shrink:0;border:3px solid #e8f0f7;">
+        <div class="consultant-card" style="background:#fff;">
+          <div class="consultant-photo" style="border-radius:50%;overflow:hidden;flex-shrink:0;border:3px solid #e8f0f7;">
             <img src="assets/Images/Richard Nobrega.jfif" alt="Mr Richard Nobrega" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform 0.5s ease;">
           </div>
-          <div style="margin-left:1.75rem;flex:1;">
+          <div class="consultant-info">
             <h3 style="color:#0f2a4a;font-size:1.15rem;font-weight:700;margin-bottom:0.15rem;">Mr Richard Nobrega</h3>
             <p style="color:#1b76c5;font-size:0.85rem;font-weight:600;margin-bottom:0.15rem;">Consultant Urological Surgeon</p>
             <p style="color:#9ca3af;font-size:0.78rem;margin-bottom:0.5rem;">MBBS BSc(Hons) FRCS(Urol) RCPathME</p>
@@ -427,11 +436,11 @@
         </div>
 
         <!-- Mr Anthony Noah -->
-        <div class="consultant-card" style="display:flex;flex-direction:row;align-items:center;padding:2rem;background:#f8fafc;">
-          <div class="consultant-photo" style="width:120px;height:120px;border-radius:50%;overflow:hidden;flex-shrink:0;border:3px solid #e8f0f7;">
+        <div class="consultant-card" style="background:#f8fafc;">
+          <div class="consultant-photo" style="border-radius:50%;overflow:hidden;flex-shrink:0;border:3px solid #e8f0f7;">
             <img src="assets/Images/anthony-noah-urology-london-id-1236.jpg" alt="Mr Anthony Noah" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform 0.5s ease;">
           </div>
-          <div style="margin-left:1.75rem;flex:1;">
+          <div class="consultant-info">
             <h3 style="color:#0f2a4a;font-size:1.15rem;font-weight:700;margin-bottom:0.15rem;">Mr Anthony Noah</h3>
             <p style="color:#1b76c5;font-size:0.85rem;font-weight:600;margin-bottom:0.15rem;">Consultant Urological Surgeon</p>
             <p style="color:#9ca3af;font-size:0.78rem;margin-bottom:0.5rem;">BSc(Hons) MBBS FRCS(Urol)</p>
@@ -445,11 +454,11 @@
         </div>
 
         <!-- Prof Clement Orczyk -->
-        <div class="consultant-card" style="display:flex;flex-direction:row;align-items:center;padding:2rem;background:#fff;">
-          <div class="consultant-photo" style="width:120px;height:120px;border-radius:50%;overflow:hidden;flex-shrink:0;border:3px solid #e8f0f7;">
+        <div class="consultant-card" style="background:#fff;">
+          <div class="consultant-photo" style="border-radius:50%;overflow:hidden;flex-shrink:0;border:3px solid #e8f0f7;">
             <img src="assets/Images/clement.jpg" alt="Prof Clement Orczyk" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform 0.5s ease;">
           </div>
-          <div style="margin-left:1.75rem;flex:1;">
+          <div class="consultant-info">
             <h3 style="color:#0f2a4a;font-size:1.15rem;font-weight:700;margin-bottom:0.15rem;">Prof Cl&eacute;ment Orczyk</h3>
             <p style="color:#1b76c5;font-size:0.85rem;font-weight:600;margin-bottom:0.15rem;">Consultant Urological Surgeon</p>
             <p style="color:#9ca3af;font-size:0.78rem;margin-bottom:0.5rem;">MD PhD</p>
@@ -463,11 +472,11 @@
         </div>
 
         <!-- Mr Alberto Coscione -->
-        <div class="consultant-card" style="display:flex;flex-direction:row;align-items:center;padding:2rem;background:#f8fafc;">
-          <div class="consultant-photo" style="width:120px;height:120px;border-radius:50%;overflow:hidden;flex-shrink:0;border:3px solid #e8f0f7;">
+        <div class="consultant-card" style="background:#f8fafc;">
+          <div class="consultant-photo" style="border-radius:50%;overflow:hidden;flex-shrink:0;border:3px solid #e8f0f7;">
             <img src="https://media.licdn.com/dms/image/v2/C4D03AQFn6zZtX870Zw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1531260040326?e=2147483647&v=beta&t=U15f1tpU7ibd9W7GaJjWOry3yU7fhFotHdl5Qko0LNI" alt="Mr Alberto Coscione" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform 0.5s ease;">
           </div>
-          <div style="margin-left:1.75rem;flex:1;">
+          <div class="consultant-info">
             <h3 style="color:#0f2a4a;font-size:1.15rem;font-weight:700;margin-bottom:0.15rem;">Mr Alberto Coscione</h3>
             <p style="color:#1b76c5;font-size:0.85rem;font-weight:600;margin-bottom:0.15rem;">Consultant Urological Surgeon</p>
             <p style="color:#9ca3af;font-size:0.78rem;margin-bottom:0.5rem;">FRCS MA(Cantab) MB BChir AFHEA</p>
