@@ -247,14 +247,20 @@
     </div>
   </div>
 
+  <style>
+    @keyframes hero-fade { from{opacity:0} to{opacity:0.45} }
+    .hero-video { animation:hero-fade 1.2s ease-in forwards; opacity:0; }
+  </style>
+
   <!-- Page Header -->
-  <section class="relative" style="background-color:#0f1f35;min-height:48vh;display:flex;align-items:flex-end;padding-top:8rem;padding-bottom:3.5rem;">
-    <!-- Background image -->
-    <div class="absolute inset-0" style="background-image:url('assets/Images/AdobeStock_1500409576.jpg');background-size:cover;background-position:center;"></div>
-    <!-- Dark overlay -->
-    <div class="absolute inset-0" style="background:linear-gradient(120deg,rgba(10,22,40,0.72) 0%,rgba(15,42,74,0.5) 60%,rgba(27,118,197,0.25) 100%);"></div>
-    <!-- Content -->
-    <div class="container-custom relative" style="z-index:2;">
+  <section style="background-color:#0f1f35;min-height:55vh;display:flex;align-items:flex-end;padding-top:8rem;padding-bottom:3.5rem;position:relative;overflow:hidden;">
+    <div style="position:absolute;inset:0;overflow:hidden;">
+      <video autoplay muted loop playsinline preload="auto" class="hero-video" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 10%;">
+        <source src="assets/Images/Istock-1795565964.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="absolute inset-0" style="background:linear-gradient(to bottom right,rgba(15,26,53,0.65) 0%,rgba(15,26,53,0.4) 60%,rgba(27,118,197,0.15) 100%);"></div>
+    <div class="container-custom" style="position:relative;z-index:2;">
       <nav class="text-sm text-gray-400 mb-4">
         <a href="index.html" class="hover:text-white">Home</a>
         <span class="mx-2">/</span>
@@ -267,18 +273,19 @@
     </div>
   </section>
 
-  <!-- Contact Content -->
+  <!-- Book an Appointment -->
   <section class="section-padding bg-white">
     <div class="container-custom">
-      <div class="grid lg:grid-cols-2 gap-16">
-        <!-- Contact Form -->
-        <div>
-          <h2 class="text-2xl font-bold text-dark mb-3">Book an Appointment</h2>
-          <p class="text-gray-600 mb-3">Complete the form below and a member of our team will be in touch within one working day to arrange your appointment.</p>
-          <p class="text-sm mb-6" style="color:#1b76c5;font-weight:500;">
+      <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-8">
+          <span style="display:inline-block;font-size:0.75rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#1b76c5;background:#eff6ff;padding:0.35rem 1rem;border-radius:9999px;margin-bottom:0.75rem;">Get Started</span>
+          <h2 class="text-3xl font-bold text-dark mb-3">Book an Appointment</h2>
+          <p class="text-gray-600 mb-3 text-center">Complete the form below and a member of our team will be in touch within one working day to arrange your appointment.</p>
+          <p class="text-sm mb-6 text-center" style="color:#1b76c5;font-weight:500;">
             <svg style="display:inline;width:15px;height:15px;vertical-align:-2px;margin-right:5px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
             No GP referral required — you can refer yourself directly.
           </p>
+        </div>
 
           <p class="text-xs text-gray-400 mb-2">Fields marked * are required.</p>
           <form id="contact-form" class="space-y-6 p-4 sm:p-8" method="POST" action="https://formspree.io/f/mykbwwbg" style="background:#fff;border:1px solid #e5e7eb;border-radius:2.5rem;corner-shape:squircle;box-shadow:0 4px 24px rgba(0,0,0,0.06);">
@@ -378,132 +385,144 @@
             </div>
           </form>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Information & Opening Hours -->
+  <section style="background:linear-gradient(135deg,#0f2a4a 0%,#1b4676 50%,#1b76c5 100%);padding:3.5rem 0;">
+    <div class="container-custom">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+        <div>
+          <div style="width:56px;height:56px;border-radius:1rem;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;">
+            <svg class="w-7 h-7" style="color:#93c5fd;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <div style="font-size:1.25rem;font-weight:700;color:#fff;margin-bottom:0.35rem;">Address</div>
+          <div style="font-size:0.875rem;color:rgba(255,255,255,0.7);line-height:1.6;">18 Devonshire Street<br>London, W1G 7AQ</div>
         </div>
-
-        <!-- Contact Information -->
-        <div style="position:sticky;top:80px;align-self:start;">
-          <div class="rounded-2xl p-6 sm:p-8 mb-8 insurance-card" style="background:linear-gradient(135deg,#0f2a4a 0%,#1b4676 60%,#1b76c5 100%);">
-            <h3 class="text-xl font-bold mb-6" style="color:#fff;">Contact Information</h3>
-
-            <div class="space-y-6">
-              <div class="flex items-start gap-4">
-                <div class="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(255,255,255,0.1);">
-                  <svg class="w-6 h-6" style="color:#7bc7ef;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-                  </svg>
-                </div>
-                <div>
-                  <h4 class="font-semibold mb-1" style="color:#fff;">Address</h4>
-                  <p style="color:rgba(255,255,255,0.7);">18 Devonshire Street<br>London<br>W1G 7AQ</p>
-                </div>
-              </div>
-
-              <div class="flex items-start gap-4">
-                <div class="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(255,255,255,0.1);">
-                  <svg class="w-6 h-6" style="color:#f97316;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
-                  </svg>
-                </div>
-                <div>
-                  <h4 class="font-semibold mb-1" style="color:#fff;">Phone</h4>
-                  <a href="tel:03003020202" style="color:rgba(255,255,255,0.7);" class="hover:text-white">0300 302 0202</a>
-                </div>
-              </div>
-
-              <div class="flex items-start gap-4">
-                <div class="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(255,255,255,0.1);">
-                  <svg class="w-6 h-6" style="color:#34d399;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                  </svg>
-                </div>
-                <div>
-                  <h4 class="font-semibold mb-1" style="color:#fff;">Email</h4>
-                  <a href="mailto:info@londonurologyspecialists.co.uk" style="color:rgba(255,255,255,0.7);overflow-wrap:break-word;word-break:break-all;" class="hover:text-white">info@londonurologyspecialists.co.uk</a>
-                </div>
-              </div>
-            </div>
+        <div>
+          <div style="width:56px;height:56px;border-radius:1rem;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;">
+            <svg class="w-7 h-7" style="color:#93c5fd;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
           </div>
-
-          <div class="rounded-2xl p-6 sm:p-8 mb-8 insurance-card" style="background:linear-gradient(135deg,#0f2a4a 0%,#1b4676 60%,#1b76c5 100%);">
-            <h3 class="text-xl font-bold mb-6" style="color:#fff;">Opening Hours</h3>
-            <div class="space-y-3">
-              <div class="flex justify-between" style="border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:0.75rem;">
-                <span style="color:rgba(255,255,255,0.7);">Monday - Friday</span>
-                <span class="font-medium" style="color:#7bc7ef;">9:00 AM - 5:00 PM</span>
-              </div>
-              <div class="flex justify-between" style="border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:0.75rem;">
-                <span style="color:rgba(255,255,255,0.7);">Saturday</span>
-                <span class="font-medium" style="color:rgba(255,255,255,0.5);">Closed</span>
-              </div>
-              <div class="flex justify-between">
-                <span style="color:rgba(255,255,255,0.7);">Sunday</span>
-                <span class="font-medium" style="color:rgba(255,255,255,0.5);">Closed</span>
-              </div>
-            </div>
+          <div style="font-size:1.25rem;font-weight:700;color:#fff;margin-bottom:0.35rem;">Phone</div>
+          <a href="tel:03003020202" style="font-size:0.875rem;color:rgba(255,255,255,0.7);text-decoration:none;">0300 302 0202</a>
+        </div>
+        <div>
+          <div style="width:56px;height:56px;border-radius:1rem;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;">
+            <svg class="w-7 h-7" style="color:#93c5fd;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
           </div>
-
-          <!-- Map -->
-          <div class="rounded-2xl overflow-hidden insurance-card" style="height:280px;">
-            <a href="https://www.google.com/maps/search/18+Devonshire+Street+London+W1G+7AQ" target="_blank" rel="noopener" style="display:block;height:100%;">
-              <img src="assets/Images/Google Maps.png" alt="Map showing clinic location at 18 Devonshire Street" style="width:100%;height:100%;object-fit:cover;">
-            </a>
+          <div style="font-size:1.25rem;font-weight:700;color:#fff;margin-bottom:0.35rem;">Email</div>
+          <a href="mailto:info@londonurologyspecialists.co.uk" style="font-size:0.8rem;color:rgba(255,255,255,0.7);text-decoration:none;">info@londonurologyspecialists.co.uk</a>
+        </div>
+        <div>
+          <div style="width:56px;height:56px;border-radius:1rem;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;">
+            <svg class="w-7 h-7" style="color:#93c5fd;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
           </div>
-          <a href="https://www.google.com/maps/dir/?api=1&destination=18+Devonshire+Street+London+W1G+7AQ" target="_blank" rel="noopener" class="btn-primary w-full text-center mt-4" style="display:flex;align-items:center;justify-content:center;gap:0.5rem;background:linear-gradient(135deg,#1b76c5 0%,#1b4676 50%,#0f2a4a 100%);border:none;">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
-            Get Directions
-          </a>
+          <div style="font-size:1.25rem;font-weight:700;color:#fff;margin-bottom:0.35rem;">Opening Hours</div>
+          <div style="font-size:0.875rem;color:rgba(255,255,255,0.7);line-height:1.6;">Mon–Fri: 9:00 AM – 5:00 PM<br>Sat–Sun: Closed</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Transport Info -->
-  <section class="bg-gray-50" style="padding-top:3rem;padding-bottom:2rem;">
+  <!-- Directions & Map -->
+  <section class="section-padding bg-white">
     <div class="container-custom">
-      <hr style="border:none;border-top:1px solid #e5e7eb;margin-bottom:3rem;">
-      <h2 class="text-2xl font-bold text-dark mb-3 text-center">How to Find Us</h2>
-      <p class="text-center text-gray-500 mb-8">We are conveniently located in the heart of Marylebone, easily accessible by public transport and car.</p>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="p-6 rounded-xl insurance-card text-center" style="background:linear-gradient(135deg,#0f2a4a 0%,#1b4676 60%,#1b76c5 100%);">
-          <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4 mx-auto" style="background:rgba(255,255,255,0.12);">
-            <svg class="w-6 h-6" style="color:#7bc7ef;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3a9 9 0 100 18A9 9 0 0012 3zm-6 9h12"/>
-            </svg>
-          </div>
-          <h3 class="font-semibold mb-2" style="color:#ffffff;">By Underground</h3>
-          <p class="text-sm" style="color:rgba(255,255,255,0.7);">Great Portland Street (5 min walk)<br>Regent's Park (7 min walk)<br>Oxford Circus (12 min walk)</p>
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-8">
+          <span style="display:inline-block;font-size:0.75rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#1b76c5;background:#eff6ff;padding:0.35rem 1rem;border-radius:9999px;margin-bottom:0.75rem;">Directions</span>
+          <h2 class="text-3xl font-bold text-dark mb-3">Find Us</h2>
+          <div style="width:3rem;height:3px;background:#1b76c5;border-radius:9999px;margin:0 auto;"></div>
         </div>
-
-        <div class="p-6 rounded-xl insurance-card text-center" style="background:linear-gradient(135deg,#0f2a4a 0%,#1b4676 60%,#1b76c5 100%);">
-          <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4 mx-auto" style="background:rgba(255,255,255,0.12);">
-            <svg class="w-6 h-6" style="color:#7bc7ef;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 6V5a3 3 0 013-3h2a3 3 0 013 3v1M3 10h18M3 10v7a2 2 0 002 2h1m12 0h1a2 2 0 002-2v-7M3 10l2-4h14l2 4M7 19a1 1 0 100-2 1 1 0 000 2zm10 0a1 1 0 100-2 1 1 0 000 2z"/>
-            </svg>
+        <div class="grid lg:grid-cols-2 gap-8 items-start">
+          <div class="rounded-2xl overflow-hidden" style="height:350px;border:1px solid #e5e7eb;">
+            <a href="https://www.google.com/maps/search/18+Devonshire+Street+London+W1G+7AQ" target="_blank" rel="noopener" style="display:block;height:100%;">
+              <img src="assets/Images/Google Maps.png" alt="Map showing clinic location at 18 Devonshire Street" style="width:100%;height:100%;object-fit:cover;">
+            </a>
           </div>
-          <h3 class="font-semibold mb-2" style="color:#ffffff;">By Bus</h3>
-          <p class="text-sm" style="color:rgba(255,255,255,0.7);">Routes 18, 27, 205 (Great Portland Street Station)<br>Route 88 (Portland Place &amp;<br>New Cavendish Street)</p>
+          <div>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=18+Devonshire+Street+London+W1G+7AQ" target="_blank" rel="noopener" class="btn-primary w-full text-center mb-8" style="display:flex;align-items:center;justify-content:center;gap:0.5rem;background:linear-gradient(135deg,#1b76c5 0%,#1b4676 50%,#0f2a4a 100%);border:none;padding:1rem;">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
+              Get Directions
+            </a>
+            <div class="space-y-4">
+              <div style="background:#f8fafc;border:1px solid #e5e7eb;border-left:4px solid #1b76c5;border-radius:0.75rem;padding:1rem 1.25rem;">
+                <h4 style="font-weight:600;color:#0f2a4a;font-size:0.9rem;margin-bottom:0.25rem;">By Underground</h4>
+                <p style="color:#6b7280;font-size:0.85rem;line-height:1.6;">Great Portland Street (5 min walk) · Regent's Park (7 min walk) · Oxford Circus (12 min walk)</p>
+              </div>
+              <div style="background:#f8fafc;border:1px solid #e5e7eb;border-left:4px solid #1b4676;border-radius:0.75rem;padding:1rem 1.25rem;">
+                <h4 style="font-weight:600;color:#0f2a4a;font-size:0.9rem;margin-bottom:0.25rem;">By Bus</h4>
+                <p style="color:#6b7280;font-size:0.85rem;line-height:1.6;">Routes 18, 27, 205 (Great Portland Street Station) · Route 88 (Portland Place & New Cavendish Street)</p>
+              </div>
+              <div style="background:#f8fafc;border:1px solid #e5e7eb;border-left:4px solid #1b76c5;border-radius:0.75rem;padding:1rem 1.25rem;">
+                <h4 style="font-weight:600;color:#0f2a4a;font-size:0.9rem;margin-bottom:0.25rem;">By Car</h4>
+                <p style="color:#6b7280;font-size:0.85rem;line-height:1.6;">NCP London Portland Place (Weymouth Mews, W1B 1QE) · Q-Park Oxford Street (Cavendish Square)</p>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="p-6 rounded-xl insurance-card text-center" style="background:linear-gradient(135deg,#0f2a4a 0%,#1b4676 60%,#1b76c5 100%);">
-          <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4 mx-auto" style="background:rgba(255,255,255,0.12);">
-            <svg class="w-6 h-6" style="color:#7bc7ef;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 17H3a1 1 0 01-1-1v-5l2-5h14l2 5v5a1 1 0 01-1 1h-2m-12 0a2 2 0 104 0m6 0a2 2 0 104 0M5 17h8m2 0h2"/>
-            </svg>
+
+  <!-- Contact Your Consultant -->
+  <section style="background:#f0f7ff;padding:4rem 0;">
+    <div class="container-custom">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-8">
+          <span style="display:inline-block;font-size:0.75rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#1b76c5;background:#dbeafe;padding:0.35rem 1rem;border-radius:9999px;margin-bottom:0.75rem;">Secretary Contact</span>
+          <h2 class="text-3xl font-bold text-dark mb-3">Contact Your Consultant's Secretary</h2>
+          <div style="width:3rem;height:3px;background:#1b76c5;border-radius:9999px;margin:0 auto 1.5rem;"></div>
+          <p class="text-gray-600">You can also contact your consultant's secretary directly for appointment queries or follow-up arrangements.</p>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div style="background:#fff;border:1px solid #bfdbfe;border-left:4px solid #1b76c5;border-radius:0.75rem;padding:1rem 1.25rem;display:flex;justify-content:space-between;align-items:center;">
+            <span style="font-weight:600;color:#0f2a4a;font-size:0.9rem;">Mr Bijan Khoubehi</span>
+            <a href="mailto:khoubehi@londonurologyspecialists.co.uk" style="font-size:0.75rem;color:#1b76c5;text-decoration:none;">khoubehi@londonurologyspecialists.co.uk</a>
           </div>
-          <h3 class="font-semibold mb-2" style="color:#ffffff;">By Car</h3>
-          <p class="text-sm" style="color:rgba(255,255,255,0.7);">NCP London Portland Place<br>(Weymouth Mews, W1B 1QE)<br>Q-Park Oxford Street (Cavendish Square)</p>
+          <div style="background:#fff;border:1px solid #bfdbfe;border-left:4px solid #1b4676;border-radius:0.75rem;padding:1rem 1.25rem;display:flex;justify-content:space-between;align-items:center;">
+            <span style="font-weight:600;color:#0f2a4a;font-size:0.9rem;">Prof Mark Emberton</span>
+            <a href="mailto:emberton@londonurologyspecialists.co.uk" style="font-size:0.75rem;color:#1b76c5;text-decoration:none;">emberton@londonurologyspecialists.co.uk</a>
+          </div>
+          <div style="background:#fff;border:1px solid #bfdbfe;border-left:4px solid #1b76c5;border-radius:0.75rem;padding:1rem 1.25rem;display:flex;justify-content:space-between;align-items:center;">
+            <span style="font-weight:600;color:#0f2a4a;font-size:0.9rem;">Mr Paul Cathcart</span>
+            <a href="mailto:cathcart@londonurologyspecialists.co.uk" style="font-size:0.75rem;color:#1b76c5;text-decoration:none;">cathcart@londonurologyspecialists.co.uk</a>
+          </div>
+          <div style="background:#fff;border:1px solid #bfdbfe;border-left:4px solid #1b4676;border-radius:0.75rem;padding:1rem 1.25rem;display:flex;justify-content:space-between;align-items:center;">
+            <span style="font-weight:600;color:#0f2a4a;font-size:0.9rem;">Mr Jeremy Ockrim</span>
+            <a href="mailto:ockrim@londonurologyspecialists.co.uk" style="font-size:0.75rem;color:#1b76c5;text-decoration:none;">ockrim@londonurologyspecialists.co.uk</a>
+          </div>
+          <div style="background:#fff;border:1px solid #bfdbfe;border-left:4px solid #1b76c5;border-radius:0.75rem;padding:1rem 1.25rem;display:flex;justify-content:space-between;align-items:center;">
+            <span style="font-weight:600;color:#0f2a4a;font-size:0.9rem;">Mr Richard Nobrega</span>
+            <a href="mailto:nobrega@londonurologyspecialists.co.uk" style="font-size:0.75rem;color:#1b76c5;text-decoration:none;">nobrega@londonurologyspecialists.co.uk</a>
+          </div>
+          <div style="background:#fff;border:1px solid #bfdbfe;border-left:4px solid #1b4676;border-radius:0.75rem;padding:1rem 1.25rem;display:flex;justify-content:space-between;align-items:center;">
+            <span style="font-weight:600;color:#0f2a4a;font-size:0.9rem;">Mr Anthony Noah</span>
+            <a href="mailto:noah@londonurologyspecialists.co.uk" style="font-size:0.75rem;color:#1b76c5;text-decoration:none;">noah@londonurologyspecialists.co.uk</a>
+          </div>
+          <div style="background:#fff;border:1px solid #bfdbfe;border-left:4px solid #1b76c5;border-radius:0.75rem;padding:1rem 1.25rem;display:flex;justify-content:space-between;align-items:center;">
+            <span style="font-weight:600;color:#0f2a4a;font-size:0.9rem;">Prof Clément Orczyk</span>
+            <a href="mailto:orczyk@londonurologyspecialists.co.uk" style="font-size:0.75rem;color:#1b76c5;text-decoration:none;">orczyk@londonurologyspecialists.co.uk</a>
+          </div>
+          <div style="background:#fff;border:1px solid #bfdbfe;border-left:4px solid #1b4676;border-radius:0.75rem;padding:1rem 1.25rem;display:flex;justify-content:space-between;align-items:center;">
+            <span style="font-weight:600;color:#0f2a4a;font-size:0.9rem;">Mr Alberto Coscione</span>
+            <a href="mailto:coscione@londonurologyspecialists.co.uk" style="font-size:0.75rem;color:#1b76c5;text-decoration:none;">coscione@londonurologyspecialists.co.uk</a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Also Practise At -->
-  <section class="bg-gray-50" style="padding-top:2rem;padding-bottom:4rem;">
+  <section style="background:#fff;padding:4rem 0;">
     <div class="container-custom">
-      <hr style="border:none;border-top:1px solid #e2e8f0;margin-bottom:3rem;">
-      <h2 class="text-2xl font-bold text-dark mb-3 text-center">Where Else We Practise</h2>
-      <p class="text-center text-gray-500 mb-8">In addition to our main clinic at 18 Devonshire Street, our consultants also practise across a number of London's leading private hospitals.</p>
+      <div class="text-center mb-8">
+        <span style="display:inline-block;font-size:0.75rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#1b76c5;background:#eff6ff;padding:0.35rem 1rem;border-radius:9999px;margin-bottom:0.75rem;">Our Locations</span>
+        <h2 class="text-3xl font-bold text-dark mb-3">Where Else We Practise</h2>
+        <div style="width:3rem;height:3px;background:#1b76c5;border-radius:9999px;margin:0 auto 1.5rem;"></div>
+        <p class="text-gray-600">In addition to our main clinic at 18 Devonshire Street, our consultants also practise across a number of London's leading private hospitals.</p>
+      </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
         <div class="rounded-xl p-6 text-center insurance-card" style="background:linear-gradient(135deg,#0f2a4a 0%,#1b4676 100%);border:1px solid #0f2a4a;">
@@ -627,5 +646,19 @@
   </a>
 
   <script src="js/main.js"></script>
+  <script>
+    const heroVideo = document.querySelector('.hero-video');
+    if (heroVideo) {
+      heroVideo.play().catch(() => {});
+      let loopFading = false;
+      setTimeout(() => {
+        heroVideo.addEventListener('timeupdate', () => {
+          const remaining = heroVideo.duration - heroVideo.currentTime;
+          if (remaining < 1.5 && !loopFading) { loopFading = true; heroVideo.style.transition = 'opacity 1.2s ease'; heroVideo.style.opacity = '0'; }
+          if (heroVideo.currentTime < 0.3 && loopFading) { loopFading = false; heroVideo.style.transition = 'opacity 1.2s ease'; heroVideo.style.opacity = '0.45'; }
+        });
+      }, 1000);
+    }
+  </script>
 </body>
 </html>
