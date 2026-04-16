@@ -21,9 +21,11 @@
     .fade-section.visible { opacity:1; transform:translateY(0); }
     @keyframes hero-fade { from{opacity:0} to{opacity:0.45} }
     .hero-video { animation:hero-fade 1.2s ease-in forwards; }
+    #reading-progress { position:fixed; top:0; left:0; height:3px; background:linear-gradient(90deg,#1b76c5,#22c55e); z-index:9999; width:0; transition:width 0.1s linear; }
   </style>
 </head>
 <body class="font-poppins">
+<div id="reading-progress"></div>
 
   <!-- Header -->
   <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-white transition-all duration-300">
@@ -262,7 +264,7 @@
   <!-- Hero Section -->
   <section style="background-color:#0f1f35;min-height:55vh;display:flex;align-items:flex-end;padding-top:8rem;padding-bottom:3.5rem;position:relative;overflow:hidden;">
     <div style="position:absolute;inset:0;overflow:hidden;">
-      <video autoplay muted loop playsinline class="hero-video" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;opacity:0;">
+      <video autoplay muted loop playsinline class="hero-video" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 10%;opacity:0;">
         <source src="../assets/Images/Istock-1473926734.mp4" type="video/mp4">
       </video>
     </div>
@@ -287,6 +289,10 @@
         </div>
       </div>
       <p class="text-xl text-gray-300 max-w-2xl mb-8">Sexual health concerns are common, treatable, and nothing to be embarrassed about — our specialists provide confidential, expert care.</p>
+      <div style="margin-top:1rem;display:inline-flex;align-items:center;gap:0.5rem;background:rgba(255,255,255,0.1);backdrop-filter:blur(8px);padding:0.4rem 1rem;border-radius:9999px;border:1px solid rgba(255,255,255,0.15);">
+        <svg class="w-4 h-4 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <span id="read-time" style="font-size:0.8rem;color:#d1d5db;font-weight:500;"></span>
+      </div>
 
       <!-- Reassuring callout -->
       <div style="max-width:42rem;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);border-radius:1.25rem;padding:1.5rem 1.75rem;backdrop-filter:blur(4px);">
@@ -799,6 +805,20 @@
       });
     }, { rootMargin: '-20% 0px -70% 0px' });
     sections.forEach(section => tocObserver.observe(section));
+  </script>
+  <script>
+    // Reading progress bar
+    const progressBar = document.getElementById('reading-progress');
+    window.addEventListener('scroll', () => {
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = Math.min((window.scrollY / docHeight) * 100, 100);
+      progressBar.style.width = pct + '%';
+    });
+    // Estimated reading time
+    const words = document.body.innerText.trim().split(/\s+/).length;
+    const mins = Math.max(1, Math.round(words / 220));
+    const readEl = document.getElementById('read-time');
+    if (readEl) readEl.textContent = mins + ' min read';
   </script>
 
 </body>

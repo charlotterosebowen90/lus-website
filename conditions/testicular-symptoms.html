@@ -27,9 +27,11 @@
     #float-cta { position:fixed; bottom:2rem; right:2rem; z-index:40; opacity:0; pointer-events:none; transition:opacity 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease; }
     #float-cta.show { opacity:1; pointer-events:auto; }
     #float-cta:hover { transform:scale(1.05); box-shadow:0 12px 32px rgba(27,118,197,0.5) !important; }
+    #reading-progress { position:fixed; top:0; left:0; height:3px; background:linear-gradient(90deg,#1b76c5,#22c55e); z-index:9999; width:0; transition:width 0.1s linear; }
   </style>
 </head>
 <body class="font-poppins">
+<div id="reading-progress"></div>
 
   <!-- Header -->
   <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-white transition-all duration-300">
@@ -268,7 +270,7 @@
   <!-- Hero -->
   <section style="background-color:#0f1f35;min-height:55vh;display:flex;align-items:flex-end;padding-top:8rem;padding-bottom:3.5rem;position:relative;overflow:hidden;">
     <div style="position:absolute;inset:0;overflow:hidden;">
-      <video autoplay muted loop playsinline preload="auto" class="hero-video" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;opacity:0;">
+      <video autoplay muted loop playsinline preload="auto" class="hero-video" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 10%;opacity:0;">
         <source src="../assets/Images/Istock-1473926734.mp4" type="video/mp4">
       </video>
     </div>
@@ -296,6 +298,10 @@
         </div>
       </div>
       <p class="text-xl text-gray-300 max-w-2xl mb-6">Most testicular lumps and symptoms are benign — but any new lump or change should be assessed promptly by a specialist.</p>
+      <div style="margin-top:1rem;display:inline-flex;align-items:center;gap:0.5rem;background:rgba(255,255,255,0.1);backdrop-filter:blur(8px);padding:0.4rem 1rem;border-radius:9999px;border:1px solid rgba(255,255,255,0.15);">
+        <svg class="w-4 h-4 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <span id="read-time" style="font-size:0.8rem;color:#d1d5db;font-weight:500;"></span>
+      </div>
 
       <!-- Reassuring + urgent callout -->
       <div style="display:inline-flex;align-items:flex-start;gap:1rem;background:rgba(27,118,197,0.18);border:1px solid rgba(147,197,253,0.35);border-radius:1rem;padding:1.1rem 1.5rem;max-width:640px;backdrop-filter:blur(4px);">
@@ -789,6 +795,20 @@
         });
       }, 1200);
     }
+  </script>
+  <script>
+    // Reading progress bar
+    const progressBar = document.getElementById('reading-progress');
+    window.addEventListener('scroll', () => {
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = Math.min((window.scrollY / docHeight) * 100, 100);
+      progressBar.style.width = pct + '%';
+    });
+    // Estimated reading time
+    const words = document.body.innerText.trim().split(/\s+/).length;
+    const mins = Math.max(1, Math.round(words / 220));
+    const readEl = document.getElementById('read-time');
+    if (readEl) readEl.textContent = mins + ' min read';
   </script>
 </body>
 </html>
