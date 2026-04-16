@@ -21,6 +21,7 @@
   </style>
 </head>
 <body class="font-poppins">
+  <div id="reading-progress" style="position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,#1b76c5,#22c55e);z-index:9999;transition:width 0.15s ease;"></div>
   <!-- Header -->
   <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-white transition-all duration-300">
     <div class="container-custom">
@@ -594,6 +595,13 @@
       prevBtn.addEventListener('click', function() { pos = Math.max(0, pos - 1); update(); });
       nextBtn.addEventListener('click', function() { pos = Math.min(maxPos, pos + 1); update(); });
     })();
+
+    // Reading progress bar
+    const progressBar = document.getElementById('reading-progress');
+    window.addEventListener('scroll', () => {
+      const pct = Math.min((window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100, 100);
+      progressBar.style.width = pct + '%';
+    });
 
     // Fade-in on scroll
     const fadeEls = document.querySelectorAll('.fade-in');
