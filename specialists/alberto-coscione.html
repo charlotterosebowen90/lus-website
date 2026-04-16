@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Professor Mark Emberton | London Urology Specialists</title>
-  <meta name="description" content="Professor Mark Emberton MD FRCS(Urol) — Professor of Interventional Oncology at UCL. World-leading expert in prostate cancer detection, surveillance, and minimally invasive treatment.">
+  <title>Mr Alberto Coscione | Consultant Urological Surgeon | London Urology Specialists</title>
+  <meta name="description" content="Mr Alberto Coscione FRCS MA (Cantab) MB BChir AFHEA — Consultant Urological Surgeon specialising in endourology, stone surgery, and core urology at London Urology Specialists.">
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,42 +14,41 @@
     #reading-progress { position:fixed; top:0; left:0; height:3px; background:linear-gradient(90deg,#1b76c5,#10b981); z-index:9999; width:0; transition:width 0.1s linear; }
 
     /* Scroll fade-in */
-    .fade-section { opacity:0; transform:translateY(22px); transition:opacity 0.7s cubic-bezier(.23,1,.32,1), transform 0.7s cubic-bezier(.23,1,.32,1); margin-bottom:3rem; }
+    .fade-section { opacity:0; transform:translateY(22px); transition:opacity 0.7s cubic-bezier(.22,1,.36,1), transform 0.7s cubic-bezier(.22,1,.36,1); }
     .fade-section.visible { opacity:1; transform:translateY(0); }
 
-    /* Accent underline grow */
+    /* Accent line grow */
     .accent-line { transform-origin:left center; transform:scaleX(0); opacity:0; }
     .fade-section.visible .accent-line { animation:accentGrow 0.5s ease 0.2s both; }
     @keyframes accentGrow { from { transform:scaleX(0); opacity:0; } to { transform:scaleX(1); opacity:1; } }
 
-    /* Sidebar quick-fact hover */
-    .quick-fact { transition:background 0.2s ease, transform 0.2s ease; }
-    .quick-fact:hover { background:#eff6ff; transform:translateX(4px); }
+    /* Profile sidebar */
+    .quick-fact { display:flex; align-items:flex-start; gap:0.75rem; padding:0.75rem 0; border-bottom:1px solid #f3f4f6; }
+    .quick-fact:last-child { border-bottom:none; }
+    .quick-fact svg { width:1.25rem; height:1.25rem; flex-shrink:0; color:#1b76c5; margin-top:0.125rem; }
 
-    /* Section tag */
+    /* Section cards */
+    .profile-card { background:#fff; border:1px solid #e5e7eb; border-radius:1rem; padding:2rem; box-shadow:0 2px 8px rgba(0,0,0,0.04); transition:transform 0.2s ease, box-shadow 0.2s ease; }
+    .profile-card:hover { transform:translateY(-2px); box-shadow:0 8px 24px rgba(27,118,197,0.1); }
+
+    /* Specialty tag */
+    .specialty-tag { display:inline-flex; align-items:center; gap:0.4rem; padding:0.4rem 0.85rem; border-radius:9999px; background:#eff6ff; color:#1b76c5; font-size:0.8rem; font-weight:500; transition:background 0.2s ease, transform 0.2s ease; }
+    .specialty-tag:hover { background:#dbeafe; transform:translateY(-1px); }
+
+    /* Timeline */
+    .timeline-item { position:relative; padding-left:2rem; padding-bottom:1.5rem; border-left:2px solid #e5e7eb; }
+    .timeline-item:last-child { border-left-color:transparent; padding-bottom:0; }
+    .timeline-item::before { content:''; position:absolute; left:-6px; top:4px; width:10px; height:10px; border-radius:50%; background:#1b76c5; border:2px solid #fff; box-shadow:0 0 0 2px #1b76c5; }
+
+    /* Publication list */
+    .pub-item { padding:0.75rem 0; border-bottom:1px solid #f3f4f6; font-size:0.9rem; color:#4b5563; }
+    .pub-item:last-child { border-bottom:none; }
+
     .section-tag { display:inline-block; font-size:0.75rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#1b76c5; margin-bottom:0.75rem; }
 
-    /* Publication card */
-    .pub-card { transition:transform 0.2s ease, box-shadow 0.2s ease; }
-    .pub-card:hover { transform:translateY(-3px); box-shadow:0 8px 24px rgba(27,118,197,0.12); }
+    .content-section { margin-bottom:3rem; }
 
-    /* Specialty pill */
-    .specialty-pill { transition:transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease; }
-    .specialty-pill:hover { transform:translateY(-2px); background:#dbeafe !important; box-shadow:0 4px 12px rgba(27,118,197,0.15); }
-
-    /* Hero gradient */
-    @keyframes heroShimmer {
-      0% { background-position:0% 50%; }
-      50% { background-position:100% 50%; }
-      100% { background-position:0% 50%; }
-    }
-
-    /* Avatar ring pulse */
-    @keyframes ringPulse {
-      0%, 100% { box-shadow:0 0 0 0 rgba(27,118,197,0.3); }
-      50% { box-shadow:0 0 0 8px rgba(27,118,197,0); }
-    }
-    .avatar-ring { animation:ringPulse 3s ease-in-out infinite; }
+    .hero-animate, .hero-animate-delay, .hero-animate-delay2 { opacity:1; }
   </style>
 </head>
 <body class="font-poppins">
@@ -266,7 +265,7 @@
   </div>
 
   <!-- Hero Section -->
-  <section style="background:linear-gradient(135deg,#0f1a35 0%,#0f2a4a 40%,#1b76c5 100%);min-height:50vh;display:flex;align-items:flex-end;padding-top:8rem;padding-bottom:3.5rem;position:relative;overflow:hidden;">
+  <section style="background:linear-gradient(135deg,#0f1a35 0%,#0f2a4a 40%,#1b76c5 100%);min-height:55vh;display:flex;align-items:flex-end;padding-top:8rem;padding-bottom:3.5rem;position:relative;overflow:hidden;">
     <div class="absolute inset-0" style="background:radial-gradient(ellipse at 70% 30%,rgba(27,118,197,0.2) 0%,transparent 60%);"></div>
     <div class="container-custom" style="position:relative;z-index:2;">
       <nav class="text-sm text-gray-400 mb-6">
@@ -274,44 +273,44 @@
         <span class="mx-2">/</span>
         <a href="../about.html" class="hover:text-white">Our Specialists</a>
         <span class="mx-2">/</span>
-        <span class="text-white">Professor Mark Emberton</span>
+        <span class="text-white">Mr Alberto Coscione</span>
       </nav>
       <div class="flex flex-col md:flex-row items-start md:items-end gap-8">
         <div class="flex-shrink-0">
           <div style="width:140px;height:140px;border-radius:1.25rem;overflow:hidden;border:4px solid rgba(255,255,255,0.2);">
-            <img src="../assets/Images/Mark_Emberton.bb0764e5.jpg" alt="Professor Mark Emberton" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
+            <img src="../assets/Images/Alberto Coscione.jfif" alt="Mr Alberto Coscione" style="width:100%;height:100%;object-fit:cover;object-position:center 15%;">
           </div>
         </div>
         <div class="flex-1">
-          <p style="color:#93c5fd;font-size:0.8rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.5rem;">Professor of Interventional Oncology</p>
-          <h1 class="text-4xl md:text-5xl font-bold text-white mb-2">Professor Mark Emberton</h1>
-          <p style="color:#cbd5e1;font-size:0.95rem;margin-bottom:1rem;">MD FRCS(Urol)</p>
-          <p class="text-xl text-gray-300 max-w-2xl">Director of the Division of Surgery and Interventional Science at University College London.</p>
+          <p style="color:#93c5fd;font-size:0.8rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.5rem;">Consultant Urological Surgeon</p>
+          <h1 class="text-4xl md:text-5xl font-bold text-white mb-2">Mr Alberto Coscione</h1>
+          <p style="color:#cbd5e1;font-size:0.95rem;margin-bottom:1rem;">FRCS MA (Cantab) MB BChir AFHEA</p>
+          <p class="text-xl text-gray-300 max-w-2xl">Chelsea-based Consultant Urological Surgeon specialising in endourology, stone surgery, and core urology.</p>
           <div class="flex flex-wrap gap-3 mt-4">
             <span style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.35rem 0.85rem;border-radius:9999px;background:rgba(27,118,197,0.2);color:#7cc4f5;font-size:0.8rem;font-weight:500;border:1px solid rgba(27,118,197,0.3);">
-              <svg style="width:0.9rem;height:0.9rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-              Prostate Cancer
+              <svg style="width:0.9rem;height:0.9rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+              Endourology
             </span>
             <span style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.35rem 0.85rem;border-radius:9999px;background:rgba(16,185,129,0.15);color:#6ee7b7;font-size:0.8rem;font-weight:500;border:1px solid rgba(16,185,129,0.25);">
               <svg style="width:0.9rem;height:0.9rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
-              Minimally Invasive Treatment
+              Stone Surgery
             </span>
             <span style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.35rem 0.85rem;border-radius:9999px;background:rgba(255,255,255,0.08);color:#d1d5db;font-size:0.8rem;font-weight:500;border:1px solid rgba(255,255,255,0.12);">
-              <svg style="width:0.9rem;height:0.9rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
-              200+ Publications
+              <svg style="width:0.9rem;height:0.9rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>
+              Core Urology
             </span>
           </div>
         </div>
         <div class="flex gap-3">
           <a href="../contact.html" class="bg-white text-gray-900 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors shadow-lg text-sm">Book Consultation</a>
-          <a href="mailto:emberton@londonurologyspecialists.co.uk" class="border border-white/30 text-white px-6 py-3 rounded-full font-semibold hover:bg-white/10 transition-colors text-sm">Email Directly</a>
+          <a href="mailto:coscione@londonurologyspecialists.co.uk" class="border border-white/30 text-white px-6 py-3 rounded-full font-semibold hover:bg-white/10 transition-colors text-sm">Email Directly</a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Main Content -->
-  <section class="section-padding" style="background:#f8fafc;">
+  <section class="py-16 bg-gray-50">
     <div class="container-custom">
       <div class="flex gap-12 items-start">
 
@@ -319,218 +318,202 @@
         <div class="space-y-10" style="flex:1;min-width:0;">
 
           <!-- About -->
-          <div id="about" class="fade-section bg-white rounded-2xl p-8 md:p-10 shadow-sm">
-            <p class="section-tag">About</p>
-            <div style="height:3px;width:60px;background:#1b76c5;border-radius:2px;margin-bottom:1.5rem;" class="accent-line"></div>
-            <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6">A World-Leading Authority in Urological Oncology</h2>
+          <div id="about" class="profile-card fade-section content-section">
+            <span class="section-tag">About</span>
+            <div style="height:3px;width:3rem;background:#1b76c5;border-radius:9999px;margin-bottom:1.25rem;" class="accent-line"></div>
+            <h2 class="text-2xl font-bold text-gray-900 mb-4">Expert Stone Surgeon &amp; Endourologist</h2>
             <div class="space-y-4 text-gray-600 leading-relaxed">
-              <p>Professor Mark Emberton is one of the most distinguished academic urologists practising in the United Kingdom. He holds the prestigious Chair of Interventional Oncology at University College London (UCL), where he leads ground-breaking research into the detection, surveillance, and minimally invasive treatment of prostate cancer.</p>
-              <p>As Director of the Division of Surgery and Interventional Science at UCL, Professor Emberton oversees a broad portfolio of translational research that bridges the gap between laboratory innovation and real-world patient care. His work has fundamentally shaped modern approaches to prostate cancer management, with a particular emphasis on precision diagnostics and tissue-preserving therapies.</p>
-              <p>Professor Emberton also serves as UCL Partners' Pathway Director for Urological Oncology within London Cancer, a role in which he coordinates cancer services for a population of approximately four million people across North London and beyond. This strategic leadership position reflects the breadth of his influence across both clinical practice and health-system design.</p>
-            </div>
-          </div>
-
-          <!-- Academic Positions -->
-          <div id="positions" class="fade-section bg-white rounded-2xl p-8 md:p-10 shadow-sm">
-            <p class="section-tag">Academic Positions &amp; Leadership</p>
-            <div style="height:3px;width:60px;background:#1b76c5;border-radius:2px;margin-bottom:1.5rem;" class="accent-line"></div>
-            <h2 class="text-2xl font-bold text-gray-900 mb-6">Shaping the Future of Urological Science</h2>
-            <div class="space-y-4">
-              <div class="flex items-start gap-4 p-4 rounded-xl border border-gray-100 pub-card">
-                <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:#eff6ff;">
-                  <svg class="w-5 h-5" style="color:#1b76c5;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
-                </div>
-                <div>
-                  <h3 class="font-semibold text-gray-900">Professor of Interventional Oncology</h3>
-                  <p class="text-sm text-gray-500 mt-1">University College London (UCL)</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-4 p-4 rounded-xl border border-gray-100 pub-card">
-                <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:#eff6ff;">
-                  <svg class="w-5 h-5" style="color:#1b76c5;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
-                </div>
-                <div>
-                  <h3 class="font-semibold text-gray-900">Director, Division of Surgery &amp; Interventional Science</h3>
-                  <p class="text-sm text-gray-500 mt-1">University College London (UCL)</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-4 p-4 rounded-xl border border-gray-100 pub-card">
-                <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:#eff6ff;">
-                  <svg class="w-5 h-5" style="color:#1b76c5;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                </div>
-                <div>
-                  <h3 class="font-semibold text-gray-900">Pathway Director for Urological Oncology — London Cancer</h3>
-                  <p class="text-sm text-gray-500 mt-1">UCL Partners — serving 4 million people across North London</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-4 p-4 rounded-xl border border-gray-100 pub-card">
-                <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:#eff6ff;">
-                  <svg class="w-5 h-5" style="color:#1b76c5;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
-                </div>
-                <div>
-                  <h3 class="font-semibold text-gray-900">Honorary Clinical Director, Clinical Effectiveness Unit</h3>
-                  <p class="text-sm text-gray-500 mt-1">Royal College of Surgeons of England</p>
-                </div>
-              </div>
+              <p>Mr Alberto Coscione is a Chelsea-based Consultant Urological Surgeon with specialist expertise in endourology, stone surgery, and core urological conditions such as benign prostatic hyperplasia (BPH). A graduate of Cambridge University Medical School, he brings together academic distinction and extensive clinical training gained across some of London's and the East of England's most respected NHS institutions.</p>
+              <p>His surgical training spanned Chelsea and Westminster Hospital, Addenbrooke's Hospital Cambridge, Charing Cross Hospital, and St George's Hospital, providing him with broad exposure to complex urological cases and advanced surgical techniques. He achieved his FRCS in Urology in 2022 and holds recognition as an Associate Fellow of the Higher Education Academy, reflecting his commitment to both clinical excellence and the education of future surgeons.</p>
+              <p>Mr Coscione is a pioneer of local anaesthetic stone surgery, having developed dedicated services in both Cambridge and London. Fluent in English, Italian, and Greek, and with a working knowledge of French, he is exceptionally well placed to deliver outstanding, patient-centred care in a multicultural setting.</p>
             </div>
           </div>
 
           <!-- Specialties -->
-          <div id="specialties" class="fade-section bg-white rounded-2xl p-8 md:p-10 shadow-sm">
-            <p class="section-tag">Clinical Specialties</p>
-            <div style="height:3px;width:60px;background:#1b76c5;border-radius:2px;margin-bottom:1.5rem;" class="accent-line"></div>
-            <h2 class="text-2xl font-bold text-gray-900 mb-6">Pioneering Precision in Prostate Cancer Care</h2>
-            <p class="text-gray-600 leading-relaxed mb-6">Professor Emberton's clinical practice is centred on the full spectrum of prostate cancer management — from early detection and active surveillance to cutting-edge, minimally invasive treatment. He directs a multidisciplinary innovation team that integrates bioengineering and nanotechnology with early-phase clinical trials, translating laboratory advances into patient-ready therapies.</p>
+          <div id="specialties" class="profile-card fade-section content-section">
+            <span class="section-tag">Areas of Expertise</span>
+            <div style="height:3px;width:3rem;background:#1b76c5;border-radius:9999px;margin-bottom:1.25rem;" class="accent-line"></div>
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">Clinical Specialties</h2>
             <div class="grid md:grid-cols-2 gap-5">
-
-              <!-- Prostate Cancer Detection -->
+              <!-- Stone Surgery -->
               <div style="background:#fff;border:1px solid #bfdbfe;border-left:4px solid #1b76c5;border-radius:1rem;padding:1.5rem;">
                 <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
                   <div style="width:40px;height:40px;border-radius:0.75rem;background:#eff6ff;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                    <svg class="w-5 h-5" style="color:#1b76c5;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                    <svg class="w-5 h-5" style="color:#1b76c5;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
                   </div>
-                  <h3 style="font-weight:700;color:#0f2a4a;font-size:1rem;">Prostate Cancer Detection</h3>
+                  <h3 style="font-weight:700;color:#0f2a4a;font-size:1rem;">Stone Surgery</h3>
                 </div>
                 <ul style="list-style:none;padding:0;margin:0;font-size:0.85rem;color:#4b5563;">
-                  <li style="display:flex;gap:0.5rem;padding:0.3rem 0;"><span style="color:#1b76c5;">›</span> MRI-guided diagnostics</li>
-                  <li style="display:flex;gap:0.5rem;padding:0.3rem 0;"><span style="color:#1b76c5;">›</span> Risk stratification</li>
-                  <li style="display:flex;gap:0.5rem;padding:0.3rem 0;"><span style="color:#1b76c5;">›</span> PSA pathway management</li>
+                  <li style="display:flex;gap:0.5rem;padding:0.3rem 0;"><span style="color:#1b76c5;">&#8250;</span> Complex stone surgery</li>
+                  <li style="display:flex;gap:0.5rem;padding:0.3rem 0;"><span style="color:#1b76c5;">&#8250;</span> Local anaesthetic stone surgery</li>
+                  <li style="display:flex;gap:0.5rem;padding:0.3rem 0;"><span style="color:#1b76c5;">&#8250;</span> High-risk anaesthetic patient management</li>
                 </ul>
               </div>
-
-              <!-- Minimally Invasive Treatment -->
+              <!-- Endourology -->
               <div style="background:#fff;border:1px solid #bfdbfe;border-left:4px solid #1b4676;border-radius:1rem;padding:1.5rem;">
                 <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
                   <div style="width:40px;height:40px;border-radius:0.75rem;background:#eff6ff;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                    <svg class="w-5 h-5" style="color:#1b4676;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    <svg class="w-5 h-5" style="color:#1b76c5;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
                   </div>
-                  <h3 style="font-weight:700;color:#0f2a4a;font-size:1rem;">Minimally Invasive Treatment</h3>
+                  <h3 style="font-weight:700;color:#0f2a4a;font-size:1rem;">Endourology</h3>
                 </div>
                 <ul style="list-style:none;padding:0;margin:0;font-size:0.85rem;color:#4b5563;">
-                  <li style="display:flex;gap:0.5rem;padding:0.3rem 0;"><span style="color:#1b4676;">›</span> Focal therapy (HIFU, cryotherapy)</li>
-                  <li style="display:flex;gap:0.5rem;padding:0.3rem 0;"><span style="color:#1b4676;">›</span> Tissue-preserving approaches</li>
-                  <li style="display:flex;gap:0.5rem;padding:0.3rem 0;"><span style="color:#1b4676;">›</span> Early-phase clinical trials</li>
+                  <li style="display:flex;gap:0.5rem;padding:0.3rem 0;"><span style="color:#1b76c5;">&#8250;</span> Advanced endoscopic procedures</li>
+                  <li style="display:flex;gap:0.5rem;padding:0.3rem 0;"><span style="color:#1b76c5;">&#8250;</span> Ureteroscopy &amp; laser lithotripsy</li>
+                  <li style="display:flex;gap:0.5rem;padding:0.3rem 0;"><span style="color:#1b76c5;">&#8250;</span> Minimally invasive stone treatment</li>
                 </ul>
               </div>
-
-              <!-- Academic Research -->
+              <!-- Core Urology -->
               <div style="background:#fff;border:1px solid #bfdbfe;border-left:4px solid #1b76c5;border-radius:1rem;padding:1.5rem;">
                 <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
                   <div style="width:40px;height:40px;border-radius:0.75rem;background:#eff6ff;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                    <svg class="w-5 h-5" style="color:#1b76c5;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                    <svg class="w-5 h-5" style="color:#1b76c5;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>
                   </div>
-                  <h3 style="font-weight:700;color:#0f2a4a;font-size:1rem;">Academic Research</h3>
+                  <h3 style="font-weight:700;color:#0f2a4a;font-size:1rem;">Core Urology</h3>
                 </div>
                 <ul style="list-style:none;padding:0;margin:0;font-size:0.85rem;color:#4b5563;">
-                  <li style="display:flex;gap:0.5rem;padding:0.3rem 0;"><span style="color:#1b76c5;">›</span> 200+ peer-reviewed publications</li>
-                  <li style="display:flex;gap:0.5rem;padding:0.3rem 0;"><span style="color:#1b76c5;">›</span> Bio-engineering &amp; nanotechnology</li>
-                  <li style="display:flex;gap:0.5rem;padding:0.3rem 0;"><span style="color:#1b76c5;">›</span> Diagnostic study design</li>
+                  <li style="display:flex;gap:0.5rem;padding:0.3rem 0;"><span style="color:#1b76c5;">&#8250;</span> Benign prostatic hyperplasia (BPH)</li>
+                  <li style="display:flex;gap:0.5rem;padding:0.3rem 0;"><span style="color:#1b76c5;">&#8250;</span> General urological conditions</li>
+                  <li style="display:flex;gap:0.5rem;padding:0.3rem 0;"><span style="color:#1b76c5;">&#8250;</span> Comprehensive urological assessment</li>
                 </ul>
               </div>
-
-              <!-- Clinical Leadership -->
+              <!-- Innovation -->
               <div style="background:#fff;border:1px solid #bfdbfe;border-left:4px solid #1b4676;border-radius:1rem;padding:1.5rem;">
                 <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
                   <div style="width:40px;height:40px;border-radius:0.75rem;background:#eff6ff;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                    <svg class="w-5 h-5" style="color:#1b4676;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    <svg class="w-5 h-5" style="color:#1b76c5;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                   </div>
-                  <h3 style="font-weight:700;color:#0f2a4a;font-size:1rem;">Clinical Leadership</h3>
+                  <h3 style="font-weight:700;color:#0f2a4a;font-size:1rem;">Innovation</h3>
                 </div>
                 <ul style="list-style:none;padding:0;margin:0;font-size:0.85rem;color:#4b5563;">
-                  <li style="display:flex;gap:0.5rem;padding:0.3rem 0;"><span style="color:#1b4676;">›</span> UCL Division of Surgery director</li>
-                  <li style="display:flex;gap:0.5rem;padding:0.3rem 0;"><span style="color:#1b4676;">›</span> London Cancer pathway director (4M population)</li>
-                  <li style="display:flex;gap:0.5rem;padding:0.3rem 0;"><span style="color:#1b4676;">›</span> RCS Clinical Effectiveness Unit</li>
+                  <li style="display:flex;gap:0.5rem;padding:0.3rem 0;"><span style="color:#1b76c5;">&#8250;</span> Local anaesthetic stone surgery service</li>
+                  <li style="display:flex;gap:0.5rem;padding:0.3rem 0;"><span style="color:#1b76c5;">&#8250;</span> Developed services in Cambridge &amp; London</li>
+                  <li style="display:flex;gap:0.5rem;padding:0.3rem 0;"><span style="color:#1b76c5;">&#8250;</span> Tailored patient-centred approaches</li>
                 </ul>
               </div>
-
             </div>
           </div>
 
-          <!-- Research -->
-          <div id="research" class="fade-section bg-white rounded-2xl p-8 md:p-10 shadow-sm">
-            <p class="section-tag">Research &amp; Publications</p>
-            <div style="height:3px;width:60px;background:#1b76c5;border-radius:2px;margin-bottom:1.5rem;" class="accent-line"></div>
-            <h2 class="text-2xl font-bold text-gray-900 mb-6">An Exceptional Academic Record</h2>
-            <p class="text-gray-600 leading-relaxed mb-6">Professor Emberton has authored more than 200 peer-reviewed publications in leading scientific and medical journals. His research portfolio spans the full breadth of academic urology, with particular strengths in areas that directly inform clinical practice and policy.</p>
-
-            <!-- Stats bar -->
-            <div class="grid grid-cols-3 gap-4 mb-8">
-              <div class="text-center p-5 rounded-xl" style="background:linear-gradient(135deg,#eff6ff,#f0f9ff);border:1px solid #bfdbfe;">
-                <p class="text-3xl font-bold" style="color:#1b76c5;" data-count="200">0</p>
-                <p class="text-xs font-semibold text-gray-500 mt-1 uppercase tracking-wider">Publications</p>
+          <!-- Education & Training -->
+          <div id="training" class="profile-card fade-section content-section">
+            <span class="section-tag">Education &amp; Training</span>
+            <div style="height:3px;width:3rem;background:#1b76c5;border-radius:9999px;margin-bottom:1.25rem;" class="accent-line"></div>
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">Education &amp; Training</h2>
+            <div class="space-y-0">
+              <div class="timeline-item">
+                <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:0.5rem;">
+                  <h3 style="font-weight:600;color:#0f2a4a;font-size:1rem;">BA (Hons)</h3>
+                  <span style="font-size:0.8rem;color:#1b76c5;font-weight:500;">2005</span>
+                </div>
+                <p style="font-size:0.875rem;color:#6b7280;margin-top:0.25rem;">University of Cambridge</p>
               </div>
-              <div class="text-center p-5 rounded-xl" style="background:linear-gradient(135deg,#f0fdf4,#ecfdf5);border:1px solid #a7f3d0;">
-                <p class="text-3xl font-bold text-emerald-600">UCL</p>
-                <p class="text-xs font-semibold text-gray-500 mt-1 uppercase tracking-wider">Affiliation</p>
+              <div class="timeline-item">
+                <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:0.5rem;">
+                  <h3 style="font-weight:600;color:#0f2a4a;font-size:1rem;">MA (Cantab) MB BChir</h3>
+                  <span style="font-size:0.8rem;color:#1b76c5;font-weight:500;">2009</span>
+                </div>
+                <p style="font-size:0.875rem;color:#6b7280;margin-top:0.25rem;">Cambridge University Medical School</p>
               </div>
-              <div class="text-center p-5 rounded-xl" style="background:linear-gradient(135deg,#eff6ff,#f0f9ff);border:1px solid #bfdbfe;">
-                <p class="text-3xl font-bold" style="color:#1b76c5;">4M+</p>
-                <p class="text-xs font-semibold text-gray-500 mt-1 uppercase tracking-wider">Population Served</p>
+              <div class="timeline-item">
+                <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:0.5rem;">
+                  <h3 style="font-weight:600;color:#0f2a4a;font-size:1rem;">PGCert &amp; PGDip Medical Education</h3>
+                  <span style="font-size:0.8rem;color:#1b76c5;font-weight:500;">2012 – 2022</span>
+                </div>
+                <p style="font-size:0.875rem;color:#6b7280;margin-top:0.25rem;">King's College London</p>
+              </div>
+              <div class="timeline-item">
+                <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:0.5rem;">
+                  <h3 style="font-weight:600;color:#0f2a4a;font-size:1rem;">MRCS</h3>
+                  <span style="font-size:0.8rem;color:#1b76c5;font-weight:500;">2013</span>
+                </div>
+                <p style="font-size:0.875rem;color:#6b7280;margin-top:0.25rem;">Royal College of Surgeons</p>
+              </div>
+              <div class="timeline-item">
+                <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:0.5rem;">
+                  <h3 style="font-weight:600;color:#0f2a4a;font-size:1rem;">Surgical Training (ST3–ST7)</h3>
+                  <span style="font-size:0.8rem;color:#1b76c5;font-weight:500;">2016 – 2023</span>
+                </div>
+                <p style="font-size:0.875rem;color:#6b7280;margin-top:0.25rem;">East of England &amp; London — Harlow, Ipswich, Southend, Addenbrooke's (including Andrology Fellowship at St George's under Prof Watkin)</p>
+              </div>
+              <div class="timeline-item">
+                <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:0.5rem;">
+                  <h3 style="font-weight:600;color:#0f2a4a;font-size:1rem;">FRCS (Urol)</h3>
+                  <span style="font-size:0.8rem;color:#1b76c5;font-weight:500;">2022</span>
+                </div>
+                <p style="font-size:0.875rem;color:#6b7280;margin-top:0.25rem;">Royal College of Surgeons &amp; AFHEA (Higher Education Academy)</p>
+              </div>
+              <div class="timeline-item">
+                <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:0.5rem;">
+                  <h3 style="font-weight:600;color:#0f2a4a;font-size:1rem;">CCT &amp; Specialist Register (Urology)</h3>
+                  <span style="font-size:0.8rem;color:#1b76c5;font-weight:500;">2023</span>
+                </div>
+                <p style="font-size:0.875rem;color:#6b7280;margin-top:0.25rem;">GMC Specialist Register — Locum Consultant, Addenbrooke's Hospital</p>
+              </div>
+              <div class="timeline-item">
+                <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:0.5rem;">
+                  <h3 style="font-weight:600;color:#0f2a4a;font-size:1rem;">Substantive Consultant</h3>
+                  <span style="font-size:0.8rem;color:#1b76c5;font-weight:500;">2024</span>
+                </div>
+                <p style="font-size:0.875rem;color:#6b7280;margin-top:0.25rem;">Chelsea and Westminster Hospital NHS Foundation Trust — Endourology &amp; BPH</p>
               </div>
             </div>
+          </div>
 
-            <h3 class="text-lg font-semibold text-gray-900 mb-4">Key Research Interests</h3>
+          <!-- Research & Publications -->
+          <div id="research" class="profile-card fade-section content-section">
+            <span class="section-tag">Research &amp; Publications</span>
+            <div style="height:3px;width:3rem;background:#1b76c5;border-radius:9999px;margin-bottom:1.25rem;" class="accent-line"></div>
+            <h2 class="text-2xl font-bold text-gray-900 mb-4">Research &amp; Publications</h2>
+            <p class="text-gray-600 leading-relaxed mb-6">Mr Coscione has presented at international conferences including the World Congress of Endourology (Chicago, New Orleans), the SIU (Abu Dhabi, Athens), and the American Urological Association (Orlando). He has published in peer-reviewed journals and contributed a book chapter on testicular cancer to <em>Men's Health 4e</em> (CRC Press, 2021).</p>
             <div class="space-y-3">
-              <div class="flex items-start gap-3 p-4 rounded-xl border border-gray-100 pub-card">
-                <div class="w-2 h-2 rounded-full mt-2 flex-shrink-0" style="background:#1b76c5;"></div>
-                <div>
-                  <h4 class="font-medium text-gray-900">Methodological Aspects of Clinical Research</h4>
-                  <p class="text-sm text-gray-500 mt-1">Advancing the rigour and reproducibility of urological research methodology.</p>
-                </div>
+              <div style="padding:0.75rem 0;border-bottom:1px solid #f3f4f6;font-size:0.9rem;color:#4b5563;">
+                <strong style="color:#0f2a4a;">Transurethral Holmium Laser deroofing of a prostatic abscess.</strong><br>
+                <span style="font-size:0.8rem;">Coscione A, Campbell J, Acher P. <em>J Urol.</em> 2021.</span>
               </div>
-              <div class="flex items-start gap-3 p-4 rounded-xl border border-gray-100 pub-card">
-                <div class="w-2 h-2 rounded-full mt-2 flex-shrink-0" style="background:#1b76c5;"></div>
-                <div>
-                  <h4 class="font-medium text-gray-900">Alternatives to Randomised Controlled Trials in Surgery</h4>
-                  <p class="text-sm text-gray-500 mt-1">Developing innovative trial designs that address the unique challenges of evaluating surgical interventions.</p>
-                </div>
+              <div style="padding:0.75rem 0;border-bottom:1px solid #f3f4f6;font-size:0.9rem;color:#4b5563;">
+                <strong style="color:#0f2a4a;">Non-visible haematuria: would discontinuing urgent investigation have a visible impact?</strong><br>
+                <span style="font-size:0.8rem;">John JB, Coscione A, Acher P, Speakman M. <em>Br J Hosp Med.</em> 2020.</span>
               </div>
-              <div class="flex items-start gap-3 p-4 rounded-xl border border-gray-100 pub-card">
-                <div class="w-2 h-2 rounded-full mt-2 flex-shrink-0" style="background:#1b76c5;"></div>
-                <div>
-                  <h4 class="font-medium text-gray-900">Diagnostic Study Design</h4>
-                  <p class="text-sm text-gray-500 mt-1">Optimising the evaluation of new diagnostic tools and biomarkers for prostate cancer.</p>
-                </div>
+              <div style="padding:0.75rem 0;border-bottom:1px solid #f3f4f6;font-size:0.9rem;color:#4b5563;">
+                <strong style="color:#0f2a4a;">Risks and Benefits of Adjuvant Radiotherapy After Inguinal Lymphadenectomy in Node-positive Penile Cancer.</strong><br>
+                <span style="font-size:0.8rem;">Robinson R, ... Coscione A, et al. <em>Eur Urol.</em> 2018.</span>
               </div>
-              <div class="flex items-start gap-3 p-4 rounded-xl border border-gray-100 pub-card">
-                <div class="w-2 h-2 rounded-full mt-2 flex-shrink-0" style="background:#1b76c5;"></div>
-                <div>
-                  <h4 class="font-medium text-gray-900">Guideline Development &amp; Evidence-Based Management Policy</h4>
-                  <p class="text-sm text-gray-500 mt-1">Contributing to national and international clinical guidelines that shape how prostate cancer is managed across healthcare systems.</p>
-                </div>
+              <div style="padding:0.75rem 0;border-bottom:1px solid #f3f4f6;font-size:0.9rem;color:#4b5563;">
+                <strong style="color:#0f2a4a;">Men's Health 4e: Testicular cancer chapter.</strong><br>
+                <span style="font-size:0.8rem;">Book chapter. Kirby RS, Carson CC, White A, Kirby MG (Eds.). CRC Press, 2021.</span>
               </div>
             </div>
           </div>
 
-          <!-- Recognition -->
-          <div id="recognition" class="fade-section bg-white rounded-2xl p-8 md:p-10 shadow-sm">
-            <p class="section-tag">Recognition &amp; Charitable Work</p>
-            <div style="height:3px;width:60px;background:#1b76c5;border-radius:2px;margin-bottom:1.5rem;" class="accent-line"></div>
-            <h2 class="text-2xl font-bold text-gray-900 mb-6">Distinguished Standing in the Profession</h2>
-            <div class="space-y-4 text-gray-600 leading-relaxed">
-              <p>Professor Emberton's clinical and academic excellence has earned widespread recognition. He has been named in <strong>Tatler's doctors' guide</strong> as one of the foremost urologists in the country — a distinction that reflects the esteem in which he is held by patients and peers alike.</p>
-              <p>His extensive body of published work is catalogued on his <a href="https://scholar.google.com/" target="_blank" rel="noopener" class="font-semibold underline" style="color:#1b76c5;">Google Scholar profile</a>, providing an accessible overview of his contributions to the field.</p>
-              <p>Beyond his clinical and academic commitments, Professor Emberton serves as a <strong>Trustee of the Prostate Action charity</strong>, reflecting his longstanding dedication to improving awareness, support, and outcomes for men affected by prostate disease.</p>
-            </div>
-
-            <div class="mt-6 grid sm:grid-cols-2 gap-4">
-              <div class="flex items-center gap-4 p-4 rounded-xl" style="background:#fffbeb;border:1px solid #fde68a;">
-                <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background:#f59e0b;">
-                  <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
-                </div>
-                <div>
-                  <p class="font-semibold text-gray-900 text-sm">Tatler Doctors' Guide</p>
-                  <p class="text-xs text-gray-500">Featured Urologist</p>
-                </div>
+          <!-- Professional Memberships -->
+          <div id="memberships" class="profile-card fade-section content-section">
+            <span class="section-tag">Professional Memberships</span>
+            <div style="height:3px;width:3rem;background:#1b76c5;border-radius:9999px;margin-bottom:1.25rem;" class="accent-line"></div>
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">Professional Memberships</h2>
+            <div class="grid sm:grid-cols-2 gap-3">
+              <div style="display:flex;align-items:center;gap:0.75rem;padding:0.75rem 1rem;background:#eff6ff;border:1px solid #bfdbfe;border-radius:0.75rem;">
+                <svg class="w-4 h-4" style="color:#1b76c5;flex-shrink:0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4"/></svg>
+                <span style="font-size:0.85rem;color:#0f2a4a;font-weight:500;">BAUS</span>
               </div>
-              <div class="flex items-center gap-4 p-4 rounded-xl" style="background:#fdf2f8;border:1px solid #fbcfe8;">
-                <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background:#ec4899;">
-                  <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
-                </div>
-                <div>
-                  <p class="font-semibold text-gray-900 text-sm">Prostate Action Charity</p>
-                  <p class="text-xs text-gray-500">Trustee</p>
-                </div>
+              <div style="display:flex;align-items:center;gap:0.75rem;padding:0.75rem 1rem;background:#eff6ff;border:1px solid #bfdbfe;border-radius:0.75rem;">
+                <svg class="w-4 h-4" style="color:#1b76c5;flex-shrink:0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4"/></svg>
+                <span style="font-size:0.85rem;color:#0f2a4a;font-weight:500;">EAU</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:0.75rem;padding:0.75rem 1rem;background:#eff6ff;border:1px solid #bfdbfe;border-radius:0.75rem;">
+                <svg class="w-4 h-4" style="color:#1b76c5;flex-shrink:0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4"/></svg>
+                <span style="font-size:0.85rem;color:#0f2a4a;font-weight:500;">Royal College of Surgeons</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:0.75rem;padding:0.75rem 1rem;background:#eff6ff;border:1px solid #bfdbfe;border-radius:0.75rem;">
+                <svg class="w-4 h-4" style="color:#1b76c5;flex-shrink:0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4"/></svg>
+                <span style="font-size:0.85rem;color:#0f2a4a;font-weight:500;">Higher Education Academy</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:0.75rem;padding:0.75rem 1rem;background:#eff6ff;border:1px solid #bfdbfe;border-radius:0.75rem;">
+                <svg class="w-4 h-4" style="color:#1b76c5;flex-shrink:0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4"/></svg>
+                <span style="font-size:0.85rem;color:#0f2a4a;font-weight:500;">BMA</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:0.75rem;padding:0.75rem 1rem;background:#eff6ff;border:1px solid #bfdbfe;border-radius:0.75rem;">
+                <svg class="w-4 h-4" style="color:#1b76c5;flex-shrink:0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4"/></svg>
+                <span style="font-size:0.85rem;color:#0f2a4a;font-weight:500;">Association of Surgeons in Training</span>
               </div>
             </div>
           </div>
@@ -541,7 +524,7 @@
               <div style="width:44px;height:44px;border-radius:0.75rem;background:rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
                 <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
               </div>
-              <p style="color:#fff;font-size:1rem;font-weight:600;line-height:1.6;">With over 200 peer-reviewed publications and a career at the forefront of prostate cancer innovation, Professor Emberton brings unparalleled academic rigour and clinical expertise to every patient consultation.</p>
+              <p style="color:#fff;font-size:1rem;font-weight:600;line-height:1.6;">With specialist expertise in complex stone surgery and a pioneering local anaesthetic stone service developed across Cambridge and London, Mr Coscione offers patients access to advanced, minimally invasive stone treatment tailored to their individual needs.</p>
             </div>
           </div>
 
@@ -552,63 +535,60 @@
           <div style="position:sticky;top:110px;">
 
           <!-- Quick Facts Card -->
-          <div class="fade-section bg-white rounded-2xl p-6 shadow-sm">
-            <h3 class="text-lg font-bold text-gray-900 mb-5 flex items-center gap-2">
-              <svg class="w-5 h-5" style="color:#1b76c5;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <div class="profile-card fade-section">
+            <h3 style="font-weight:700;color:#0f2a4a;font-size:1.1rem;margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem;">
+              <svg style="width:1.25rem;height:1.25rem;color:#1b76c5;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
               Quick Facts
             </h3>
-            <div class="space-y-3">
-              <div class="quick-fact flex items-start gap-3 p-3 rounded-lg">
-                <svg class="w-5 h-5 mt-0.5 flex-shrink-0" style="color:#1b76c5;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
-                <div>
-                  <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider">Title</p>
-                  <p class="text-sm font-medium text-gray-900">Professor</p>
-                </div>
+
+            <div class="quick-fact">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+              <div>
+                <p style="font-size:0.75rem;color:#9ca3af;text-transform:uppercase;letter-spacing:0.05em;font-weight:600;">Base</p>
+                <p style="font-size:0.875rem;color:#374151;">Chelsea, London</p>
               </div>
-              <div class="quick-fact flex items-start gap-3 p-3 rounded-lg">
-                <svg class="w-5 h-5 mt-0.5 flex-shrink-0" style="color:#1b76c5;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
-                <div>
-                  <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider">Institution</p>
-                  <p class="text-sm font-medium text-gray-900">University College London</p>
-                </div>
+            </div>
+
+            <div class="quick-fact">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
+              <div>
+                <p style="font-size:0.75rem;color:#9ca3af;text-transform:uppercase;letter-spacing:0.05em;font-weight:600;">Medical School</p>
+                <p style="font-size:0.875rem;color:#374151;">Cambridge University</p>
               </div>
-              <div class="quick-fact flex items-start gap-3 p-3 rounded-lg">
-                <svg class="w-5 h-5 mt-0.5 flex-shrink-0" style="color:#1b76c5;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-                <div>
-                  <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider">Credentials</p>
-                  <p class="text-sm font-medium text-gray-900">MD FRCS(Urol)</p>
-                </div>
+            </div>
+
+            <div class="quick-fact">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+              <div>
+                <p style="font-size:0.75rem;color:#9ca3af;text-transform:uppercase;letter-spacing:0.05em;font-weight:600;">FRCS (Urol)</p>
+                <p style="font-size:0.875rem;color:#374151;">2022</p>
               </div>
-              <div class="quick-fact flex items-start gap-3 p-3 rounded-lg">
-                <svg class="w-5 h-5 mt-0.5 flex-shrink-0" style="color:#1b76c5;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
-                <div>
-                  <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider">Specialty</p>
-                  <p class="text-sm font-medium text-gray-900">Prostate Cancer &amp; Interventional Oncology</p>
-                </div>
+            </div>
+
+            <div class="quick-fact">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+              <div>
+                <p style="font-size:0.75rem;color:#9ca3af;text-transform:uppercase;letter-spacing:0.05em;font-weight:600;">Special Interest</p>
+                <p style="font-size:0.875rem;color:#374151;">Local anaesthetic stone surgery</p>
               </div>
-              <div class="quick-fact flex items-start gap-3 p-3 rounded-lg">
-                <svg class="w-5 h-5 mt-0.5 flex-shrink-0" style="color:#1b76c5;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
-                <div>
-                  <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider">Publications</p>
-                  <p class="text-sm font-medium text-gray-900">200+ Peer-Reviewed Papers</p>
-                </div>
-              </div>
-              <div class="quick-fact flex items-start gap-3 p-3 rounded-lg">
-                <svg class="w-5 h-5 mt-0.5 flex-shrink-0" style="color:#1b76c5;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                <div>
-                  <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider">Email</p>
-                  <a href="mailto:emberton@londonurologyspecialists.co.uk" class="text-sm font-medium hover:underline" style="color:#1b76c5;">emberton@londonurologyspecialists.co.uk</a>
-                </div>
+            </div>
+
+            <div class="quick-fact">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <div>
+                <p style="font-size:0.75rem;color:#9ca3af;text-transform:uppercase;letter-spacing:0.05em;font-weight:600;">Languages</p>
+                <p style="font-size:0.875rem;color:#374151;">English, Italian, Greek, French</p>
               </div>
             </div>
 
             <!-- CTA -->
-            <div class="mt-6 pt-6 border-t border-gray-100">
-              <a href="../contact.html" class="block w-full text-center text-white font-semibold py-3 px-6 rounded-xl transition-all duration-200 hover:shadow-lg" style="background:linear-gradient(135deg,#1b76c5,#0f2a4a);">
+            <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid #f3f4f6;">
+              <a href="../contact.html" style="display:block;text-align:center;padding:0.85rem 1.5rem;border-radius:0.75rem;background:linear-gradient(135deg,#1b76c5,#1565a8);color:#fff;font-weight:600;font-size:0.9rem;text-decoration:none;transition:transform 0.2s ease, box-shadow 0.2s ease;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 6px 20px rgba(27,118,197,0.35)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
                 Book a Consultation
               </a>
-              <a href="tel:03003020202" class="block w-full text-center font-semibold py-3 px-6 rounded-xl mt-3 transition-all duration-200 border-2 hover:bg-gray-50" style="color:#1b76c5;border-color:#1b76c5;">
-                0300 302 0202
+              <a href="mailto:coscione@londonurologyspecialists.co.uk" style="display:flex;align-items:center;justify-content:center;gap:0.5rem;margin-top:0.75rem;padding:0.7rem 1.5rem;border-radius:0.75rem;border:1px solid #e5e7eb;color:#374151;font-size:0.85rem;font-weight:500;text-decoration:none;transition:border-color 0.2s ease, color 0.2s ease;" onmouseover="this.style.borderColor='#1b76c5';this.style.color='#1b76c5'" onmouseout="this.style.borderColor='#e5e7eb';this.style.color='#374151'">
+                <svg style="width:1rem;height:1rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                Email Mr Coscione
               </a>
             </div>
           </div>
@@ -621,10 +601,10 @@
   </section>
 
   <!-- CTA Banner -->
-  <section class="section-padding text-white" style="margin-top:3rem;background:linear-gradient(135deg,#1b76c5 0%,#1b4676 30%,#0f2a4a 60%,#10b981 100%);">
+  <section style="background:linear-gradient(135deg,#1b76c5 0%,#1b4676 30%,#0f2a4a 60%,#10b981 100%);padding:4rem 0;margin-top:3rem;">
     <div class="container-custom text-center">
-      <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to Take the Next Step?</h2>
-      <p class="text-lg mb-8 max-w-2xl mx-auto" style="color:rgba(255,255,255,0.9);">Whether you need a specialist opinion on prostate cancer detection, surveillance, or minimally invasive treatment, Professor Emberton and the London Urology Specialists team are here to help.</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Ready to Take the Next Step?</h2>
+      <p class="text-lg mb-8 max-w-2xl mx-auto" style="color:rgba(255,255,255,0.9);">Whether you need specialist advice, a second opinion, or expert care for kidney stones, BPH, or endourology, Mr Coscione and the London Urology Specialists team are here to help.</p>
       <div class="flex flex-wrap justify-center gap-4">
         <a href="../contact.html" class="bg-white px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-colors shadow-lg" style="color:#1b76c5;">Book Consultation</a>
         <a href="tel:03003020202" class="btn-outline-white px-8 py-4">0300 302 0202</a>
@@ -688,7 +668,7 @@
   </footer>
 
   <!-- Floating Book Consultation -->
-  <a href="../contact.html" id="float-cta" class="hidden lg:flex" style="position:fixed;bottom:2rem;right:2rem;z-index:40;align-items:center;gap:0.6rem;background:linear-gradient(135deg,#1b76c5 0%,#0f2a4a 100%);color:#fff;font-size:0.875rem;font-weight:600;padding:0.75rem 1.25rem;border-radius:9999px;box-shadow:0 4px 20px rgba(27,118,197,0.4);text-decoration:none;transition:transform 0.2s ease,box-shadow 0.2s ease,opacity 0.3s ease;opacity:0;pointer-events:none;">
+  <a href="../contact.html" id="float-cta" class="hidden lg:flex" style="position:fixed;bottom:2rem;right:2rem;z-index:40;align-items:center;gap:0.6rem;background:linear-gradient(135deg,#1b76c5 0%,#1565a8 50%,#0f2a4a 100%);color:#fff;font-size:0.875rem;font-weight:600;padding:0.75rem 1.25rem;border-radius:9999px;box-shadow:0 4px 20px rgba(27,118,197,0.4);text-decoration:none;transition:transform 0.2s ease,box-shadow 0.2s ease,opacity 0.3s ease;opacity:0;pointer-events:none;">
     <svg style="width:1rem;height:1rem;flex-shrink:0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
     Contact Us
   </a>
@@ -719,30 +699,6 @@
       });
     }, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
     fadeSections.forEach(s => fadeObserver.observe(s));
-
-    // Stat counter
-    function countUp(el, target, duration) {
-      const startTime = performance.now();
-      function update(now) {
-        const p = Math.min((now - startTime) / duration, 1);
-        const eased = 1 - Math.pow(1 - p, 3);
-        el.textContent = Math.round(eased * target).toLocaleString('en-GB');
-        if (p < 1) requestAnimationFrame(update);
-      }
-      requestAnimationFrame(update);
-    }
-    const statsBar = document.querySelector('[data-count]')?.closest('.grid');
-    if (statsBar) {
-      let counted = false;
-      new IntersectionObserver(entries => {
-        if (entries[0].isIntersecting && !counted) {
-          counted = true;
-          document.querySelectorAll('[data-count]').forEach(el => {
-            countUp(el, parseInt(el.dataset.count), 1400);
-          });
-        }
-      }, { threshold: 0.5 }).observe(statsBar);
-    }
 
     // Reading progress bar
     const progressBar = document.getElementById('reading-progress');

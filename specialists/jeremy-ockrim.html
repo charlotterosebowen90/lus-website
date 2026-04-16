@@ -43,7 +43,7 @@
     .info-row:last-child { border-bottom:none; }
 
     /* Content section anchors */
-    .content-section { scroll-margin-top:100px; }
+    .content-section { scroll-margin-top:100px; margin-bottom:3rem; }
 
     /* Hero shimmer */
     @keyframes heroShimmer { 0%{background-position:200% center;} 100%{background-position:-200% center;} }
@@ -332,67 +332,70 @@
             <span class="section-tag">Areas of Expertise</span>
             <div style="height:3px;width:48px;background:#1b76c5;border-radius:99px;margin-bottom:1.25rem;" class="accent-line"></div>
             <h2 class="text-2xl font-bold text-gray-900 mb-6">Clinical Specialties</h2>
-            <div class="flex flex-wrap gap-2.5">
-              <span class="specialty-pill">
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4"/></svg>
-                Female Incontinence (TVT/TOT)
-              </span>
-              <span class="specialty-pill">
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4"/></svg>
-                Male Incontinence &amp; Slings
-              </span>
-              <span class="specialty-pill">
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4"/></svg>
-                Artificial Urinary Sphincter
-              </span>
-              <span class="specialty-pill">
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4"/></svg>
-                Colposuspension
-              </span>
-              <span class="specialty-pill">
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4"/></svg>
-                Prolapse Repair (Anterior &amp; Posterior)
-              </span>
-              <span class="specialty-pill">
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4"/></svg>
-                Colposacropexy
-              </span>
-              <span class="specialty-pill">
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4"/></svg>
-                Mesh Complication Management
-              </span>
-              <span class="specialty-pill">
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4"/></svg>
-                Mesh Erosion &amp; Pain
-              </span>
-              <span class="specialty-pill">
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4"/></svg>
-                Mesh Removal Surgery
-              </span>
-              <span class="specialty-pill">
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4"/></svg>
-                Urinary Fistulae
-              </span>
-              <span class="specialty-pill">
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4"/></svg>
-                Urethral Diverticula
-              </span>
-              <span class="specialty-pill">
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4"/></svg>
-                Bladder Reconstruction &amp; Augmentation
-              </span>
-              <span class="specialty-pill">
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4"/></svg>
-                Overactive Bladder
-              </span>
-              <span class="specialty-pill">
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4"/></svg>
-                Bladder Pain Syndromes
-              </span>
-              <span class="specialty-pill">
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4"/></svg>
-                Non-Mesh Surgical Approaches
-              </span>
+            <div class="grid md:grid-cols-2 gap-5">
+
+              <!-- Incontinence -->
+              <div style="background:#fff;border:1px solid #bfdbfe;border-left:4px solid #1b76c5;border-radius:1rem;padding:1.5rem;">
+                <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
+                  <div style="width:40px;height:40px;border-radius:0.75rem;background:#eff6ff;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                    <svg class="w-5 h-5" style="color:#1b76c5;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                  </div>
+                  <h3 style="font-weight:700;color:#0f2a4a;font-size:1rem;">Incontinence Surgery</h3>
+                </div>
+                <ul style="list-style:none;padding:0;margin:0;font-size:0.85rem;color:#4b5563;">
+                  <li style="display:flex;gap:0.5rem;padding:0.3rem 0;"><span style="color:#1b76c5;">›</span> Female incontinence (TVT/TOT)</li>
+                  <li style="display:flex;gap:0.5rem;padding:0.3rem 0;"><span style="color:#1b76c5;">›</span> Male incontinence &amp; slings</li>
+                  <li style="display:flex;gap:0.5rem;padding:0.3rem 0;"><span style="color:#1b76c5;">›</span> Artificial urinary sphincter implantation</li>
+                  <li style="display:flex;gap:0.5rem;padding:0.3rem 0;"><span style="color:#1b76c5;">›</span> Colposuspension</li>
+                </ul>
+              </div>
+
+              <!-- Prolapse -->
+              <div style="background:#fff;border:1px solid #bfdbfe;border-left:4px solid #1b4676;border-radius:1rem;padding:1.5rem;">
+                <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
+                  <div style="width:40px;height:40px;border-radius:0.75rem;background:#eff6ff;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                    <svg class="w-5 h-5" style="color:#1b4676;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+                  </div>
+                  <h3 style="font-weight:700;color:#0f2a4a;font-size:1rem;">Prolapse Repair</h3>
+                </div>
+                <ul style="list-style:none;padding:0;margin:0;font-size:0.85rem;color:#4b5563;">
+                  <li style="display:flex;gap:0.5rem;padding:0.3rem 0;"><span style="color:#1b4676;">›</span> Anterior &amp; posterior repair</li>
+                  <li style="display:flex;gap:0.5rem;padding:0.3rem 0;"><span style="color:#1b4676;">›</span> Colposacropexy</li>
+                  <li style="display:flex;gap:0.5rem;padding:0.3rem 0;"><span style="color:#1b4676;">›</span> Non-mesh surgical approaches</li>
+                </ul>
+              </div>
+
+              <!-- Mesh Complications -->
+              <div style="background:#fff;border:1px solid #bfdbfe;border-left:4px solid #1b76c5;border-radius:1rem;padding:1.5rem;">
+                <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
+                  <div style="width:40px;height:40px;border-radius:0.75rem;background:#eff6ff;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                    <svg class="w-5 h-5" style="color:#1b76c5;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                  </div>
+                  <h3 style="font-weight:700;color:#0f2a4a;font-size:1rem;">Mesh Complications</h3>
+                </div>
+                <ul style="list-style:none;padding:0;margin:0;font-size:0.85rem;color:#4b5563;">
+                  <li style="display:flex;gap:0.5rem;padding:0.3rem 0;"><span style="color:#1b76c5;">›</span> Mesh complication management</li>
+                  <li style="display:flex;gap:0.5rem;padding:0.3rem 0;"><span style="color:#1b76c5;">›</span> Mesh erosion &amp; pain</li>
+                  <li style="display:flex;gap:0.5rem;padding:0.3rem 0;"><span style="color:#1b76c5;">›</span> Mesh removal surgery</li>
+                </ul>
+              </div>
+
+              <!-- Reconstructive & Functional -->
+              <div style="background:#fff;border:1px solid #bfdbfe;border-left:4px solid #1b4676;border-radius:1rem;padding:1.5rem;">
+                <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
+                  <div style="width:40px;height:40px;border-radius:0.75rem;background:#eff6ff;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                    <svg class="w-5 h-5" style="color:#1b4676;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                  </div>
+                  <h3 style="font-weight:700;color:#0f2a4a;font-size:1rem;">Reconstructive &amp; Functional</h3>
+                </div>
+                <ul style="list-style:none;padding:0;margin:0;font-size:0.85rem;color:#4b5563;">
+                  <li style="display:flex;gap:0.5rem;padding:0.3rem 0;"><span style="color:#1b4676;">›</span> Urinary fistulae &amp; diverticula</li>
+                  <li style="display:flex;gap:0.5rem;padding:0.3rem 0;"><span style="color:#1b4676;">›</span> Bladder reconstruction &amp; augmentation</li>
+                  <li style="display:flex;gap:0.5rem;padding:0.3rem 0;"><span style="color:#1b4676;">›</span> Overactive bladder</li>
+                  <li style="display:flex;gap:0.5rem;padding:0.3rem 0;"><span style="color:#1b4676;">›</span> Bladder pain syndromes</li>
+                </ul>
+              </div>
+
             </div>
           </div>
 
@@ -515,6 +518,16 @@
             </div>
           </div>
 
+          <!-- Takeaway -->
+          <div class="mt-12" style="background:linear-gradient(135deg,#1b76c5 0%,#1b4676 40%,#0f2a4a 100%);border-radius:1.5rem;padding:2rem;">
+            <div style="display:flex;gap:1rem;align-items:flex-start;">
+              <div style="width:44px;height:44px;border-radius:0.75rem;background:rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+              </div>
+              <p style="color:#fff;font-size:1rem;font-weight:600;line-height:1.6;">As a world authority in incontinence, prolapse, and reconstructive urology — and among the first UK surgeons to offer non-mesh procedures — Mr Ockrim provides patients with access to the most advanced and personalised surgical care available.</p>
+            </div>
+          </div>
+
         </div>
 
         <!-- Sidebar -->
@@ -610,10 +623,10 @@
 
   <!-- Footer -->
   <!-- CTA Banner -->
-  <section class="fade-section" style="background:linear-gradient(135deg,#1b76c5 0%,#1b4676 30%,#0f2a4a 60%,#10b981 100%);">
+  <section class="fade-section" style="margin-top:3rem;background:linear-gradient(135deg,#1b76c5 0%,#1b4676 30%,#0f2a4a 60%,#10b981 100%);">
     <div class="container-custom py-16 text-center">
       <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Ready to Take the Next Step?</h2>
-      <p class="text-lg mb-8 max-w-2xl mx-auto" style="color:rgba(255,255,255,0.9);">Whether you need specialist advice on incontinence, prolapse, or reconstructive surgery, Mr Ockrim and the London Urology Specialists team are here to help.</p>
+      <p class="text-lg mb-8 max-w-2xl mx-auto" style="color:rgba(255,255,255,0.9);">Whether you need specialist advice, a second opinion, or expert care for incontinence, prolapse, or reconstructive surgery, Mr Ockrim and the London Urology Specialists team are here to help.</p>
       <div class="flex flex-wrap justify-center gap-4">
         <a href="../contact.html" class="bg-white px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-colors shadow-lg" style="color:#1b76c5;">Book Consultation</a>
         <a href="tel:03003020202" class="btn-outline-white px-8 py-4">0300 302 0202</a>

@@ -9,8 +9,21 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    @keyframes hero-fade { from{opacity:0} to{opacity:0.5} }
+    .hero-video { animation:hero-fade 1.2s ease-in forwards; opacity:0; }
+    .fade-section { opacity:0; transform:translateY(28px); transition:opacity 0.7s ease, transform 0.7s ease; }
+    .fade-section.visible { opacity:1; transform:translateY(0); }
+    #reading-progress { position:fixed; top:0; left:0; height:3px; z-index:9999; background:linear-gradient(90deg,#1b76c5,#22c55e); width:0%; transition:width 0.15s linear; }
+    .consultant-card { background:#fff; border-radius:1rem; overflow:hidden; transition:transform 0.35s ease, box-shadow 0.35s ease; border:1px solid #e5e7eb; }
+    .consultant-card:hover { transform:translateY(-6px); box-shadow:0 20px 50px rgba(15,42,74,0.12); }
+    .consultant-card:hover .consultant-photo img { transform:scale(1.08); }
+  </style>
 </head>
 <body class="font-poppins">
+  <!-- Reading Progress Bar -->
+  <div id="reading-progress"></div>
+
   <!-- Header -->
   <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-white transition-all duration-300">
     <div class="container-custom">
@@ -263,280 +276,315 @@
     </div>
   </div>
 
-  <!-- Page Header -->
-  <section class="relative about-hero" style="background-color:#0f1f35;min-height:40vh;display:flex;align-items:flex-end;padding-top:8rem;padding-bottom:3rem;">
-    <!-- Background Image -->
-    <div class="absolute inset-0" style="overflow:hidden;">
-      <img src="assets/Images/9633.THSC 0722_03 (2).jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;opacity:0.4;">
-    </div>
-    <!-- Overlay -->
-    <div class="absolute inset-0" style="background:linear-gradient(to right, rgba(10,25,47,0.7) 0%, rgba(10,25,47,0.3) 100%);"></div>
-    <div class="container-custom relative" style="z-index:1;">
+  <!-- Hero Section -->
+  <section class="relative" style="min-height:55vh;display:flex;align-items:flex-end;padding-top:8rem;padding-bottom:3.5rem;">
+    <!-- Video Background -->
+    <video id="hero-video" class="hero-video" autoplay muted playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;">
+      <source src="assets/Images/Istock-1937175479.mp4" type="video/mp4">
+    </video>
+    <!-- Dark + blue overlay -->
+    <div class="absolute inset-0" style="background:linear-gradient(135deg,rgba(10,25,47,0.82) 0%,rgba(15,42,74,0.7) 50%,rgba(27,118,197,0.35) 100%);z-index:1;"></div>
+    <div class="container-custom relative" style="z-index:2;">
       <nav class="text-sm text-gray-400 mb-4">
-        <a href="index.html" class="hover:text-white">Home</a>
+        <a href="index.html" class="hover:text-white transition-colors">Home</a>
         <span class="mx-2">/</span>
         <span class="text-white">About Us</span>
       </nav>
-      <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">About Us</h1>
-      <p class="text-xl text-gray-300 max-w-2xl">Meet the team of specialists dedicated to providing exceptional urological care in Central London.</p>
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">About Us</h1>
+      <p class="text-xl text-gray-300 max-w-3xl mb-5">A team of leading consultant urological surgeons, dedicated to delivering exceptional care in Central London.</p>
+      <span id="reading-time" class="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm text-white text-sm px-4 py-2 rounded-full border border-white/20">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <span id="reading-time-text">3 min read</span>
+      </span>
     </div>
   </section>
 
-  <!-- About Content -->
-  <section class="bg-white" style="padding-top:4rem;padding-bottom:3rem;">
+  <!-- Stats Bar -->
+  <section style="background-color:#eff6ff;padding:2.5rem 0;">
+    <div class="container-custom">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="text-center" style="padding:1.25rem;background:white;border-radius:0.75rem;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+          <div style="font-size:2.25rem;font-weight:700;color:#1b76c5;line-height:1;">8</div>
+          <div style="font-size:0.85rem;color:#6b7280;margin-top:0.25rem;">Consultant Surgeons</div>
+        </div>
+        <div class="text-center" style="padding:1.25rem;background:white;border-radius:0.75rem;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+          <div style="font-size:1.5rem;font-weight:700;color:#1b76c5;line-height:1.1;">NHS &amp; Private</div>
+          <div style="font-size:0.85rem;color:#6b7280;margin-top:0.25rem;">Dual Practice</div>
+        </div>
+        <div class="text-center" style="padding:1.25rem;background:white;border-radius:0.75rem;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+          <div style="font-size:1.5rem;font-weight:700;color:#1b76c5;line-height:1.1;">Central London</div>
+          <div style="font-size:0.85rem;color:#6b7280;margin-top:0.25rem;">Devonshire Street W1</div>
+        </div>
+        <div class="text-center" style="padding:1.25rem;background:white;border-radius:0.75rem;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+          <div style="font-size:2.25rem;font-weight:700;color:#1b76c5;line-height:1;">30+</div>
+          <div style="font-size:0.85rem;color:#6b7280;margin-top:0.25rem;">Years Combined Experience</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Consultant Team Section -->
+  <section class="fade-section" style="background:#fff;padding:4rem 0;">
+    <div class="container-custom">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span style="display:inline-block;font-size:0.75rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#1b76c5;background:#eff6ff;padding:0.35rem 1rem;border-radius:9999px;margin-bottom:0.75rem;">Our Team</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-dark mb-3">Our Consultant Team</h2>
+        <div style="width:60px;height:4px;background:linear-gradient(90deg,#1b76c5,#22c55e);border-radius:2px;margin:0 auto;"></div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:1.5rem;">
+
+        <!-- Mr Bijan Khoubehi -->
+        <div class="consultant-card" style="display:flex;flex-direction:row;align-items:center;padding:2rem;background:#fff;">
+          <div class="consultant-photo" style="width:120px;height:120px;border-radius:50%;overflow:hidden;flex-shrink:0;border:3px solid #e8f0f7;">
+            <img src="assets/Images/bijan.50698fcb.jpg" alt="Mr Bijan Khoubehi" style="width:100%;height:100%;object-fit:cover;object-position:50% 15%;display:block;transition:transform 0.5s ease;">
+          </div>
+          <div style="margin-left:1.75rem;flex:1;">
+            <h3 style="color:#0f2a4a;font-size:1.15rem;font-weight:700;margin-bottom:0.15rem;">Mr Bijan Khoubehi</h3>
+            <p style="color:#1b76c5;font-size:0.85rem;font-weight:600;margin-bottom:0.15rem;">Chairman &amp; Consultant Urological Surgeon</p>
+            <p style="color:#9ca3af;font-size:0.78rem;margin-bottom:0.5rem;">BSc(Hons) MBBS MD FRCS (Urol)</p>
+            <p style="color:#6b7280;font-size:0.85rem;margin-bottom:0.75rem;">Leading urological surgeon specialising in cancer diagnosis, robotic surgery and minimally invasive techniques.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:0.35rem;margin-bottom:0.75rem;">
+              <span style="background:#e8f0f7;color:#0f2a4a;font-size:0.7rem;font-weight:600;padding:0.2rem 0.6rem;border-radius:9999px;">Prostate, Kidney &amp; Bladder Cancer</span>
+              <span style="background:#e8f0f7;color:#0f2a4a;font-size:0.7rem;font-weight:600;padding:0.2rem 0.6rem;border-radius:9999px;">Robotic Surgery</span>
+            </div>
+            <a href="specialists/bijan-khoubehi.html" style="font-size:0.85rem;font-weight:600;color:#1b76c5;text-decoration:none;display:inline-flex;align-items:center;gap:0.3rem;">View Profile <span style="transition:transform 0.2s;">&rarr;</span></a>
+          </div>
+        </div>
+
+        <!-- Prof Mark Emberton -->
+        <div class="consultant-card" style="display:flex;flex-direction:row;align-items:center;padding:2rem;background:#f8fafc;">
+          <div class="consultant-photo" style="width:120px;height:120px;border-radius:50%;overflow:hidden;flex-shrink:0;border:3px solid #e8f0f7;">
+            <img src="assets/Images/Mark_Emberton.bb0764e5.jpg" alt="Prof Mark Emberton" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform 0.5s ease;">
+          </div>
+          <div style="margin-left:1.75rem;flex:1;">
+            <h3 style="color:#0f2a4a;font-size:1.15rem;font-weight:700;margin-bottom:0.15rem;">Prof Mark Emberton</h3>
+            <p style="color:#1b76c5;font-size:0.85rem;font-weight:600;margin-bottom:0.15rem;">Consultant Urological Surgeon</p>
+            <p style="color:#9ca3af;font-size:0.78rem;margin-bottom:0.5rem;">MD FMedSci</p>
+            <p style="color:#6b7280;font-size:0.85rem;margin-bottom:0.75rem;">Internationally recognised expert in prostate cancer and pioneer of focal therapy techniques.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:0.35rem;margin-bottom:0.75rem;">
+              <span style="background:#e8f0f7;color:#0f2a4a;font-size:0.7rem;font-weight:600;padding:0.2rem 0.6rem;border-radius:9999px;">Prostate Cancer</span>
+              <span style="background:#e8f0f7;color:#0f2a4a;font-size:0.7rem;font-weight:600;padding:0.2rem 0.6rem;border-radius:9999px;">Focal Therapy</span>
+            </div>
+            <a href="specialists/mark-emberton.html" style="font-size:0.85rem;font-weight:600;color:#1b76c5;text-decoration:none;display:inline-flex;align-items:center;gap:0.3rem;">View Profile <span>&rarr;</span></a>
+          </div>
+        </div>
+
+        <!-- Mr Paul Cathcart -->
+        <div class="consultant-card" style="display:flex;flex-direction:row;align-items:center;padding:2rem;background:#fff;">
+          <div class="consultant-photo" style="width:120px;height:120px;border-radius:50%;overflow:hidden;flex-shrink:0;border:3px solid #e8f0f7;">
+            <img src="assets/Images/Paul_Cathcart.d561278d.jpg" alt="Mr Paul Cathcart" style="width:100%;height:100%;object-fit:cover;object-position:50% 15%;display:block;transition:transform 0.5s ease;">
+          </div>
+          <div style="margin-left:1.75rem;flex:1;">
+            <h3 style="color:#0f2a4a;font-size:1.15rem;font-weight:700;margin-bottom:0.15rem;">Mr Paul Cathcart</h3>
+            <p style="color:#1b76c5;font-size:0.85rem;font-weight:600;margin-bottom:0.15rem;">Consultant Urological Surgeon</p>
+            <p style="color:#9ca3af;font-size:0.78rem;margin-bottom:0.5rem;">MD FRCS(Urol)</p>
+            <p style="color:#6b7280;font-size:0.85rem;margin-bottom:0.75rem;">Specialist in prostate cancer with extensive experience in robotic-assisted surgical procedures.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:0.35rem;margin-bottom:0.75rem;">
+              <span style="background:#e8f0f7;color:#0f2a4a;font-size:0.7rem;font-weight:600;padding:0.2rem 0.6rem;border-radius:9999px;">Prostate Cancer</span>
+              <span style="background:#e8f0f7;color:#0f2a4a;font-size:0.7rem;font-weight:600;padding:0.2rem 0.6rem;border-radius:9999px;">Robotic Surgery</span>
+            </div>
+            <a href="specialists/paul-cathcart.html" style="font-size:0.85rem;font-weight:600;color:#1b76c5;text-decoration:none;display:inline-flex;align-items:center;gap:0.3rem;">View Profile <span>&rarr;</span></a>
+          </div>
+        </div>
+
+        <!-- Mr Jeremy Ockrim -->
+        <div class="consultant-card" style="display:flex;flex-direction:row;align-items:center;padding:2rem;background:#f8fafc;">
+          <div class="consultant-photo" style="width:120px;height:120px;border-radius:50%;overflow:hidden;flex-shrink:0;border:3px solid #e8f0f7;">
+            <img src="assets/Images/Jeremy Ockrim.jfif" alt="Mr Jeremy Ockrim" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform 0.5s ease;">
+          </div>
+          <div style="margin-left:1.75rem;flex:1;">
+            <h3 style="color:#0f2a4a;font-size:1.15rem;font-weight:700;margin-bottom:0.15rem;">Mr Jeremy Ockrim</h3>
+            <p style="color:#1b76c5;font-size:0.85rem;font-weight:600;margin-bottom:0.15rem;">Consultant Urological Surgeon</p>
+            <p style="color:#9ca3af;font-size:0.78rem;margin-bottom:0.5rem;">MD BSc(Hons) FRCS(Urol)</p>
+            <p style="color:#6b7280;font-size:0.85rem;margin-bottom:0.75rem;">Expert in reconstructive, neuro-urological and functional urology with a focus on complex cases.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:0.35rem;margin-bottom:0.75rem;">
+              <span style="background:#e8f0f7;color:#0f2a4a;font-size:0.7rem;font-weight:600;padding:0.2rem 0.6rem;border-radius:9999px;">Reconstructive Urology</span>
+              <span style="background:#e8f0f7;color:#0f2a4a;font-size:0.7rem;font-weight:600;padding:0.2rem 0.6rem;border-radius:9999px;">Neuro-Urology</span>
+              <span style="background:#e8f0f7;color:#0f2a4a;font-size:0.7rem;font-weight:600;padding:0.2rem 0.6rem;border-radius:9999px;">Functional Urology</span>
+            </div>
+            <a href="specialists/jeremy-ockrim.html" style="font-size:0.85rem;font-weight:600;color:#1b76c5;text-decoration:none;display:inline-flex;align-items:center;gap:0.3rem;">View Profile <span>&rarr;</span></a>
+          </div>
+        </div>
+
+        <!-- Mr Richard Nobrega -->
+        <div class="consultant-card" style="display:flex;flex-direction:row;align-items:center;padding:2rem;background:#fff;">
+          <div class="consultant-photo" style="width:120px;height:120px;border-radius:50%;overflow:hidden;flex-shrink:0;border:3px solid #e8f0f7;">
+            <img src="assets/Images/Richard Nobrega.jfif" alt="Mr Richard Nobrega" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform 0.5s ease;">
+          </div>
+          <div style="margin-left:1.75rem;flex:1;">
+            <h3 style="color:#0f2a4a;font-size:1.15rem;font-weight:700;margin-bottom:0.15rem;">Mr Richard Nobrega</h3>
+            <p style="color:#1b76c5;font-size:0.85rem;font-weight:600;margin-bottom:0.15rem;">Consultant Urological Surgeon</p>
+            <p style="color:#9ca3af;font-size:0.78rem;margin-bottom:0.5rem;">MBBS BSc(Hons) FRCS(Urol) RCPathME</p>
+            <p style="color:#6b7280;font-size:0.85rem;margin-bottom:0.75rem;">Specialist in reconstructive, neuro-urological and functional urology with sub-specialist training.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:0.35rem;margin-bottom:0.75rem;">
+              <span style="background:#e8f0f7;color:#0f2a4a;font-size:0.7rem;font-weight:600;padding:0.2rem 0.6rem;border-radius:9999px;">Reconstructive Urology</span>
+              <span style="background:#e8f0f7;color:#0f2a4a;font-size:0.7rem;font-weight:600;padding:0.2rem 0.6rem;border-radius:9999px;">Neuro-Urology</span>
+              <span style="background:#e8f0f7;color:#0f2a4a;font-size:0.7rem;font-weight:600;padding:0.2rem 0.6rem;border-radius:9999px;">Functional Urology</span>
+            </div>
+            <a href="specialists/richard-nobrega.html" style="font-size:0.85rem;font-weight:600;color:#1b76c5;text-decoration:none;display:inline-flex;align-items:center;gap:0.3rem;">View Profile <span>&rarr;</span></a>
+          </div>
+        </div>
+
+        <!-- Mr Anthony Noah -->
+        <div class="consultant-card" style="display:flex;flex-direction:row;align-items:center;padding:2rem;background:#f8fafc;">
+          <div class="consultant-photo" style="width:120px;height:120px;border-radius:50%;overflow:hidden;flex-shrink:0;border:3px solid #e8f0f7;">
+            <img src="assets/Images/anthony-noah-urology-london-id-1236.jpg" alt="Mr Anthony Noah" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform 0.5s ease;">
+          </div>
+          <div style="margin-left:1.75rem;flex:1;">
+            <h3 style="color:#0f2a4a;font-size:1.15rem;font-weight:700;margin-bottom:0.15rem;">Mr Anthony Noah</h3>
+            <p style="color:#1b76c5;font-size:0.85rem;font-weight:600;margin-bottom:0.15rem;">Consultant Urological Surgeon</p>
+            <p style="color:#9ca3af;font-size:0.78rem;margin-bottom:0.5rem;">BSc(Hons) MBBS FRCS(Urol)</p>
+            <p style="color:#6b7280;font-size:0.85rem;margin-bottom:0.75rem;">Specialist in reconstructive urology and congenital urological anomalies with a patient-centred approach.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:0.35rem;margin-bottom:0.75rem;">
+              <span style="background:#e8f0f7;color:#0f2a4a;font-size:0.7rem;font-weight:600;padding:0.2rem 0.6rem;border-radius:9999px;">Reconstructive Urology</span>
+              <span style="background:#e8f0f7;color:#0f2a4a;font-size:0.7rem;font-weight:600;padding:0.2rem 0.6rem;border-radius:9999px;">Congenital Urology</span>
+            </div>
+            <a href="specialists/anthony-noah.html" style="font-size:0.85rem;font-weight:600;color:#1b76c5;text-decoration:none;display:inline-flex;align-items:center;gap:0.3rem;">View Profile <span>&rarr;</span></a>
+          </div>
+        </div>
+
+        <!-- Prof Clement Orczyk -->
+        <div class="consultant-card" style="display:flex;flex-direction:row;align-items:center;padding:2rem;background:#fff;">
+          <div class="consultant-photo" style="width:120px;height:120px;border-radius:50%;overflow:hidden;flex-shrink:0;border:3px solid #e8f0f7;">
+            <img src="assets/Images/clement.jpg" alt="Prof Clement Orczyk" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform 0.5s ease;">
+          </div>
+          <div style="margin-left:1.75rem;flex:1;">
+            <h3 style="color:#0f2a4a;font-size:1.15rem;font-weight:700;margin-bottom:0.15rem;">Prof Cl&eacute;ment Orczyk</h3>
+            <p style="color:#1b76c5;font-size:0.85rem;font-weight:600;margin-bottom:0.15rem;">Consultant Urological Surgeon</p>
+            <p style="color:#9ca3af;font-size:0.78rem;margin-bottom:0.5rem;">MD PhD</p>
+            <p style="color:#6b7280;font-size:0.85rem;margin-bottom:0.75rem;">Academic urologist and expert in prostate cancer diagnostics and focal therapy innovation.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:0.35rem;margin-bottom:0.75rem;">
+              <span style="background:#e8f0f7;color:#0f2a4a;font-size:0.7rem;font-weight:600;padding:0.2rem 0.6rem;border-radius:9999px;">Prostate Cancer</span>
+              <span style="background:#e8f0f7;color:#0f2a4a;font-size:0.7rem;font-weight:600;padding:0.2rem 0.6rem;border-radius:9999px;">Focal Therapy</span>
+            </div>
+            <a href="specialists/clement-orczyk.html" style="font-size:0.85rem;font-weight:600;color:#1b76c5;text-decoration:none;display:inline-flex;align-items:center;gap:0.3rem;">View Profile <span>&rarr;</span></a>
+          </div>
+        </div>
+
+        <!-- Mr Alberto Coscione -->
+        <div class="consultant-card" style="display:flex;flex-direction:row;align-items:center;padding:2rem;background:#f8fafc;">
+          <div class="consultant-photo" style="width:120px;height:120px;border-radius:50%;overflow:hidden;flex-shrink:0;border:3px solid #e8f0f7;">
+            <img src="https://media.licdn.com/dms/image/v2/C4D03AQFn6zZtX870Zw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1531260040326?e=2147483647&v=beta&t=U15f1tpU7ibd9W7GaJjWOry3yU7fhFotHdl5Qko0LNI" alt="Mr Alberto Coscione" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform 0.5s ease;">
+          </div>
+          <div style="margin-left:1.75rem;flex:1;">
+            <h3 style="color:#0f2a4a;font-size:1.15rem;font-weight:700;margin-bottom:0.15rem;">Mr Alberto Coscione</h3>
+            <p style="color:#1b76c5;font-size:0.85rem;font-weight:600;margin-bottom:0.15rem;">Consultant Urological Surgeon</p>
+            <p style="color:#9ca3af;font-size:0.78rem;margin-bottom:0.5rem;">FRCS MA(Cantab) MB BChir AFHEA</p>
+            <p style="color:#6b7280;font-size:0.85rem;margin-bottom:0.75rem;">Specialist in endourology and stone surgery with broad expertise across core urological conditions.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:0.35rem;margin-bottom:0.75rem;">
+              <span style="background:#e8f0f7;color:#0f2a4a;font-size:0.7rem;font-weight:600;padding:0.2rem 0.6rem;border-radius:9999px;">Endourology</span>
+              <span style="background:#e8f0f7;color:#0f2a4a;font-size:0.7rem;font-weight:600;padding:0.2rem 0.6rem;border-radius:9999px;">Stone Surgery</span>
+              <span style="background:#e8f0f7;color:#0f2a4a;font-size:0.7rem;font-weight:600;padding:0.2rem 0.6rem;border-radius:9999px;">Core Urology</span>
+            </div>
+            <a href="specialists/alberto-coscione.html" style="font-size:0.85rem;font-weight:600;color:#1b76c5;text-decoration:none;display:inline-flex;align-items:center;gap:0.3rem;">View Profile <span>&rarr;</span></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Aim Section -->
+  <section class="fade-section" style="background:linear-gradient(135deg,#0f2a4a 0%,#1b4676 50%,#1b76c5 100%);padding:5rem 0;">
     <div class="container-custom">
       <div class="grid lg:grid-cols-2 gap-16 items-center">
         <div>
-          <h2 class="text-3xl md:text-4xl font-bold text-dark mb-6">Our Aim</h2>
-          <p class="text-gray-600 text-lg mb-6">We are committed to delivering exceptional care through a proven, evidence-based approach, supported by the latest advances in diagnostic and surgical innovation.</p>
-          <p class="text-gray-600 text-lg mb-6">Our principal outpatient clinic is located at 18 Devonshire Street, within the campus of The Harley Street Clinic and part of HCA Healthcare UK. In addition, our consultants hold practising privileges across a number of respected London institutions, including St John &amp; St Elizabeth Hospital, Welbeck, Cleveland Clinic London and the Chelsea Outpatient Centre, also part of HCA Healthcare UK.</p>
-          <p class="text-gray-600 text-lg mb-6">Wherever you are seen, you will benefit from access to advanced diagnostic facilities, flexible appointment availability, and efficient pathways to investigation and treatment. We prioritise a seamless patient journey, minimising delays and ensuring timely results and interventions.</p>
-          <p class="text-gray-600 text-lg mb-8">We are dedicated to delivering a standard of care that is consistently exceptional.</p>
-
+          <span style="display:inline-block;font-size:0.75rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#7bc7ef;background:rgba(255,255,255,0.1);padding:0.35rem 1rem;border-radius:9999px;margin-bottom:0.75rem;">Our Mission</span>
+          <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Our Aim</h2>
+          <p class="text-gray-300 text-lg mb-6">We are committed to delivering exceptional care through a proven, evidence-based approach, supported by the latest advances in diagnostic and surgical innovation.</p>
+          <p class="text-gray-300 text-lg mb-6">Our principal outpatient clinic is located at 18 Devonshire Street, within the campus of The Harley Street Clinic and part of HCA Healthcare UK. In addition, our consultants hold practising privileges across a number of respected London institutions, including St John &amp; St Elizabeth Hospital, Welbeck, Cleveland Clinic London and the Chelsea Outpatient Centre, also part of HCA Healthcare UK.</p>
+          <p class="text-gray-300 text-lg mb-6">Wherever you are seen, you will benefit from access to advanced diagnostic facilities, flexible appointment availability, and efficient pathways to investigation and treatment. We prioritise a seamless patient journey, minimising delays and ensuring timely results and interventions.</p>
+          <p class="text-gray-300 text-lg">We are dedicated to delivering a standard of care that is consistently exceptional.</p>
         </div>
-
-        <div class="relative rounded-2xl h-96 overflow-hidden practice-img-wrap">
-          <img src="assets/Images/9633.THSC 0722_03 (2).jpg" alt="The Harley Street Clinic" class="practice-img" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s ease;">
+        <div class="relative" style="border-radius:1rem;overflow:hidden;box-shadow:0 25px 50px rgba(0,0,0,0.25);">
+          <img src="assets/Images/9633.THSC 0722_03 (2).jpg" alt="The Harley Street Clinic" style="width:100%;height:auto;display:block;">
           <p style="position:absolute;bottom:0.5rem;right:0.75rem;font-size:0.65rem;color:rgba(255,255,255,0.75);">18 Devonshire Street, London, W1G 7AQ &mdash; Image copyright HCA UK</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Divider -->
-  <div class="container-custom">
-    <div style="height:1px;background:linear-gradient(to right,transparent,rgba(15,42,74,0.2) 20%,rgba(15,42,74,0.2) 80%,transparent);"></div>
-  </div>
-
-  <!-- Team Section -->
-  <section class="bg-white" style="padding-top:3rem;padding-bottom:4rem;">
+  <!-- Our Values Section -->
+  <section class="fade-section" style="background:#f8fafc;padding:5rem 0;">
     <div class="container-custom">
-      <div class="text-center max-w-3xl mx-auto mb-16">
-        <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Our Consultant Team</h2>
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span style="display:inline-block;font-size:0.75rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#1b76c5;background:#eff6ff;padding:0.35rem 1rem;border-radius:9999px;margin-bottom:0.75rem;">What We Stand For</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-dark mb-3">Our Values</h2>
+        <div style="width:60px;height:4px;background:linear-gradient(90deg,#1b76c5,#22c55e);border-radius:2px;margin:0 auto;"></div>
       </div>
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-
-        <!-- Mr Bijan Khoubehi -->
-        <div class="consultant-card" style="padding:2rem 1.5rem;display:flex;flex-direction:column;align-items:center;text-align:center;">
-          <div style="width:160px;height:160px;border-radius:50%;overflow:hidden;background:#d1d5db;margin-bottom:1.25rem;border:3px solid #e8f0f7;flex-shrink:0;">
-            <img src="assets/Images/bijan.50698fcb.jpg" alt="Mr Bijan Khoubehi" style="width:100%;height:100%;object-fit:cover;object-position:50% 15%;display:block;transition:transform 0.5s ease;">
-          </div>
-          <h3 style="color:#0f2a4a;font-size:1.05rem;font-weight:700;margin-bottom:0.2rem;">Mr Bijan Khoubehi</h3>
-          <p style="color:#7bc7ef;font-size:0.8rem;font-weight:600;margin-bottom:0.15rem;">Chairman &amp; Consultant Urological Surgeon</p>
-          <p style="color:#9ca3af;font-size:0.7rem;margin-bottom:1rem;">BSc(Hons) MBBS MD FRCS (Urol)</p>
-          <div style="display:flex;flex-wrap:wrap;gap:0.35rem;justify-content:center;margin-bottom:1.5rem;">
-            <span style="background:#e8f0f7;color:#0f2a4a;font-size:0.65rem;font-weight:600;padding:0.2rem 0.55rem;border-radius:9999px;">Prostate, Kidney &amp; Bladder Cancer</span>
-            <span style="background:#e8f0f7;color:#0f2a4a;font-size:0.65rem;font-weight:600;padding:0.2rem 0.55rem;border-radius:9999px;">Robotic-assisted Surgery</span>
-          </div>
-          <div style="flex:1;"></div>
-          <a href="specialists/bijan-khoubehi.html" style="display:inline-flex;align-items:center;gap:0.4rem;font-size:0.8rem;font-weight:600;color:white;background:#0f2a4a;padding:0.5rem 1rem;border-radius:1rem;corner-shape:squircle;text-decoration:none;">
-            View Profile <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-          </a>
-        </div>
-
-        <!-- Prof Mark Emberton -->
-        <div class="consultant-card" style="padding:2rem 1.5rem;display:flex;flex-direction:column;align-items:center;text-align:center;">
-          <div style="width:160px;height:160px;border-radius:50%;overflow:hidden;background:#d1d5db;margin-bottom:1.25rem;border:3px solid #e8f0f7;flex-shrink:0;">
-            <img src="assets/Images/Mark_Emberton.bb0764e5.jpg" alt="Prof Mark Emberton" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform 0.5s ease;">
-          </div>
-          <h3 style="color:#0f2a4a;font-size:1.05rem;font-weight:700;margin-bottom:0.2rem;">Prof Mark Emberton</h3>
-          <p style="color:#7bc7ef;font-size:0.8rem;font-weight:600;margin-bottom:0.15rem;">Consultant Urological Surgeon</p>
-          <p style="color:#9ca3af;font-size:0.7rem;margin-bottom:1rem;">MD FMedSci</p>
-          <div style="display:flex;flex-wrap:wrap;gap:0.35rem;justify-content:center;margin-bottom:1.5rem;">
-            <span style="background:#e8f0f7;color:#0f2a4a;font-size:0.65rem;font-weight:600;padding:0.2rem 0.55rem;border-radius:9999px;">Prostate Cancer</span>
-            <span style="background:#e8f0f7;color:#0f2a4a;font-size:0.65rem;font-weight:600;padding:0.2rem 0.55rem;border-radius:9999px;">Focal Therapy</span>
-          </div>
-          <div style="flex:1;"></div>
-          <a href="specialists/mark-emberton.html" style="display:inline-flex;align-items:center;gap:0.4rem;font-size:0.8rem;font-weight:600;color:white;background:#0f2a4a;padding:0.5rem 1rem;border-radius:1rem;corner-shape:squircle;text-decoration:none;">
-            View Profile <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-          </a>
-        </div>
-
-        <!-- Mr Paul Cathcart -->
-        <div class="consultant-card" style="padding:2rem 1.5rem;display:flex;flex-direction:column;align-items:center;text-align:center;">
-          <div style="width:160px;height:160px;border-radius:50%;overflow:hidden;background:#d1d5db;margin-bottom:1.25rem;border:3px solid #e8f0f7;flex-shrink:0;">
-            <img src="assets/Images/Paul_Cathcart.d561278d.jpg" alt="Mr Paul Cathcart" style="width:100%;height:100%;object-fit:cover;object-position:50% 15%;display:block;transition:transform 0.5s ease;">
-          </div>
-          <h3 style="color:#0f2a4a;font-size:1.05rem;font-weight:700;margin-bottom:0.2rem;">Mr Paul Cathcart</h3>
-          <p style="color:#7bc7ef;font-size:0.8rem;font-weight:600;margin-bottom:0.15rem;">Consultant Urological Surgeon</p>
-          <p style="color:#9ca3af;font-size:0.7rem;margin-bottom:1rem;">MD FRCS(Urol)</p>
-          <div style="display:flex;flex-wrap:wrap;gap:0.35rem;justify-content:center;margin-bottom:1.5rem;">
-            <span style="background:#e8f0f7;color:#0f2a4a;font-size:0.65rem;font-weight:600;padding:0.2rem 0.55rem;border-radius:9999px;">Prostate Cancer</span>
-            <span style="background:#e8f0f7;color:#0f2a4a;font-size:0.65rem;font-weight:600;padding:0.2rem 0.55rem;border-radius:9999px;">Robotic-assisted Surgery</span>
-          </div>
-          <div style="flex:1;"></div>
-          <a href="specialists/paul-cathcart.html" style="display:inline-flex;align-items:center;gap:0.4rem;font-size:0.8rem;font-weight:600;color:white;background:#0f2a4a;padding:0.5rem 1rem;border-radius:1rem;corner-shape:squircle;text-decoration:none;">
-            View Profile <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-          </a>
-        </div>
-
-        <!-- Mr Jeremy Ockrim -->
-        <div class="consultant-card" style="padding:2rem 1.5rem;display:flex;flex-direction:column;align-items:center;text-align:center;">
-          <div style="width:160px;height:160px;border-radius:50%;overflow:hidden;background:#d1d5db;margin-bottom:1.25rem;border:3px solid #e8f0f7;flex-shrink:0;">
-            <img src="assets/Images/Jeremy Ockrim.jfif" alt="Mr Jeremy Ockrim" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform 0.5s ease;">
-          </div>
-          <h3 style="color:#0f2a4a;font-size:1.05rem;font-weight:700;margin-bottom:0.2rem;">Mr Jeremy Ockrim</h3>
-          <p style="color:#7bc7ef;font-size:0.8rem;font-weight:600;margin-bottom:0.15rem;">Consultant Urological Surgeon</p>
-          <p style="color:#9ca3af;font-size:0.7rem;margin-bottom:1rem;">MD BSc (Hons) FRCS(Urol)</p>
-          <div style="display:flex;flex-wrap:wrap;gap:0.35rem;justify-content:center;margin-bottom:1.5rem;">
-            <span style="background:#e8f0f7;color:#0f2a4a;font-size:0.65rem;font-weight:600;padding:0.2rem 0.55rem;border-radius:9999px;">Reconstructive Urology</span>
-            <span style="background:#e8f0f7;color:#0f2a4a;font-size:0.65rem;font-weight:600;padding:0.2rem 0.55rem;border-radius:9999px;">Neuro-Urology</span>
-            <span style="background:#e8f0f7;color:#0f2a4a;font-size:0.65rem;font-weight:600;padding:0.2rem 0.55rem;border-radius:9999px;">Functional Urology</span>
-          </div>
-          <div style="flex:1;"></div>
-          <a href="specialists/jeremy-ockrim.html" style="display:inline-flex;align-items:center;gap:0.4rem;font-size:0.8rem;font-weight:600;color:white;background:#0f2a4a;padding:0.5rem 1rem;border-radius:1rem;corner-shape:squircle;text-decoration:none;">
-            View Profile <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-          </a>
-        </div>
-
-        <!-- Mr Richard Nobrega -->
-        <div class="consultant-card" style="padding:2rem 1.5rem;display:flex;flex-direction:column;align-items:center;text-align:center;">
-          <div style="width:160px;height:160px;border-radius:50%;overflow:hidden;background:#d1d5db;margin-bottom:1.25rem;border:3px solid #e8f0f7;flex-shrink:0;">
-            <img src="assets/Images/Richard Nobrega.jfif" alt="Mr Richard Nobrega" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform 0.5s ease;">
-          </div>
-          <h3 style="color:#0f2a4a;font-size:1.05rem;font-weight:700;margin-bottom:0.2rem;">Mr Richard Nobrega</h3>
-          <p style="color:#7bc7ef;font-size:0.8rem;font-weight:600;margin-bottom:0.15rem;">Consultant Urological Surgeon</p>
-          <p style="color:#9ca3af;font-size:0.7rem;margin-bottom:1rem;">MBBS BSc (Hons) FRCS(Urol) RCPathME</p>
-          <div style="display:flex;flex-wrap:wrap;gap:0.35rem;justify-content:center;margin-bottom:1.5rem;">
-            <span style="background:#e8f0f7;color:#0f2a4a;font-size:0.65rem;font-weight:600;padding:0.2rem 0.55rem;border-radius:9999px;">Reconstructive Urology</span>
-            <span style="background:#e8f0f7;color:#0f2a4a;font-size:0.65rem;font-weight:600;padding:0.2rem 0.55rem;border-radius:9999px;">Neuro-Urology</span>
-            <span style="background:#e8f0f7;color:#0f2a4a;font-size:0.65rem;font-weight:600;padding:0.2rem 0.55rem;border-radius:9999px;">Functional Urology</span>
-          </div>
-          <div style="flex:1;"></div>
-          <a href="specialists/richard-nobrega.html" style="display:inline-flex;align-items:center;gap:0.4rem;font-size:0.8rem;font-weight:600;color:white;background:#0f2a4a;padding:0.5rem 1rem;border-radius:1rem;corner-shape:squircle;text-decoration:none;">
-            View Profile <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-          </a>
-        </div>
-
-        <!-- Mr Anthony Noah -->
-        <div class="consultant-card" style="padding:2rem 1.5rem;display:flex;flex-direction:column;align-items:center;text-align:center;">
-          <div style="width:160px;height:160px;border-radius:50%;overflow:hidden;background:#d1d5db;margin-bottom:1.25rem;border:3px solid #e8f0f7;flex-shrink:0;">
-            <img src="assets/Images/anthony-noah-urology-london-id-1236.jpg" alt="Mr Anthony Noah" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform 0.5s ease;">
-          </div>
-          <h3 style="color:#0f2a4a;font-size:1.05rem;font-weight:700;margin-bottom:0.2rem;">Mr Anthony Noah</h3>
-          <p style="color:#7bc7ef;font-size:0.8rem;font-weight:600;margin-bottom:0.15rem;">Consultant Urological Surgeon</p>
-          <p style="color:#9ca3af;font-size:0.7rem;margin-bottom:1rem;">BSc (Hons), MBBS, FRCS (Urol)</p>
-          <div style="display:flex;flex-wrap:wrap;gap:0.35rem;justify-content:center;margin-bottom:1.5rem;">
-            <span style="background:#e8f0f7;color:#0f2a4a;font-size:0.65rem;font-weight:600;padding:0.2rem 0.55rem;border-radius:9999px;">Reconstructive Urology</span>
-            <span style="background:#e8f0f7;color:#0f2a4a;font-size:0.65rem;font-weight:600;padding:0.2rem 0.55rem;border-radius:9999px;">Congenital Urological Anomalies</span>
-          </div>
-          <div style="flex:1;"></div>
-          <a href="specialists/anthony-noah.html" style="display:inline-flex;align-items:center;gap:0.4rem;font-size:0.8rem;font-weight:600;color:white;background:#0f2a4a;padding:0.5rem 1rem;border-radius:1rem;corner-shape:squircle;text-decoration:none;">
-            View Profile <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-          </a>
-        </div>
-
-        <!-- Prof Clément Orczyk -->
-        <div class="consultant-card" style="padding:2rem 1.5rem;display:flex;flex-direction:column;align-items:center;text-align:center;">
-          <div style="width:160px;height:160px;border-radius:50%;overflow:hidden;background:#d1d5db;margin-bottom:1.25rem;border:3px solid #e8f0f7;flex-shrink:0;">
-            <img src="assets/Images/clement.jpg" alt="Prof Clément Orczyk" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform 0.5s ease;">
-          </div>
-          <h3 style="color:#0f2a4a;font-size:1.05rem;font-weight:700;margin-bottom:0.2rem;">Prof Clément Orczyk</h3>
-          <p style="color:#7bc7ef;font-size:0.8rem;font-weight:600;margin-bottom:0.15rem;">Consultant Urological Surgeon</p>
-          <p style="color:#9ca3af;font-size:0.7rem;margin-bottom:1rem;">MD PhD</p>
-          <div style="display:flex;flex-wrap:wrap;gap:0.35rem;justify-content:center;margin-bottom:1.5rem;">
-            <span style="background:#e8f0f7;color:#0f2a4a;font-size:0.65rem;font-weight:600;padding:0.2rem 0.55rem;border-radius:9999px;">Prostate Cancer</span>
-            <span style="background:#e8f0f7;color:#0f2a4a;font-size:0.65rem;font-weight:600;padding:0.2rem 0.55rem;border-radius:9999px;">Focal Therapy</span>
-          </div>
-          <div style="flex:1;"></div>
-          <a href="specialists/clement-orczyk.html" style="display:inline-flex;align-items:center;gap:0.4rem;font-size:0.8rem;font-weight:600;color:white;background:#0f2a4a;padding:0.5rem 1rem;border-radius:1rem;corner-shape:squircle;text-decoration:none;">
-            View Profile <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-          </a>
-        </div>
-
-        <!-- Mr Alberto Coscione -->
-        <div class="consultant-card" style="padding:2rem 1.5rem;display:flex;flex-direction:column;align-items:center;text-align:center;">
-          <div style="width:160px;height:160px;border-radius:50%;overflow:hidden;background:#d1d5db;margin-bottom:1.25rem;border:3px solid #e8f0f7;flex-shrink:0;">
-            <img src="https://media.licdn.com/dms/image/v2/C4D03AQFn6zZtX870Zw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1531260040326?e=2147483647&v=beta&t=U15f1tpU7ibd9W7GaJjWOry3yU7fhFotHdl5Qko0LNI" alt="Mr Alberto Coscione" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform 0.5s ease;">
-          </div>
-          <h3 style="color:#0f2a4a;font-size:1.05rem;font-weight:700;margin-bottom:0.2rem;">Mr Alberto Coscione</h3>
-          <p style="color:#7bc7ef;font-size:0.8rem;font-weight:600;margin-bottom:0.15rem;">Consultant Urological Surgeon</p>
-          <p style="color:#9ca3af;font-size:0.7rem;margin-bottom:1rem;">FRCS MA (Cantab) MB BChir AFHEA</p>
-          <div style="display:flex;flex-wrap:wrap;gap:0.35rem;justify-content:center;margin-bottom:1.5rem;">
-            <span style="background:#e8f0f7;color:#0f2a4a;font-size:0.65rem;font-weight:600;padding:0.2rem 0.55rem;border-radius:9999px;">Endourology</span>
-            <span style="background:#e8f0f7;color:#0f2a4a;font-size:0.65rem;font-weight:600;padding:0.2rem 0.55rem;border-radius:9999px;">Stone Surgery</span>
-            <span style="background:#e8f0f7;color:#0f2a4a;font-size:0.65rem;font-weight:600;padding:0.2rem 0.55rem;border-radius:9999px;">Core Urology</span>
-          </div>
-          <div style="flex:1;"></div>
-          <a href="#" style="display:inline-flex;align-items:center;gap:0.4rem;font-size:0.8rem;font-weight:600;color:white;background:#0f2a4a;padding:0.5rem 1rem;border-radius:1rem;corner-shape:squircle;text-decoration:none;">
-            View Profile <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-          </a>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Divider -->
-  <div class="container-custom">
-    <div style="height:1px;background:linear-gradient(to right,transparent,rgba(15,42,74,0.2) 20%,rgba(15,42,74,0.2) 80%,transparent);"></div>
-  </div>
-
-  <!-- Our Values -->
-  <section class="bg-gray-50" style="padding-top:3rem;padding-bottom:3rem;">
-    <div class="container-custom">
-      <div class="text-center max-w-3xl mx-auto mb-16">
-        <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Our Values</h2>
-        <p class="text-gray-600 text-lg">The principles that guide everything we do at London Urology Specialists.</p>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-white rounded-xl shadow-lg text-center overflow-hidden" style="transition:transform 0.3s ease,box-shadow 0.3s ease;cursor:default;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 40px rgba(0,0,0,0.16)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-          <div style="background-color:#0f2a4a;height:6px;"></div>
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Patient-Centred -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden" style="transition:transform 0.35s ease,box-shadow 0.35s ease;cursor:default;border:1px solid #e5e7eb;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 20px 50px rgba(0,0,0,0.12)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+          <div style="background:linear-gradient(90deg,#1b76c5,#22c55e);height:4px;"></div>
           <div class="p-8">
-            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-              <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div style="width:56px;height:56px;background:#eff6ff;border-radius:0.75rem;display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;">
+              <svg class="w-7 h-7" style="color:#1b76c5;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
               </svg>
             </div>
-            <h3 class="text-xl font-semibold text-dark mb-3">Patient-Centered Care</h3>
-            <p class="text-gray-600">Every decision we make is guided by what's best for our patients. We listen, understand, and tailor our approach accordingly.</p>
+            <h3 class="text-xl font-semibold text-dark mb-3">Patient-Centred</h3>
+            <p class="text-gray-600">Every decision we make is guided by what is best for our patients. We listen, understand, and tailor our approach to each individual.</p>
           </div>
         </div>
 
-        <div class="bg-white rounded-xl shadow-lg text-center overflow-hidden" style="transition:transform 0.3s ease,box-shadow 0.3s ease;cursor:default;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 40px rgba(0,0,0,0.16)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-          <div style="background-color:#0f2a4a;height:6px;"></div>
+        <!-- Evidence-Based -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden" style="transition:transform 0.35s ease,box-shadow 0.35s ease;cursor:default;border:1px solid #e5e7eb;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 20px 50px rgba(0,0,0,0.12)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+          <div style="background:linear-gradient(90deg,#1b76c5,#22c55e);height:4px;"></div>
           <div class="p-8">
-            <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-6">
-              <svg class="w-8 h-8 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div style="width:56px;height:56px;background:#fef3c7;border-radius:0.75rem;display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;">
+              <svg class="w-7 h-7" style="color:#f59e0b;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
               </svg>
             </div>
-            <h3 class="text-xl font-semibold text-dark mb-3">Clinical Excellence</h3>
-            <p class="text-gray-600">We maintain the highest standards of clinical care, staying at the forefront of urological medicine and surgical techniques.</p>
+            <h3 class="text-xl font-semibold text-dark mb-3">Evidence-Based</h3>
+            <p class="text-gray-600">We maintain the highest standards of clinical care, staying at the forefront of urological research, diagnostics and surgical techniques.</p>
           </div>
         </div>
 
-        <div class="bg-white rounded-xl shadow-lg text-center overflow-hidden" style="transition:transform 0.3s ease,box-shadow 0.3s ease;cursor:default;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 40px rgba(0,0,0,0.16)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-          <div style="background-color:#0f2a4a;height:6px;"></div>
+        <!-- Collaborative -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden" style="transition:transform 0.35s ease,box-shadow 0.35s ease;cursor:default;border:1px solid #e5e7eb;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 20px 50px rgba(0,0,0,0.12)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+          <div style="background:linear-gradient(90deg,#1b76c5,#22c55e);height:4px;"></div>
           <div class="p-8">
-            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-              <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div style="width:56px;height:56px;background:#d1fae5;border-radius:0.75rem;display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;">
+              <svg class="w-7 h-7" style="color:#059669;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
               </svg>
             </div>
-            <h3 class="text-xl font-semibold text-dark mb-3">Collaborative Approach</h3>
+            <h3 class="text-xl font-semibold text-dark mb-3">Collaborative</h3>
             <p class="text-gray-600">We work together as a team and with other specialists to ensure comprehensive, coordinated care for every patient.</p>
+          </div>
+        </div>
+
+        <!-- Accessible -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden" style="transition:transform 0.35s ease,box-shadow 0.35s ease;cursor:default;border:1px solid #e5e7eb;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 20px 50px rgba(0,0,0,0.12)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+          <div style="background:linear-gradient(90deg,#1b76c5,#22c55e);height:4px;"></div>
+          <div class="p-8">
+            <div style="width:56px;height:56px;background:#ede9fe;border-radius:0.75rem;display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;">
+              <svg class="w-7 h-7" style="color:#7c3aed;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-dark mb-3">Accessible</h3>
+            <p class="text-gray-600">We offer flexible appointments, efficient pathways and multiple clinic locations across Central London to ensure timely access to care.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Divider -->
-  <div class="container-custom">
-    <div style="height:1px;background:linear-gradient(to right,transparent,rgba(15,42,74,0.2) 20%,rgba(15,42,74,0.2) 80%,transparent);"></div>
-  </div>
-
   <!-- CTA Section -->
-  <section class="section-padding text-white" style="background:linear-gradient(135deg,#1b76c5 0%,#1b4676 50%,#0f2a4a 100%)">
+  <section style="background:linear-gradient(135deg,#1b76c5 0%,#1b4676 50%,#0f2a4a 100%);padding:5rem 0;">
     <div class="container-custom text-center">
-      <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to Meet Our Team?</h2>
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Ready to Meet Our Team?</h2>
       <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto">Book a consultation with one of our specialists and experience the difference expert, consultant-led care can make.</p>
       <div class="flex flex-wrap justify-center gap-4">
-        <a href="contact.html" class="bg-white text-primary px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-colors shadow-lg">Book Appointment</a>
-        <a href="tel:0300 302 0202" class="btn-outline-white px-8 py-4">0300 302 0202</a>
+        <a href="contact.html" class="bg-white text-primary px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-colors shadow-lg" style="text-decoration:none;">Book Consultation</a>
+        <a href="tel:03003020202" class="px-8 py-4 rounded-full font-semibold transition-colors shadow-lg flex items-center gap-2" style="background:rgba(255,255,255,0.15);color:white;border:1px solid rgba(255,255,255,0.3);text-decoration:none;backdrop-filter:blur(4px);">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          0300 302 0202
+        </a>
       </div>
     </div>
   </section>
@@ -604,5 +652,50 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script>
+    // Reading progress bar
+    (function() {
+      var bar = document.getElementById('reading-progress');
+      if (!bar) return;
+      window.addEventListener('scroll', function() {
+        var h = document.documentElement.scrollHeight - window.innerHeight;
+        var pct = h > 0 ? (window.scrollY / h) * 100 : 0;
+        bar.style.width = Math.min(pct, 100) + '%';
+      });
+    })();
+
+    // Fade-section intersection observer
+    (function() {
+      var sections = document.querySelectorAll('.fade-section');
+      if (!sections.length) return;
+      var obs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            obs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      sections.forEach(function(s) { obs.observe(s); });
+    })();
+
+    // Hero video play + loop fade
+    (function() {
+      var video = document.getElementById('hero-video');
+      if (!video) return;
+      video.loop = true;
+      video.play().catch(function() {});
+    })();
+
+    // Reading time calculator
+    (function() {
+      var el = document.getElementById('reading-time-text');
+      if (!el) return;
+      var text = document.body.innerText || '';
+      var words = text.trim().split(/\s+/).length;
+      var mins = Math.max(1, Math.round(words / 220));
+      el.textContent = mins + ' min read';
+    })();
+  </script>
 </body>
 </html>
