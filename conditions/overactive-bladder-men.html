@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Enlarged Prostate (BPH) | Men's Health | London Urology Specialists</title>
-  <meta name="description" content="Expert assessment and treatment for enlarged prostate (BPH) at London Urology Specialists. Understand your symptoms, diagnosis and treatment options.">
+  <title>Overactive Bladder | Men's Health | London Urology Specialists</title>
+  <meta name="description" content="Expert assessment and treatment for overactive bladder (OAB) in men at London Urology Specialists. Understand the overlap with BPH, diagnosis with urodynamics, and effective treatment options.">
   <link rel="icon" type="image/png" href="../assets/Images/logo1.png">
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,15 +14,11 @@
     .toc-link { display:block; padding:0.4rem 0.75rem; border-left:2px solid #e5e7eb; color:#6b7280; font-size:0.85rem; text-decoration:none; transition:all 0.2s ease; }
     .toc-link:hover, .toc-link.active { border-left-color:#1b76c5; color:#0f2a4a; font-weight:600; background:#eff6ff; }
     .content-section { scroll-margin-top:100px; }
-    .stat-card { text-align:center; padding:1.75rem 1.25rem; border-radius:1.25rem; background:#fff; box-shadow:0 4px 16px rgba(0,0,0,0.06); transition:transform 0.2s ease, box-shadow 0.2s ease; }
-    .stat-card:hover { transform:translateY(-3px); box-shadow:0 8px 24px rgba(27,118,197,0.15); }
     .full-bleed { position:relative; z-index:0; padding-top:3rem; padding-bottom:3rem; margin-bottom:0; }
     .full-bleed::before { content:''; position:absolute; top:0; bottom:0; left:50%; transform:translateX(-50%); width:100vw; z-index:-1; }
     .full-bleed-grey::before { background:#f8fafc; border-top:1px solid #e5e7eb; border-bottom:1px solid #e5e7eb; }
     .full-bleed-blue::before { background:#eff6ff; border-top:1px solid #bfdbfe; border-bottom:1px solid #bfdbfe; }
     .full-bleed-navy::before { background:linear-gradient(135deg,#0f2a4a 0%,#1a3a5c 100%); }
-    .treatment-card { background:#fff; border:1px solid #e5e7eb; border-radius:1rem; padding:1.5rem 2rem; box-shadow:0 2px 8px rgba(0,0,0,0.04); transition:transform 0.2s ease, box-shadow 0.2s ease; }
-    .treatment-card:hover { transform:translateY(-3px); box-shadow:0 8px 24px rgba(27,118,197,0.12); }
     .section-tag { display:inline-block; font-size:0.75rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#1b76c5; margin-bottom:0.75rem; }
     .fade-section { opacity:0; transform:translateY(22px); transition:opacity 0.6s ease, transform 0.6s ease; }
     .fade-section.visible { opacity:1; transform:translateY(0); }
@@ -34,36 +30,16 @@
     #float-cta:hover { transform:scale(1.05); }
     @keyframes hero-fade { from{opacity:0} to{opacity:0.45} }
     .hero-video { animation:hero-fade 1.2s ease-in forwards; }
-
-    /* Staggered card reveal */
-    .card-stagger { opacity:0; transform:translateY(18px); transition:opacity 0.5s ease, transform 0.5s ease; }
-    .card-stagger.visible { opacity:1; transform:translateY(0); }
-
-    /* Hover lift for all interactive cards */
     .hover-lift { transition:transform 0.25s ease, box-shadow 0.25s ease; }
     .hover-lift:hover { transform:translateY(-4px); box-shadow:0 10px 28px rgba(27,118,197,0.14); }
-
-    /* Gradient shimmer on takeaway box */
     @keyframes shimmer { 0%{background-position:200% center} 100%{background-position:-200% center} }
     .gradient-shimmer { position:relative; overflow:hidden; }
     .gradient-shimmer::after { content:''; position:absolute; inset:0; background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,0.08) 50%,transparent 70%); background-size:200% 100%; animation:shimmer 6s ease-in-out infinite; pointer-events:none; border-radius:inherit; }
-
-    /* Hero text entrance */
     @keyframes heroSlideUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
     .hero-title { animation:heroSlideUp 0.8s ease 0.3s both; }
     .hero-subtitle { animation:heroSlideUp 0.8s ease 0.6s both; }
-
-    /* Reading progress bar */
-    #reading-progress { position:fixed; top:0; left:0; height:3px; background:linear-gradient(90deg,#1b76c5,#3b82f6); z-index:9999; width:0; transition:width 0.1s linear; }
-
-    /* Innovative badge */
-    @keyframes badgePulse { 0%,100%{box-shadow:0 0 0 0 rgba(27,118,197,0.4)} 50%{box-shadow:0 0 0 6px rgba(27,118,197,0)} }
-    .badge-innovative { display:inline-flex; align-items:center; gap:0.3rem; background:linear-gradient(135deg,#1b76c5,#3b82f6); color:#fff; font-size:0.65rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; padding:0.25rem 0.65rem; border-radius:9999px; animation:badgePulse 2.5s ease infinite; }
     .hero-breadcrumb { animation:heroSlideUp 0.6s ease 0.1s both; }
-
-    /* Stat counter pulse */
-    @keyframes statPop { 0%{transform:scale(1)} 50%{transform:scale(1.08)} 100%{transform:scale(1)} }
-    .stat-pop { animation:statPop 0.4s ease; }
+    #reading-progress { position:fixed; top:0; left:0; height:3px; background:linear-gradient(90deg,#1b76c5,#3b82f6); z-index:9999; width:0; transition:width 0.1s linear; }
   </style>
 </head>
 <body class="font-poppins">
@@ -260,9 +236,9 @@
           </button>
           <div class="hidden pl-4 py-2 space-y-2">
             <a href="cancer.html" class="block py-2 text-gray-600 hover:text-primary font-medium">Cancer Clinic</a>
-            <a href="prostate-cancer.html" class="block py-1 pl-3 text-sm text-gray-500 hover:text-primary">— Prostate Cancer</a>
             <a href="bladder-cancer.html" class="block py-1 pl-3 text-sm text-gray-500 hover:text-primary">— Bladder Cancer</a>
             <a href="kidney-cancer.html" class="block py-1 pl-3 text-sm text-gray-500 hover:text-primary">— Kidney Cancer</a>
+            <a href="prostate-cancer.html" class="block py-1 pl-3 text-sm text-gray-500 hover:text-primary">— Prostate Cancer</a>
             <a href="testicular-cancer.html" class="block py-1 pl-3 text-sm text-gray-500 hover:text-primary">— Testicular Cancer</a>
             <a href="mens-health.html" class="block py-2 text-primary font-medium">Men's Health</a>
             <a href="enlarged-prostate.html" class="block py-1 pl-3 text-sm text-gray-500 hover:text-primary">— Enlarged Prostate</a>
@@ -325,45 +301,21 @@
         <span class="mx-2">/</span>
         <a href="mens-health.html" class="hover:text-white">Men's Health</a>
         <span class="mx-2">/</span>
-        <span class="text-white">Enlarged Prostate</span>
+        <span class="text-white">Overactive Bladder</span>
       </nav>
       <div class="flex items-center gap-4 mb-4 hero-title">
         <div class="w-16 h-16 rounded-xl flex items-center justify-center" style="background:#1b76c5;">
-          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg>
+          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
         </div>
         <div>
           <p style="color:#93c5fd;font-size:0.8rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.25rem;">Men's Health</p>
-          <h1 class="text-4xl md:text-5xl font-bold text-white">Enlarged Prostate (BPH)</h1>
+          <h1 class="text-4xl md:text-5xl font-bold text-white">Overactive Bladder</h1>
         </div>
       </div>
-      <p class="text-xl text-gray-300 max-w-2xl hero-subtitle">Benign prostatic hyperplasia is extremely common in men over 50 — effective treatments are available to restore normal urinary function.</p>
+      <p class="text-xl text-gray-300 max-w-2xl hero-subtitle">Urgency, frequency and nocturia in men — often overlapping with prostate symptoms but requiring a distinct diagnostic and treatment approach.</p>
       <div class="hero-subtitle" style="margin-top:1rem;display:inline-flex;align-items:center;gap:0.5rem;background:rgba(255,255,255,0.1);backdrop-filter:blur(8px);padding:0.4rem 1rem;border-radius:9999px;border:1px solid rgba(255,255,255,0.15);">
         <svg class="w-4 h-4 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
         <span id="read-time" style="font-size:0.8rem;color:#d1d5db;font-weight:500;"></span>
-      </div>
-    </div>
-  </section>
-
-  <!-- Stats Bar -->
-  <section style="background:#eff6ff;border-bottom:1px solid #bfdbfe;padding:2rem 0;">
-    <div class="container-custom">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-        <div class="stat-card">
-          <div style="font-size:2.25rem;font-weight:700;color:#1b76c5;line-height:1;">50%</div>
-          <div style="font-size:0.8rem;color:#6b7280;margin-top:0.4rem;">of men over 50 are affected</div>
-        </div>
-        <div class="stat-card">
-          <div style="font-size:2.25rem;font-weight:700;color:#1b76c5;line-height:1;">70%</div>
-          <div style="font-size:0.8rem;color:#6b7280;margin-top:0.4rem;">of men over 70 have BPH symptoms</div>
-        </div>
-        <div class="stat-card">
-          <div style="font-size:2.25rem;font-weight:700;color:#1b76c5;line-height:1;">Benign</div>
-          <div style="font-size:0.8rem;color:#6b7280;margin-top:0.4rem;">not cancer, not life-threatening</div>
-        </div>
-        <div class="stat-card">
-          <div style="font-size:2.25rem;font-weight:700;color:#1b76c5;line-height:1;">Treatable</div>
-          <div style="font-size:0.8rem;color:#6b7280;margin-top:0.4rem;">multiple effective options available</div>
-        </div>
       </div>
     </div>
   </section>
@@ -379,11 +331,11 @@
           <!-- Overview -->
           <div id="overview" class="content-section mb-12">
             <span class="section-tag">Overview</span>
-            <h2 style="font-size:1.75rem;font-weight:700;color:#0f2a4a;margin-bottom:0.5rem;">What is Benign Prostatic Hyperplasia?</h2>
+            <h2 style="font-size:1.75rem;font-weight:700;color:#0f2a4a;margin-bottom:0.5rem;">What is Overactive Bladder in Men?</h2>
             <div style="width:3rem;height:3px;background:#1b76c5;border-radius:9999px;margin-bottom:1.5rem;"></div>
-            <p style="color:#4b5563;line-height:1.8;margin-bottom:1.25rem;">The prostate is a walnut-sized gland that sits just below the bladder and completely encircles the urethra — the tube through which urine passes from the bladder out of the body. As men age, the prostate commonly enlarges. When this enlargement is non-cancerous, the condition is called benign prostatic hyperplasia (BPH).</p>
-            <p style="color:#4b5563;line-height:1.8;margin-bottom:1.25rem;">As the prostate grows, it can compress and narrow the urethra, making it harder for urine to flow freely. This causes a range of lower urinary tract symptoms (LUTS) that can have a significant impact on everyday life, sleep quality, and general wellbeing.</p>
-            <p style="color:#4b5563;line-height:1.8;margin-bottom:1.75rem;">BPH is extremely common — it affects approximately half of men over the age of 50 and around 70% of men in their 70s. Although it is not a dangerous condition in itself, it is important to be assessed by a specialist to rule out other causes of urinary symptoms, including prostate cancer. BPH does not increase the risk of prostate cancer, but both conditions can occur simultaneously and must be distinguished from one another.</p>
+            <p style="color:#4b5563;line-height:1.8;margin-bottom:1.25rem;">Overactive bladder (OAB) is a clinical syndrome defined by the hallmark symptom of <strong style="color:#0f2a4a;">urgency</strong> — a sudden, compelling need to pass urine that is difficult to defer. It is typically accompanied by urinary frequency (passing urine more than eight times a day), nocturia (waking two or more times at night to urinate), and in some cases urge incontinence (involuntary leakage associated with urgency).</p>
+            <p style="color:#4b5563;line-height:1.8;margin-bottom:1.25rem;">In men, OAB presents a particular diagnostic challenge because its symptoms frequently overlap with — or occur alongside — those caused by benign prostatic hyperplasia (BPH). The enlarged prostate can itself cause storage symptoms such as urgency and frequency, and longstanding bladder outlet obstruction from BPH can lead to secondary detrusor overactivity, where the bladder muscle becomes overactive as a result of working harder against the obstruction over time.</p>
+            <p style="color:#4b5563;line-height:1.8;margin-bottom:1.75rem;">Regardless of the underlying cause, OAB can significantly affect quality of life, disrupting sleep, limiting social activities, and undermining confidence. The good news is that it is very treatable — but in men, it is essential to first establish whether obstruction from the prostate is contributing, as this fundamentally changes the treatment approach.</p>
 
             <!-- Key Distinction Callout -->
             <div style="background:linear-gradient(135deg,#eff6ff 0%,#dbeafe 100%);border:1px solid #bfdbfe;border-radius:1.25rem;padding:1.75rem;">
@@ -392,8 +344,8 @@
                   <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                 </div>
                 <div>
-                  <p style="font-weight:700;color:#1e3a5f;font-size:1rem;margin-bottom:0.5rem;">BPH is not prostate cancer</p>
-                  <p style="color:#1e40af;font-size:0.9rem;line-height:1.7;">Having an enlarged prostate does not mean you have — or are more likely to develop — prostate cancer. However, symptoms of BPH and early prostate cancer can overlap. A full assessment including a PSA blood test is recommended to ensure a clear and accurate diagnosis before starting treatment.</p>
+                  <p style="font-weight:700;color:#1e3a5f;font-size:1rem;margin-bottom:0.5rem;">OAB in men is different from OAB in women</p>
+                  <p style="color:#1e40af;font-size:0.9rem;line-height:1.7;">In women, OAB is usually a primary bladder problem. In men, it can be primary (idiopathic) or secondary to prostatic obstruction. Distinguishing between the two is critical because prescribing bladder-relaxing medication to a man with significant obstruction can worsen symptoms and even cause urinary retention. A proper urodynamic assessment is often essential before starting treatment.</p>
                 </div>
               </div>
             </div>
@@ -402,46 +354,46 @@
           <!-- Symptoms -->
           <div id="symptoms" class="content-section mb-12 full-bleed full-bleed-grey">
             <span class="section-tag">Symptoms</span>
-            <h2 style="font-size:1.75rem;font-weight:700;color:#0f2a4a;margin-bottom:0.5rem;">Symptoms of BPH</h2>
+            <h2 style="font-size:1.75rem;font-weight:700;color:#0f2a4a;margin-bottom:0.5rem;">Symptoms of OAB in Men</h2>
             <div style="width:3rem;height:3px;background:#1b76c5;border-radius:9999px;margin-bottom:1.5rem;"></div>
-            <p style="color:#4b5563;line-height:1.8;margin-bottom:1.5rem;">Symptoms caused by an enlarged prostate are collectively referred to as lower urinary tract symptoms (LUTS). They are divided into two categories: <strong>storage symptoms</strong>, which relate to how the bladder stores urine, and <strong>voiding symptoms</strong>, which relate to the act of passing urine.</p>
+            <p style="color:#4b5563;line-height:1.8;margin-bottom:1.5rem;">OAB is primarily a <strong style="color:#0f2a4a;">storage disorder</strong> — the symptoms relate to how the bladder fills and holds urine, rather than how urine is passed. This is an important distinction from the voiding symptoms (weak stream, hesitancy, straining) that are more typically caused by prostatic obstruction.</p>
 
             <div class="grid md:grid-cols-2 gap-6 mb-8">
-              <!-- Storage Symptoms -->
+              <!-- OAB Storage Symptoms -->
               <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:1rem;padding:1.5rem;">
                 <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
                   <div style="width:36px;height:36px;border-radius:0.625rem;background:#1b76c5;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
                     <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/></svg>
                   </div>
-                  <h3 style="font-weight:700;color:#1b4676;font-size:1rem;">Storage Symptoms</h3>
+                  <h3 style="font-weight:700;color:#1b4676;font-size:1rem;">OAB Symptoms (Storage)</h3>
                 </div>
-                <ul style="list-style:none;padding:0;margin:0;space-y:0.5rem;">
+                <ul style="list-style:none;padding:0;margin:0;">
                   <li style="display:flex;align-items:flex-start;gap:0.6rem;padding:0.5rem 0;border-bottom:1px solid #dbeafe;">
                     <span style="color:#1b76c5;font-weight:700;flex-shrink:0;margin-top:0.1rem;">›</span>
-                    <div><strong style="color:#0f2a4a;font-size:0.9rem;">Frequency</strong> <span style="color:#6b7280;font-size:0.85rem;">— needing to pass urine more often than usual during the day</span></div>
+                    <div><strong style="color:#0f2a4a;font-size:0.9rem;">Urgency</strong> <span style="color:#6b7280;font-size:0.85rem;">— a sudden, compelling need to pass urine that is difficult to postpone (the defining symptom)</span></div>
                   </li>
                   <li style="display:flex;align-items:flex-start;gap:0.6rem;padding:0.5rem 0;border-bottom:1px solid #dbeafe;">
                     <span style="color:#1b76c5;font-weight:700;flex-shrink:0;margin-top:0.1rem;">›</span>
-                    <div><strong style="color:#0f2a4a;font-size:0.9rem;">Urgency</strong> <span style="color:#6b7280;font-size:0.85rem;">— a sudden, strong desire to urinate that is difficult to defer</span></div>
+                    <div><strong style="color:#0f2a4a;font-size:0.9rem;">Frequency</strong> <span style="color:#6b7280;font-size:0.85rem;">— passing urine more than 8 times during the day</span></div>
                   </li>
                   <li style="display:flex;align-items:flex-start;gap:0.6rem;padding:0.5rem 0;border-bottom:1px solid #dbeafe;">
                     <span style="color:#1b76c5;font-weight:700;flex-shrink:0;margin-top:0.1rem;">›</span>
-                    <div><strong style="color:#0f2a4a;font-size:0.9rem;">Nocturia</strong> <span style="color:#6b7280;font-size:0.85rem;">— waking at night one or more times to pass urine</span></div>
+                    <div><strong style="color:#0f2a4a;font-size:0.9rem;">Nocturia</strong> <span style="color:#6b7280;font-size:0.85rem;">— waking 2 or more times at night to urinate, disrupting sleep</span></div>
                   </li>
                   <li style="display:flex;align-items:flex-start;gap:0.6rem;padding:0.5rem 0;">
                     <span style="color:#1b76c5;font-weight:700;flex-shrink:0;margin-top:0.1rem;">›</span>
-                    <div><strong style="color:#0f2a4a;font-size:0.9rem;">Urgency incontinence</strong> <span style="color:#6b7280;font-size:0.85rem;">— leaking urine when unable to reach the toilet in time</span></div>
+                    <div><strong style="color:#0f2a4a;font-size:0.9rem;">Urge incontinence</strong> <span style="color:#6b7280;font-size:0.85rem;">— involuntary leakage of urine accompanied by or immediately preceded by urgency</span></div>
                   </li>
                 </ul>
               </div>
 
-              <!-- Voiding Symptoms -->
+              <!-- Voiding Symptoms (BPH) -->
               <div style="background:#f8fafc;border:1px solid #e5e7eb;border-radius:1rem;padding:1.5rem;">
                 <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
                   <div style="width:36px;height:36px;border-radius:0.625rem;background:#1b4676;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
                     <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
                   </div>
-                  <h3 style="font-weight:700;color:#1b4676;font-size:1rem;">Voiding Symptoms</h3>
+                  <h3 style="font-weight:700;color:#1b4676;font-size:1rem;">Voiding Symptoms (Suggest BPH)</h3>
                 </div>
                 <ul style="list-style:none;padding:0;margin:0;">
                   <li style="display:flex;align-items:flex-start;gap:0.6rem;padding:0.5rem 0;border-bottom:1px solid #e5e7eb;">
@@ -449,37 +401,28 @@
                     <div><strong style="color:#0f2a4a;font-size:0.9rem;">Weak or slow stream</strong> <span style="color:#6b7280;font-size:0.85rem;">— reduced force when passing urine</span></div>
                   </li>
                   <li style="display:flex;align-items:flex-start;gap:0.6rem;padding:0.5rem 0;border-bottom:1px solid #e5e7eb;">
-                    <span style="color:#1b76c5;font-weight:700;flex-shrink:0;margin-top:0.1rem;">›</span>
-                    <div><strong style="color:#0f2a4a;font-size:0.9rem;">Hesitancy</strong> <span style="color:#6b7280;font-size:0.85rem;">— difficulty starting to urinate</span></div>
+                    <span style="color:#1b4676;font-weight:700;flex-shrink:0;margin-top:0.1rem;">›</span>
+                    <div><strong style="color:#0f2a4a;font-size:0.9rem;">Hesitancy</strong> <span style="color:#6b7280;font-size:0.85rem;">— difficulty initiating urination</span></div>
                   </li>
                   <li style="display:flex;align-items:flex-start;gap:0.6rem;padding:0.5rem 0;border-bottom:1px solid #e5e7eb;">
-                    <span style="color:#1b76c5;font-weight:700;flex-shrink:0;margin-top:0.1rem;">›</span>
+                    <span style="color:#1b4676;font-weight:700;flex-shrink:0;margin-top:0.1rem;">›</span>
                     <div><strong style="color:#0f2a4a;font-size:0.9rem;">Intermittency</strong> <span style="color:#6b7280;font-size:0.85rem;">— the stream starting and stopping</span></div>
                   </li>
-                  <li style="display:flex;align-items:flex-start;gap:0.6rem;padding:0.5rem 0;border-bottom:1px solid #e5e7eb;">
-                    <span style="color:#1b76c5;font-weight:700;flex-shrink:0;margin-top:0.1rem;">›</span>
-                    <div><strong style="color:#0f2a4a;font-size:0.9rem;">Straining</strong> <span style="color:#6b7280;font-size:0.85rem;">— having to push or strain to pass urine</span></div>
-                  </li>
-                  <li style="display:flex;align-items:flex-start;gap:0.6rem;padding:0.5rem 0;border-bottom:1px solid #e5e7eb;">
-                    <span style="color:#1b76c5;font-weight:700;flex-shrink:0;margin-top:0.1rem;">›</span>
-                    <div><strong style="color:#0f2a4a;font-size:0.9rem;">Incomplete emptying</strong> <span style="color:#6b7280;font-size:0.85rem;">— sensation that the bladder has not fully emptied</span></div>
-                  </li>
                   <li style="display:flex;align-items:flex-start;gap:0.6rem;padding:0.5rem 0;">
-                    <span style="color:#1b76c5;font-weight:700;flex-shrink:0;margin-top:0.1rem;">›</span>
-                    <div><strong style="color:#0f2a4a;font-size:0.9rem;">Post-micturition dribble</strong> <span style="color:#6b7280;font-size:0.85rem;">— leaking a small amount of urine after finishing</span></div>
+                    <span style="color:#1b4676;font-weight:700;flex-shrink:0;margin-top:0.1rem;">›</span>
+                    <div><strong style="color:#0f2a4a;font-size:0.9rem;">Straining and incomplete emptying</strong> <span style="color:#6b7280;font-size:0.85rem;">— having to push, with a sense the bladder is not fully emptied</span></div>
                   </li>
                 </ul>
               </div>
             </div>
 
-            <!-- Acute Retention Warning -->
-            <div style="background:#fef2f2;border:1px solid #fca5a5;border-radius:1rem;padding:1.25rem 1.5rem;display:flex;gap:1rem;align-items:flex-start;">
-              <div style="width:40px;height:40px;border-radius:50%;background:#dc2626;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.07 16.5c-.77.833.192 2.5 1.732 2.5z"/></svg>
+            <div style="background:linear-gradient(135deg,#eff6ff 0%,#dbeafe 100%);border:1px solid #bfdbfe;border-radius:1rem;padding:1.25rem 1.5rem;display:flex;gap:1rem;align-items:flex-start;">
+              <div style="width:40px;height:40px;border-radius:50%;background:#1b76c5;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
               </div>
               <div>
-                <p style="font-weight:700;color:#991b1b;font-size:0.95rem;margin-bottom:0.3rem;">Acute Urinary Retention — Seek Emergency Care</p>
-                <p style="color:#b91c1c;font-size:0.875rem;line-height:1.7;">A serious complication of BPH is acute urinary retention — a sudden, complete inability to pass urine despite a full bladder. This is extremely painful and requires immediate medical attention. If you are unable to pass urine at all, go to your nearest A&amp;E or call 999.</p>
+                <p style="font-weight:700;color:#1e3a5f;font-size:0.95rem;margin-bottom:0.3rem;">Many men have both</p>
+                <p style="color:#1e40af;font-size:0.875rem;line-height:1.7;">It is very common for men to experience a combination of storage and voiding symptoms. When this happens, it is especially important to determine whether the storage symptoms (OAB) are being driven by prostatic obstruction, as this affects which treatments are safe and effective.</p>
               </div>
             </div>
           </div>
@@ -487,305 +430,253 @@
           <!-- Causes -->
           <div id="causes" class="content-section mb-12">
             <span class="section-tag">Causes</span>
-            <h2 style="font-size:1.75rem;font-weight:700;color:#0f2a4a;margin-bottom:0.5rem;">What Causes Enlarged Prostate?</h2>
+            <h2 style="font-size:1.75rem;font-weight:700;color:#0f2a4a;margin-bottom:0.5rem;">What Causes OAB in Men?</h2>
             <div style="width:3rem;height:3px;background:#1b76c5;border-radius:9999px;margin-bottom:1.5rem;"></div>
-            <p style="color:#4b5563;line-height:1.8;margin-bottom:1.5rem;">The exact cause of BPH is not fully understood, but it is closely linked to hormonal changes that occur as men age. The key contributing factors are:</p>
+            <p style="color:#4b5563;line-height:1.8;margin-bottom:1.5rem;">There are several reasons why a man may develop overactive bladder symptoms. In many cases, more than one factor is contributing.</p>
             <div class="space-y-4 mb-6">
               <div style="display:flex;gap:1rem;align-items:flex-start;padding:1.25rem 1.5rem;background:#f8fafc;border-radius:1rem;border:1px solid #e5e7eb;">
                 <div style="width:40px;height:40px;border-radius:50%;background:#eff6ff;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                  <svg class="w-5 h-5" style="color:#1b76c5;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                  <svg class="w-5 h-5" style="color:#1b76c5;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg>
                 </div>
                 <div>
-                  <p style="font-weight:600;color:#0f2a4a;margin-bottom:0.3rem;">Hormonal changes with age</p>
-                  <p style="color:#6b7280;font-size:0.9rem;line-height:1.7;">As men age, testosterone levels decline while oestrogen levels rise relatively. Additionally, testosterone is converted in prostate tissue to dihydrotestosterone (DHT) — a potent androgen that stimulates prostate cell growth. This hormonal environment promotes the gradual enlargement of the gland over time.</p>
+                  <p style="font-weight:600;color:#0f2a4a;margin-bottom:0.3rem;">Secondary to BPH / bladder outlet obstruction</p>
+                  <p style="color:#6b7280;font-size:0.9rem;line-height:1.7;">This is the most important cause to identify in men. When the prostate obstructs the bladder outlet, the detrusor muscle has to work harder to empty. Over time, this leads to thickening and overactivity of the muscle — the bladder begins contracting involuntarily during filling, producing urgency and frequency. Treating the obstruction often resolves the OAB symptoms.</p>
                 </div>
               </div>
               <div style="display:flex;gap:1rem;align-items:flex-start;padding:1.25rem 1.5rem;background:#f8fafc;border-radius:1rem;border:1px solid #e5e7eb;">
                 <div style="width:40px;height:40px;border-radius:50%;background:#eff6ff;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                  <svg class="w-5 h-5" style="color:#1b76c5;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                  <svg class="w-5 h-5" style="color:#1b76c5;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                 </div>
                 <div>
-                  <p style="font-weight:600;color:#0f2a4a;margin-bottom:0.3rem;">Family history</p>
-                  <p style="color:#6b7280;font-size:0.9rem;line-height:1.7;">Men with a father or brother who has had BPH are more likely to develop the condition themselves, suggesting a genetic component to prostate growth patterns.</p>
+                  <p style="font-weight:600;color:#0f2a4a;margin-bottom:0.3rem;">Idiopathic detrusor overactivity</p>
+                  <p style="color:#6b7280;font-size:0.9rem;line-height:1.7;">In some men, the bladder muscle becomes overactive without any identifiable obstruction or neurological cause. This is termed idiopathic OAB and is the same mechanism seen in women with overactive bladder. The detrusor contracts involuntarily during the filling phase, producing the characteristic symptoms of urgency and frequency.</p>
                 </div>
               </div>
               <div style="display:flex;gap:1rem;align-items:flex-start;padding:1.25rem 1.5rem;background:#f8fafc;border-radius:1rem;border:1px solid #e5e7eb;">
                 <div style="width:40px;height:40px;border-radius:50%;background:#eff6ff;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                  <svg class="w-5 h-5" style="color:#1b76c5;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 13l-6 8h12l-6-8z"/></svg>
+                  <svg class="w-5 h-5" style="color:#1b76c5;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
                 </div>
                 <div>
-                  <p style="font-weight:600;color:#0f2a4a;margin-bottom:0.3rem;">Lifestyle factors</p>
-                  <p style="color:#6b7280;font-size:0.9rem;line-height:1.7;">Obesity, particularly central (abdominal) obesity, and physical inactivity have been associated with a higher risk of symptomatic BPH. Maintaining a healthy weight and exercising regularly may help reduce the severity of urinary symptoms.</p>
+                  <p style="font-weight:600;color:#0f2a4a;margin-bottom:0.3rem;">Neurological conditions</p>
+                  <p style="color:#6b7280;font-size:0.9rem;line-height:1.7;">Conditions that affect the nervous system can disrupt normal bladder control. These include multiple sclerosis (MS), Parkinson's disease, stroke, spinal cord injury, and diabetic neuropathy. When OAB has a neurological cause, it is referred to as neurogenic detrusor overactivity.</p>
+                </div>
+              </div>
+              <div style="display:flex;gap:1rem;align-items:flex-start;padding:1.25rem 1.5rem;background:#f8fafc;border-radius:1rem;border:1px solid #e5e7eb;">
+                <div style="width:40px;height:40px;border-radius:50%;background:#eff6ff;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg class="w-5 h-5" style="color:#1b76c5;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+                </div>
+                <div>
+                  <p style="font-weight:600;color:#0f2a4a;margin-bottom:0.3rem;">Post-prostatectomy OAB</p>
+                  <p style="color:#6b7280;font-size:0.9rem;line-height:1.7;">Some men develop new or worsened OAB symptoms after prostate surgery (radical prostatectomy for cancer, or TURP/HoLEP for BPH). This can be related to changes in the bladder neck, altered nerve supply, or pre-existing detrusor overactivity that was previously masked by obstruction.</p>
+                </div>
+              </div>
+              <div style="display:flex;gap:1rem;align-items:flex-start;padding:1.25rem 1.5rem;background:#f8fafc;border-radius:1rem;border:1px solid #e5e7eb;">
+                <div style="width:40px;height:40px;border-radius:50%;background:#eff6ff;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg class="w-5 h-5" style="color:#1b76c5;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14v6m-3-3h6M6 10h2a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2zm10 0h2a2 2 0 002-2V6a2 2 0 00-2-2h-2a2 2 0 00-2 2v2a2 2 0 002 2zM6 20h2a2 2 0 002-2v-2a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2z"/></svg>
+                </div>
+                <div>
+                  <p style="font-weight:600;color:#0f2a4a;margin-bottom:0.3rem;">Lifestyle and dietary factors</p>
+                  <p style="color:#6b7280;font-size:0.9rem;line-height:1.7;">Excessive caffeine and alcohol intake are well-known bladder irritants that can trigger or worsen OAB symptoms. High fluid intake, particularly in the evening, can contribute to nocturia. Certain medications (such as diuretics) can also exacerbate symptoms.</p>
                 </div>
               </div>
             </div>
-            <p style="color:#6b7280;font-size:0.875rem;font-style:italic;line-height:1.7;">Important: BPH is not caused by sexual activity, nor does it cause prostate cancer. The two conditions are entirely independent, though they may coexist.</p>
           </div>
 
           <!-- Diagnosis -->
-          <div id="diagnosis" class="content-section mb-12 full-bleed full-bleed-grey">
+          <div id="diagnosis" class="content-section mb-12 full-bleed full-bleed-blue">
             <span class="section-tag">Diagnosis</span>
-            <h2 style="font-size:1.75rem;font-weight:700;color:#0f2a4a;margin-bottom:0.5rem;">How is BPH Diagnosed?</h2>
+            <h2 style="font-size:1.75rem;font-weight:700;color:#0f2a4a;margin-bottom:0.5rem;">How is OAB Diagnosed in Men?</h2>
             <div style="width:3rem;height:3px;background:#1b76c5;border-radius:9999px;margin-bottom:1.5rem;"></div>
-            <p style="color:#4b5563;line-height:1.8;margin-bottom:1.5rem;">A thorough assessment is essential to confirm the diagnosis, quantify the severity of your symptoms, and exclude other conditions — particularly prostate cancer. At your first consultation, you can expect the following:</p>
+            <p style="color:#4b5563;line-height:1.8;margin-bottom:1.5rem;">Diagnosing OAB in men requires a structured approach to distinguish it from prostatic obstruction and other conditions that can cause similar symptoms. The following investigations are commonly used:</p>
 
-            <div class="grid md:grid-cols-2 gap-4 mb-6">
-              <div style="background:#f8fafc;border:1px solid #e5e7eb;border-radius:1rem;padding:1.25rem;">
+            <div class="grid md:grid-cols-2 gap-5 mb-6">
+              <div style="background:#fff;border:1px solid #e5e7eb;border-radius:1rem;padding:1.5rem;">
                 <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem;">
                   <div style="width:32px;height:32px;border-radius:0.5rem;background:#1b76c5;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
                   </div>
-                  <p style="font-weight:600;color:#0f2a4a;font-size:0.9rem;">Clinical History &amp; IPSS Questionnaire</p>
+                  <h3 style="font-weight:700;color:#1b4676;font-size:0.95rem;">Clinical History</h3>
                 </div>
-                <p style="color:#6b7280;font-size:0.85rem;line-height:1.7;">Your consultant will take a detailed history of your urinary symptoms. You may also be asked to complete the International Prostate Symptom Score (IPSS) — a validated questionnaire that grades the severity of your symptoms and their impact on your quality of life.</p>
+                <p style="color:#6b7280;font-size:0.85rem;line-height:1.7;">A detailed discussion of your symptoms, their severity, how they affect your daily life, relevant medical history (including neurological conditions), and current medications.</p>
               </div>
-              <div style="background:#f8fafc;border:1px solid #e5e7eb;border-radius:1rem;padding:1.25rem;">
+              <div style="background:#fff;border:1px solid #e5e7eb;border-radius:1rem;padding:1.5rem;">
                 <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem;">
                   <div style="width:32px;height:32px;border-radius:0.5rem;background:#1b76c5;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                   </div>
-                  <p style="font-weight:600;color:#0f2a4a;font-size:0.9rem;">Digital Rectal Examination (DRE)</p>
+                  <h3 style="font-weight:700;color:#1b4676;font-size:0.95rem;">Bladder Diary</h3>
                 </div>
-                <p style="color:#6b7280;font-size:0.85rem;line-height:1.7;">A brief physical examination in which the doctor gently inserts a gloved finger into the rectum to feel the size, shape, and texture of the prostate. This helps assess the degree of enlargement and identify any areas of concern that may warrant further investigation.</p>
+                <p style="color:#6b7280;font-size:0.85rem;line-height:1.7;">A 3-day record of fluid intake, voiding times, volumes passed, and episodes of urgency or leakage. This provides objective evidence of frequency, nocturia, and functional bladder capacity.</p>
               </div>
-              <div style="background:#f8fafc;border:1px solid #e5e7eb;border-radius:1rem;padding:1.25rem;">
+              <div style="background:#fff;border:1px solid #e5e7eb;border-radius:1rem;padding:1.5rem;">
+                <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem;">
+                  <div style="width:32px;height:32px;border-radius:0.5rem;background:#1b76c5;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+                  </div>
+                  <h3 style="font-weight:700;color:#1b4676;font-size:0.95rem;">Flow Rate &amp; Post-Void Residual</h3>
+                </div>
+                <p style="color:#6b7280;font-size:0.85rem;line-height:1.7;">A uroflowmetry test measures the speed and pattern of your urine flow, while an ultrasound scan immediately afterwards checks how much urine is left in the bladder. Together, these help identify whether obstruction is present.</p>
+              </div>
+              <div style="background:#fff;border:1px solid #e5e7eb;border-radius:1rem;padding:1.5rem;">
+                <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem;">
+                  <div style="width:32px;height:32px;border-radius:0.5rem;background:#1b4676;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                  </div>
+                  <h3 style="font-weight:700;color:#1b4676;font-size:0.95rem;">Urodynamics</h3>
+                </div>
+                <p style="color:#6b7280;font-size:0.85rem;line-height:1.7;">This is the gold-standard investigation in men with OAB symptoms. It measures bladder pressure during filling and voiding to definitively determine whether the bladder is overactive, whether obstruction is present, or both. This distinction is critical for safe and effective treatment planning.</p>
+              </div>
+              <div style="background:#fff;border:1px solid #e5e7eb;border-radius:1rem;padding:1.5rem;">
                 <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem;">
                   <div style="width:32px;height:32px;border-radius:0.5rem;background:#1b76c5;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
                     <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
                   </div>
-                  <p style="font-weight:600;color:#0f2a4a;font-size:0.9rem;">PSA Blood Test</p>
+                  <h3 style="font-weight:700;color:#1b4676;font-size:0.95rem;">PSA &amp; Further Tests</h3>
                 </div>
-                <p style="color:#6b7280;font-size:0.85rem;line-height:1.7;">A prostate-specific antigen (PSA) blood test is routinely performed to help exclude prostate cancer. An elevated PSA can also be caused by BPH or infection, so results are interpreted in the context of your full clinical picture.</p>
-              </div>
-              <div style="background:#f8fafc;border:1px solid #e5e7eb;border-radius:1rem;padding:1.25rem;">
-                <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem;">
-                  <div style="width:32px;height:32px;border-radius:0.5rem;background:#1b76c5;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
-                  </div>
-                  <p style="font-weight:600;color:#0f2a4a;font-size:0.9rem;">Urine Flow Rate (Uroflowmetry)</p>
-                </div>
-                <p style="color:#6b7280;font-size:0.85rem;line-height:1.7;">A non-invasive test in which you urinate into a special device that measures the speed and volume of urine flow. A reduced peak flow rate helps confirm bladder outlet obstruction caused by an enlarged prostate.</p>
-              </div>
-              <div style="background:#f8fafc;border:1px solid #e5e7eb;border-radius:1rem;padding:1.25rem;">
-                <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem;">
-                  <div style="width:32px;height:32px;border-radius:0.5rem;background:#1b76c5;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.143 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"/></svg>
-                  </div>
-                  <p style="font-weight:600;color:#0f2a4a;font-size:0.9rem;">Post-Void Residual Ultrasound</p>
-                </div>
-                <p style="color:#6b7280;font-size:0.85rem;line-height:1.7;">An ultrasound scan performed immediately after you have passed urine to measure how much urine remains in the bladder. A significant residual volume indicates that the bladder is not emptying efficiently, which informs treatment decisions.</p>
-              </div>
-              <div style="background:#f8fafc;border:1px solid #e5e7eb;border-radius:1rem;padding:1.25rem;">
-                <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem;">
-                  <div style="width:32px;height:32px;border-radius:0.5rem;background:#1b76c5;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
-                  </div>
-                  <p style="font-weight:600;color:#0f2a4a;font-size:0.9rem;">Bladder Diary &amp; Urine Tests</p>
-                </div>
-                <p style="color:#6b7280;font-size:0.85rem;line-height:1.7;">You may be asked to complete a frequency-volume chart (bladder diary) at home over a few days, recording when you drink and how much you void. A urine sample may also be tested to rule out infection as a contributing cause of your symptoms.</p>
-              </div>
-            </div>
-
-            <!-- Flexible Cystoscopy Note -->
-            <div style="background:#f8fafc;border-left:4px solid #1b76c5;border-radius:0 0.75rem 0.75rem 0;padding:1.25rem 1.5rem;">
-              <p style="font-weight:600;color:#0f2a4a;font-size:0.9rem;margin-bottom:0.4rem;">Flexible Cystoscopy</p>
-              <p style="color:#6b7280;font-size:0.875rem;line-height:1.7;">In selected cases — particularly where there is blood in the urine, or where the diagnosis is uncertain — a flexible cystoscopy may be recommended. This is a brief, minimally invasive procedure in which a thin, flexible camera is passed into the bladder via the urethra, performed under local anaesthetic gel. It allows direct visualisation of the urethra, prostate, and bladder lining.</p>
-            </div>
-          </div>
-
-          <!-- Treatment Options -->
-          <div id="treatment" class="content-section mb-12 full-bleed full-bleed-blue">
-            <span class="section-tag">Treatment Options</span>
-            <h2 style="font-size:1.75rem;font-weight:700;color:#0f2a4a;margin-bottom:0.5rem;">Treatment Options for BPH</h2>
-            <div style="width:3rem;height:3px;background:#1b76c5;border-radius:9999px;margin-bottom:1.5rem;"></div>
-            <p style="color:#4b5563;line-height:1.8;margin-bottom:2rem;">Treatment is tailored to the severity of your symptoms, the size of your prostate, your general health, and your personal preferences. Options range from lifestyle adjustment through to surgery, and our specialists will work with you to identify the most appropriate plan.</p>
-
-            <div class="grid md:grid-cols-2 gap-6 mb-8">
-
-              <!-- Watchful Waiting -->
-              <div class="treatment-card">
-                <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
-                  <div style="width:44px;height:44px;border-radius:0.75rem;background:#eff6ff;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                    <svg class="w-6 h-6" style="color:#1b76c5;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
-                  </div>
-                  <h3 style="font-weight:700;color:#0f2a4a;font-size:1rem;">Watchful Waiting &amp; Lifestyle Changes</h3>
-                </div>
-                <p style="color:#6b7280;font-size:0.875rem;line-height:1.75;margin-bottom:0.75rem;">For men with mild symptoms, active monitoring with regular review may be appropriate. Alongside this, targeted lifestyle modifications can meaningfully reduce symptom burden:</p>
-                <ul style="list-style:none;padding:0;margin:0;font-size:0.85rem;color:#6b7280;">
-                  <li style="display:flex;gap:0.5rem;padding:0.3rem 0;"><span style="color:#1b76c5;">›</span> Reducing fluid intake in the evening to limit nocturia</li>
-                  <li style="display:flex;gap:0.5rem;padding:0.3rem 0;"><span style="color:#1b76c5;">›</span> Cutting back on caffeine and alcohol, which irritate the bladder</li>
-                  <li style="display:flex;gap:0.5rem;padding:0.3rem 0;"><span style="color:#1b76c5;">›</span> Double voiding — urinating, waiting a moment, then trying again</li>
-                  <li style="display:flex;gap:0.5rem;padding:0.3rem 0;"><span style="color:#1b76c5;">›</span> Bladder training techniques to extend the time between visits</li>
-                  <li style="display:flex;gap:0.5rem;padding:0.3rem 0;"><span style="color:#1b76c5;">›</span> Maintaining a healthy weight and taking regular exercise</li>
-                </ul>
-              </div>
-
-              <!-- Alpha-Blockers -->
-              <div class="treatment-card">
-                <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
-                  <div style="width:44px;height:44px;border-radius:0.75rem;background:#eff6ff;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                    <svg class="w-6 h-6" style="color:#1b76c5;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
-                  </div>
-                  <h3 style="font-weight:700;color:#0f2a4a;font-size:1rem;">Alpha-Blockers</h3>
-                </div>
-                <p style="color:#6b7280;font-size:0.875rem;line-height:1.75;margin-bottom:0.75rem;">Alpha-blockers (such as <strong style="color:#0f2a4a;">tamsulosin</strong>) relax the smooth muscle in the prostate and the neck of the bladder, improving urine flow and reducing voiding symptoms within days to weeks. They are one of the most commonly prescribed first-line treatments for BPH. Side effects can include dizziness and, in some men, retrograde ejaculation.</p>
-                <p style="color:#9ca3af;font-size:0.8rem;">Also available: alfuzosin, doxazosin, silodosin</p>
-              </div>
-
-              <!-- 5-Alpha Reductase Inhibitors -->
-              <div class="treatment-card">
-                <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
-                  <div style="width:44px;height:44px;border-radius:0.75rem;background:#eff6ff;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                    <svg class="w-6 h-6" style="color:#1b76c5;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
-                  </div>
-                  <h3 style="font-weight:700;color:#0f2a4a;font-size:1rem;">5-Alpha Reductase Inhibitors</h3>
-                </div>
-                <p style="color:#6b7280;font-size:0.875rem;line-height:1.75;margin-bottom:0.75rem;">Medications such as <strong style="color:#0f2a4a;">finasteride</strong> and <strong style="color:#0f2a4a;">dutasteride</strong> work by blocking the conversion of testosterone to DHT, thereby reducing prostate size over time (by up to 25–30%). They are most effective in men with larger prostates and take 6–12 months to reach maximum benefit. Combination therapy with an alpha-blocker is often used in men with more troublesome symptoms.</p>
-                <p style="color:#9ca3af;font-size:0.8rem;">Also available: antimuscarinics (e.g. solifenacin) for dominant storage symptoms</p>
-              </div>
-
-              <!-- TURP -->
-              <div class="treatment-card">
-                <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
-                  <div style="width:44px;height:44px;border-radius:0.75rem;background:#1b4676;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/></svg>
-                  </div>
-                  <div>
-                    <h3 style="font-weight:700;color:#0f2a4a;font-size:1rem;">TURP — Transurethral Resection of the Prostate</h3>
-                    <span style="font-size:0.7rem;font-weight:700;color:#1b4676;text-transform:uppercase;letter-spacing:0.05em;">Surgical — Gold Standard</span>
-                  </div>
-                </div>
-                <p style="color:#6b7280;font-size:0.875rem;line-height:1.75;">TURP is the most established surgical treatment for BPH and remains the benchmark against which other treatments are measured. Under general or spinal anaesthetic, a resectoscope is passed through the urethra and the obstructing prostate tissue is removed using an electrical loop. It is highly effective and produces durable long-term results. A short hospital stay of 1–2 nights is typically required.</p>
-              </div>
-
-              <!-- Echolaser -->
-              <div class="treatment-card" style="border-color:#bfdbfe;">
-                <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
-                  <div style="width:44px;height:44px;border-radius:0.75rem;background:#1b76c5;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
-                  </div>
-                  <div>
-                    <div style="display:flex;align-items:center;gap:0.6rem;flex-wrap:wrap;">
-                      <h3 style="font-weight:700;color:#0f2a4a;font-size:1rem;">Echolaser</h3>
-                      <span class="badge-innovative"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>Innovative</span>
-                    </div>
-                    <span style="font-size:0.7rem;font-weight:700;color:#1b76c5;text-transform:uppercase;letter-spacing:0.05em;">Minimally Invasive</span>
-                  </div>
-                </div>
-                <p style="color:#6b7280;font-size:0.875rem;line-height:1.75;margin-bottom:0.75rem;">Echolaser is an innovative treatment that combines real-time ultrasound guidance with laser energy to precisely ablate obstructing prostate tissue. Fine laser fibres are inserted directly into the prostate under ultrasound control, allowing the surgeon to target specific areas with accuracy while preserving surrounding structures.</p>
-                <p style="color:#6b7280;font-size:0.875rem;line-height:1.75;margin-bottom:0.75rem;">The procedure is performed under local anaesthesia or light sedation, making it suitable for men who wish to avoid general anaesthesia or who have comorbidities that increase anaesthetic risk. It is carried out as a day case with a rapid return to normal activities.</p>
-                <ul style="color:#6b7280;font-size:0.875rem;line-height:1.75;padding-left:1.25rem;margin-top:0.5rem;">
-                  <li>No general anaesthesia required</li>
-                  <li>Real-time ultrasound precision</li>
-                  <li>Preserves sexual function</li>
-                  <li>Minimal blood loss</li>
-                  <li>Day case — rapid recovery</li>
-                </ul>
-                <div style="margin-top:1rem;">
-                  <a href="https://www.elesta-echolaser.com/?lang=en" target="_blank" rel="noopener" style="font-size:0.8rem;font-weight:600;color:#1b76c5;text-decoration:none;display:inline-flex;align-items:center;gap:0.3rem;">Learn more about Echolaser <svg style="width:13px;height:13px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a>
-                </div>
-              </div>
-
-              <!-- HoLEP -->
-              <div class="treatment-card">
-                <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
-                  <div style="width:44px;height:44px;border-radius:0.75rem;background:#1b4676;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
-                  </div>
-                  <div>
-                    <h3 style="font-weight:700;color:#0f2a4a;font-size:1rem;">HoLEP — Holmium Laser Enucleation</h3>
-                    <span style="font-size:0.7rem;font-weight:700;color:#1b4676;text-transform:uppercase;letter-spacing:0.05em;">Surgical — Laser</span>
-                  </div>
-                </div>
-                <p style="color:#6b7280;font-size:0.875rem;line-height:1.75;">HoLEP is a highly effective endoscopic procedure that uses a holmium laser to enucleate (shell out) the inner prostate tissue. It is particularly suited to larger prostates and is associated with very low blood loss and a shorter catheterisation time compared to TURP. Tissue is removed and sent for pathological analysis. HoLEP is increasingly considered the surgical treatment of choice for most prostate sizes.</p>
-              </div>
-
-              <!-- UroLift -->
-              <div class="treatment-card" style="border-color:#bfdbfe;">
-                <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
-                  <div style="width:44px;height:44px;border-radius:0.75rem;background:#1b76c5;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11l5-5m0 0l5 5m-5-5v12"/></svg>
-                  </div>
-                  <div>
-                    <h3 style="font-weight:700;color:#0f2a4a;font-size:1rem;">UroLift<sup style="font-size:0.65rem;">®</sup></h3>
-                    <span style="font-size:0.7rem;font-weight:700;color:#1b76c5;text-transform:uppercase;letter-spacing:0.05em;">Minimally Invasive</span>
-                  </div>
-                </div>
-                <p style="color:#6b7280;font-size:0.875rem;line-height:1.75;">UroLift is a minimally invasive procedure in which small permanent implants are used to hold the enlarged prostate tissue out of the way and open the urinary channel, without cutting, heating, or removing tissue. It is performed under local or general anaesthetic as a day case. UroLift preserves sexual function and offers rapid symptom relief, making it a popular choice for men wishing to avoid surgery or prolonged medication.</p>
-              </div>
-
-              <!-- Rezum -->
-              <div class="treatment-card" style="border-color:#bfdbfe;">
-                <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
-                  <div style="width:44px;height:44px;border-radius:0.75rem;background:#1b76c5;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"/></svg>
-                  </div>
-                  <div>
-                    <h3 style="font-weight:700;color:#0f2a4a;font-size:1rem;">Rezum Water Vapour Therapy</h3>
-                    <span style="font-size:0.7rem;font-weight:700;color:#1b76c5;text-transform:uppercase;letter-spacing:0.05em;">Minimally Invasive</span>
-                  </div>
-                </div>
-                <p style="color:#6b7280;font-size:0.875rem;line-height:1.75;">Rezum uses the natural energy stored in water vapour (steam) to ablate excess prostate tissue. During the procedure, small amounts of steam are injected directly into the prostate. Over the following weeks, the treated tissue is reabsorbed by the body, reducing obstruction. It is performed as a day case and is suitable for a wide range of prostate sizes, including men with a median lobe (middle portion) of the prostate.</p>
-              </div>
-
-            </div>
-
-            <!-- Open / Robotic Note -->
-            <div style="background:#f8fafc;border:1px solid #e5e7eb;border-radius:1rem;padding:1.25rem 1.5rem;display:flex;gap:1rem;align-items:flex-start;">
-              <div style="width:40px;height:40px;border-radius:50%;background:#eff6ff;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                <svg class="w-5 h-5" style="color:#1b76c5;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-              </div>
-              <div>
-                <p style="font-weight:600;color:#0f2a4a;font-size:0.9rem;margin-bottom:0.3rem;">Open or Robotic Simple Prostatectomy</p>
-                <p style="color:#6b7280;font-size:0.875rem;line-height:1.7;">For very large prostates (typically over 100–150 ml), open or robot-assisted simple prostatectomy may be the most appropriate surgical option. This involves making an incision in the lower abdomen to remove the obstructing inner prostate tissue while leaving the outer shell intact. Our team will discuss whether this approach is suitable for you.</p>
+                <p style="color:#6b7280;font-size:0.85rem;line-height:1.7;">A PSA blood test may be performed if prostate enlargement is suspected or to help exclude prostate cancer. Cystoscopy (a camera examination of the bladder) may also be recommended if there are concerns about other bladder pathology.</p>
               </div>
             </div>
           </div>
 
-          <!-- When to Seek Help -->
-          <div id="seek-help" class="content-section mb-12 full-bleed full-bleed-grey">
-            <span class="section-tag">When to Seek Help</span>
-            <h2 style="font-size:1.75rem;font-weight:700;color:#0f2a4a;margin-bottom:0.5rem;">When Should You See a Specialist?</h2>
+          <!-- Treatment -->
+          <div id="treatment" class="content-section mb-12">
+            <span class="section-tag">Treatment</span>
+            <h2 style="font-size:1.75rem;font-weight:700;color:#0f2a4a;margin-bottom:0.5rem;">Treatment Options for OAB in Men</h2>
             <div style="width:3rem;height:3px;background:#1b76c5;border-radius:9999px;margin-bottom:1.5rem;"></div>
-            <p style="color:#4b5563;line-height:1.8;margin-bottom:1.5rem;">Many men put up with urinary symptoms for years before seeking help, often assuming they are simply part of getting older. While mild symptoms may not require immediate treatment, you should arrange a prompt review if you experience any of the following:</p>
+            <p style="color:#4b5563;line-height:1.8;margin-bottom:1.5rem;">Treatment is tailored to the underlying cause identified during assessment. In men, it is essential to address any prostatic obstruction before — or alongside — treating the overactive bladder itself.</p>
 
-            <div class="space-y-3 mb-6">
-              <div style="display:flex;align-items:flex-start;gap:1rem;padding:1rem 1.25rem;background:#fef2f2;border:1px solid #fca5a5;border-radius:0.875rem;">
-                <div style="width:32px;height:32px;border-radius:50%;background:#dc2626;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                  <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.07 16.5c-.77.833.192 2.5 1.732 2.5z"/></svg>
+            <!-- Conservative -->
+            <h3 style="font-size:1.15rem;font-weight:700;color:#1b4676;margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem;">
+              <span style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:#eff6ff;color:#1b76c5;font-size:0.8rem;font-weight:700;border:2px solid #bfdbfe;">1</span>
+              Conservative Management
+            </h3>
+            <div class="grid md:grid-cols-2 gap-4 mb-8">
+              <div style="background:#f8fafc;border:1px solid #e5e7eb;border-radius:1rem;padding:1.25rem;">
+                <p style="font-weight:600;color:#0f2a4a;font-size:0.9rem;margin-bottom:0.4rem;">Bladder retraining</p>
+                <p style="color:#6b7280;font-size:0.85rem;line-height:1.7;">A structured programme to gradually increase the interval between voids, training the bladder to hold more urine and reducing urgency.</p>
+              </div>
+              <div style="background:#f8fafc;border:1px solid #e5e7eb;border-radius:1rem;padding:1.25rem;">
+                <p style="font-weight:600;color:#0f2a4a;font-size:0.9rem;margin-bottom:0.4rem;">Fluid management</p>
+                <p style="color:#6b7280;font-size:0.85rem;line-height:1.7;">Adjusting the volume and timing of fluid intake — particularly reducing caffeine, alcohol, and evening fluids to improve frequency and nocturia.</p>
+              </div>
+              <div style="background:#f8fafc;border:1px solid #e5e7eb;border-radius:1rem;padding:1.25rem;">
+                <p style="font-weight:600;color:#0f2a4a;font-size:0.9rem;margin-bottom:0.4rem;">Caffeine and alcohol reduction</p>
+                <p style="color:#6b7280;font-size:0.85rem;line-height:1.7;">Both caffeine and alcohol are direct bladder irritants. Reducing or eliminating them can produce a meaningful improvement in urgency and frequency.</p>
+              </div>
+              <div style="background:#f8fafc;border:1px solid #e5e7eb;border-radius:1rem;padding:1.25rem;">
+                <p style="font-weight:600;color:#0f2a4a;font-size:0.9rem;margin-bottom:0.4rem;">Pelvic floor exercises</p>
+                <p style="color:#6b7280;font-size:0.85rem;line-height:1.7;">Strengthening the pelvic floor can help suppress urgency and improve bladder control. This is effective in men as well as women, and particularly useful after prostate surgery.</p>
+              </div>
+            </div>
+
+            <!-- Medical -->
+            <h3 style="font-size:1.15rem;font-weight:700;color:#1b4676;margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem;">
+              <span style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:#eff6ff;color:#1b76c5;font-size:0.8rem;font-weight:700;border:2px solid #bfdbfe;">2</span>
+              Medical Treatment
+            </h3>
+            <div class="space-y-4 mb-8">
+              <div style="display:flex;gap:1rem;align-items:flex-start;padding:1.25rem 1.5rem;background:#eff6ff;border-radius:1rem;border:1px solid #bfdbfe;">
+                <div style="width:40px;height:40px;border-radius:50%;background:#1b76c5;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
                 </div>
                 <div>
-                  <p style="font-weight:700;color:#991b1b;font-size:0.9rem;margin-bottom:0.2rem;">Complete inability to pass urine (acute urinary retention)</p>
-                  <p style="color:#b91c1c;font-size:0.85rem;">This is a urological emergency. Attend A&amp;E immediately or call 999.</p>
+                  <p style="font-weight:600;color:#0f2a4a;margin-bottom:0.3rem;">Anticholinergics (e.g. solifenacin, tolterodine, oxybutynin)</p>
+                  <p style="color:#4b5563;font-size:0.9rem;line-height:1.7;">These medications work by blocking the nerve signals that cause the bladder to contract involuntarily. They are the first-line drug treatment for OAB. <strong style="color:#b91c1c;">Important in men:</strong> anticholinergics must be used with caution if there is significant prostatic obstruction, as they can worsen voiding difficulty and, in rare cases, cause urinary retention. Urodynamics should ideally be performed first.</p>
                 </div>
               </div>
-              <div style="display:flex;align-items:flex-start;gap:1rem;padding:1rem 1.25rem;background:#f8fafc;border:1px solid #e5e7eb;border-radius:0.875rem;">
-                <div style="width:32px;height:32px;border-radius:50%;background:#1b76c5;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                  <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <div style="display:flex;gap:1rem;align-items:flex-start;padding:1.25rem 1.5rem;background:#eff6ff;border-radius:1rem;border:1px solid #bfdbfe;">
+                <div style="width:40px;height:40px;border-radius:50%;background:#1b76c5;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                 </div>
-                <p style="color:#374151;font-size:0.875rem;line-height:1.7;"><strong style="color:#0f2a4a;">Recurrent urinary tract infections (UTIs)</strong> — repeated infections may indicate that the bladder is not emptying fully, creating conditions for bacterial growth.</p>
+                <div>
+                  <p style="font-weight:600;color:#0f2a4a;margin-bottom:0.3rem;">Mirabegron (Betmiga)</p>
+                  <p style="color:#4b5563;font-size:0.9rem;line-height:1.7;">A beta-3 adrenoceptor agonist that relaxes the bladder muscle during filling. It has a different side-effect profile to anticholinergics (fewer dry mouth and constipation effects) and may be better tolerated. It can also be used in combination with anticholinergics if a single agent is insufficient.</p>
+                </div>
               </div>
-              <div style="display:flex;align-items:flex-start;gap:1rem;padding:1rem 1.25rem;background:#f8fafc;border:1px solid #e5e7eb;border-radius:0.875rem;">
-                <div style="width:32px;height:32px;border-radius:50%;background:#1b76c5;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                  <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <div style="display:flex;gap:1rem;align-items:flex-start;padding:1.25rem 1.5rem;background:#f8fafc;border-radius:1rem;border:1px solid #e5e7eb;">
+                <div style="width:40px;height:40px;border-radius:50%;background:#1b4676;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg>
                 </div>
-                <p style="color:#374151;font-size:0.875rem;line-height:1.7;"><strong style="color:#0f2a4a;">Blood in your urine (haematuria)</strong> — always warrants investigation to rule out a more serious underlying cause such as bladder cancer. <a href="haematuria.html" style="color:#1b76c5;font-weight:600;text-decoration:underline;text-underline-offset:2px;">Learn more about haematuria &rarr;</a></p>
-              </div>
-              <div style="display:flex;align-items:flex-start;gap:1rem;padding:1rem 1.25rem;background:#f8fafc;border:1px solid #e5e7eb;border-radius:0.875rem;">
-                <div style="width:32px;height:32px;border-radius:50%;background:#1b76c5;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                  <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <div>
+                  <p style="font-weight:600;color:#0f2a4a;margin-bottom:0.3rem;">BPH treatment if obstruction is contributing</p>
+                  <p style="color:#4b5563;font-size:0.9rem;line-height:1.7;">If urodynamics confirm that obstruction from the prostate is driving the OAB symptoms, the priority is to relieve the obstruction. This may involve <strong style="color:#0f2a4a;">alpha-blockers</strong> (e.g. tamsulosin) to relax the prostate, <strong style="color:#0f2a4a;">5-alpha reductase inhibitors</strong> (e.g. finasteride) to shrink it, or <strong style="color:#0f2a4a;">surgical options</strong> such as TURP, HoLEP, or Rezum if medication is insufficient. In many men, resolving the obstruction also resolves the overactive bladder. <a href="enlarged-prostate.html" style="color:#1b76c5;font-weight:600;text-decoration:underline;text-underline-offset:2px;">Read about BPH treatment &rarr;</a></p>
                 </div>
-                <p style="color:#374151;font-size:0.875rem;line-height:1.7;"><strong style="color:#0f2a4a;">Symptoms worsening despite treatment</strong> — if you are already on medication and your symptoms are getting worse or not improving, your management plan may need to be reviewed or escalated.</p>
-              </div>
-              <div style="display:flex;align-items:flex-start;gap:1rem;padding:1rem 1.25rem;background:#f8fafc;border:1px solid #e5e7eb;border-radius:0.875rem;">
-                <div style="width:32px;height:32px;border-radius:50%;background:#1b76c5;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                  <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                </div>
-                <p style="color:#374151;font-size:0.875rem;line-height:1.7;"><strong style="color:#0f2a4a;">Concern about prostate cancer</strong> — if you are worried about prostate cancer, or are in a higher-risk group (age over 50, Black ethnicity, family history), you should request a PSA test and formal assessment. <a href="prostate-cancer.html" style="color:#1b76c5;font-weight:600;text-decoration:underline;text-underline-offset:2px;">Read about prostate cancer &rarr;</a></p>
               </div>
             </div>
 
-            <p style="color:#4b5563;line-height:1.8;font-size:0.9rem;">Even if your symptoms are mild, it is always worthwhile discussing them with a specialist. Early assessment means we can monitor any changes and intervene promptly if necessary.</p>
+            <!-- Advanced -->
+            <h3 style="font-size:1.15rem;font-weight:700;color:#1b4676;margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem;">
+              <span style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:#eff6ff;color:#1b76c5;font-size:0.8rem;font-weight:700;border:2px solid #bfdbfe;">3</span>
+              Advanced Treatments
+            </h3>
+            <p style="color:#4b5563;line-height:1.8;margin-bottom:1rem;">If conservative measures and medication do not provide adequate symptom relief, several advanced options are available:</p>
+            <div class="space-y-4 mb-6">
+              <div style="display:flex;gap:1rem;align-items:flex-start;padding:1.25rem 1.5rem;background:#f8fafc;border-radius:1rem;border:1px solid #e5e7eb;">
+                <div style="width:40px;height:40px;border-radius:50%;background:#eff6ff;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg class="w-5 h-5" style="color:#1b76c5;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+                </div>
+                <div>
+                  <p style="font-weight:600;color:#0f2a4a;margin-bottom:0.3rem;">Botox injections into the bladder (onabotulinumtoxinA)</p>
+                  <p style="color:#6b7280;font-size:0.9rem;line-height:1.7;">Botulinum toxin is injected directly into the bladder wall via a cystoscope under local anaesthetic. It temporarily paralyses the overactive muscle, reducing involuntary contractions and improving capacity. The effect typically lasts 6-12 months and can be repeated. Men need to be counselled about the small risk of needing temporary self-catheterisation afterwards.</p>
+                </div>
+              </div>
+              <div style="display:flex;gap:1rem;align-items:flex-start;padding:1.25rem 1.5rem;background:#f8fafc;border-radius:1rem;border:1px solid #e5e7eb;">
+                <div style="width:40px;height:40px;border-radius:50%;background:#eff6ff;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg class="w-5 h-5" style="color:#1b76c5;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                </div>
+                <div>
+                  <p style="font-weight:600;color:#0f2a4a;margin-bottom:0.3rem;">Sacral neuromodulation (SNM)</p>
+                  <p style="color:#6b7280;font-size:0.9rem;line-height:1.7;">A small device (similar to a pacemaker) is implanted to deliver gentle electrical impulses to the sacral nerves that control the bladder. This modulates the abnormal nerve signalling responsible for overactivity. A trial stimulation is performed first to confirm benefit before permanent implantation.</p>
+                </div>
+              </div>
+              <div style="display:flex;gap:1rem;align-items:flex-start;padding:1.25rem 1.5rem;background:#f8fafc;border-radius:1rem;border:1px solid #e5e7eb;">
+                <div style="width:40px;height:40px;border-radius:50%;background:#eff6ff;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg class="w-5 h-5" style="color:#1b76c5;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+                </div>
+                <div>
+                  <p style="font-weight:600;color:#0f2a4a;margin-bottom:0.3rem;">Percutaneous tibial nerve stimulation (PTNS)</p>
+                  <p style="color:#6b7280;font-size:0.9rem;line-height:1.7;">A non-invasive treatment involving a fine needle placed near the ankle to stimulate the tibial nerve, which shares a common pathway with the nerves controlling the bladder. Sessions are typically weekly for 12 weeks, with maintenance sessions thereafter. It is well-tolerated and requires no anaesthetic.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- OAB vs BPH -->
+          <div id="oab-vs-bph" class="content-section mb-12 full-bleed full-bleed-grey">
+            <span class="section-tag">OAB vs BPH</span>
+            <h2 style="font-size:1.75rem;font-weight:700;color:#0f2a4a;margin-bottom:0.5rem;">OAB and BPH — Understanding the Overlap</h2>
+            <div style="width:3rem;height:3px;background:#1b76c5;border-radius:9999px;margin-bottom:1.5rem;"></div>
+            <p style="color:#4b5563;line-height:1.8;margin-bottom:1.25rem;">One of the most important aspects of managing urinary symptoms in men is understanding the relationship between overactive bladder and benign prostatic hyperplasia. These are not mutually exclusive conditions — in fact, they frequently coexist.</p>
+            <p style="color:#4b5563;line-height:1.8;margin-bottom:1.5rem;">BPH causes obstruction of the bladder outlet. The bladder responds by generating higher pressures to overcome this obstruction, which over time causes the detrusor muscle to thicken and become unstable. This secondary detrusor overactivity produces OAB symptoms — urgency, frequency, and nocturia — on top of the voiding symptoms (weak stream, hesitancy) that are directly caused by the prostate.</p>
+
+            <div style="background:#fff;border:1px solid #bfdbfe;border-radius:1.25rem;padding:2rem;margin-bottom:1.5rem;">
+              <h3 style="font-weight:700;color:#1b4676;font-size:1.05rem;margin-bottom:1.25rem;text-align:center;">Why This Matters for Treatment</h3>
+              <div class="grid md:grid-cols-3 gap-5">
+                <div style="text-align:center;padding:1rem;">
+                  <div style="width:48px;height:48px;border-radius:50%;background:#fef2f2;display:flex;align-items:center;justify-content:center;margin:0 auto 0.75rem;">
+                    <svg class="w-6 h-6" style="color:#dc2626;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                  </div>
+                  <p style="font-weight:700;color:#0f2a4a;font-size:0.9rem;margin-bottom:0.4rem;">Risk of wrong treatment</p>
+                  <p style="color:#6b7280;font-size:0.8rem;line-height:1.6;">Giving anticholinergics to a man with significant obstruction can worsen voiding and cause retention.</p>
+                </div>
+                <div style="text-align:center;padding:1rem;">
+                  <div style="width:48px;height:48px;border-radius:50%;background:#eff6ff;display:flex;align-items:center;justify-content:center;margin:0 auto 0.75rem;">
+                    <svg class="w-6 h-6" style="color:#1b76c5;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                  </div>
+                  <p style="font-weight:700;color:#0f2a4a;font-size:0.9rem;margin-bottom:0.4rem;">Urodynamics provides the answer</p>
+                  <p style="color:#6b7280;font-size:0.8rem;line-height:1.6;">Pressure-flow studies can separate obstruction from pure overactivity, guiding safe treatment.</p>
+                </div>
+                <div style="text-align:center;padding:1rem;">
+                  <div style="width:48px;height:48px;border-radius:50%;background:#f0fdf4;display:flex;align-items:center;justify-content:center;margin:0 auto 0.75rem;">
+                    <svg class="w-6 h-6" style="color:#16a34a;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                  </div>
+                  <p style="font-weight:700;color:#0f2a4a;font-size:0.9rem;margin-bottom:0.4rem;">Treat the right problem first</p>
+                  <p style="color:#6b7280;font-size:0.8rem;line-height:1.6;">If obstruction is the driver, relieving it often resolves the OAB. If not, OAB-specific treatment can be safely added.</p>
+                </div>
+              </div>
+            </div>
+
+            <p style="color:#4b5563;line-height:1.8;">This is why a thorough specialist assessment — including urodynamics when clinically indicated — is so important in men presenting with OAB symptoms. It ensures you receive the right treatment, in the right order, with the best chance of success.</p>
           </div>
 
           <!-- Summary -->
@@ -799,27 +690,27 @@
                 <div style="width:48px;height:48px;border-radius:50%;background:#1b76c5;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;">
                   <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                 </div>
-                <p style="font-weight:700;color:#1b4676;font-size:0.95rem;margin-bottom:0.5rem;">BPH is very common and benign</p>
-                <p style="color:#3b82f6;font-size:0.8rem;line-height:1.6;">It affects the majority of men over 60 and, while not life-threatening, can significantly reduce quality of life if left untreated.</p>
+                <p style="font-weight:700;color:#1b4676;font-size:0.95rem;margin-bottom:0.5rem;">OAB is very treatable</p>
+                <p style="color:#3b82f6;font-size:0.8rem;line-height:1.6;">From simple lifestyle changes through to Botox and neuromodulation, effective options exist at every level for men with overactive bladder.</p>
               </div>
               <div style="background:linear-gradient(135deg,#eff6ff,#dbeafe);border:1px solid #bfdbfe;border-radius:1rem;padding:1.5rem;text-align:center;">
                 <div style="width:48px;height:48px;border-radius:50%;background:#1b76c5;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;">
                   <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
                 </div>
-                <p style="font-weight:700;color:#1b4676;font-size:0.95rem;margin-bottom:0.5rem;">Accurate diagnosis matters</p>
-                <p style="color:#3b82f6;font-size:0.8rem;line-height:1.6;">A full assessment including PSA testing is essential to confirm BPH and exclude prostate cancer before any treatment is started.</p>
+                <p style="font-weight:700;color:#1b4676;font-size:0.95rem;margin-bottom:0.5rem;">Diagnosis is critical in men</p>
+                <p style="color:#3b82f6;font-size:0.8rem;line-height:1.6;">Urodynamics can distinguish OAB from prostatic obstruction — a distinction that fundamentally changes the treatment approach and avoids potentially harmful mismanagement.</p>
               </div>
               <div style="background:linear-gradient(135deg,#eff6ff,#dbeafe);border:1px solid #bfdbfe;border-radius:1rem;padding:1.5rem;text-align:center;">
                 <div style="width:48px;height:48px;border-radius:50%;background:#1b76c5;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;">
-                  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg>
+                  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
                 </div>
-                <p style="font-weight:700;color:#1b4676;font-size:0.95rem;margin-bottom:0.5rem;">Multiple effective treatments exist</p>
-                <p style="color:#3b82f6;font-size:0.8rem;line-height:1.6;">From simple lifestyle adjustments and tablets through to minimally invasive procedures and surgery — there is an appropriate option for every man.</p>
+                <p style="font-weight:700;color:#1b4676;font-size:0.95rem;margin-bottom:0.5rem;">Specialist assessment matters</p>
+                <p style="color:#3b82f6;font-size:0.8rem;line-height:1.6;">Men with urgency and frequency deserve a proper evaluation — not a generic prescription. Our team offers thorough, personalised assessment and a clear treatment pathway.</p>
               </div>
             </div>
 
-            <p style="color:#4b5563;line-height:1.8;margin-bottom:1.25rem;">BPH is highly treatable, and most men experience a significant improvement in their urinary symptoms with the right management. Our specialist team takes a personalised approach — listening to your concerns, reviewing your investigations, and recommending a treatment pathway that fits your lifestyle and goals.</p>
-            <p style="color:#4b5563;line-height:1.8;margin-bottom:2rem;">Whether you are looking for reassurance after noticing changes in your urinary function, want to explore the latest minimally invasive treatments, or need definitive surgical management, we are here to help at every step.</p>
+            <p style="color:#4b5563;line-height:1.8;margin-bottom:1.25rem;">Overactive bladder in men is common, disruptive, and frequently entangled with prostate symptoms — but with the right assessment, it is very manageable. Our specialists take the time to understand your symptoms, perform the appropriate investigations, and recommend a treatment plan that is both safe and effective for your specific situation.</p>
+            <p style="color:#4b5563;line-height:1.8;margin-bottom:2rem;">Whether your symptoms are mild and mainly affecting sleep, or severe and limiting your daily activities, we can help you regain control and improve your quality of life.</p>
 
             <div class="gradient-shimmer" style="background:linear-gradient(135deg,#1b76c5 0%,#1b4676 40%,#0f2a4a 100%);border-radius:1.5rem;padding:2.5rem;">
               <div style="display:flex;gap:1rem;align-items:flex-start;">
@@ -827,7 +718,7 @@
                   <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
                 </div>
                 <div>
-                  <p style="color:#fff;font-size:1.1rem;font-weight:600;line-height:1.6;">BPH is extremely common and entirely benign — but it should not be ignored. A proper assessment is essential to exclude other conditions, and effective treatments ranging from medication to minimally invasive surgery can restore normal urinary function and significantly improve quality of life.</p>
+                  <p style="color:#fff;font-size:1.1rem;font-weight:600;line-height:1.6;">Overactive bladder in men requires more than medication alone — it demands a thorough assessment to distinguish OAB from prostatic obstruction. With accurate diagnosis and a personalised treatment plan, the majority of men experience significant and lasting improvement in their symptoms.</p>
                 </div>
               </div>
             </div>
@@ -845,7 +736,7 @@
               <a href="#causes" class="toc-link">Causes</a>
               <a href="#diagnosis" class="toc-link">Diagnosis</a>
               <a href="#treatment" class="toc-link">Treatment Options</a>
-              <a href="#seek-help" class="toc-link">When to Seek Help</a>
+              <a href="#oab-vs-bph" class="toc-link">OAB vs BPH</a>
               <a href="#summary" class="toc-link">Summary</a>
             </nav>
             <div style="margin-top:2rem;padding:1.25rem;background:#eff6ff;border-radius:1rem;border:1px solid #bfdbfe;">
@@ -863,7 +754,7 @@
   <!-- CTA Section -->
   <section class="section-padding text-white" style="background:linear-gradient(135deg,#1b76c5 0%,#1b4676 50%,#0f2a4a 100%);">
     <div class="container-custom text-center">
-      <h2 class="text-3xl md:text-4xl font-bold mb-4">Concerned About Your Prostate?</h2>
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Struggling with Urgency or Frequency?</h2>
       <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto">Book a confidential consultation with one of our men's health specialists today.</p>
       <div class="flex flex-wrap justify-center gap-4">
         <a href="../contact.html" class="bg-white text-primary px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-colors shadow-lg">Book Consultation</a>
@@ -999,58 +890,8 @@
       floatCta.style.pointerEvents = visible ? 'auto' : 'none';
     });
 
-    // Staggered card reveals
-    document.querySelectorAll('.treatment-card, .stat-card, .grid > div[style*="background:#f8fafc"], .grid > div[style*="background:#eff6ff"], .grid > div[style*="background:linear-gradient"]').forEach(card => {
-      card.classList.add('card-stagger', 'hover-lift');
-    });
-    const cardObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const parent = entry.target.closest('.grid');
-          if (parent) {
-            const cards = parent.querySelectorAll('.card-stagger');
-            cards.forEach((c, i) => {
-              setTimeout(() => c.classList.add('visible'), i * 120);
-            });
-          } else {
-            entry.target.classList.add('visible');
-          }
-          cardObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.card-stagger').forEach(c => cardObserver.observe(c));
-
-    // Animated stat counters
-    const statsSection = document.querySelector('.stat-card')?.closest('section');
-    if (statsSection) {
-      let statsDone = false;
-      new IntersectionObserver((entries) => {
-        if (entries[0].isIntersecting && !statsDone) {
-          statsDone = true;
-          statsSection.querySelectorAll('.stat-card').forEach(card => {
-            const el = card.querySelector('div[style*="font-size:2.25rem"]');
-            if (!el) return;
-            const text = el.textContent.trim();
-            const match = text.match(/^(\d+)(%?)$/);
-            if (match) {
-              const target = parseInt(match[1]);
-              const suffix = match[2];
-              let current = 0;
-              const step = Math.max(1, Math.floor(target / 40));
-              const interval = setInterval(() => {
-                current += step;
-                if (current >= target) { current = target; clearInterval(interval); card.classList.add('stat-pop'); }
-                el.textContent = current + suffix;
-              }, 30);
-            }
-          });
-        }
-      }, { threshold: 0.5 }).observe(statsSection);
-    }
-
-    // Add hover-lift to cause and diagnosis cards
-    document.querySelectorAll('#causes .space-y-4 > div, #diagnosis .grid > div').forEach(card => {
+    // Hover-lift for interactive cards
+    document.querySelectorAll('#causes .space-y-4 > div, #diagnosis .grid > div, #treatment .grid > div, #treatment .space-y-4 > div, #oab-vs-bph .grid > div').forEach(card => {
       card.classList.add('hover-lift');
     });
 
