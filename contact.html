@@ -266,7 +266,7 @@
   <!-- Page Header -->
   <section style="background-color:#0f1f35;min-height:55vh;display:flex;align-items:flex-end;padding-top:8rem;padding-bottom:3.5rem;position:relative;overflow:hidden;">
     <div style="position:absolute;inset:0;overflow:hidden;">
-      <video autoplay muted loop playsinline preload="auto" class="hero-video" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 10%;">
+      <video autoplay muted loop playsinline webkit-playsinline preload="metadata" class="hero-video" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 10%;">
         <source src="assets/Images/Istock-1795565964.mp4" type="video/mp4">
       </video>
     </div>
@@ -660,7 +660,12 @@
   <script>
     const heroVideo = document.querySelector('.hero-video');
     if (heroVideo) {
-      heroVideo.play().catch(() => {});
+      heroVideo.play().catch(() => {
+        document.addEventListener('touchstart', function playOnTouch() {
+          heroVideo.play().catch(() => {});
+          document.removeEventListener('touchstart', playOnTouch);
+        }, { once: true });
+      });
       let loopFading = false;
       setTimeout(() => {
         heroVideo.addEventListener('timeupdate', () => {
