@@ -16,6 +16,8 @@
     #float-cta { position:fixed; bottom:2rem; right:2rem; z-index:40; opacity:0; pointer-events:none; transition:opacity 0.3s ease,box-shadow 0.3s ease,transform 0.2s ease; }
     #float-cta.show { opacity:1; pointer-events:auto; }
     #float-cta:hover { transform:scale(1.05); box-shadow:0 12px 32px rgba(245,158,11,0.5) !important; }
+    @keyframes hero-fade { from{opacity:0} to{opacity:0.4} }
+    .hero-video { animation:hero-fade 1.2s ease-in forwards; }
   </style>
 </head>
 <body class="font-poppins">
@@ -269,9 +271,13 @@
   </div>
 
   <!-- Page Header / Hero -->
-  <section style="background:linear-gradient(135deg,#0f1a35 0%,#0f2a4a 40%,#b45309 100%);min-height:55vh;display:flex;align-items:flex-end;padding-top:8rem;padding-bottom:3.5rem;position:relative;overflow:hidden;">
-    <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 80% 20%,rgba(245,158,11,0.15) 0%,transparent 60%);"></div>
-    <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 20% 80%,rgba(15,42,74,0.4) 0%,transparent 50%);"></div>
+  <section style="background-color:#0f1a35;min-height:55vh;display:flex;align-items:flex-end;padding-top:8rem;padding-bottom:3.5rem;position:relative;overflow:hidden;">
+    <div style="position:absolute;inset:0;overflow:hidden;">
+      <video autoplay muted loop playsinline class="hero-video" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 60%;opacity:0;">
+        <source src="../assets/Images/Istock-2177273718.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="absolute inset-0" style="background:linear-gradient(to bottom right,rgba(15,26,53,0.65) 0%,rgba(15,26,53,0.4) 60%,rgba(245,158,11,0.2) 100%);"></div>
     <div class="container-custom" style="position:relative;z-index:2;">
       <nav class="text-sm text-gray-400 mb-4">
         <a href="../index.html" class="hover:text-white">Home</a>
@@ -302,9 +308,10 @@
         <h2 class="text-3xl font-bold text-dark mb-4">Expert Stone Treatment</h2>
         <div style="width:3rem;height:3px;background:#f59e0b;border-radius:9999px;margin:0 auto 1.5rem;"></div>
         <p class="text-gray-600 mb-6">Kidney stones are one of the most common and painful urological conditions, affecting around 1 in 10 people at some point in their lives. The pain caused by a stone passing through the ureter can be sudden and severe, and many patients describe renal colic as one of the worst pains they have ever experienced.</p>
-        <p class="text-gray-600 mb-6">Our Stone Clinic provides rapid assessment with same-day emergency appointments available for patients experiencing acute symptoms. We understand the urgency of stone-related pain and are committed to providing timely, expert care from the very first point of contact.</p>
+        <p class="text-gray-600 mb-6">Our Stone Clinic offers rapid access to specialist assessment for patients experiencing acute symptoms. We understand the urgency of stone-related pain and prioritise timely appointments to ensure you receive expert care as quickly as possible.</p>
         <p class="text-gray-600 mb-6">We use the latest technology to treat stones effectively and with minimal disruption. Our treatment options include laser lithotripsy, extracorporeal shockwave lithotripsy (ESWL), and percutaneous nephrolithotomy (PCNL), all performed using state-of-the-art equipment by experienced specialists.</p>
-        <p class="text-gray-600">We also place a strong emphasis on metabolic testing and prevention. Up to 50% of patients who form a kidney stone will experience a recurrence within five years. Our comprehensive prevention programme, including 24-hour urine analysis, stone composition testing, and personalised dietary and medical advice, is designed to significantly reduce that risk. Mr Alberto Coscione is our dedicated stone specialist, supported by Mr Bijan Khoubehi for general urological stone management.</p>
+        <p class="text-gray-600 mb-6">We also place a strong emphasis on metabolic testing and prevention. Up to 50% of patients who form a kidney stone will experience a recurrence within five years. Our comprehensive prevention programme, including 24-hour urine analysis, stone composition testing, and personalised dietary and medical advice, is designed to significantly reduce that risk.</p>
+        <p class="text-gray-600" style="font-weight:600;color:#0f2a4a;">Our goal is not just to treat your stone, but to understand why it formed and help prevent it from happening again.</p>
       </div>
     </div>
   </section>
@@ -319,28 +326,6 @@
       </div>
 
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-        <!-- Kidney Stones -->
-        <div style="background:#fff;border:1px solid #fde68a;border-left:4px solid #f59e0b;border-radius:1rem;padding:1.5rem;display:flex;align-items:flex-start;gap:1rem;transition:box-shadow 0.2s,transform 0.2s;" onmouseover="this.style.boxShadow='0 6px 20px rgba(245,158,11,0.12)';this.style.transform='translateY(-5px)'" onmouseout="this.style.boxShadow='none';this.style.transform=''">
-          <div style="width:40px;height:40px;border-radius:0.75rem;background:#fffbeb;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-            <svg class="w-5 h-5" style="color:#f59e0b;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
-          </div>
-          <div style="display:flex;flex-direction:column;gap:0.5rem;">
-            <p style="font-size:0.9rem;font-weight:600;color:#0f2a4a;line-height:1.5;margin:0;">Kidney Stones</p>
-            <p style="font-size:0.8rem;color:#6b7280;margin:0;line-height:1.5;">Stones forming within the kidney, ranging from small crystals to large calculi requiring surgical removal.</p>
-            <a href="kidney-stones.html" style="font-size:0.8rem;font-weight:600;color:#f59e0b;text-decoration:none;display:flex;align-items:center;gap:0.3rem;">Find out more <svg style="width:14px;height:14px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a>
-          </div>
-        </div>
-        <!-- Ureteric Stones -->
-        <div style="background:#fff;border:1px solid #fde68a;border-left:4px solid #d97706;border-radius:1rem;padding:1.5rem;display:flex;align-items:flex-start;gap:1rem;transition:box-shadow 0.2s,transform 0.2s;" onmouseover="this.style.boxShadow='0 6px 20px rgba(217,119,6,0.12)';this.style.transform='translateY(-5px)'" onmouseout="this.style.boxShadow='none';this.style.transform=''">
-          <div style="width:40px;height:40px;border-radius:0.75rem;background:#fffbeb;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-            <svg class="w-5 h-5" style="color:#d97706;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
-          </div>
-          <div style="display:flex;flex-direction:column;gap:0.5rem;">
-            <p style="font-size:0.9rem;font-weight:600;color:#0f2a4a;line-height:1.5;margin:0;">Ureteric Stones</p>
-            <p style="font-size:0.8rem;color:#6b7280;margin:0;line-height:1.5;">Stones that have migrated from the kidney into the ureter, often causing severe colic and obstruction.</p>
-            <a href="ureteric-stones.html" style="font-size:0.8rem;font-weight:600;color:#d97706;text-decoration:none;display:flex;align-items:center;gap:0.3rem;">Find out more <svg style="width:14px;height:14px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a>
-          </div>
-        </div>
         <!-- Bladder Stones -->
         <div style="background:#fff;border:1px solid #fde68a;border-left:4px solid #f59e0b;border-radius:1rem;padding:1.5rem;display:flex;align-items:flex-start;gap:1rem;transition:box-shadow 0.2s,transform 0.2s;" onmouseover="this.style.boxShadow='0 6px 20px rgba(245,158,11,0.12)';this.style.transform='translateY(-5px)'" onmouseout="this.style.boxShadow='none';this.style.transform=''">
           <div style="width:40px;height:40px;border-radius:0.75rem;background:#fffbeb;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
@@ -352,15 +337,15 @@
             <a href="bladder-stones.html" style="font-size:0.8rem;font-weight:600;color:#f59e0b;text-decoration:none;display:flex;align-items:center;gap:0.3rem;">Find out more <svg style="width:14px;height:14px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a>
           </div>
         </div>
-        <!-- Staghorn Calculi -->
-        <div style="background:#fff;border:1px solid #fde68a;border-left:4px solid #d97706;border-radius:1rem;padding:1.5rem;display:flex;align-items:flex-start;gap:1rem;transition:box-shadow 0.2s,transform 0.2s;" onmouseover="this.style.boxShadow='0 6px 20px rgba(217,119,6,0.12)';this.style.transform='translateY(-5px)'" onmouseout="this.style.boxShadow='none';this.style.transform=''">
+        <!-- Kidney Stones -->
+        <div style="background:#fff;border:1px solid #fde68a;border-left:4px solid #f59e0b;border-radius:1rem;padding:1.5rem;display:flex;align-items:flex-start;gap:1rem;transition:box-shadow 0.2s,transform 0.2s;" onmouseover="this.style.boxShadow='0 6px 20px rgba(245,158,11,0.12)';this.style.transform='translateY(-5px)'" onmouseout="this.style.boxShadow='none';this.style.transform=''">
           <div style="width:40px;height:40px;border-radius:0.75rem;background:#fffbeb;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-            <svg class="w-5 h-5" style="color:#d97706;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            <svg class="w-5 h-5" style="color:#f59e0b;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
           </div>
           <div style="display:flex;flex-direction:column;gap:0.5rem;">
-            <p style="font-size:0.9rem;font-weight:600;color:#0f2a4a;line-height:1.5;margin:0;">Staghorn Calculi</p>
-            <p style="font-size:0.8rem;color:#6b7280;margin:0;line-height:1.5;">Large, branching stones that fill the renal pelvis and calyces, requiring specialist surgical management.</p>
-            <a href="staghorn-calculi.html" style="font-size:0.8rem;font-weight:600;color:#d97706;text-decoration:none;display:flex;align-items:center;gap:0.3rem;">Find out more <svg style="width:14px;height:14px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a>
+            <p style="font-size:0.9rem;font-weight:600;color:#0f2a4a;line-height:1.5;margin:0;">Kidney Stones</p>
+            <p style="font-size:0.8rem;color:#6b7280;margin:0;line-height:1.5;">Stones forming within the kidney, ranging from small crystals to large calculi requiring surgical removal.</p>
+            <a href="kidney-stones.html" style="font-size:0.8rem;font-weight:600;color:#f59e0b;text-decoration:none;display:flex;align-items:center;gap:0.3rem;">Find out more <svg style="width:14px;height:14px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a>
           </div>
         </div>
         <!-- Recurrent Stone Formers -->
@@ -374,6 +359,17 @@
             <a href="recurrent-stone-formers.html" style="font-size:0.8rem;font-weight:600;color:#f59e0b;text-decoration:none;display:flex;align-items:center;gap:0.3rem;">Find out more <svg style="width:14px;height:14px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a>
           </div>
         </div>
+        <!-- Staghorn Calculi -->
+        <div style="background:#fff;border:1px solid #fde68a;border-left:4px solid #d97706;border-radius:1rem;padding:1.5rem;display:flex;align-items:flex-start;gap:1rem;transition:box-shadow 0.2s,transform 0.2s;" onmouseover="this.style.boxShadow='0 6px 20px rgba(217,119,6,0.12)';this.style.transform='translateY(-5px)'" onmouseout="this.style.boxShadow='none';this.style.transform=''">
+          <div style="width:40px;height:40px;border-radius:0.75rem;background:#fffbeb;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg class="w-5 h-5" style="color:#d97706;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:0.5rem;">
+            <p style="font-size:0.9rem;font-weight:600;color:#0f2a4a;line-height:1.5;margin:0;">Staghorn Calculi</p>
+            <p style="font-size:0.8rem;color:#6b7280;margin:0;line-height:1.5;">Large, branching stones that fill the renal pelvis and calyces, requiring specialist surgical management.</p>
+            <a href="staghorn-calculi.html" style="font-size:0.8rem;font-weight:600;color:#d97706;text-decoration:none;display:flex;align-items:center;gap:0.3rem;">Find out more <svg style="width:14px;height:14px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
         <!-- Stone-Related Infections -->
         <div style="background:#fff;border:1px solid #fde68a;border-left:4px solid #d97706;border-radius:1rem;padding:1.5rem;display:flex;align-items:flex-start;gap:1rem;transition:box-shadow 0.2s,transform 0.2s;" onmouseover="this.style.boxShadow='0 6px 20px rgba(217,119,6,0.12)';this.style.transform='translateY(-5px)'" onmouseout="this.style.boxShadow='none';this.style.transform=''">
           <div style="width:40px;height:40px;border-radius:0.75rem;background:#fffbeb;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
@@ -383,6 +379,17 @@
             <p style="font-size:0.9rem;font-weight:600;color:#0f2a4a;line-height:1.5;margin:0;">Stone-Related Infections</p>
             <p style="font-size:0.8rem;color:#6b7280;margin:0;line-height:1.5;">Urinary infections caused by obstructing stones, which may require urgent drainage and antibiotic treatment.</p>
             <a href="stone-related-infections.html" style="font-size:0.8rem;font-weight:600;color:#d97706;text-decoration:none;display:flex;align-items:center;gap:0.3rem;">Find out more <svg style="width:14px;height:14px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+        <!-- Ureteric Stones -->
+        <div style="background:#fff;border:1px solid #fde68a;border-left:4px solid #d97706;border-radius:1rem;padding:1.5rem;display:flex;align-items:flex-start;gap:1rem;transition:box-shadow 0.2s,transform 0.2s;" onmouseover="this.style.boxShadow='0 6px 20px rgba(217,119,6,0.12)';this.style.transform='translateY(-5px)'" onmouseout="this.style.boxShadow='none';this.style.transform=''">
+          <div style="width:40px;height:40px;border-radius:0.75rem;background:#fffbeb;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg class="w-5 h-5" style="color:#d97706;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:0.5rem;">
+            <p style="font-size:0.9rem;font-weight:600;color:#0f2a4a;line-height:1.5;margin:0;">Ureteric Stones</p>
+            <p style="font-size:0.8rem;color:#6b7280;margin:0;line-height:1.5;">Stones that have migrated from the kidney into the ureter, often causing severe colic and obstruction.</p>
+            <a href="ureteric-stones.html" style="font-size:0.8rem;font-weight:600;color:#d97706;text-decoration:none;display:flex;align-items:center;gap:0.3rem;">Find out more <svg style="width:14px;height:14px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a>
           </div>
         </div>
       </div>
@@ -399,51 +406,6 @@
       </div>
 
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-        <!-- ESWL -->
-        <div style="background:#fff;border:1px solid #fde68a;border-left:4px solid #f59e0b;border-radius:1rem;padding:1.5rem;transition:box-shadow 0.2s,transform 0.2s;" onmouseover="this.style.boxShadow='0 6px 20px rgba(245,158,11,0.12)';this.style.transform='translateY(-5px)'" onmouseout="this.style.boxShadow='none';this.style.transform=''">
-          <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
-            <div style="width:40px;height:40px;border-radius:0.75rem;background:#f59e0b;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-            </div>
-            <h3 style="font-size:1rem;font-weight:700;color:#0f2a4a;margin:0;">Shockwave Lithotripsy (ESWL)</h3>
-          </div>
-          <p style="color:#6b7280;font-size:0.875rem;line-height:1.7;margin-bottom:0.75rem;">Non-invasive treatment using shock waves to break stones into smaller pieces that can pass naturally.</p>
-          <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.4rem;">
-            <li style="display:flex;align-items:center;gap:0.5rem;font-size:0.8rem;color:#6b7280;"><svg style="width:16px;height:16px;color:#f59e0b;flex-shrink:0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>No incisions required</li>
-            <li style="display:flex;align-items:center;gap:0.5rem;font-size:0.8rem;color:#6b7280;"><svg style="width:16px;height:16px;color:#f59e0b;flex-shrink:0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Outpatient procedure</li>
-            <li style="display:flex;align-items:center;gap:0.5rem;font-size:0.8rem;color:#6b7280;"><svg style="width:16px;height:16px;color:#f59e0b;flex-shrink:0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Quick recovery</li>
-          </ul>
-        </div>
-        <!-- Ureteroscopy -->
-        <div style="background:#fff;border:1px solid #fde68a;border-left:4px solid #d97706;border-radius:1rem;padding:1.5rem;transition:box-shadow 0.2s,transform 0.2s;" onmouseover="this.style.boxShadow='0 6px 20px rgba(217,119,6,0.12)';this.style.transform='translateY(-5px)'" onmouseout="this.style.boxShadow='none';this.style.transform=''">
-          <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
-            <div style="width:40px;height:40px;border-radius:0.75rem;background:#d97706;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
-            </div>
-            <h3 style="font-size:1rem;font-weight:700;color:#0f2a4a;margin:0;">Ureteroscopy</h3>
-          </div>
-          <p style="color:#6b7280;font-size:0.875rem;line-height:1.7;margin-bottom:0.75rem;">A thin telescope passed through the urinary tract to directly visualise and remove or fragment stones.</p>
-          <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.4rem;">
-            <li style="display:flex;align-items:center;gap:0.5rem;font-size:0.8rem;color:#6b7280;"><svg style="width:16px;height:16px;color:#d97706;flex-shrink:0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>High success rates</li>
-            <li style="display:flex;align-items:center;gap:0.5rem;font-size:0.8rem;color:#6b7280;"><svg style="width:16px;height:16px;color:#d97706;flex-shrink:0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Laser fragmentation</li>
-            <li style="display:flex;align-items:center;gap:0.5rem;font-size:0.8rem;color:#6b7280;"><svg style="width:16px;height:16px;color:#d97706;flex-shrink:0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Day case surgery</li>
-          </ul>
-        </div>
-        <!-- PCNL -->
-        <div style="background:#fff;border:1px solid #fde68a;border-left:4px solid #f59e0b;border-radius:1rem;padding:1.5rem;transition:box-shadow 0.2s,transform 0.2s;" onmouseover="this.style.boxShadow='0 6px 20px rgba(245,158,11,0.12)';this.style.transform='translateY(-5px)'" onmouseout="this.style.boxShadow='none';this.style.transform=''">
-          <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
-            <div style="width:40px;height:40px;border-radius:0.75rem;background:#f59e0b;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
-            </div>
-            <h3 style="font-size:1rem;font-weight:700;color:#0f2a4a;margin:0;">PCNL</h3>
-          </div>
-          <p style="color:#6b7280;font-size:0.875rem;line-height:1.7;margin-bottom:0.75rem;">Percutaneous nephrolithotomy for larger stones, accessing the kidney through a small incision in the back.</p>
-          <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.4rem;">
-            <li style="display:flex;align-items:center;gap:0.5rem;font-size:0.8rem;color:#6b7280;"><svg style="width:16px;height:16px;color:#f59e0b;flex-shrink:0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>For large stones</li>
-            <li style="display:flex;align-items:center;gap:0.5rem;font-size:0.8rem;color:#6b7280;"><svg style="width:16px;height:16px;color:#f59e0b;flex-shrink:0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Complete stone clearance</li>
-            <li style="display:flex;align-items:center;gap:0.5rem;font-size:0.8rem;color:#6b7280;"><svg style="width:16px;height:16px;color:#f59e0b;flex-shrink:0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Minimally invasive</li>
-          </ul>
-        </div>
         <!-- Flexible Ureteroscopy with Laser -->
         <div style="background:#fff;border:1px solid #fde68a;border-left:4px solid #d97706;border-radius:1rem;padding:1.5rem;transition:box-shadow 0.2s,transform 0.2s;" onmouseover="this.style.boxShadow='0 6px 20px rgba(217,119,6,0.12)';this.style.transform='translateY(-5px)'" onmouseout="this.style.boxShadow='none';this.style.transform=''">
           <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
@@ -487,6 +449,51 @@
             <li style="display:flex;align-items:center;gap:0.5rem;font-size:0.8rem;color:#6b7280;"><svg style="width:16px;height:16px;color:#d97706;flex-shrink:0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Dietary guidance</li>
             <li style="display:flex;align-items:center;gap:0.5rem;font-size:0.8rem;color:#6b7280;"><svg style="width:16px;height:16px;color:#d97706;flex-shrink:0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Preventive medication</li>
             <li style="display:flex;align-items:center;gap:0.5rem;font-size:0.8rem;color:#6b7280;"><svg style="width:16px;height:16px;color:#d97706;flex-shrink:0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Long-term follow-up</li>
+          </ul>
+        </div>
+        <!-- PCNL -->
+        <div style="background:#fff;border:1px solid #fde68a;border-left:4px solid #f59e0b;border-radius:1rem;padding:1.5rem;transition:box-shadow 0.2s,transform 0.2s;" onmouseover="this.style.boxShadow='0 6px 20px rgba(245,158,11,0.12)';this.style.transform='translateY(-5px)'" onmouseout="this.style.boxShadow='none';this.style.transform=''">
+          <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
+            <div style="width:40px;height:40px;border-radius:0.75rem;background:#f59e0b;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+            </div>
+            <h3 style="font-size:1rem;font-weight:700;color:#0f2a4a;margin:0;">PCNL</h3>
+          </div>
+          <p style="color:#6b7280;font-size:0.875rem;line-height:1.7;margin-bottom:0.75rem;">Percutaneous nephrolithotomy for larger stones, accessing the kidney through a small incision in the back.</p>
+          <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.4rem;">
+            <li style="display:flex;align-items:center;gap:0.5rem;font-size:0.8rem;color:#6b7280;"><svg style="width:16px;height:16px;color:#f59e0b;flex-shrink:0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>For large stones</li>
+            <li style="display:flex;align-items:center;gap:0.5rem;font-size:0.8rem;color:#6b7280;"><svg style="width:16px;height:16px;color:#f59e0b;flex-shrink:0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Complete stone clearance</li>
+            <li style="display:flex;align-items:center;gap:0.5rem;font-size:0.8rem;color:#6b7280;"><svg style="width:16px;height:16px;color:#f59e0b;flex-shrink:0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Minimally invasive</li>
+          </ul>
+        </div>
+        <!-- Shockwave Lithotripsy (ESWL) -->
+        <div style="background:#fff;border:1px solid #fde68a;border-left:4px solid #d97706;border-radius:1rem;padding:1.5rem;transition:box-shadow 0.2s,transform 0.2s;" onmouseover="this.style.boxShadow='0 6px 20px rgba(217,119,6,0.12)';this.style.transform='translateY(-5px)'" onmouseout="this.style.boxShadow='none';this.style.transform=''">
+          <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
+            <div style="width:40px;height:40px;border-radius:0.75rem;background:#d97706;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            </div>
+            <h3 style="font-size:1rem;font-weight:700;color:#0f2a4a;margin:0;">Shockwave Lithotripsy (ESWL)</h3>
+          </div>
+          <p style="color:#6b7280;font-size:0.875rem;line-height:1.7;margin-bottom:0.75rem;">Non-invasive treatment using shock waves to break stones into smaller pieces that can pass naturally.</p>
+          <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.4rem;">
+            <li style="display:flex;align-items:center;gap:0.5rem;font-size:0.8rem;color:#6b7280;"><svg style="width:16px;height:16px;color:#d97706;flex-shrink:0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>No incisions required</li>
+            <li style="display:flex;align-items:center;gap:0.5rem;font-size:0.8rem;color:#6b7280;"><svg style="width:16px;height:16px;color:#d97706;flex-shrink:0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Outpatient procedure</li>
+            <li style="display:flex;align-items:center;gap:0.5rem;font-size:0.8rem;color:#6b7280;"><svg style="width:16px;height:16px;color:#d97706;flex-shrink:0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Quick recovery</li>
+          </ul>
+        </div>
+        <!-- Ureteroscopy -->
+        <div style="background:#fff;border:1px solid #fde68a;border-left:4px solid #f59e0b;border-radius:1rem;padding:1.5rem;transition:box-shadow 0.2s,transform 0.2s;" onmouseover="this.style.boxShadow='0 6px 20px rgba(245,158,11,0.12)';this.style.transform='translateY(-5px)'" onmouseout="this.style.boxShadow='none';this.style.transform=''">
+          <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
+            <div style="width:40px;height:40px;border-radius:0.75rem;background:#f59e0b;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+            </div>
+            <h3 style="font-size:1rem;font-weight:700;color:#0f2a4a;margin:0;">Ureteroscopy</h3>
+          </div>
+          <p style="color:#6b7280;font-size:0.875rem;line-height:1.7;margin-bottom:0.75rem;">A thin telescope passed through the urinary tract to directly visualise and remove or fragment stones.</p>
+          <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.4rem;">
+            <li style="display:flex;align-items:center;gap:0.5rem;font-size:0.8rem;color:#6b7280;"><svg style="width:16px;height:16px;color:#f59e0b;flex-shrink:0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>High success rates</li>
+            <li style="display:flex;align-items:center;gap:0.5rem;font-size:0.8rem;color:#6b7280;"><svg style="width:16px;height:16px;color:#f59e0b;flex-shrink:0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Laser fragmentation</li>
+            <li style="display:flex;align-items:center;gap:0.5rem;font-size:0.8rem;color:#6b7280;"><svg style="width:16px;height:16px;color:#f59e0b;flex-shrink:0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Day case surgery</li>
           </ul>
         </div>
       </div>
@@ -608,7 +615,7 @@
             </svg>
           </div>
           <h3 style="font-size:1.05rem;font-weight:700;color:#0f2a4a;margin-bottom:0.5rem;">Rapid Assessment</h3>
-          <p style="color:#6b7280;font-size:0.875rem;line-height:1.7;">Same-day emergency appointments available for patients with acute stone symptoms and renal colic.</p>
+          <p style="color:#6b7280;font-size:0.875rem;line-height:1.7;">We prioritise rapid access for patients experiencing acute stone symptoms and renal colic.</p>
         </div>
         <div style="background:#fff;border:1px solid #fde68a;border-radius:1rem;padding:2rem;text-align:center;transition:transform 0.2s ease,box-shadow 0.2s ease;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 40px rgba(245,158,11,0.18)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
           <div style="width:56px;height:56px;border-radius:1rem;background:#d97706;display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;">
@@ -617,7 +624,7 @@
             </svg>
           </div>
           <h3 style="font-size:1.05rem;font-weight:700;color:#0f2a4a;margin-bottom:0.5rem;">Specialist Expertise</h3>
-          <p style="color:#6b7280;font-size:0.875rem;line-height:1.7;">Dedicated stone specialist Mr Coscione and Mr Khoubehi bring years of focused experience in stone management.</p>
+          <p style="color:#6b7280;font-size:0.875rem;line-height:1.7;">Our dedicated stone specialist, Mr Alberto Coscione, leads the surgical management of all stone cases, supported by the wider team for initial assessment and diagnosis.</p>
         </div>
         <div style="background:#fff;border:1px solid #fde68a;border-radius:1rem;padding:2rem;text-align:center;transition:transform 0.2s ease,box-shadow 0.2s ease;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 40px rgba(245,158,11,0.18)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
           <div style="width:56px;height:56px;border-radius:1rem;background:#f59e0b;display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;">
@@ -651,26 +658,26 @@
       </div>
       <div class="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
         <!-- Mr Alberto Coscione -->
-        <div style="background:#fff;border:1px solid #fde68a;border-radius:1.25rem;padding:2rem;text-align:center;transition:transform 0.2s ease,box-shadow 0.2s ease;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 40px rgba(245,158,11,0.15)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="background:#fff;border:1px solid #fde68a;border-radius:1.25rem;padding:2rem;text-align:center;display:flex;flex-direction:column;transition:transform 0.2s ease,box-shadow 0.2s ease;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 40px rgba(245,158,11,0.15)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
           <div style="width:120px;height:120px;border-radius:50%;overflow:hidden;margin:0 auto 1.25rem;border:3px solid #fde68a;">
             <img src="../assets/Images/Alberto Coscione.jfif" alt="Mr Alberto Coscione" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
           </div>
           <h3 style="font-size:1.05rem;font-weight:700;color:#0f2a4a;margin-bottom:0.2rem;">Mr Alberto Coscione</h3>
-          <p style="color:#f59e0b;font-size:0.8rem;font-weight:600;margin-bottom:0.15rem;">Stone Specialist</p>
-          <p style="color:#6b7280;font-size:0.8rem;line-height:1.6;margin-bottom:1.25rem;">Dedicated stone specialist with expertise in laser lithotripsy, PCNL, and metabolic stone prevention.</p>
-          <a href="#" style="display:inline-flex;align-items:center;gap:0.4rem;font-size:0.8rem;font-weight:600;color:#fff;background:#f59e0b;padding:0.5rem 1.25rem;border-radius:9999px;text-decoration:none;transition:background 0.2s ease;" onmouseover="this.style.background='#d97706'" onmouseout="this.style.background='#f59e0b'">
+          <p style="color:#f59e0b;font-size:0.8rem;font-weight:600;margin-bottom:0.15rem;">Consultant Urological Surgeon</p>
+          <p style="color:#6b7280;font-size:0.8rem;line-height:1.6;margin-bottom:1.25rem;flex:1;">Specialist in the diagnosis, surgical treatment, and long-term prevention of kidney and ureteric stones.</p>
+          <a href="../specialists/alberto-coscione.html" style="display:inline-flex;align-items:center;gap:0.4rem;font-size:0.8rem;font-weight:600;color:#fff;background:#f59e0b;padding:0.5rem 1.25rem;border-radius:9999px;text-decoration:none;transition:background 0.2s ease;align-self:center;" onmouseover="this.style.background='#d97706'" onmouseout="this.style.background='#f59e0b'">
             View Profile <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
           </a>
         </div>
         <!-- Mr Bijan Khoubehi -->
-        <div style="background:#fff;border:1px solid #fde68a;border-radius:1.25rem;padding:2rem;text-align:center;transition:transform 0.2s ease,box-shadow 0.2s ease;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 40px rgba(245,158,11,0.15)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="background:#fff;border:1px solid #fde68a;border-radius:1.25rem;padding:2rem;text-align:center;display:flex;flex-direction:column;transition:transform 0.2s ease,box-shadow 0.2s ease;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 40px rgba(245,158,11,0.15)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
           <div style="width:120px;height:120px;border-radius:50%;overflow:hidden;margin:0 auto 1.25rem;border:3px solid #fde68a;">
             <img src="../assets/Images/bijan.50698fcb.jpg" alt="Mr Bijan Khoubehi" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
           </div>
           <h3 style="font-size:1.05rem;font-weight:700;color:#0f2a4a;margin-bottom:0.2rem;">Mr Bijan Khoubehi</h3>
-          <p style="color:#f59e0b;font-size:0.8rem;font-weight:600;margin-bottom:0.15rem;">Consultant Urologist</p>
-          <p style="color:#6b7280;font-size:0.8rem;line-height:1.6;margin-bottom:1.25rem;">Experienced consultant urologist providing expert general urological stone management and surgical treatment.</p>
-          <a href="../specialists/bijan-khoubehi.html" style="display:inline-flex;align-items:center;gap:0.4rem;font-size:0.8rem;font-weight:600;color:#fff;background:#f59e0b;padding:0.5rem 1.25rem;border-radius:9999px;text-decoration:none;transition:background 0.2s ease;" onmouseover="this.style.background='#d97706'" onmouseout="this.style.background='#f59e0b'">
+          <p style="color:#f59e0b;font-size:0.8rem;font-weight:600;margin-bottom:0.15rem;">Chairman &amp; Consultant Urological Surgeon</p>
+          <p style="color:#6b7280;font-size:0.8rem;line-height:1.6;margin-bottom:1.25rem;flex:1;">Specialist in the assessment and diagnosis of kidney and ureteric stones, with referral to our dedicated stone surgeon for surgical management.</p>
+          <a href="../specialists/bijan-khoubehi.html" style="display:inline-flex;align-items:center;gap:0.4rem;font-size:0.8rem;font-weight:600;color:#fff;background:#f59e0b;padding:0.5rem 1.25rem;border-radius:9999px;text-decoration:none;transition:background 0.2s ease;align-self:center;" onmouseover="this.style.background='#d97706'" onmouseout="this.style.background='#f59e0b'">
             View Profile <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
           </a>
         </div>
@@ -681,8 +688,8 @@
   <!-- CTA Section -->
   <section class="section-padding text-white" style="background:linear-gradient(135deg,#f59e0b 0%,#b45309 50%,#0f2a4a 100%);">
     <div class="container-custom text-center">
-      <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to Take the Next Step?</h2>
-      <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto">Don't live with kidney stone pain. Book a consultation with our stone specialists and get expert treatment tailored to your needs.</p>
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to Get Expert Help?</h2>
+      <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto">If you're experiencing symptoms of kidney or ureteric stones, our specialist team can provide rapid assessment, effective treatment, and long-term prevention planning.</p>
       <div class="flex flex-wrap justify-center gap-4">
         <a href="../contact.html" class="bg-white px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-colors shadow-lg" style="color:#f59e0b;">Book Consultation</a>
         <a href="tel:03003020202" class="btn-outline-white px-8 py-4">0300 302 0202</a>
