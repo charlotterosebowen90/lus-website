@@ -362,3 +362,37 @@ if (contactForm) {
     }
   });
 }
+
+// Back to Top Button
+(function() {
+  var btn = document.createElement('button');
+  btn.id = 'back-to-top';
+  btn.setAttribute('aria-label', 'Back to top');
+  btn.innerHTML = '<svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 15l7-7 7 7"/></svg>';
+  btn.style.cssText = 'position:fixed;bottom:2rem;left:2rem;z-index:40;width:44px;height:44px;border-radius:50%;border:none;background:#0f2a4a;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,0.2);opacity:0;pointer-events:none;transition:opacity 0.3s ease,transform 0.2s ease;';
+  document.body.appendChild(btn);
+
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 600) {
+      btn.style.opacity = '1';
+      btn.style.pointerEvents = 'auto';
+    } else {
+      btn.style.opacity = '0';
+      btn.style.pointerEvents = 'none';
+    }
+  });
+
+  btn.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  btn.addEventListener('mouseenter', function() {
+    btn.style.transform = 'translateY(-2px)';
+    btn.style.boxShadow = '0 6px 20px rgba(0,0,0,0.3)';
+  });
+
+  btn.addEventListener('mouseleave', function() {
+    btn.style.transform = '';
+    btn.style.boxShadow = '0 4px 16px rgba(0,0,0,0.2)';
+  });
+})();
