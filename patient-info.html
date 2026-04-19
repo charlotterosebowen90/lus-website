@@ -27,6 +27,8 @@
     .info-card { background:#fff; border:1px solid #e5e7eb; border-radius:1.25rem; padding:2rem; transition:transform 0.3s ease, box-shadow 0.3s ease; }
     .info-card:hover { transform:translateY(-4px); box-shadow:0 12px 32px rgba(15,42,74,0.1); }
     .faq-item.faq-open .faq-icon { transform:rotate(180deg); }
+    .faq-item.faq-green.faq-open { border-left-color:#16a34a; box-shadow:0 4px 16px rgba(22,163,106,0.1); }
+    .faq-item.faq-green.faq-open .faq-content { background:#f0fdf4; }
     .faq-icon { transition:transform 0.3s ease; }
   </style>
 </head>
@@ -527,7 +529,7 @@
           </div>
 
           <!-- FAQ Item 2 -->
-          <div class="faq-item border border-gray-200 rounded-xl overflow-hidden">
+          <div class="faq-item faq-green border border-gray-200 rounded-xl overflow-hidden">
             <button class="faq-toggle w-full flex justify-between items-center p-6 text-left bg-white hover:bg-gray-50 transition-colors">
               <div class="flex items-center gap-3 pr-4">
                 <div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style="background:#f0fdf4;">
@@ -566,7 +568,7 @@
           </div>
 
           <!-- FAQ Item 4 -->
-          <div class="faq-item border border-gray-200 rounded-xl overflow-hidden">
+          <div class="faq-item faq-green border border-gray-200 rounded-xl overflow-hidden">
             <button class="faq-toggle w-full flex justify-between items-center p-6 text-left bg-white hover:bg-gray-50 transition-colors">
               <div class="flex items-center gap-3 pr-4">
                 <div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style="background:#f0fdf4;">
@@ -584,6 +586,7 @@
                 <li>A list of your current medications</li>
                 <li>Any relevant test results or imaging (e.g. scans, X-rays, blood tests)</li>
                 <li>Your referral letter, if you have one</li>
+                <li>Any medical reports from other specialists (if applicable)</li>
                 <li>Your insurance details (if applicable)</li>
               </ul>
               <p class="text-gray-600">We recommend arriving 15 minutes early to allow time for registration.</p>
