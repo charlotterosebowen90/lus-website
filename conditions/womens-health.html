@@ -291,6 +291,10 @@
         <h1 class="text-4xl md:text-5xl font-bold text-white">Women's Health</h1>
       </div>
       <p class="text-xl text-gray-300 max-w-2xl">Consultant-led urological care for women, delivered with compassion and clinical expertise.</p>
+      <div style="margin-top:1rem;display:inline-flex;align-items:center;gap:0.5rem;background:rgba(255,255,255,0.1);backdrop-filter:blur(8px);padding:0.4rem 1rem;border-radius:9999px;border:1px solid rgba(255,255,255,0.15);">
+        <svg class="w-4 h-4 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <span id="read-time" style="font-size:0.8rem;color:#d1d5db;font-weight:500;"></span>
+      </div>
     </div>
   </section>
 
@@ -583,6 +587,12 @@
 
   <script src="../js/main.js"></script>
   <script>
+    // Estimated reading time
+    var words = document.body.innerText.trim().split(/\s+/).length;
+    var mins = Math.max(1, Math.round(words / 220));
+    var readEl = document.getElementById('read-time');
+    if (readEl) readEl.textContent = mins + ' min read';
+
     // Reading progress bar
     window.addEventListener('scroll', () => {
       const bar = document.getElementById('progress-bar');

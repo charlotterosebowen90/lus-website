@@ -294,7 +294,7 @@
     <!-- Background Video -->
     <div class="absolute inset-0" style="overflow:hidden;">
       <video id="hero-video" autoplay muted playsinline loop style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 3.5s cubic-bezier(0.4,0,0.6,1);">
-        <source src="assets/Images/Istock-1485098942compressed.mp4" type="video/mp4">
+        <source src="assets/Images/Istock-1485098942.mp4" type="video/mp4">
       </video>
     </div>
     <!-- Dark overlay for text readability -->
@@ -769,6 +769,23 @@
 
   <script src="js/main.js"></script>
   <script>
+  /* Hero video smooth loop */
+  (function(){
+    var heroVideo = document.getElementById('hero-video');
+    if (heroVideo) {
+      heroVideo.play().catch(function(){});
+      var loopFading = false;
+      setTimeout(function(){
+        heroVideo.addEventListener('timeupdate', function(){
+          if (!heroVideo.duration) return;
+          var remaining = heroVideo.duration - heroVideo.currentTime;
+          if (remaining < 1.5 && !loopFading) { loopFading = true; heroVideo.style.transition = 'opacity 1.2s ease'; heroVideo.style.opacity = '0'; }
+          if (heroVideo.currentTime < 0.3 && loopFading) { loopFading = false; heroVideo.style.transition = 'opacity 1.2s ease'; heroVideo.style.opacity = '0.45'; }
+        });
+      }, 1000);
+    }
+  })();
+
   /* Reading-progress bar */
   (function(){
     var bar=document.getElementById('reading-progress');
