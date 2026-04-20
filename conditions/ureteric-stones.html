@@ -189,6 +189,8 @@
                           <a href="pelvic-organ-prolapse.html" class="text-xs text-gray-500 hover:text-primary flex items-center gap-1"><span class="text-pink-500 font-bold">&#8250;</span>Pelvic Organ Prolapse</a>
                           <a href="recurrent-utis.html" class="text-xs text-gray-500 hover:text-primary flex items-center gap-1"><span class="text-pink-500 font-bold">&#8250;</span>Recurrent UTIs</a>
                           <a href="urinary-incontinence.html" class="text-xs text-gray-500 hover:text-primary flex items-center gap-1"><span class="text-pink-500 font-bold">&#8250;</span>Urinary Incontinence</a>
+                          <a href="urinary-diversion.html" class="text-xs text-gray-500 hover:text-primary flex items-center gap-1"><span class="text-pink-500 font-bold">&#8250;</span>Urinary Diversion</a>
+                          <a href="urinary-diversion.html" class="text-xs text-gray-500 hover:text-primary flex items-center gap-1"><span class="text-pink-500 font-bold">&#8250;</span>Urinary Diversion</a>
                           <a href="urinary-fistula.html" class="text-xs text-gray-500 hover:text-primary flex items-center gap-1"><span class="text-pink-500 font-bold">&#8250;</span>Urinary Fistula</a>
                         </div>
                       </div>
@@ -348,6 +350,10 @@
         </div>
       </div>
       <p class="text-xl text-gray-300 max-w-2xl hero-subtitle">Expert diagnosis and minimally invasive treatment for stones lodged in the ureter &mdash; the most common cause of emergency urology admission.</p>
+      <div class="hero-subtitle" style="margin-top:1rem;display:inline-flex;align-items:center;gap:0.5rem;background:rgba(255,255,255,0.1);backdrop-filter:blur(8px);padding:0.4rem 1rem;border-radius:9999px;border:1px solid rgba(255,255,255,0.15);">
+        <svg class="w-4 h-4 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <span id="read-time" style="font-size:0.8rem;color:#d1d5db;font-weight:500;"></span>
+      </div>
     </div>
   </section>
 
@@ -691,10 +697,12 @@
           </div>
 
           <!-- 7. Summary / Takeaway Box -->
-          <div id="summary" class="content-section fade-section mb-8">
+          <div id="summary" class="content-section fade-section mb-8" style="margin-top:3rem;">
+            <span class="section-tag">Summary</span>
+            <h2 style="font-size:1.75rem;font-weight:700;color:#0f2a4a;margin-bottom:0.5rem;">Key Takeaways</h2>
+            <div style="width:3rem;height:3px;background:#f59e0b;border-radius:9999px;margin-bottom:1.5rem;"></div>
             <div class="gradient-shimmer rounded-2xl p-8 text-white" style="background:linear-gradient(135deg,#f59e0b 0%,#b45309 50%,#0f2a4a 100%);">
-              <h2 class="text-2xl font-bold mb-4">Key Takeaways</h2>
-              <div style="width:3rem;height:3px;background:rgba(255,255,255,0.5);border-radius:9999px;margin-bottom:1.5rem;"></div>
+
               <ul class="space-y-3 text-white/90 text-sm leading-relaxed">
                 <li class="flex items-start gap-2">
                   <svg class="w-5 h-5 flex-shrink-0 mt-0.5 text-amber-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
@@ -874,6 +882,12 @@
       });
     }, { rootMargin: '-100px 0px -60% 0px', threshold: 0 });
     sections.forEach(sec => tocObserver.observe(sec));
+
+    // Estimated reading time
+    var words = document.body.innerText.trim().split(/\s+/).length;
+    var mins = Math.max(1, Math.round(words / 220));
+    var readEl = document.getElementById('read-time');
+    if (readEl) readEl.textContent = mins + ' min read';
   </script>
 </body>
 </html>
