@@ -22,6 +22,16 @@
     #reading-progress { position:fixed; top:0; left:0; height:3px; z-index:9999; background:linear-gradient(90deg,#1b76c5,#22c55e); width:0%; transition:width 0.15s linear; }
     @keyframes hero-fade { from{opacity:0} to{opacity:0.45} }
     .hero-video { animation:hero-fade 1.2s ease-in forwards; }
+    .filter-btn { padding:0.5rem 1.25rem; border:1px solid #d1d5db; background:#fff; color:#4b5563; font-size:0.85rem; font-weight:500; border-radius:9999px; cursor:pointer; transition:all 0.2s ease; font-family:inherit; }
+    .filter-btn:hover { border-color:#1b76c5; color:#1b76c5; }
+    .filter-btn.active { background:#1b76c5; border-color:#1b76c5; color:#fff; }
+    .share-btn { display:inline-flex; align-items:center; justify-content:center; width:32px; height:32px; border-radius:9999px; background:#f9fafb; border:1px solid #e5e7eb; color:#6b7280; transition:all 0.2s ease; cursor:pointer; text-decoration:none; padding:0; }
+    .share-btn:hover { background:#eff6ff; border-color:#1b76c5; color:#1b76c5; }
+    .read-more-link { color:#1b76c5; font-size:0.85rem; font-weight:600; display:inline-flex; align-items:center; gap:0.3rem; text-decoration:none; transition:gap 0.2s ease; }
+    .read-more-link:hover { gap:0.5rem; }
+    .article-hidden { display:none !important; }
+    .copy-toast { position:fixed; bottom:2rem; left:50%; transform:translateX(-50%) translateY(100px); background:#0f2a4a; color:#fff; padding:0.75rem 1.5rem; border-radius:9999px; font-size:0.9rem; font-weight:500; opacity:0; transition:opacity 0.3s ease, transform 0.3s ease; z-index:100; pointer-events:none; }
+    .copy-toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
   </style>
 </head>
 <body class="font-poppins">
@@ -325,67 +335,204 @@
   <!-- News Entries Section -->
   <section class="fade-section" style="background:#f8fafc;padding:4rem 0;">
     <div style="max-width:800px;margin:0 auto;padding:0 1.5rem;">
-      <div class="text-center mb-12">
+      <div class="text-center mb-8">
         <span style="display:inline-block;font-size:0.75rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#1b76c5;background:#eff6ff;padding:0.35rem 1rem;border-radius:9999px;margin-bottom:0.75rem;">Latest</span>
         <h2 class="text-3xl md:text-4xl font-bold text-dark mb-3">News &amp; Insights</h2>
         <div style="width:60px;height:4px;background:linear-gradient(90deg,#1b76c5,#22c55e);border-radius:2px;margin:0 auto;"></div>
       </div>
 
-      <!-- To add a new entry, copy the article template below and paste it at the TOP of this section. Update the date, category, title, and summary. -->
-      <div style="display:flex;flex-direction:column;gap:1.5rem;">
+      <!-- Category Filter Buttons -->
+      <div style="display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:center;margin-bottom:2.5rem;">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="patient-guide">Patient Guide</button>
+        <button class="filter-btn" data-filter="clinical-update">Clinical Update</button>
+        <button class="filter-btn" data-filter="practice-news">Practice News</button>
+        <button class="filter-btn" data-filter="team-news">Team News</button>
+      </div>
 
-        <article style="background:#fff;border:1px solid #e5e7eb;border-radius:1rem;padding:2rem;transition:transform 0.2s ease,box-shadow 0.2s ease;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-          <div style="display:flex;gap:0.5rem;margin-bottom:1rem;">
+      <!-- To add a new entry, copy the article template below and paste it at the TOP of this section. Update the date, category, title, and summary. -->
+      <div id="articles-container" style="display:flex;flex-direction:column;gap:1.5rem;">
+
+        <article id="article-psa-result" data-category="patient-guide" style="background:#fff;border:1px solid #e5e7eb;border-radius:1rem;padding:2rem;transition:transform 0.2s ease,box-shadow 0.2s ease;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+          <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:1rem;align-items:center;">
             <span style="font-size:0.7rem;font-weight:600;color:#6b7280;background:#f3f4f6;padding:0.25rem 0.75rem;border-radius:9999px;">23 April 2026</span>
             <span style="font-size:0.7rem;font-weight:600;color:#10b981;background:#ecfdf5;padding:0.25rem 0.75rem;border-radius:9999px;">Patient Guide</span>
+            <span style="font-size:0.7rem;color:#9ca3af;display:inline-flex;align-items:center;gap:0.3rem;">
+              <svg style="width:0.8rem;height:0.8rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              1 min read
+            </span>
           </div>
           <h3 style="font-size:1.15rem;font-weight:700;color:#0f2a4a;margin-bottom:0.5rem;">Understanding Your PSA Result &mdash; What the Numbers Mean</h3>
-          <p style="color:#6b7280;font-size:0.9rem;line-height:1.7;">A raised PSA can cause significant anxiety, but it does not necessarily mean cancer. PSA levels can be elevated by many common conditions including an enlarged prostate, infection, and even vigorous exercise. Our dedicated <a href="conditions/psa-testing.html" style="color:#1b76c5;text-decoration:underline;">PSA Testing page</a> explains what your result means, what happens next, and why the modern MRI-first pathway means most men no longer need an immediate biopsy.</p>
+          <p style="color:#6b7280;font-size:0.9rem;line-height:1.7;margin-bottom:1.25rem;">A raised PSA can cause significant anxiety, but it does not necessarily mean cancer. PSA levels can be elevated by many common conditions including an enlarged prostate, infection, and even vigorous exercise. Our dedicated <a href="conditions/psa-testing.html" style="color:#1b76c5;text-decoration:underline;">PSA Testing page</a> explains what your result means, what happens next, and why the modern MRI-first pathway means most men no longer need an immediate biopsy.</p>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding-top:1rem;border-top:1px solid #f3f4f6;flex-wrap:wrap;gap:0.75rem;">
+            <div style="display:flex;gap:0.4rem;align-items:center;">
+              <span style="font-size:0.7rem;color:#9ca3af;font-weight:500;margin-right:0.15rem;">Share:</span>
+              <a href="https://wa.me/?text=Understanding%20Your%20PSA%20Result%20-%20https%3A%2F%2Fwww.londonurologyspecialists.co.uk%2Fnews.html%23article-psa-result" target="_blank" rel="noopener" class="share-btn" title="Share on WhatsApp" aria-label="Share on WhatsApp">
+                <svg style="width:15px;height:15px;" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              </a>
+              <a href="mailto:?subject=Understanding%20Your%20PSA%20Result&body=I%20thought%20you%20might%20find%20this%20useful%3A%20https%3A%2F%2Fwww.londonurologyspecialists.co.uk%2Fnews.html%23article-psa-result" class="share-btn" title="Share via email" aria-label="Share via email">
+                <svg style="width:15px;height:15px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              </a>
+              <button class="share-btn copy-link-btn" data-url="https://www.londonurologyspecialists.co.uk/news.html#article-psa-result" title="Copy link" aria-label="Copy link">
+                <svg style="width:15px;height:15px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+              </button>
+            </div>
+            <a href="conditions/psa-testing.html" class="read-more-link">
+              Read more
+              <svg style="width:1rem;height:1rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+          </div>
         </article>
 
-        <article style="background:#fff;border:1px solid #e5e7eb;border-radius:1rem;padding:2rem;transition:transform 0.2s ease,box-shadow 0.2s ease;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-          <div style="display:flex;gap:0.5rem;margin-bottom:1rem;">
+        <article id="article-stone-prevention" data-category="patient-guide" style="background:#fff;border:1px solid #e5e7eb;border-radius:1rem;padding:2rem;transition:transform 0.2s ease,box-shadow 0.2s ease;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+          <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:1rem;align-items:center;">
             <span style="font-size:0.7rem;font-weight:600;color:#6b7280;background:#f3f4f6;padding:0.25rem 0.75rem;border-radius:9999px;">22 April 2026</span>
             <span style="font-size:0.7rem;font-weight:600;color:#10b981;background:#ecfdf5;padding:0.25rem 0.75rem;border-radius:9999px;">Patient Guide</span>
+            <span style="font-size:0.7rem;color:#9ca3af;display:inline-flex;align-items:center;gap:0.3rem;">
+              <svg style="width:0.8rem;height:0.8rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              1 min read
+            </span>
           </div>
           <h3 style="font-size:1.15rem;font-weight:700;color:#0f2a4a;margin-bottom:0.5rem;">Kidney Stone Prevention &mdash; Simple Changes That Make a Difference</h3>
-          <p style="color:#6b7280;font-size:0.9rem;line-height:1.7;">Up to 50% of patients who form a kidney stone will experience another within five years &mdash; but recurrence is not inevitable. Drinking at least 2.5 litres of fluid daily, reducing salt intake, maintaining normal calcium consumption (not restricting it), and moderating animal protein can significantly reduce your risk. Our <a href="conditions/recurrent-stone-formers.html" style="color:#1b76c5;text-decoration:underline;">Recurrent Stone Formers page</a> covers metabolic investigation and personalised prevention in detail.</p>
+          <p style="color:#6b7280;font-size:0.9rem;line-height:1.7;margin-bottom:1.25rem;">Up to 50% of patients who form a kidney stone will experience another within five years &mdash; but recurrence is not inevitable. Drinking at least 2.5 litres of fluid daily, reducing salt intake, maintaining normal calcium consumption (not restricting it), and moderating animal protein can significantly reduce your risk. Our <a href="conditions/recurrent-stone-formers.html" style="color:#1b76c5;text-decoration:underline;">Recurrent Stone Formers page</a> covers metabolic investigation and personalised prevention in detail.</p>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding-top:1rem;border-top:1px solid #f3f4f6;flex-wrap:wrap;gap:0.75rem;">
+            <div style="display:flex;gap:0.4rem;align-items:center;">
+              <span style="font-size:0.7rem;color:#9ca3af;font-weight:500;margin-right:0.15rem;">Share:</span>
+              <a href="https://wa.me/?text=Kidney%20Stone%20Prevention%20-%20https%3A%2F%2Fwww.londonurologyspecialists.co.uk%2Fnews.html%23article-stone-prevention" target="_blank" rel="noopener" class="share-btn" title="Share on WhatsApp" aria-label="Share on WhatsApp">
+                <svg style="width:15px;height:15px;" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              </a>
+              <a href="mailto:?subject=Kidney%20Stone%20Prevention&body=I%20thought%20you%20might%20find%20this%20useful%3A%20https%3A%2F%2Fwww.londonurologyspecialists.co.uk%2Fnews.html%23article-stone-prevention" class="share-btn" title="Share via email" aria-label="Share via email">
+                <svg style="width:15px;height:15px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              </a>
+              <button class="share-btn copy-link-btn" data-url="https://www.londonurologyspecialists.co.uk/news.html#article-stone-prevention" title="Copy link" aria-label="Copy link">
+                <svg style="width:15px;height:15px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+              </button>
+            </div>
+            <a href="conditions/recurrent-stone-formers.html" class="read-more-link">
+              Read more
+              <svg style="width:1rem;height:1rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+          </div>
         </article>
 
-        <article style="background:#fff;border:1px solid #e5e7eb;border-radius:1rem;padding:2rem;transition:transform 0.2s ease,box-shadow 0.2s ease;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-          <div style="display:flex;gap:0.5rem;margin-bottom:1rem;">
+        <article id="article-first-appointment" data-category="patient-guide" style="background:#fff;border:1px solid #e5e7eb;border-radius:1rem;padding:2rem;transition:transform 0.2s ease,box-shadow 0.2s ease;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+          <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:1rem;align-items:center;">
             <span style="font-size:0.7rem;font-weight:600;color:#6b7280;background:#f3f4f6;padding:0.25rem 0.75rem;border-radius:9999px;">21 April 2026</span>
             <span style="font-size:0.7rem;font-weight:600;color:#10b981;background:#ecfdf5;padding:0.25rem 0.75rem;border-radius:9999px;">Patient Guide</span>
+            <span style="font-size:0.7rem;color:#9ca3af;display:inline-flex;align-items:center;gap:0.3rem;">
+              <svg style="width:0.8rem;height:0.8rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              1 min read
+            </span>
           </div>
           <h3 style="font-size:1.15rem;font-weight:700;color:#0f2a4a;margin-bottom:0.5rem;">What to Expect at Your First Urology Appointment</h3>
-          <p style="color:#6b7280;font-size:0.9rem;line-height:1.7;">If you have been referred to a urologist or are booking your first appointment, it is natural to feel unsure about what will happen. In most cases, your first visit will involve a detailed discussion of your symptoms and medical history, a clinical examination, and simple initial tests such as a urine dipstick and flow rate measurement. Our <a href="patient-info.html" style="color:#1b76c5;text-decoration:underline;">Patient Information page</a> explains the process step by step, including what to bring, insurance information, and how to prepare.</p>
+          <p style="color:#6b7280;font-size:0.9rem;line-height:1.7;margin-bottom:1.25rem;">If you have been referred to a urologist or are booking your first appointment, it is natural to feel unsure about what will happen. In most cases, your first visit will involve a detailed discussion of your symptoms and medical history, a clinical examination, and simple initial tests such as a urine dipstick and flow rate measurement. Our <a href="patient-info.html" style="color:#1b76c5;text-decoration:underline;">Patient Information page</a> explains the process step by step, including what to bring, insurance information, and how to prepare.</p>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding-top:1rem;border-top:1px solid #f3f4f6;flex-wrap:wrap;gap:0.75rem;">
+            <div style="display:flex;gap:0.4rem;align-items:center;">
+              <span style="font-size:0.7rem;color:#9ca3af;font-weight:500;margin-right:0.15rem;">Share:</span>
+              <a href="https://wa.me/?text=What%20to%20Expect%20at%20Your%20First%20Urology%20Appointment%20-%20https%3A%2F%2Fwww.londonurologyspecialists.co.uk%2Fnews.html%23article-first-appointment" target="_blank" rel="noopener" class="share-btn" title="Share on WhatsApp" aria-label="Share on WhatsApp">
+                <svg style="width:15px;height:15px;" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              </a>
+              <a href="mailto:?subject=What%20to%20Expect%20at%20Your%20First%20Urology%20Appointment&body=I%20thought%20you%20might%20find%20this%20useful%3A%20https%3A%2F%2Fwww.londonurologyspecialists.co.uk%2Fnews.html%23article-first-appointment" class="share-btn" title="Share via email" aria-label="Share via email">
+                <svg style="width:15px;height:15px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              </a>
+              <button class="share-btn copy-link-btn" data-url="https://www.londonurologyspecialists.co.uk/news.html#article-first-appointment" title="Copy link" aria-label="Copy link">
+                <svg style="width:15px;height:15px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+              </button>
+            </div>
+            <a href="patient-info.html" class="read-more-link">
+              Read more
+              <svg style="width:1rem;height:1rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+          </div>
         </article>
 
-        <article style="background:#fff;border:1px solid #e5e7eb;border-radius:1rem;padding:2rem;transition:transform 0.2s ease,box-shadow 0.2s ease;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-          <div style="display:flex;gap:0.5rem;margin-bottom:1rem;">
+        <article id="article-website-launch" data-category="practice-news" style="background:#fff;border:1px solid #e5e7eb;border-radius:1rem;padding:2rem;transition:transform 0.2s ease,box-shadow 0.2s ease;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+          <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:1rem;align-items:center;">
             <span style="font-size:0.7rem;font-weight:600;color:#6b7280;background:#f3f4f6;padding:0.25rem 0.75rem;border-radius:9999px;">20 April 2026</span>
             <span style="font-size:0.7rem;font-weight:600;color:#1b76c5;background:#eff6ff;padding:0.25rem 0.75rem;border-radius:9999px;">Practice News</span>
+            <span style="font-size:0.7rem;color:#9ca3af;display:inline-flex;align-items:center;gap:0.3rem;">
+              <svg style="width:0.8rem;height:0.8rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              1 min read
+            </span>
           </div>
           <h3 style="font-size:1.15rem;font-weight:700;color:#0f2a4a;margin-bottom:0.5rem;">Website Launch</h3>
-          <p style="color:#6b7280;font-size:0.9rem;line-height:1.7;">We are pleased to announce the launch of our new London Urology Specialists website. The site has been designed to provide comprehensive, accessible information about the conditions we treat, the procedures we offer, and the specialists who deliver your care. We hope it helps you find the answers you need &mdash; and we welcome your feedback.</p>
+          <p style="color:#6b7280;font-size:0.9rem;line-height:1.7;margin-bottom:1.25rem;">We are pleased to announce the launch of our new London Urology Specialists website. The site has been designed to provide comprehensive, accessible information about the conditions we treat, the procedures we offer, and the specialists who deliver your care. We hope it helps you find the answers you need &mdash; and we welcome your feedback.</p>
+          <div style="display:flex;justify-content:flex-start;align-items:center;padding-top:1rem;border-top:1px solid #f3f4f6;flex-wrap:wrap;gap:0.75rem;">
+            <div style="display:flex;gap:0.4rem;align-items:center;">
+              <span style="font-size:0.7rem;color:#9ca3af;font-weight:500;margin-right:0.15rem;">Share:</span>
+              <a href="https://wa.me/?text=London%20Urology%20Specialists%20Website%20Launch%20-%20https%3A%2F%2Fwww.londonurologyspecialists.co.uk%2Fnews.html%23article-website-launch" target="_blank" rel="noopener" class="share-btn" title="Share on WhatsApp" aria-label="Share on WhatsApp">
+                <svg style="width:15px;height:15px;" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              </a>
+              <a href="mailto:?subject=London%20Urology%20Specialists%20Website%20Launch&body=I%20thought%20you%20might%20find%20this%20useful%3A%20https%3A%2F%2Fwww.londonurologyspecialists.co.uk%2Fnews.html%23article-website-launch" class="share-btn" title="Share via email" aria-label="Share via email">
+                <svg style="width:15px;height:15px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              </a>
+              <button class="share-btn copy-link-btn" data-url="https://www.londonurologyspecialists.co.uk/news.html#article-website-launch" title="Copy link" aria-label="Copy link">
+                <svg style="width:15px;height:15px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+              </button>
+            </div>
+          </div>
         </article>
 
-        <article style="background:#fff;border:1px solid #e5e7eb;border-radius:1rem;padding:2rem;transition:transform 0.2s ease,box-shadow 0.2s ease;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-          <div style="display:flex;gap:0.5rem;margin-bottom:1rem;">
+        <article id="article-alberto-coscione" data-category="team-news" style="background:#fff;border:1px solid #e5e7eb;border-radius:1rem;padding:2rem;transition:transform 0.2s ease,box-shadow 0.2s ease;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+          <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:1rem;align-items:center;">
             <span style="font-size:0.7rem;font-weight:600;color:#6b7280;background:#f3f4f6;padding:0.25rem 0.75rem;border-radius:9999px;">15 April 2026</span>
             <span style="font-size:0.7rem;font-weight:600;color:#2563eb;background:#dbeafe;padding:0.25rem 0.75rem;border-radius:9999px;">Team News</span>
+            <span style="font-size:0.7rem;color:#9ca3af;display:inline-flex;align-items:center;gap:0.3rem;">
+              <svg style="width:0.8rem;height:0.8rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              1 min read
+            </span>
           </div>
           <h3 style="font-size:1.15rem;font-weight:700;color:#0f2a4a;margin-bottom:0.5rem;">Mr Alberto Coscione Joins the Team</h3>
-          <p style="color:#6b7280;font-size:0.9rem;line-height:1.7;">We are delighted to welcome Mr Alberto Coscione to London Urology Specialists as our dedicated stone surgeon. Mr Coscione brings specialist expertise in laser lithotripsy, PCNL, and metabolic stone prevention, and will lead the surgical management of all stone cases within our Stone Clinic.</p>
+          <p style="color:#6b7280;font-size:0.9rem;line-height:1.7;margin-bottom:1.25rem;">We are delighted to welcome Mr Alberto Coscione to London Urology Specialists as our dedicated stone surgeon. Mr Coscione brings specialist expertise in laser lithotripsy, PCNL, and metabolic stone prevention, and will lead the surgical management of all stone cases within our Stone Clinic.</p>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding-top:1rem;border-top:1px solid #f3f4f6;flex-wrap:wrap;gap:0.75rem;">
+            <div style="display:flex;gap:0.4rem;align-items:center;">
+              <span style="font-size:0.7rem;color:#9ca3af;font-weight:500;margin-right:0.15rem;">Share:</span>
+              <a href="https://wa.me/?text=Mr%20Alberto%20Coscione%20Joins%20London%20Urology%20Specialists%20-%20https%3A%2F%2Fwww.londonurologyspecialists.co.uk%2Fnews.html%23article-alberto-coscione" target="_blank" rel="noopener" class="share-btn" title="Share on WhatsApp" aria-label="Share on WhatsApp">
+                <svg style="width:15px;height:15px;" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              </a>
+              <a href="mailto:?subject=Mr%20Alberto%20Coscione%20Joins%20London%20Urology%20Specialists&body=I%20thought%20you%20might%20find%20this%20useful%3A%20https%3A%2F%2Fwww.londonurologyspecialists.co.uk%2Fnews.html%23article-alberto-coscione" class="share-btn" title="Share via email" aria-label="Share via email">
+                <svg style="width:15px;height:15px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              </a>
+              <button class="share-btn copy-link-btn" data-url="https://www.londonurologyspecialists.co.uk/news.html#article-alberto-coscione" title="Copy link" aria-label="Copy link">
+                <svg style="width:15px;height:15px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+              </button>
+            </div>
+            <a href="specialists/alberto-coscione.html" class="read-more-link">
+              Read more
+              <svg style="width:1rem;height:1rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+          </div>
         </article>
 
-        <article style="background:#fff;border:1px solid #e5e7eb;border-radius:1rem;padding:2rem;transition:transform 0.2s ease,box-shadow 0.2s ease;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-          <div style="display:flex;gap:0.5rem;margin-bottom:1rem;">
+        <article id="article-psa-page" data-category="clinical-update" style="background:#fff;border:1px solid #e5e7eb;border-radius:1rem;padding:2rem;transition:transform 0.2s ease,box-shadow 0.2s ease;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+          <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:1rem;align-items:center;">
             <span style="font-size:0.7rem;font-weight:600;color:#6b7280;background:#f3f4f6;padding:0.25rem 0.75rem;border-radius:9999px;">10 April 2026</span>
             <span style="font-size:0.7rem;font-weight:600;color:#7c3aed;background:#ede9fe;padding:0.25rem 0.75rem;border-radius:9999px;">Clinical Update</span>
+            <span style="font-size:0.7rem;color:#9ca3af;display:inline-flex;align-items:center;gap:0.3rem;">
+              <svg style="width:0.8rem;height:0.8rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              1 min read
+            </span>
           </div>
           <h3 style="font-size:1.15rem;font-weight:700;color:#0f2a4a;margin-bottom:0.5rem;">New PSA Testing Information Page</h3>
-          <p style="color:#6b7280;font-size:0.9rem;line-height:1.7;">We have published a dedicated PSA Testing page within our Men's Health section, providing clear, evidence-based information about what PSA is, who should consider testing, and what happens if your level is raised. The page follows the NICE NG131 MRI-first pathway and is designed to help men make informed decisions about prostate health.</p>
+          <p style="color:#6b7280;font-size:0.9rem;line-height:1.7;margin-bottom:1.25rem;">We have published a dedicated PSA Testing page within our Men's Health section, providing clear, evidence-based information about what PSA is, who should consider testing, and what happens if your level is raised. The page follows the NICE NG131 MRI-first pathway and is designed to help men make informed decisions about prostate health.</p>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding-top:1rem;border-top:1px solid #f3f4f6;flex-wrap:wrap;gap:0.75rem;">
+            <div style="display:flex;gap:0.4rem;align-items:center;">
+              <span style="font-size:0.7rem;color:#9ca3af;font-weight:500;margin-right:0.15rem;">Share:</span>
+              <a href="https://wa.me/?text=New%20PSA%20Testing%20Information%20Page%20-%20https%3A%2F%2Fwww.londonurologyspecialists.co.uk%2Fnews.html%23article-psa-page" target="_blank" rel="noopener" class="share-btn" title="Share on WhatsApp" aria-label="Share on WhatsApp">
+                <svg style="width:15px;height:15px;" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              </a>
+              <a href="mailto:?subject=New%20PSA%20Testing%20Information%20Page&body=I%20thought%20you%20might%20find%20this%20useful%3A%20https%3A%2F%2Fwww.londonurologyspecialists.co.uk%2Fnews.html%23article-psa-page" class="share-btn" title="Share via email" aria-label="Share via email">
+                <svg style="width:15px;height:15px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              </a>
+              <button class="share-btn copy-link-btn" data-url="https://www.londonurologyspecialists.co.uk/news.html#article-psa-page" title="Copy link" aria-label="Copy link">
+                <svg style="width:15px;height:15px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+              </button>
+            </div>
+            <a href="conditions/psa-testing.html" class="read-more-link">
+              Read more
+              <svg style="width:1rem;height:1rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+          </div>
         </article>
 
       </div>
@@ -503,6 +650,62 @@
         floatCta.style.pointerEvents = visible ? 'auto' : 'none';
       });
     }
+
+    // Category filter buttons
+    (function() {
+      var filterBtns = document.querySelectorAll('.filter-btn');
+      var articles = document.querySelectorAll('article[data-category]');
+      filterBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var filter = this.dataset.filter;
+          filterBtns.forEach(function(b) { b.classList.remove('active'); });
+          this.classList.add('active');
+          articles.forEach(function(article) {
+            if (filter === 'all' || article.dataset.category === filter) {
+              article.classList.remove('article-hidden');
+            } else {
+              article.classList.add('article-hidden');
+            }
+          });
+        });
+      });
+    })();
+
+    // Copy link to clipboard
+    (function() {
+      var toast = document.createElement('div');
+      toast.className = 'copy-toast';
+      toast.textContent = 'Link copied to clipboard';
+      document.body.appendChild(toast);
+
+      document.querySelectorAll('.copy-link-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var url = this.dataset.url;
+          var showToast = function() {
+            toast.classList.add('show');
+            setTimeout(function() { toast.classList.remove('show'); }, 2000);
+          };
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(url).then(showToast).catch(function() {
+              // Fallback
+              var ta = document.createElement('textarea');
+              ta.value = url;
+              document.body.appendChild(ta);
+              ta.select();
+              try { document.execCommand('copy'); showToast(); } catch (e) {}
+              document.body.removeChild(ta);
+            });
+          } else {
+            var ta = document.createElement('textarea');
+            ta.value = url;
+            document.body.appendChild(ta);
+            ta.select();
+            try { document.execCommand('copy'); showToast(); } catch (e) {}
+            document.body.removeChild(ta);
+          }
+        });
+      });
+    })();
   </script>
 </body>
 </html>
